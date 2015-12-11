@@ -10,7 +10,16 @@
     "ProfilerBenchmarkResultsId": "00000000-0000-0000-0000-000000000000",
     "ProfilerConfigurationId": "00000000-0000-0000-0000-000000000000",
     "ProfilerConfigurations": {},
-    "CurrentReferences": [],
+    "CurrentReferences": [
+      "System",
+      "System.Core",
+      "ArtOfTest.WebAii, Version=2015.3.1015.0, Culture=neutral, PublicKeyToken=4fd5f65be123776c",
+      "ArtOfTest.WebAii.Design, Version=2015.3.1015.0, Culture=neutral, PublicKeyToken=4fc62bbc3827ab1d",
+      "Telerik.WebAii.Controls.Html, Version=2015.3.1015.0, Culture=neutral, PublicKeyToken=528163f3e645de45",
+      "Telerik.WebAii.Controls.Xaml, Version=2015.3.1015.0, Culture=neutral, PublicKeyToken=528163f3e645de45",
+      "Telerik.WebAii.Controls.Xaml.Wpf, Version=2015.3.1015.0, Culture=neutral, PublicKeyToken=528163f3e645de45",
+      "Telerik.TestingFramework.Controls.KendoUI, Version=2015.3.1015.0, Culture=neutral, PublicKeyToken=528163f3e645de45"
+    ],
     "Steps": {
       "__type": "ArtOfTest.Common.Design.ProjectModel.AutomationStepList",
       "__value": [
@@ -1510,11 +1519,11 @@
     "SilverlightAppOriginUri": null,
     "WpfAppPath": null,
     "UseDefaultWpfAppPath": false,
-    "TestAssembly": "Registration Suite.dll",
+    "TestAssembly": "TeamLichTests.dll",
     "TestAssemblyPath": "bin",
     "TestClass": "",
     "IsManual": false,
-    "ResourceFilePath": "RegistrationWithAcceptLicenceAgreement.resx",
+    "ResourceFilePath": "Registration Suite\\RegistrationWithAcceptLicenceAgreement.resx",
     "HasCodeBehind": false,
     "DataInfo": {
       "__type": "ArtOfTest.Common.Design.Data.DataInfo",
@@ -1545,13 +1554,13 @@
     "TestLinks": [],
     "Description": "",
     "Name": "RegistrationWithAcceptLicenceAgreement",
-    "Owner": null,
-    "Path": "RegistrationWithAcceptLicenceAgreement.tstest",
+    "Owner": "",
+    "Path": "Registration Suite\\RegistrationWithAcceptLicenceAgreement.tstest",
     "Priority": 0,
     "TestType": 0,
-    "UniqueId": "0592068f-e5bf-433a-b9ac-77a90cf8cb63",
-    "Id": "0592068f-e5bf-433a-b9ac-77a90cf8cb63",
-    "ProjectId": "7fc589b3-e1ee-4cee-8a7b-dff94246e08a",
+    "UniqueId": "f788cbb4-5f6d-495a-9ab8-b3ccb0441a82",
+    "Id": "f788cbb4-5f6d-495a-9ab8-b3ccb0441a82",
+    "ProjectId": "848cb5a6-6824-4d24-bfaa-fbb2529f35c6",
     "Version": 200
   }
 }

@@ -29,7 +29,7 @@
     "TestAssemblyPath": "bin",
     "TestClass": "",
     "IsManual": false,
-    "ResourceFilePath": "Presentation Access.resx",
+    "ResourceFilePath": "Lectures Homework Presentation Suite\\Presentation Access.resx",
     "HasCodeBehind": false,
     "DataInfo": {
       "__type": "ArtOfTest.Common.Design.Data.DataInfo",
@@ -60,13 +60,13 @@
     "TestLinks": [],
     "Description": "",
     "Name": "Presentation Access",
-    "Owner": null,
-    "Path": "Presentation Access.tstest",
+    "Owner": "",
+    "Path": "Lectures Homework Presentation Suite\\Presentation Access.tstest",
     "Priority": 0,
     "TestType": 0,
-    "UniqueId": "db27d27b-7f13-4092-ab54-7030842738f9",
-    "Id": "db27d27b-7f13-4092-ab54-7030842738f9",
-    "ProjectId": "6ce386e6-aac5-47ff-88d0-e9c206cef7b1",
+    "UniqueId": "9f2efcf5-0ab4-41df-ad66-2c037f2baf87",
+    "Id": "9f2efcf5-0ab4-41df-ad66-2c037f2baf87",
+    "ProjectId": "848cb5a6-6824-4d24-bfaa-fbb2529f35c6",
     "Version": 200
   }
 }

@@ -708,7 +708,7 @@
     "TestAssemblyPath": "bin",
     "TestClass": "",
     "IsManual": false,
-    "ResourceFilePath": "Log In.resx",
+    "ResourceFilePath": "Friends Suite\\Log In.resx",
     "HasCodeBehind": false,
     "DataInfo": {
       "__type": "ArtOfTest.Common.Design.Data.DataInfo",
@@ -739,13 +739,13 @@
     "TestLinks": [],
     "Description": "",
     "Name": "Log In",
-    "Owner": null,
-    "Path": "Log In.tstest",
+    "Owner": "",
+    "Path": "Friends Suite\\Log In.tstest",
     "Priority": 0,
     "TestType": 0,
-    "UniqueId": "45c59b9d-c3da-4971-a981-92458de774f3",
-    "Id": "45c59b9d-c3da-4971-a981-92458de774f3",
-    "ProjectId": "cafac393-aff3-4d4c-b239-8e93081ef3d9",
+    "UniqueId": "48965ac6-c373-48b6-bd79-29d370fe4141",
+    "Id": "48965ac6-c373-48b6-bd79-29d370fe4141",
+    "ProjectId": "848cb5a6-6824-4d24-bfaa-fbb2529f35c6",
     "Version": 200
   }
 }

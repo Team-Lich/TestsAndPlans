@@ -1,0 +1,166 @@
+{
+  "__type": "ArtOfTest.WebAii.Design.Execution.RunResult",
+  "__value": {
+    "IsComplete": true,
+    "Name": "MessagesTestAutomation",
+    "StartTime": "2015-12-11T15:42:03",
+    "EndTime": "2015-12-11T15:42:09.297516Z",
+    "DataCollectors": {},
+    "TestResults": [
+      {
+        "__type": "ArtOfTest.WebAii.Design.Execution.TestResult",
+        "__value": {
+          "Browser": 1,
+          "ExeType": 5,
+          "SeparatorLineCharCount": 60,
+          "Message": "Overall Result: Fail\r\n------------------------------------------------------------\r\n'12/11/2015 5:42:04 PM' - Executing test: 'Messages should be shown in Messages container', path: 'Messages Suite\\Messages should be shown in Messages container.tstest.'\r\n'12/11/2015 5:42:04 PM' - Using .Net Runtime version: '4.0.30319.42000' for test execution. Build version is '2015.3.1015.0'.\r\n'12/11/2015 5:42:04 PM' - Starting execution....\r\n------------------------------------------------------------\r\n------------------------------------------------------------\r\n'12/11/2015 5:42:07 PM' - Enabling Html Popup Tracker. Test expecting Popups.\r\n'12/11/2015 5:42:07 PM' - Using 'InternetExplorer' version '10.0' as default browser. \r\n'12/11/2015 5:42:08 PM' - 'Fail' : 1. Execute test 'Added friends should be listed in Friends section'\r\nInnerException:\r\nSystem.IO.FileNotFoundException: Unable to find test 'C:\\Users\\Decho\\Desktop\\TestsAndPlans\\Test Studio Automation\\TeamLichTests\\..\\Added friends should be listed in Friends section.tstest'\r\n   at ArtOfTest.WebAii.Design.Execution.ExecutionEngine.ExecuteTestInCurrentContext(String relativeTestPath)\r\n   at ArtOfTest.WebAii.Design.IntrinsicTranslators.Descriptors.ExecuteTestActionDescriptor.Execute(IAutomationHost autoHost, TestAsStepResult result)\r\n   at ArtOfTest.WebAii.Design.Execution.ExecutionEngine.ExecuteStep(Int32 order)\r\n------------------------------------------------------------\r\n'12/11/2015 5:42:08 PM' - Detected a failure. Step is marked 'ContinueOnFailure=False' aborting test execution.\r\n------------------------------------------------------------\r\n'12/11/2015 5:42:08 PM' - Overall Result: Fail\r\n'12/11/2015 5:42:08 PM' - Duration: [0 min: 0 sec: 267 msec]\r\n------------------------------------------------------------\r\n'12/11/2015 5:42:08 PM' - Test completed!\r\n",
+          "FailureException": {
+  "__type": "ArtOfTest.Common.Design.Exceptions.ExecutionException",
+  "__value": {
+    "message": "Unable to find test 'C:\\Users\\Decho\\Desktop\\TestsAndPlans\\Test Studio Automation\\TeamLichTests\\..\\Added friends should be listed in Friends section.tstest'",
+    "DataProvider": {
+      "__type": "ArtOfTest.Common.Design.Exceptions.ErrorDataProvider",
+      "__value": {
+        "_info": {
+          "HostState": {
+            "__type": "ArtOfTest.WebAii.Design.AutomationHostState",
+            "__value": {
+              "Mode": 2,
+              "DomFilePath": null,
+              "ImageFilePath": null,
+              "ExpectedImageFilePath": null,
+              "TechnologyType": 1,
+              "FriendlyName": "Capture Of 'Page ()' @12/11/2015 5:42:08 PM"
+            }
+          }
+        }
+      }
+    }
+  }
+},
+          "Result": 1,
+          "TestId": "f9112ae1-28d3-44b6-96bc-b97c6bfe080a",
+          "TestName": "Messages should be shown in Messages container",
+          "TestPath": "Messages Suite\\Messages should be shown in Messages container.tstest",
+          "TestOwner": "",
+          "TestDescription": "",
+          "ProjectPath": "",
+          "StepResults": [
+            {
+              "__type": "ArtOfTest.WebAii.Design.Execution.TestAsStepResult",
+              "__value": {
+                "TestResult": null,
+                "ResultType": 1,
+                "Exception": {
+  "__type": "ArtOfTest.Common.Design.Exceptions.ExecutionException",
+  "__value": {
+    "message": "Unable to find test 'C:\\Users\\Decho\\Desktop\\TestsAndPlans\\Test Studio Automation\\TeamLichTests\\..\\Added friends should be listed in Friends section.tstest'",
+    "DataProvider": {
+      "__type": "ArtOfTest.Common.Design.Exceptions.ErrorDataProvider",
+      "__value": {
+        "_info": {
+          "HostState": {
+            "__type": "ArtOfTest.WebAii.Design.AutomationHostState",
+            "__value": {
+              "Mode": 2,
+              "DomFilePath": null,
+              "ImageFilePath": null,
+              "ExpectedImageFilePath": null,
+              "TechnologyType": 1,
+              "FriendlyName": "Capture Of 'Page ()' @12/11/2015 5:42:08 PM"
+            }
+          }
+        }
+      }
+    }
+  }
+},
+                "TestName": "Messages should be shown in Messages container",
+                "TestPath": "Messages Suite\\Messages should be shown in Messages container.tstest",
+                "TestId": "f9112ae1-28d3-44b6-96bc-b97c6bfe080a",
+                "TestStepIndex": 0,
+                "StepDescription": "Execute test 'Added friends should be listed in Friends section'",
+                "State": null,
+                "Order": 1,
+                "LogMessageOnError": "",
+                "UserComment": null,
+                "HashCode": -832664899,
+                "IsManual": false,
+                "WasStepEnabled": false
+              }
+            }
+          ],
+          "NotRunStepDescriptions": [
+            "Execute test 'Log In'",
+            "Navigate to : 'http://stage.telerikacademy.com/Messages#!/test123'",
+            "Enter text 'пробно съобщение' in 'MessageToSendTextArea'",
+            "Click 'ИзпратиSTRONGTag'",
+            "Verify 'TextContent' 'Contains' 'пробно съобщение' on 'ПробноSpan'",
+            "Verify 'TextContent' 'Contains' 'пробно съобщение' on 'ПробноPTag'",
+            "Verify element 'Div' 'is' visible."
+          ],
+          "TotalPassedSteps": 0,
+          "ExecutingTestStepCount": 1,
+          "TotalNumberOfNotRunSteps": 0,
+          "IsDataDrivenResult": false,
+          "DataIterationResults": [],
+          "EndTime": "2015-12-11T15:42:08.2244546Z",
+          "StartTime": "2015-12-11T15:42:07.9574394Z",
+          "ProfilerResultsPath": null,
+          "VersionGroupKey": "00000000-0000-0000-0000-000000000000",
+          "CommitedBy": null
+        }
+      }
+    ],
+    "FileName": "MessagesTestAutomation 130943221293035164",
+    "Id": "c92dd8c4-4f25-42ac-b764-707e50e7dcd2",
+    "Machine": {
+      "__type": "ArtOfTest.WebAii.Design.Execution.Scheduling.Machine",
+      "__value": {
+        "Id": "00000000-0000-0000-0000-000000000000",
+        "NetworkName": "SEVDA-LAPTOP",
+        "OperatingSystem": "Windows 7",
+        "InstalledBrowsers": [
+          {
+            "__type": "ArtOfTest.WebAii.Design.Execution.Scheduling.BrowserInformation",
+            "__value": {
+              "Type": 1,
+              "Version": "9.10.9200.17183"
+            }
+          },
+          {
+            "__type": "ArtOfTest.WebAii.Design.Execution.Scheduling.BrowserInformation",
+            "__value": {
+              "Type": 2,
+              "Version": "42.0 (x86 en-US)"
+            }
+          },
+          {
+            "__type": "ArtOfTest.WebAii.Design.Execution.Scheduling.BrowserInformation",
+            "__value": {
+              "Type": 5,
+              "Version": "5.1.7"
+            }
+          },
+          {
+            "__type": "ArtOfTest.WebAii.Design.Execution.Scheduling.BrowserInformation",
+            "__value": {
+              "Type": 7,
+              "Version": ""
+            }
+          }
+        ],
+        "Status": 0,
+        "ServiceUri": null,
+        "DBState": 0,
+        "UserName": "Decho"
+      }
+    },
+    "Messages": null,
+    "RunId": "c92dd8c4-4f25-42ac-b764-707e50e7dcd2",
+    "Comment": null,
+    "TestListId": "c9d36818-4f33-4e6c-8ed5-64c7c5e910e5",
+    "IsManual": false,
+    "DispatchGroupId": "00000000-0000-0000-0000-000000000000"
+  }
+}

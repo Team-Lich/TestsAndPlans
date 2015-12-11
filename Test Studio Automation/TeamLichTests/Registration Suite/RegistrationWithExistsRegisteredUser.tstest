@@ -2023,7 +2023,7 @@
     "TestAssemblyPath": "bin",
     "TestClass": "",
     "IsManual": false,
-    "ResourceFilePath": "RegistrationWithExistsRegisteredUser.resx",
+    "ResourceFilePath": "Registration Suite\\RegistrationWithExistsRegisteredUser.resx",
     "HasCodeBehind": false,
     "DataInfo": {
       "__type": "ArtOfTest.Common.Design.Data.DataInfo",
@@ -2054,13 +2054,13 @@
     "TestLinks": [],
     "Description": "",
     "Name": "RegistrationWithExistsRegisteredUser",
-    "Owner": null,
-    "Path": "RegistrationWithExistsRegisteredUser.tstest",
+    "Owner": "",
+    "Path": "Registration Suite\\RegistrationWithExistsRegisteredUser.tstest",
     "Priority": 0,
     "TestType": 0,
-    "UniqueId": "f03cfcac-52a1-448f-bde0-20be73e51ce1",
-    "Id": "f03cfcac-52a1-448f-bde0-20be73e51ce1",
-    "ProjectId": "7fc589b3-e1ee-4cee-8a7b-dff94246e08a",
+    "UniqueId": "94a5d3e5-9e82-45a1-9af1-51280431eded",
+    "Id": "94a5d3e5-9e82-45a1-9af1-51280431eded",
+    "ProjectId": "848cb5a6-6824-4d24-bfaa-fbb2529f35c6",
     "Version": 200
   }
 }

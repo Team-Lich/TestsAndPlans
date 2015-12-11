@@ -778,7 +778,7 @@
     "TestAssemblyPath": "bin",
     "TestClass": "",
     "IsManual": false,
-    "ResourceFilePath": "Removed friends shouldn't be displayed in Friends section.resx",
+    "ResourceFilePath": "Friends Suite\\Removed friends shouldn't be displayed in Friends section.resx",
     "HasCodeBehind": false,
     "DataInfo": {
       "__type": "ArtOfTest.Common.Design.Data.DataInfo",
@@ -810,12 +810,12 @@
     "Description": "",
     "Name": "Removed friends shouldn't be displayed in Friends section",
     "Owner": "",
-    "Path": "Removed friends shouldn't be displayed in Friends section.tstest",
+    "Path": "Friends Suite\\Removed friends shouldn't be displayed in Friends section.tstest",
     "Priority": 0,
     "TestType": 0,
-    "UniqueId": "50848e16-ac07-4621-9329-dc1391a6e76f",
-    "Id": "50848e16-ac07-4621-9329-dc1391a6e76f",
-    "ProjectId": "cafac393-aff3-4d4c-b239-8e93081ef3d9",
+    "UniqueId": "203c10cb-3911-425a-9162-5de69ec4c39c",
+    "Id": "203c10cb-3911-425a-9162-5de69ec4c39c",
+    "ProjectId": "848cb5a6-6824-4d24-bfaa-fbb2529f35c6",
     "Version": 200
   }
 }

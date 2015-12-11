@@ -17,14 +17,14 @@
         {
           "__type": "ArtOfTest.WebAii.Design.ProjectModel.AutomationStep",
           "__value": {
-            "Runtime ID": "ad1ad368-f959-4f7d-99e2-05200d28fd3b",
-            "Description": "Navigate to : 'http://stage.telerikacademy.com'",
+            "Runtime ID": "0891709d-fcc1-4f8f-a080-7653bcda0f45",
+            "Description": "Navigate to : 'http://stage.telerikacademy.com/Courses/Courses/Details/245'",
             "CustomDescription": null,
             "Step": {
               "__type": "ArtOfTest.WebAii.Design.IntrinsicTranslators.Descriptors.NavigateToActionDescriptor",
               "__value": {
                 "UseDecodedUrl": true,
-                "NavigateURL": "http://stage.telerikacademy.com",
+                "NavigateURL": "http://stage.telerikacademy.com/Courses/Courses/Details/245",
                 "BaseUrl": "",
                 "WaitOnElementsTimeout": 0,
                 "UseStepWaitOnElementsTimout": false,
@@ -53,7 +53,7 @@
             "Id": "",
             "StepState": 0,
             "ContinueOnFailure": false,
-            "StepImageKey": "Online signup4c03j3os.my0",
+            "StepImageKey": "Signup from course pagex1m0nfth.0aq",
             "QcId": 0,
             "QcVersionStamp": 0,
             "Version": 200
@@ -62,116 +62,7 @@
         {
           "__type": "ArtOfTest.WebAii.Design.ProjectModel.AutomationStep",
           "__value": {
-            "Runtime ID": "2b303c1b-f70f-47cb-a1cb-ce719a8c11f4",
-            "Description": "Click 'КурсовеLink'",
-            "CustomDescription": null,
-            "Step": {
-              "__type": "ArtOfTest.WebAii.Design.IntrinsicTranslators.Descriptors.ClickActionDescriptor",
-              "__value": {
-                "SimulateRealClick": false,
-                "UsejQuery": false,
-                "UseBackupSearch": true,
-                "ClosesBrowser": false,
-                "AjaxTimeout": 0,
-                "Pause": 0,
-                "WaitOnElementsTimeout": 30000,
-                "UseStepWaitOnElementsTimout": false,
-                "WaitOnElements": true,
-                "RunsAgainstVersion": "",
-                "Constraints": {
-                  "__type": "ArtOfTest.Common.Design.Extensibility.Descriptors.DescriptorConstraints",
-                  "__value": {
-                    "ConstraintValues": {}
-                  }
-                },
-                "Elements": {
-                  "target": {
-                    "__type": "ArtOfTest.Common.Design.Extensibility.Descriptors.ElementDescriptor",
-                    "__value": {
-                      "Name": "target",
-                      "Region": null,
-                      "Page": {
-                        "__type": "ArtOfTest.WebAii.Design.ProjectModel.PageUri",
-                        "__value": {
-                          "Path": "http://stage.telerikacademy.com/",
-                          "Query": "",
-                          "BaseUrl": "",
-                          "EquivalentUrls": [],
-                          "Fragment": "",
-                          "Title": "Софтуерна академия на Телерик (безплатни видео курсове и уроци) - Телерик Академия - Студентска система",
-                          "CompareMode": 2,
-                          "AlwaysUseTitleInCompare": false,
-                          "FriendlyName": "СофтуернаАкадемияНа"
-                        }
-                      },
-                      "Frame": null,
-                      "FindInfo": null,
-                      "FindExpression": {
-                        "__type": "ArtOfTest.WebAii.Design.ProjectModel.HtmlFindExpressionElement",
-                        "__value": {
-                          "uniqueKey": "sBnA7jMzvG+Nmp4V66j45D90tys=",
-                          "NodeKind": 4,
-                          "TechnologyType": 1,
-                          "Name": "КурсовеLink",
-                          "FindExpressions": [
-                            {
-                              "Key": 1,
-                              "Value": {
-                                "__type": "ArtOfTest.WebAii.Core.HtmlFindExpression",
-                                "__value": {
-                                  "Clauses": [
-                                    {
-                                      "__type": "ArtOfTest.WebAii.Core.HtmlFindClause",
-                                      "__value": {
-                                        "Clause": "tagname=a"
-                                      }
-                                    },
-                                    {
-                                      "__type": "ArtOfTest.WebAii.Core.HtmlFindClause",
-                                      "__value": {
-                                        "Clause": "TextContent=Курсове"
-                                      }
-                                    }
-                                  ],
-                                  "Constraints": [],
-                                  "ChainStops": []
-                                }
-                              }
-                            }
-                          ],
-                          "BackupSearchClause": null,
-                          "DataBindingExpressions": {}
-                        }
-                      },
-                      "HtmlControlType": "ArtOfTest.WebAii.Controls.HtmlControls.HtmlAnchor",
-                      "IsIndependent": false,
-                      "DomStateKey": "",
-                      "TechnologyType": 1,
-                      "Version": 200
-                    }
-                  }
-                },
-                "StepType": 4,
-                "LogMessageOnFailure": "",
-                "EditorType": "",
-                "DataBindingExpressions": {}
-              }
-            },
-            "Enabled": true,
-            "Order": 2,
-            "Id": "",
-            "StepState": 0,
-            "ContinueOnFailure": false,
-            "StepImageKey": "Online signupco3rtl03.dop",
-            "QcId": 0,
-            "QcVersionStamp": 0,
-            "Version": 200
-          }
-        },
-        {
-          "__type": "ArtOfTest.WebAii.Design.ProjectModel.AutomationStep",
-          "__value": {
-            "Runtime ID": "4df7d44d-f77f-47eb-8b5f-dd6ccbd42a32",
+            "Runtime ID": "f5e6cfd2-b4cd-45c1-91df-af5928862957",
             "Description": "Click 'SignUpOnlineButtonSpan'",
             "CustomDescription": null,
             "Step": {
@@ -267,11 +158,11 @@
               }
             },
             "Enabled": true,
-            "Order": 3,
+            "Order": 2,
             "Id": "",
             "StepState": 0,
             "ContinueOnFailure": false,
-            "StepImageKey": "Online signupdzxtix4x.ohf",
+            "StepImageKey": "Signup from course pagexp5pchdq.hay",
             "QcId": 0,
             "QcVersionStamp": 0,
             "Version": 200
@@ -280,7 +171,7 @@
         {
           "__type": "ArtOfTest.WebAii.Design.ProjectModel.AutomationStep",
           "__value": {
-            "Runtime ID": "125ca502-4dfa-4e0d-8b04-8fc482cb8b51",
+            "Runtime ID": "f4bd54cd-d5b4-4e3e-9cac-8a1e4a3ebae5",
             "Description": "Verify 'TextContent' 'Contains' 'Записан/a сте заучастие в този курс' on 'ЗаписанAСтеSpan'",
             "CustomDescription": null,
             "Step": {
@@ -379,11 +270,11 @@
               }
             },
             "Enabled": true,
-            "Order": 4,
+            "Order": 3,
             "Id": "",
             "StepState": 0,
             "ContinueOnFailure": false,
-            "StepImageKey": "Online signupmcjjv4dt.lbi",
+            "StepImageKey": "Signup from course pagey223mirq.uzl",
             "QcId": 0,
             "QcVersionStamp": 0,
             "Version": 200
@@ -405,7 +296,7 @@
     "TestAssemblyPath": "bin",
     "TestClass": "",
     "IsManual": false,
-    "ResourceFilePath": "Online signup.resx",
+    "ResourceFilePath": "SignUp Suite\\Signup from course page.resx",
     "HasCodeBehind": false,
     "DataInfo": {
       "__type": "ArtOfTest.Common.Design.Data.DataInfo",
@@ -435,14 +326,14 @@
     "QcTestVersionStamp": 0,
     "TestLinks": [],
     "Description": "",
-    "Name": "Online signup",
-    "Owner": null,
-    "Path": "Online signup.tstest",
+    "Name": "Signup from course page",
+    "Owner": "",
+    "Path": "SignUp Suite\\Signup from course page.tstest",
     "Priority": 0,
     "TestType": 0,
-    "UniqueId": "81581603-4f94-411e-aa44-0cbbc315d8a7",
-    "Id": "81581603-4f94-411e-aa44-0cbbc315d8a7",
-    "ProjectId": "6c0a8d37-2534-4573-bd0f-5b9c23629f56",
+    "UniqueId": "7c60a8b7-4fe1-403d-8714-a565552025bb",
+    "Id": "7c60a8b7-4fe1-403d-8714-a565552025bb",
+    "ProjectId": "848cb5a6-6824-4d24-bfaa-fbb2529f35c6",
     "Version": 200
   }
 }

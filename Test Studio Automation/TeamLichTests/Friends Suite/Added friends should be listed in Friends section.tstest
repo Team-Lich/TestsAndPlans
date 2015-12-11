@@ -2257,7 +2257,7 @@
     "TestAssemblyPath": "bin",
     "TestClass": "",
     "IsManual": false,
-    "ResourceFilePath": "Added friends should be listed in Friends section.resx",
+    "ResourceFilePath": "Friends Suite\\Added friends should be listed in Friends section.resx",
     "HasCodeBehind": false,
     "DataInfo": {
       "__type": "ArtOfTest.Common.Design.Data.DataInfo",
@@ -2288,13 +2288,13 @@
     "TestLinks": [],
     "Description": "",
     "Name": "Added friends should be listed in Friends section",
-    "Owner": null,
-    "Path": "Added friends should be listed in Friends section.tstest",
+    "Owner": "",
+    "Path": "Friends Suite\\Added friends should be listed in Friends section.tstest",
     "Priority": 0,
     "TestType": 0,
-    "UniqueId": "0901bb62-d40f-49c4-913c-bded1c0e27a1",
-    "Id": "0901bb62-d40f-49c4-913c-bded1c0e27a1",
-    "ProjectId": "cafac393-aff3-4d4c-b239-8e93081ef3d9",
+    "UniqueId": "257aeeb9-a161-4a24-a460-44f831f04611",
+    "Id": "257aeeb9-a161-4a24-a460-44f831f04611",
+    "ProjectId": "848cb5a6-6824-4d24-bfaa-fbb2529f35c6",
     "Version": 200
   }
 }

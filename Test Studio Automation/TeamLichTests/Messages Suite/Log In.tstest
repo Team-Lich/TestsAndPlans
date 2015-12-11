@@ -681,7 +681,7 @@
                 "DataBindingExpressions": {}
               }
             },
-            "Enabled": true,
+            "Enabled": false,
             "Order": 7,
             "Id": "",
             "StepState": 0,
@@ -708,7 +708,7 @@
     "TestAssemblyPath": "bin",
     "TestClass": "",
     "IsManual": false,
-    "ResourceFilePath": "Log In.resx",
+    "ResourceFilePath": "Messages Suite\\Log In.resx",
     "HasCodeBehind": false,
     "DataInfo": {
       "__type": "ArtOfTest.Common.Design.Data.DataInfo",
@@ -740,12 +740,12 @@
     "Description": "",
     "Name": "Log In",
     "Owner": "",
-    "Path": "Log In.tstest",
+    "Path": "Messages Suite\\Log In.tstest",
     "Priority": 0,
     "TestType": 0,
-    "UniqueId": "83b5f51d-c2cf-4cc6-85f3-8d9cb728b71a",
-    "Id": "83b5f51d-c2cf-4cc6-85f3-8d9cb728b71a",
-    "ProjectId": "dca07d80-0bcd-4f2f-b3f0-776670ca3202",
+    "UniqueId": "2a4a5331-8ff3-4dd5-b4f4-53ffdb80adf2",
+    "Id": "2a4a5331-8ff3-4dd5-b4f4-53ffdb80adf2",
+    "ProjectId": "848cb5a6-6824-4d24-bfaa-fbb2529f35c6",
     "Version": 200
   }
 }

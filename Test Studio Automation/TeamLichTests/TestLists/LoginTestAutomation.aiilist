@@ -1,10 +1,10 @@
 {
   "__type": "ArtOfTest.WebAii.Design.Execution.TestList",
   "__value": {
-    "TestListId": "c4b97833-7faf-4cf6-a4de-6e873af756eb",
-    "Id": "c4b97833-7faf-4cf6-a4de-6e873af756eb",
-    "TestListName": "Couse Homework Access",
-    "CreationDate": "2015-12-11T12:42:24",
+    "TestListId": "a401ab3f-1476-4d74-8e01-0562805f0417",
+    "Id": "a401ab3f-1476-4d74-8e01-0562805f0417",
+    "TestListName": "LoginTestAutomation",
+    "CreationDate": "2015-12-11T17:39:38",
     "OwnerName": null,
     "Settings": {
       "__type": "ArtOfTest.WebAii.Core.Settings",
@@ -58,24 +58,24 @@
       {
         "__type": "ArtOfTest.WebAii.Design.Execution.TestInfo",
         "__value": {
-          "Id": "494e6b8b-d0dd-4cea-99e7-3157b58b56fc",
-          "Path": "Homework Access.tstest",
+          "Id": "d12a9c5d-67ba-4e1e-9dfa-04be0f3a2540",
+          "Path": "Login Suite\\LoginWithInvalidPassword.tstest",
           "PathType": 0
         }
       },
       {
         "__type": "ArtOfTest.WebAii.Design.Execution.TestInfo",
         "__value": {
-          "Id": "40d1d8f9-a23e-496a-9fcb-737a2f8326b8",
-          "Path": "Lectues Access.tstest",
+          "Id": "d24e1b50-3b56-4dec-ad8e-e7443ec162ae",
+          "Path": "Login Suite\\LogInWithValidCredentials.tstest",
           "PathType": 0
         }
       },
       {
         "__type": "ArtOfTest.WebAii.Design.Execution.TestInfo",
         "__value": {
-          "Id": "db27d27b-7f13-4092-ab54-7030842738f9",
-          "Path": "Presentation Access.tstest",
+          "Id": "163ae1ce-dc62-4f99-a1f0-016f633d5994",
+          "Path": "Login Suite\\PageLogsOutAfterCookieDeletion.tstest",
           "PathType": 0
         }
       }
@@ -89,6 +89,6 @@
       }
     },
     "ListType": 0,
-    "ProjectId": "6ce386e6-aac5-47ff-88d0-e9c206cef7b1"
+    "ProjectId": "848cb5a6-6824-4d24-bfaa-fbb2529f35c6"
   }
 }

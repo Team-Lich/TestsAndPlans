@@ -1,0 +1,755 @@
+{
+  "__type": "ArtOfTest.WebAii.Design.Execution.RunResult",
+  "__value": {
+    "IsComplete": true,
+    "Name": "LoginTestAutomation",
+    "StartTime": "2015-12-11T15:40:30",
+    "EndTime": "2015-12-11T15:41:35.1385622Z",
+    "DataCollectors": {},
+    "TestResults": [
+      {
+        "__type": "ArtOfTest.WebAii.Design.Execution.TestResult",
+        "__value": {
+          "Browser": 1,
+          "ExeType": 5,
+          "SeparatorLineCharCount": 60,
+          "Message": "Overall Result: Pass\r\n------------------------------------------------------------\r\n'12/11/2015 5:40:31 PM' - Executing test: 'LoginWithInvalidPassword', path: 'Login Suite\\LoginWithInvalidPassword.tstest.'\r\n'12/11/2015 5:40:31 PM' - Using .Net Runtime version: '4.0.30319.42000' for test execution. Build version is '2015.3.1015.0'.\r\n'12/11/2015 5:40:31 PM' - Starting execution....\r\n------------------------------------------------------------\r\n------------------------------------------------------------\r\n'12/11/2015 5:40:36 PM' - Using 'InternetExplorer' version '10.0' as default browser. \r\n'12/11/2015 5:40:39 PM' - 'Pass' : 1. Clear Browser Cache\r\n'12/11/2015 5:40:46 PM' - 'Pass' : 2. Navigate to : 'http://stage.telerikacademy.com/'\r\n'12/11/2015 5:40:48 PM' - 'Pass' : 3. Click 'EntranceButtonLink'\r\n'12/11/2015 5:40:48 PM' - 'Pass' : 4. Enter text 'TeamLichTestUser' in 'UsernameOrEmailText'\r\n'12/11/2015 5:40:48 PM' - 'Pass' : 5. Enter text '12345' in 'PasswordPassword'\r\n'12/11/2015 5:40:51 PM' - 'Pass' : 6. Click 'Submit'\r\n'12/11/2015 5:40:51 PM' - 'Pass' : 7. Verify 'TextContent' 'Contains' 'Невалидни данни за достъп!' on 'НевалидниListItem'\r\n------------------------------------------------------------\r\n'12/11/2015 5:40:51 PM' - Overall Result: Pass\r\n'12/11/2015 5:40:51 PM' - Duration: [0 min: 14 sec: 491 msec]\r\n------------------------------------------------------------\r\n'12/11/2015 5:40:52 PM' - Test completed!\r\n",
+          "FailureException": null,
+          "Result": 0,
+          "TestId": "d12a9c5d-67ba-4e1e-9dfa-04be0f3a2540",
+          "TestName": "LoginWithInvalidPassword",
+          "TestPath": "Login Suite\\LoginWithInvalidPassword.tstest",
+          "TestOwner": null,
+          "TestDescription": "",
+          "ProjectPath": "",
+          "StepResults": [
+            {
+              "__type": "ArtOfTest.WebAii.Design.AutomationStepResult",
+              "__value": {
+                "TestName": "LoginWithInvalidPassword",
+                "TestPath": "Login Suite\\LoginWithInvalidPassword.tstest",
+                "TestId": "d12a9c5d-67ba-4e1e-9dfa-04be0f3a2540",
+                "TestStepIndex": 0,
+                "StepDescription": "Clear Browser Cache",
+                "Exception": null,
+                "ResultType": 0,
+                "State": null,
+                "Order": 1,
+                "LogMessageOnError": "",
+                "UserComment": null,
+                "HashCode": 955643458,
+                "IsManual": false,
+                "WasStepEnabled": false
+              }
+            },
+            {
+              "__type": "ArtOfTest.WebAii.Design.AutomationStepResult",
+              "__value": {
+                "TestName": "LoginWithInvalidPassword",
+                "TestPath": "Login Suite\\LoginWithInvalidPassword.tstest",
+                "TestId": "d12a9c5d-67ba-4e1e-9dfa-04be0f3a2540",
+                "TestStepIndex": 1,
+                "StepDescription": "Navigate to : 'http://stage.telerikacademy.com/'",
+                "Exception": null,
+                "ResultType": 0,
+                "State": null,
+                "Order": 2,
+                "LogMessageOnError": "",
+                "UserComment": null,
+                "HashCode": 1347723235,
+                "IsManual": false,
+                "WasStepEnabled": false
+              }
+            },
+            {
+              "__type": "ArtOfTest.WebAii.Design.AutomationStepResult",
+              "__value": {
+                "TestName": "LoginWithInvalidPassword",
+                "TestPath": "Login Suite\\LoginWithInvalidPassword.tstest",
+                "TestId": "d12a9c5d-67ba-4e1e-9dfa-04be0f3a2540",
+                "TestStepIndex": 2,
+                "StepDescription": "Click 'EntranceButtonLink'",
+                "Exception": null,
+                "ResultType": 0,
+                "State": null,
+                "Order": 3,
+                "LogMessageOnError": "",
+                "UserComment": null,
+                "HashCode": 2087960562,
+                "IsManual": false,
+                "WasStepEnabled": false
+              }
+            },
+            {
+              "__type": "ArtOfTest.WebAii.Design.AutomationStepResult",
+              "__value": {
+                "TestName": "LoginWithInvalidPassword",
+                "TestPath": "Login Suite\\LoginWithInvalidPassword.tstest",
+                "TestId": "d12a9c5d-67ba-4e1e-9dfa-04be0f3a2540",
+                "TestStepIndex": 3,
+                "StepDescription": "Enter text 'TeamLichTestUser' in 'UsernameOrEmailText'",
+                "Exception": null,
+                "ResultType": 0,
+                "State": null,
+                "Order": 4,
+                "LogMessageOnError": "",
+                "UserComment": null,
+                "HashCode": 1106498606,
+                "IsManual": false,
+                "WasStepEnabled": false
+              }
+            },
+            {
+              "__type": "ArtOfTest.WebAii.Design.AutomationStepResult",
+              "__value": {
+                "TestName": "LoginWithInvalidPassword",
+                "TestPath": "Login Suite\\LoginWithInvalidPassword.tstest",
+                "TestId": "d12a9c5d-67ba-4e1e-9dfa-04be0f3a2540",
+                "TestStepIndex": 4,
+                "StepDescription": "Enter text '12345' in 'PasswordPassword'",
+                "Exception": null,
+                "ResultType": 0,
+                "State": null,
+                "Order": 5,
+                "LogMessageOnError": "",
+                "UserComment": null,
+                "HashCode": 1106498607,
+                "IsManual": false,
+                "WasStepEnabled": false
+              }
+            },
+            {
+              "__type": "ArtOfTest.WebAii.Design.AutomationStepResult",
+              "__value": {
+                "TestName": "LoginWithInvalidPassword",
+                "TestPath": "Login Suite\\LoginWithInvalidPassword.tstest",
+                "TestId": "d12a9c5d-67ba-4e1e-9dfa-04be0f3a2540",
+                "TestStepIndex": 5,
+                "StepDescription": "Click 'Submit'",
+                "Exception": null,
+                "ResultType": 0,
+                "State": null,
+                "Order": 6,
+                "LogMessageOnError": "",
+                "UserComment": null,
+                "HashCode": 2087960565,
+                "IsManual": false,
+                "WasStepEnabled": false
+              }
+            },
+            {
+              "__type": "ArtOfTest.WebAii.Design.AutomationStepResult",
+              "__value": {
+                "TestName": "LoginWithInvalidPassword",
+                "TestPath": "Login Suite\\LoginWithInvalidPassword.tstest",
+                "TestId": "d12a9c5d-67ba-4e1e-9dfa-04be0f3a2540",
+                "TestStepIndex": 6,
+                "StepDescription": "Verify 'TextContent' 'Contains' 'Невалидни данни за достъп!' on 'НевалидниListItem'",
+                "Exception": null,
+                "ResultType": 0,
+                "State": null,
+                "Order": 7,
+                "LogMessageOnError": "",
+                "UserComment": null,
+                "HashCode": -1313506167,
+                "IsManual": false,
+                "WasStepEnabled": false
+              }
+            }
+          ],
+          "NotRunStepDescriptions": [],
+          "TotalPassedSteps": 7,
+          "ExecutingTestStepCount": 7,
+          "TotalNumberOfNotRunSteps": 0,
+          "IsDataDrivenResult": false,
+          "DataIterationResults": [],
+          "EndTime": "2015-12-11T15:40:51.2420515Z",
+          "StartTime": "2015-12-11T15:40:36.7502226Z",
+          "ProfilerResultsPath": null,
+          "VersionGroupKey": "00000000-0000-0000-0000-000000000000",
+          "CommitedBy": null
+        }
+      },
+      {
+        "__type": "ArtOfTest.WebAii.Design.Execution.TestResult",
+        "__value": {
+          "Browser": 1,
+          "ExeType": 5,
+          "SeparatorLineCharCount": 60,
+          "Message": "Overall Result: Pass\r\n------------------------------------------------------------\r\n'12/11/2015 5:40:52 PM' - Executing test: 'LogInWithValidCredentials', path: 'Login Suite\\LogInWithValidCredentials.tstest.'\r\n'12/11/2015 5:40:52 PM' - Using .Net Runtime version: '4.0.30319.42000' for test execution. Build version is '2015.3.1015.0'.\r\n'12/11/2015 5:40:52 PM' - Starting execution....\r\n------------------------------------------------------------\r\n------------------------------------------------------------\r\n'12/11/2015 5:40:55 PM' - Enabling Html Popup Tracker. Test expecting Popups.\r\n'12/11/2015 5:40:55 PM' - Using 'InternetExplorer' version '10.0' as default browser. \r\n'12/11/2015 5:41:10 PM' - 'Pass' : 1. Execute test 'LoginStep'\r\n\r\n>>> Test-as-Step 'TestsAsSteps Suite\\LoginStep.tstest' log starts:\r\n\r\nOverall Result: Pass\r\n------------------------------------------------------------\r\n'12/11/2015 5:40:56 PM' - Enabling Html Popup Tracker. Test expecting Popups.\r\n'12/11/2015 5:40:56 PM' - Using 'InternetExplorer' version '10.0' as default browser. \r\n'12/11/2015 5:40:58 PM' - 'Pass' : 1. Clear Browser Cache\r\n'12/11/2015 5:41:04 PM' - 'Pass' : 2. Navigate to : 'http://stage.telerikacademy.com/'\r\n'12/11/2015 5:41:07 PM' - 'Pass' : 3. Click 'EntranceButtonLink'\r\n'12/11/2015 5:41:07 PM' - 'Pass' : 4. Enter text 'TeamLichTestAdmin' in 'UsernameOrEmailText'\r\n'12/11/2015 5:41:07 PM' - 'Pass' : 5. Enter text '123456' in 'PasswordPassword'\r\n'12/11/2015 5:41:10 PM' - 'Pass' : 6. Click 'Submit'\r\n'12/11/2015 5:41:10 PM' - 'Pass' : 7. Verify element 'Span' 'is' visible.\r\n------------------------------------------------------------\r\n'12/11/2015 5:41:10 PM' - Overall Result: Pass\r\n'12/11/2015 5:41:10 PM' - Duration: [0 min: 14 sec: 686 msec]\r\n------------------------------------------------------------\r\n\r\n<<< Test-as-Step 'TestsAsSteps Suite\\LoginStep.tstest' log ends.\r\n\r\n------------------------------------------------------------\r\n'12/11/2015 5:41:10 PM' - Overall Result: Pass\r\n'12/11/2015 5:41:10 PM' - Duration: [0 min: 14 sec: 950 msec]\r\n------------------------------------------------------------\r\n'12/11/2015 5:41:11 PM' - Test completed!\r\n",
+          "FailureException": null,
+          "Result": 0,
+          "TestId": "d24e1b50-3b56-4dec-ad8e-e7443ec162ae",
+          "TestName": "LogInWithValidCredentials",
+          "TestPath": "Login Suite\\LogInWithValidCredentials.tstest",
+          "TestOwner": "",
+          "TestDescription": "",
+          "ProjectPath": "",
+          "StepResults": [
+            {
+              "__type": "ArtOfTest.WebAii.Design.Execution.TestAsStepResult",
+              "__value": {
+                "TestResult": {
+                  "__type": "ArtOfTest.WebAii.Design.Execution.TestResult",
+                  "__value": {
+                    "Browser": 0,
+                    "ExeType": 5,
+                    "SeparatorLineCharCount": 60,
+                    "Message": "Overall Result: Pass\r\n------------------------------------------------------------\r\n'12/11/2015 5:40:56 PM' - Enabling Html Popup Tracker. Test expecting Popups.\r\n'12/11/2015 5:40:56 PM' - Using 'InternetExplorer' version '10.0' as default browser. \r\n'12/11/2015 5:40:58 PM' - 'Pass' : 1. Clear Browser Cache\r\n'12/11/2015 5:41:04 PM' - 'Pass' : 2. Navigate to : 'http://stage.telerikacademy.com/'\r\n'12/11/2015 5:41:07 PM' - 'Pass' : 3. Click 'EntranceButtonLink'\r\n'12/11/2015 5:41:07 PM' - 'Pass' : 4. Enter text 'TeamLichTestAdmin' in 'UsernameOrEmailText'\r\n'12/11/2015 5:41:07 PM' - 'Pass' : 5. Enter text '123456' in 'PasswordPassword'\r\n'12/11/2015 5:41:10 PM' - 'Pass' : 6. Click 'Submit'\r\n'12/11/2015 5:41:10 PM' - 'Pass' : 7. Verify element 'Span' 'is' visible.\r\n------------------------------------------------------------\r\n'12/11/2015 5:41:10 PM' - Overall Result: Pass\r\n'12/11/2015 5:41:10 PM' - Duration: [0 min: 14 sec: 686 msec]\r\n------------------------------------------------------------\r\n",
+                    "FailureException": null,
+                    "Result": 0,
+                    "TestId": "13802e77-8a84-4a1c-b293-10bc405cc646",
+                    "TestName": "LoginStep",
+                    "TestPath": "TestsAsSteps Suite\\LoginStep.tstest",
+                    "TestOwner": "",
+                    "TestDescription": "",
+                    "ProjectPath": "",
+                    "StepResults": [
+                      {
+                        "__type": "ArtOfTest.WebAii.Design.AutomationStepResult",
+                        "__value": {
+                          "TestName": "LoginStep",
+                          "TestPath": "TestsAsSteps Suite\\LoginStep.tstest",
+                          "TestId": "13802e77-8a84-4a1c-b293-10bc405cc646",
+                          "TestStepIndex": 0,
+                          "StepDescription": "Clear Browser Cache",
+                          "Exception": null,
+                          "ResultType": 0,
+                          "State": null,
+                          "Order": 1,
+                          "LogMessageOnError": "",
+                          "UserComment": null,
+                          "HashCode": 955643458,
+                          "IsManual": false,
+                          "WasStepEnabled": false
+                        }
+                      },
+                      {
+                        "__type": "ArtOfTest.WebAii.Design.AutomationStepResult",
+                        "__value": {
+                          "TestName": "LoginStep",
+                          "TestPath": "TestsAsSteps Suite\\LoginStep.tstest",
+                          "TestId": "13802e77-8a84-4a1c-b293-10bc405cc646",
+                          "TestStepIndex": 1,
+                          "StepDescription": "Navigate to : 'http://stage.telerikacademy.com/'",
+                          "Exception": null,
+                          "ResultType": 0,
+                          "State": null,
+                          "Order": 2,
+                          "LogMessageOnError": "",
+                          "UserComment": null,
+                          "HashCode": 1347723235,
+                          "IsManual": false,
+                          "WasStepEnabled": false
+                        }
+                      },
+                      {
+                        "__type": "ArtOfTest.WebAii.Design.AutomationStepResult",
+                        "__value": {
+                          "TestName": "LoginStep",
+                          "TestPath": "TestsAsSteps Suite\\LoginStep.tstest",
+                          "TestId": "13802e77-8a84-4a1c-b293-10bc405cc646",
+                          "TestStepIndex": 2,
+                          "StepDescription": "Click 'EntranceButtonLink'",
+                          "Exception": null,
+                          "ResultType": 0,
+                          "State": null,
+                          "Order": 3,
+                          "LogMessageOnError": "",
+                          "UserComment": null,
+                          "HashCode": 2087960562,
+                          "IsManual": false,
+                          "WasStepEnabled": false
+                        }
+                      },
+                      {
+                        "__type": "ArtOfTest.WebAii.Design.AutomationStepResult",
+                        "__value": {
+                          "TestName": "LoginStep",
+                          "TestPath": "TestsAsSteps Suite\\LoginStep.tstest",
+                          "TestId": "13802e77-8a84-4a1c-b293-10bc405cc646",
+                          "TestStepIndex": 3,
+                          "StepDescription": "Enter text 'TeamLichTestAdmin' in 'UsernameOrEmailText'",
+                          "Exception": null,
+                          "ResultType": 0,
+                          "State": null,
+                          "Order": 4,
+                          "LogMessageOnError": "",
+                          "UserComment": null,
+                          "HashCode": 1106498606,
+                          "IsManual": false,
+                          "WasStepEnabled": false
+                        }
+                      },
+                      {
+                        "__type": "ArtOfTest.WebAii.Design.AutomationStepResult",
+                        "__value": {
+                          "TestName": "LoginStep",
+                          "TestPath": "TestsAsSteps Suite\\LoginStep.tstest",
+                          "TestId": "13802e77-8a84-4a1c-b293-10bc405cc646",
+                          "TestStepIndex": 4,
+                          "StepDescription": "Enter text '123456' in 'PasswordPassword'",
+                          "Exception": null,
+                          "ResultType": 0,
+                          "State": null,
+                          "Order": 5,
+                          "LogMessageOnError": "",
+                          "UserComment": null,
+                          "HashCode": 1106498607,
+                          "IsManual": false,
+                          "WasStepEnabled": false
+                        }
+                      },
+                      {
+                        "__type": "ArtOfTest.WebAii.Design.AutomationStepResult",
+                        "__value": {
+                          "TestName": "LoginStep",
+                          "TestPath": "TestsAsSteps Suite\\LoginStep.tstest",
+                          "TestId": "13802e77-8a84-4a1c-b293-10bc405cc646",
+                          "TestStepIndex": 5,
+                          "StepDescription": "Click 'Submit'",
+                          "Exception": null,
+                          "ResultType": 0,
+                          "State": null,
+                          "Order": 6,
+                          "LogMessageOnError": "",
+                          "UserComment": null,
+                          "HashCode": 2087960565,
+                          "IsManual": false,
+                          "WasStepEnabled": false
+                        }
+                      },
+                      {
+                        "__type": "ArtOfTest.WebAii.Design.AutomationStepResult",
+                        "__value": {
+                          "TestName": "LoginStep",
+                          "TestPath": "TestsAsSteps Suite\\LoginStep.tstest",
+                          "TestId": "13802e77-8a84-4a1c-b293-10bc405cc646",
+                          "TestStepIndex": 6,
+                          "StepDescription": "Verify element 'Span' 'is' visible.",
+                          "Exception": null,
+                          "ResultType": 0,
+                          "State": null,
+                          "Order": 7,
+                          "LogMessageOnError": "",
+                          "UserComment": null,
+                          "HashCode": 1164883283,
+                          "IsManual": false,
+                          "WasStepEnabled": false
+                        }
+                      }
+                    ],
+                    "NotRunStepDescriptions": [],
+                    "TotalPassedSteps": 7,
+                    "ExecutingTestStepCount": 7,
+                    "TotalNumberOfNotRunSteps": 0,
+                    "IsDataDrivenResult": false,
+                    "DataIterationResults": [],
+                    "EndTime": "2015-12-11T15:41:10.7191655Z",
+                    "StartTime": "2015-12-11T15:40:56.0323255Z",
+                    "ProfilerResultsPath": null,
+                    "VersionGroupKey": "00000000-0000-0000-0000-000000000000",
+                    "CommitedBy": null
+                  }
+                },
+                "ResultType": 0,
+                "Exception": null,
+                "TestName": "LogInWithValidCredentials",
+                "TestPath": "Login Suite\\LogInWithValidCredentials.tstest",
+                "TestId": "d24e1b50-3b56-4dec-ad8e-e7443ec162ae",
+                "TestStepIndex": 0,
+                "StepDescription": "Execute test 'LoginStep'",
+                "State": null,
+                "Order": 1,
+                "LogMessageOnError": "",
+                "UserComment": null,
+                "HashCode": -832664899,
+                "IsManual": false,
+                "WasStepEnabled": false
+              }
+            }
+          ],
+          "NotRunStepDescriptions": [],
+          "TotalPassedSteps": 1,
+          "ExecutingTestStepCount": 1,
+          "TotalNumberOfNotRunSteps": 0,
+          "IsDataDrivenResult": false,
+          "DataIterationResults": [],
+          "EndTime": "2015-12-11T15:41:10.7221657Z",
+          "StartTime": "2015-12-11T15:40:55.7713106Z",
+          "ProfilerResultsPath": null,
+          "VersionGroupKey": "00000000-0000-0000-0000-000000000000",
+          "CommitedBy": null
+        }
+      },
+      {
+        "__type": "ArtOfTest.WebAii.Design.Execution.TestResult",
+        "__value": {
+          "Browser": 1,
+          "ExeType": 5,
+          "SeparatorLineCharCount": 60,
+          "Message": "Overall Result: Pass\r\n------------------------------------------------------------\r\n'12/11/2015 5:41:12 PM' - Executing test: 'PageLogsOutAfterCookieDeletion', path: 'Login Suite\\PageLogsOutAfterCookieDeletion.tstest.'\r\n'12/11/2015 5:41:12 PM' - Using .Net Runtime version: '4.0.30319.42000' for test execution. Build version is '2015.3.1015.0'.\r\n'12/11/2015 5:41:12 PM' - Starting execution....\r\n'12/11/2015 5:41:15 PM' - Detected custom code in test. Locating test assembly: TeamLichTests.dll.\r\n'12/11/2015 5:41:15 PM' - Assembly Found: C:\\Users\\Decho\\Desktop\\TestsAndPlans\\Test Studio Automation\\TeamLichTests\\bin\\TeamLichTests.dll\r\n'12/11/2015 5:41:15 PM' - Loading code class: 'TeamLichTests.PageLogsOutAfterCookieDeletion'.\r\n------------------------------------------------------------\r\n------------------------------------------------------------\r\n'12/11/2015 5:41:15 PM' - Enabling Html Popup Tracker. Test expecting Popups.\r\n'12/11/2015 5:41:15 PM' - Using 'InternetExplorer' version '10.0' as default browser. \r\n'12/11/2015 5:41:30 PM' - 'Pass' : 1. Execute test 'LoginStep'\r\n\r\n>>> Test-as-Step 'TestsAsSteps Suite\\LoginStep.tstest' log starts:\r\n\r\nOverall Result: Pass\r\n------------------------------------------------------------\r\n'12/11/2015 5:41:15 PM' - Enabling Html Popup Tracker. Test expecting Popups.\r\n'12/11/2015 5:41:15 PM' - Using 'InternetExplorer' version '10.0' as default browser. \r\n'12/11/2015 5:41:18 PM' - 'Pass' : 1. Clear Browser Cache\r\n'12/11/2015 5:41:24 PM' - 'Pass' : 2. Navigate to : 'http://stage.telerikacademy.com/'\r\n'12/11/2015 5:41:26 PM' - 'Pass' : 3. Click 'EntranceButtonLink'\r\n'12/11/2015 5:41:27 PM' - 'Pass' : 4. Enter text 'TeamLichTestAdmin' in 'UsernameOrEmailText'\r\n'12/11/2015 5:41:27 PM' - 'Pass' : 5. Enter text '123456' in 'PasswordPassword'\r\n'12/11/2015 5:41:29 PM' - 'Pass' : 6. Click 'Submit'\r\n'12/11/2015 5:41:30 PM' - 'Pass' : 7. Verify element 'Span' 'is' visible.\r\n------------------------------------------------------------\r\n'12/11/2015 5:41:30 PM' - Overall Result: Pass\r\n'12/11/2015 5:41:30 PM' - Duration: [0 min: 14 sec: 947 msec]\r\n------------------------------------------------------------\r\n\r\n<<< Test-as-Step 'TestsAsSteps Suite\\LoginStep.tstest' log ends.\r\n\r\n'12/11/2015 5:41:30 PM' - 'Pass' : 2. Clear Browser Cache\r\n'12/11/2015 5:41:33 PM' - 'Pass' : 3. Execute test 'RefreshBrowserStep'\r\n\r\n>>> Test-as-Step 'TestsAsSteps Suite\\RefreshBrowserStep.tstest' log starts:\r\n\r\nOverall Result: Pass\r\n------------------------------------------------------------\r\n'12/11/2015 5:41:30 PM' - Detected custom code in test. Locating test assembly: TeamLichTests.dll.\r\n'12/11/2015 5:41:30 PM' - Assembly Found: C:\\Users\\Decho\\Desktop\\TestsAndPlans\\Test Studio Automation\\TeamLichTests\\bin\\TeamLichTests.dll\r\n'12/11/2015 5:41:30 PM' - Loading code class: 'TeamLichTests.RefreshBrowserStep'.\r\n------------------------------------------------------------\r\n------------------------------------------------------------\r\n'12/11/2015 5:41:30 PM' - Enabling Html Popup Tracker. Test expecting Popups.\r\n'12/11/2015 5:41:30 PM' - Using 'InternetExplorer' version '10.0' as default browser. \r\n'12/11/2015 5:41:33 PM' - 'Pass' : 1. RefreshBrowser\r\n------------------------------------------------------------\r\n'12/11/2015 5:41:33 PM' - Overall Result: Pass\r\n'12/11/2015 5:41:33 PM' - Duration: [0 min: 2 sec: 931 msec]\r\n------------------------------------------------------------\r\n\r\n<<< Test-as-Step 'TestsAsSteps Suite\\RefreshBrowserStep.tstest' log ends.\r\n\r\n'12/11/2015 5:41:33 PM' - 'Pass' : 4. Verify element 'Div' 'is' visible.\r\n------------------------------------------------------------\r\n'12/11/2015 5:41:33 PM' - Overall Result: Pass\r\n'12/11/2015 5:41:33 PM' - Duration: [0 min: 18 sec: 389 msec]\r\n------------------------------------------------------------\r\n'12/11/2015 5:41:34 PM' - Test completed!\r\n",
+          "FailureException": null,
+          "Result": 0,
+          "TestId": "163ae1ce-dc62-4f99-a1f0-016f633d5994",
+          "TestName": "PageLogsOutAfterCookieDeletion",
+          "TestPath": "Login Suite\\PageLogsOutAfterCookieDeletion.tstest",
+          "TestOwner": "",
+          "TestDescription": "",
+          "ProjectPath": "",
+          "StepResults": [
+            {
+              "__type": "ArtOfTest.WebAii.Design.Execution.TestAsStepResult",
+              "__value": {
+                "TestResult": {
+                  "__type": "ArtOfTest.WebAii.Design.Execution.TestResult",
+                  "__value": {
+                    "Browser": 0,
+                    "ExeType": 5,
+                    "SeparatorLineCharCount": 60,
+                    "Message": "Overall Result: Pass\r\n------------------------------------------------------------\r\n'12/11/2015 5:41:15 PM' - Enabling Html Popup Tracker. Test expecting Popups.\r\n'12/11/2015 5:41:15 PM' - Using 'InternetExplorer' version '10.0' as default browser. \r\n'12/11/2015 5:41:18 PM' - 'Pass' : 1. Clear Browser Cache\r\n'12/11/2015 5:41:24 PM' - 'Pass' : 2. Navigate to : 'http://stage.telerikacademy.com/'\r\n'12/11/2015 5:41:26 PM' - 'Pass' : 3. Click 'EntranceButtonLink'\r\n'12/11/2015 5:41:27 PM' - 'Pass' : 4. Enter text 'TeamLichTestAdmin' in 'UsernameOrEmailText'\r\n'12/11/2015 5:41:27 PM' - 'Pass' : 5. Enter text '123456' in 'PasswordPassword'\r\n'12/11/2015 5:41:29 PM' - 'Pass' : 6. Click 'Submit'\r\n'12/11/2015 5:41:30 PM' - 'Pass' : 7. Verify element 'Span' 'is' visible.\r\n------------------------------------------------------------\r\n'12/11/2015 5:41:30 PM' - Overall Result: Pass\r\n'12/11/2015 5:41:30 PM' - Duration: [0 min: 14 sec: 947 msec]\r\n------------------------------------------------------------\r\n",
+                    "FailureException": null,
+                    "Result": 0,
+                    "TestId": "13802e77-8a84-4a1c-b293-10bc405cc646",
+                    "TestName": "LoginStep",
+                    "TestPath": "TestsAsSteps Suite\\LoginStep.tstest",
+                    "TestOwner": "",
+                    "TestDescription": "",
+                    "ProjectPath": "",
+                    "StepResults": [
+                      {
+                        "__type": "ArtOfTest.WebAii.Design.AutomationStepResult",
+                        "__value": {
+                          "TestName": "LoginStep",
+                          "TestPath": "TestsAsSteps Suite\\LoginStep.tstest",
+                          "TestId": "13802e77-8a84-4a1c-b293-10bc405cc646",
+                          "TestStepIndex": 0,
+                          "StepDescription": "Clear Browser Cache",
+                          "Exception": null,
+                          "ResultType": 0,
+                          "State": null,
+                          "Order": 1,
+                          "LogMessageOnError": "",
+                          "UserComment": null,
+                          "HashCode": 955643458,
+                          "IsManual": false,
+                          "WasStepEnabled": false
+                        }
+                      },
+                      {
+                        "__type": "ArtOfTest.WebAii.Design.AutomationStepResult",
+                        "__value": {
+                          "TestName": "LoginStep",
+                          "TestPath": "TestsAsSteps Suite\\LoginStep.tstest",
+                          "TestId": "13802e77-8a84-4a1c-b293-10bc405cc646",
+                          "TestStepIndex": 1,
+                          "StepDescription": "Navigate to : 'http://stage.telerikacademy.com/'",
+                          "Exception": null,
+                          "ResultType": 0,
+                          "State": null,
+                          "Order": 2,
+                          "LogMessageOnError": "",
+                          "UserComment": null,
+                          "HashCode": 1347723235,
+                          "IsManual": false,
+                          "WasStepEnabled": false
+                        }
+                      },
+                      {
+                        "__type": "ArtOfTest.WebAii.Design.AutomationStepResult",
+                        "__value": {
+                          "TestName": "LoginStep",
+                          "TestPath": "TestsAsSteps Suite\\LoginStep.tstest",
+                          "TestId": "13802e77-8a84-4a1c-b293-10bc405cc646",
+                          "TestStepIndex": 2,
+                          "StepDescription": "Click 'EntranceButtonLink'",
+                          "Exception": null,
+                          "ResultType": 0,
+                          "State": null,
+                          "Order": 3,
+                          "LogMessageOnError": "",
+                          "UserComment": null,
+                          "HashCode": 2087960562,
+                          "IsManual": false,
+                          "WasStepEnabled": false
+                        }
+                      },
+                      {
+                        "__type": "ArtOfTest.WebAii.Design.AutomationStepResult",
+                        "__value": {
+                          "TestName": "LoginStep",
+                          "TestPath": "TestsAsSteps Suite\\LoginStep.tstest",
+                          "TestId": "13802e77-8a84-4a1c-b293-10bc405cc646",
+                          "TestStepIndex": 3,
+                          "StepDescription": "Enter text 'TeamLichTestAdmin' in 'UsernameOrEmailText'",
+                          "Exception": null,
+                          "ResultType": 0,
+                          "State": null,
+                          "Order": 4,
+                          "LogMessageOnError": "",
+                          "UserComment": null,
+                          "HashCode": 1106498606,
+                          "IsManual": false,
+                          "WasStepEnabled": false
+                        }
+                      },
+                      {
+                        "__type": "ArtOfTest.WebAii.Design.AutomationStepResult",
+                        "__value": {
+                          "TestName": "LoginStep",
+                          "TestPath": "TestsAsSteps Suite\\LoginStep.tstest",
+                          "TestId": "13802e77-8a84-4a1c-b293-10bc405cc646",
+                          "TestStepIndex": 4,
+                          "StepDescription": "Enter text '123456' in 'PasswordPassword'",
+                          "Exception": null,
+                          "ResultType": 0,
+                          "State": null,
+                          "Order": 5,
+                          "LogMessageOnError": "",
+                          "UserComment": null,
+                          "HashCode": 1106498607,
+                          "IsManual": false,
+                          "WasStepEnabled": false
+                        }
+                      },
+                      {
+                        "__type": "ArtOfTest.WebAii.Design.AutomationStepResult",
+                        "__value": {
+                          "TestName": "LoginStep",
+                          "TestPath": "TestsAsSteps Suite\\LoginStep.tstest",
+                          "TestId": "13802e77-8a84-4a1c-b293-10bc405cc646",
+                          "TestStepIndex": 5,
+                          "StepDescription": "Click 'Submit'",
+                          "Exception": null,
+                          "ResultType": 0,
+                          "State": null,
+                          "Order": 6,
+                          "LogMessageOnError": "",
+                          "UserComment": null,
+                          "HashCode": 2087960565,
+                          "IsManual": false,
+                          "WasStepEnabled": false
+                        }
+                      },
+                      {
+                        "__type": "ArtOfTest.WebAii.Design.AutomationStepResult",
+                        "__value": {
+                          "TestName": "LoginStep",
+                          "TestPath": "TestsAsSteps Suite\\LoginStep.tstest",
+                          "TestId": "13802e77-8a84-4a1c-b293-10bc405cc646",
+                          "TestStepIndex": 6,
+                          "StepDescription": "Verify element 'Span' 'is' visible.",
+                          "Exception": null,
+                          "ResultType": 0,
+                          "State": null,
+                          "Order": 7,
+                          "LogMessageOnError": "",
+                          "UserComment": null,
+                          "HashCode": 1164883283,
+                          "IsManual": false,
+                          "WasStepEnabled": false
+                        }
+                      }
+                    ],
+                    "NotRunStepDescriptions": [],
+                    "TotalPassedSteps": 7,
+                    "ExecutingTestStepCount": 7,
+                    "TotalNumberOfNotRunSteps": 0,
+                    "IsDataDrivenResult": false,
+                    "DataIterationResults": [],
+                    "EndTime": "2015-12-11T15:41:30.3102861Z",
+                    "StartTime": "2015-12-11T15:41:15.3624311Z",
+                    "ProfilerResultsPath": null,
+                    "VersionGroupKey": "00000000-0000-0000-0000-000000000000",
+                    "CommitedBy": null
+                  }
+                },
+                "ResultType": 0,
+                "Exception": null,
+                "TestName": "PageLogsOutAfterCookieDeletion",
+                "TestPath": "Login Suite\\PageLogsOutAfterCookieDeletion.tstest",
+                "TestId": "163ae1ce-dc62-4f99-a1f0-016f633d5994",
+                "TestStepIndex": 0,
+                "StepDescription": "Execute test 'LoginStep'",
+                "State": null,
+                "Order": 1,
+                "LogMessageOnError": "",
+                "UserComment": null,
+                "HashCode": -832664899,
+                "IsManual": false,
+                "WasStepEnabled": false
+              }
+            },
+            {
+              "__type": "ArtOfTest.WebAii.Design.AutomationStepResult",
+              "__value": {
+                "TestName": "PageLogsOutAfterCookieDeletion",
+                "TestPath": "Login Suite\\PageLogsOutAfterCookieDeletion.tstest",
+                "TestId": "163ae1ce-dc62-4f99-a1f0-016f633d5994",
+                "TestStepIndex": 1,
+                "StepDescription": "Clear Browser Cache",
+                "Exception": null,
+                "ResultType": 0,
+                "State": null,
+                "Order": 2,
+                "LogMessageOnError": "",
+                "UserComment": null,
+                "HashCode": 955643459,
+                "IsManual": false,
+                "WasStepEnabled": false
+              }
+            },
+            {
+              "__type": "ArtOfTest.WebAii.Design.Execution.TestAsStepResult",
+              "__value": {
+                "TestResult": {
+                  "__type": "ArtOfTest.WebAii.Design.Execution.TestResult",
+                  "__value": {
+                    "Browser": 0,
+                    "ExeType": 5,
+                    "SeparatorLineCharCount": 60,
+                    "Message": "Overall Result: Pass\r\n------------------------------------------------------------\r\n'12/11/2015 5:41:30 PM' - Detected custom code in test. Locating test assembly: TeamLichTests.dll.\r\n'12/11/2015 5:41:30 PM' - Assembly Found: C:\\Users\\Decho\\Desktop\\TestsAndPlans\\Test Studio Automation\\TeamLichTests\\bin\\TeamLichTests.dll\r\n'12/11/2015 5:41:30 PM' - Loading code class: 'TeamLichTests.RefreshBrowserStep'.\r\n------------------------------------------------------------\r\n------------------------------------------------------------\r\n'12/11/2015 5:41:30 PM' - Enabling Html Popup Tracker. Test expecting Popups.\r\n'12/11/2015 5:41:30 PM' - Using 'InternetExplorer' version '10.0' as default browser. \r\n'12/11/2015 5:41:33 PM' - 'Pass' : 1. RefreshBrowser\r\n------------------------------------------------------------\r\n'12/11/2015 5:41:33 PM' - Overall Result: Pass\r\n'12/11/2015 5:41:33 PM' - Duration: [0 min: 2 sec: 931 msec]\r\n------------------------------------------------------------\r\n",
+                    "FailureException": null,
+                    "Result": 0,
+                    "TestId": "9ffb7bb3-c549-4a66-84e9-ade48702a20b",
+                    "TestName": "RefreshBrowserStep",
+                    "TestPath": "TestsAsSteps Suite\\RefreshBrowserStep.tstest",
+                    "TestOwner": "",
+                    "TestDescription": "",
+                    "ProjectPath": "",
+                    "StepResults": [
+                      {
+                        "__type": "ArtOfTest.WebAii.Design.AutomationStepResult",
+                        "__value": {
+                          "TestName": "RefreshBrowserStep",
+                          "TestPath": "TestsAsSteps Suite\\RefreshBrowserStep.tstest",
+                          "TestId": "9ffb7bb3-c549-4a66-84e9-ade48702a20b",
+                          "TestStepIndex": 0,
+                          "StepDescription": "RefreshBrowser",
+                          "Exception": null,
+                          "ResultType": 0,
+                          "State": null,
+                          "Order": 1,
+                          "LogMessageOnError": "",
+                          "UserComment": null,
+                          "HashCode": 2113398266,
+                          "IsManual": false,
+                          "WasStepEnabled": false
+                        }
+                      }
+                    ],
+                    "NotRunStepDescriptions": [],
+                    "TotalPassedSteps": 1,
+                    "ExecutingTestStepCount": 1,
+                    "TotalNumberOfNotRunSteps": 0,
+                    "IsDataDrivenResult": false,
+                    "DataIterationResults": [],
+                    "EndTime": "2015-12-11T15:41:33.3274586Z",
+                    "StartTime": "2015-12-11T15:41:30.396291Z",
+                    "ProfilerResultsPath": null,
+                    "VersionGroupKey": "00000000-0000-0000-0000-000000000000",
+                    "CommitedBy": null
+                  }
+                },
+                "ResultType": 0,
+                "Exception": null,
+                "TestName": "PageLogsOutAfterCookieDeletion",
+                "TestPath": "Login Suite\\PageLogsOutAfterCookieDeletion.tstest",
+                "TestId": "163ae1ce-dc62-4f99-a1f0-016f633d5994",
+                "TestStepIndex": 2,
+                "StepDescription": "Execute test 'RefreshBrowserStep'",
+                "State": null,
+                "Order": 3,
+                "LogMessageOnError": "",
+                "UserComment": null,
+                "HashCode": -832664897,
+                "IsManual": false,
+                "WasStepEnabled": false
+              }
+            },
+            {
+              "__type": "ArtOfTest.WebAii.Design.AutomationStepResult",
+              "__value": {
+                "TestName": "PageLogsOutAfterCookieDeletion",
+                "TestPath": "Login Suite\\PageLogsOutAfterCookieDeletion.tstest",
+                "TestId": "163ae1ce-dc62-4f99-a1f0-016f633d5994",
+                "TestStepIndex": 3,
+                "StepDescription": "Verify element 'Div' 'is' visible.",
+                "Exception": null,
+                "ResultType": 0,
+                "State": null,
+                "Order": 4,
+                "LogMessageOnError": "",
+                "UserComment": null,
+                "HashCode": 1164883280,
+                "IsManual": false,
+                "WasStepEnabled": false
+              }
+            }
+          ],
+          "NotRunStepDescriptions": [],
+          "TotalPassedSteps": 4,
+          "ExecutingTestStepCount": 4,
+          "TotalNumberOfNotRunSteps": 0,
+          "IsDataDrivenResult": false,
+          "DataIterationResults": [],
+          "EndTime": "2015-12-11T15:41:33.4794673Z",
+          "StartTime": "2015-12-11T15:41:15.0904155Z",
+          "ProfilerResultsPath": null,
+          "VersionGroupKey": "00000000-0000-0000-0000-000000000000",
+          "CommitedBy": null
+        }
+      }
+    ],
+    "FileName": "LoginTestAutomation 130943220951445626",
+    "Id": "22b62375-ac6d-4db2-8074-66fb2f9667df",
+    "Machine": {
+      "__type": "ArtOfTest.WebAii.Design.Execution.Scheduling.Machine",
+      "__value": {
+        "Id": "00000000-0000-0000-0000-000000000000",
+        "NetworkName": "SEVDA-LAPTOP",
+        "OperatingSystem": "Windows 7",
+        "InstalledBrowsers": [
+          {
+            "__type": "ArtOfTest.WebAii.Design.Execution.Scheduling.BrowserInformation",
+            "__value": {
+              "Type": 1,
+              "Version": "9.10.9200.17183"
+            }
+          },
+          {
+            "__type": "ArtOfTest.WebAii.Design.Execution.Scheduling.BrowserInformation",
+            "__value": {
+              "Type": 2,
+              "Version": "42.0 (x86 en-US)"
+            }
+          },
+          {
+            "__type": "ArtOfTest.WebAii.Design.Execution.Scheduling.BrowserInformation",
+            "__value": {
+              "Type": 5,
+              "Version": "5.1.7"
+            }
+          },
+          {
+            "__type": "ArtOfTest.WebAii.Design.Execution.Scheduling.BrowserInformation",
+            "__value": {
+              "Type": 7,
+              "Version": ""
+            }
+          }
+        ],
+        "Status": 0,
+        "ServiceUri": null,
+        "DBState": 0,
+        "UserName": "Decho"
+      }
+    },
+    "Messages": null,
+    "RunId": "22b62375-ac6d-4db2-8074-66fb2f9667df",
+    "Comment": null,
+    "TestListId": "a401ab3f-1476-4d74-8e01-0562805f0417",
+    "IsManual": false,
+    "DispatchGroupId": "00000000-0000-0000-0000-000000000000"
+  }
+}

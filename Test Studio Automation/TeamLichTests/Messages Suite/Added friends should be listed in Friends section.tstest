@@ -26,7 +26,7 @@
         {
           "__type": "ArtOfTest.WebAii.Design.ProjectModel.AutomationStep",
           "__value": {
-            "Runtime ID": "345e5f66-2d10-48f0-8309-628083f47021",
+            "Runtime ID": "6affe67c-3a94-4699-b32a-a332d88d1897",
             "Description": "Execute test 'Log In'",
             "CustomDescription": null,
             "Step": {
@@ -36,8 +36,8 @@
                 "UseStepWaitOnElementsTimout": false,
                 "WaitOnElements": false,
                 "TestName": "Log In",
-                "TestPath": "Log In.tstest",
-                "TestUniqueId": "83b5f51d-c2cf-4cc6-85f3-8d9cb728b71a",
+                "TestPath": "Messages Suite\\Log In.tstest",
+                "TestUniqueId": "2a4a5331-8ff3-4dd5-b4f4-53ffdb80adf2",
                 "Pause": 0,
                 "RunsAgainstVersion": "",
                 "Constraints": {
@@ -58,7 +58,7 @@
             "Id": "",
             "StepState": 0,
             "ContinueOnFailure": false,
-            "StepImageKey": "Friends should be listed in Friends sectionybkvt4ip.v0z",
+            "StepImageKey": "Added friends should be listed in Friends section3yk5rqdj.t2v",
             "QcId": 0,
             "QcVersionStamp": 0,
             "Version": 200
@@ -112,7 +112,7 @@
         {
           "__type": "ArtOfTest.WebAii.Design.ProjectModel.AutomationStep",
           "__value": {
-            "Runtime ID": "143b6248-1313-499c-b176-99d8e032f7f8",
+            "Runtime ID": "e8af3cbf-8397-40e3-a9f3-f42f9d7d0e15",
             "Description": "IF (Wait for element 'UnfriendButtonLink' 'is' visible.)",
             "CustomDescription": null,
             "Step": {
@@ -2143,11 +2143,11 @@
     "SilverlightAppOriginUri": null,
     "WpfAppPath": null,
     "UseDefaultWpfAppPath": false,
-    "TestAssembly": "Messages Suite.dll",
+    "TestAssembly": "TeamLichTests.dll",
     "TestAssemblyPath": "bin",
     "TestClass": "",
     "IsManual": false,
-    "ResourceFilePath": "Added friends should be listed in Friends section.resx",
+    "ResourceFilePath": "Messages Suite\\Added friends should be listed in Friends section.resx",
     "HasCodeBehind": false,
     "DataInfo": {
       "__type": "ArtOfTest.Common.Design.Data.DataInfo",
@@ -2179,12 +2179,12 @@
     "Description": "",
     "Name": "Added friends should be listed in Friends section",
     "Owner": "",
-    "Path": "Added friends should be listed in Friends section.tstest",
+    "Path": "Messages Suite\\Added friends should be listed in Friends section.tstest",
     "Priority": 0,
     "TestType": 0,
-    "UniqueId": "c8dc9865-109f-4a72-b47b-cd4d2d571511",
-    "Id": "c8dc9865-109f-4a72-b47b-cd4d2d571511",
-    "ProjectId": "dca07d80-0bcd-4f2f-b3f0-776670ca3202",
+    "UniqueId": "31505b6e-f75d-4552-8ed8-04d85dead442",
+    "Id": "31505b6e-f75d-4552-8ed8-04d85dead442",
+    "ProjectId": "848cb5a6-6824-4d24-bfaa-fbb2529f35c6",
     "Version": 200
   }
 }

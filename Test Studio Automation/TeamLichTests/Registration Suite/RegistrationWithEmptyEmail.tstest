@@ -1385,7 +1385,7 @@
     "TestAssemblyPath": "bin",
     "TestClass": "",
     "IsManual": false,
-    "ResourceFilePath": "RegistrationWithEmptyEmail.resx",
+    "ResourceFilePath": "Registration Suite\\RegistrationWithEmptyEmail.resx",
     "HasCodeBehind": false,
     "DataInfo": {
       "__type": "ArtOfTest.Common.Design.Data.DataInfo",
@@ -1416,13 +1416,13 @@
     "TestLinks": [],
     "Description": "",
     "Name": "RegistrationWithEmptyEmail",
-    "Owner": null,
-    "Path": "RegistrationWithEmptyEmail.tstest",
+    "Owner": "",
+    "Path": "Registration Suite\\RegistrationWithEmptyEmail.tstest",
     "Priority": 0,
     "TestType": 0,
-    "UniqueId": "c138823a-01ef-4259-920e-f3d3a46f414d",
-    "Id": "c138823a-01ef-4259-920e-f3d3a46f414d",
-    "ProjectId": "7fc589b3-e1ee-4cee-8a7b-dff94246e08a",
+    "UniqueId": "a9065ae6-75c3-48e9-addb-8d36196c58f4",
+    "Id": "a9065ae6-75c3-48e9-addb-8d36196c58f4",
+    "ProjectId": "848cb5a6-6824-4d24-bfaa-fbb2529f35c6",
     "Version": 200
   }
 }

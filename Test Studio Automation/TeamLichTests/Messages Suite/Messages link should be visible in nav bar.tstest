@@ -37,7 +37,7 @@
                 "WaitOnElements": false,
                 "TestName": "Log In",
                 "TestPath": "Log In.tstest",
-                "TestUniqueId": "83b5f51d-c2cf-4cc6-85f3-8d9cb728b71a",
+                "TestUniqueId": "45c59b9d-c3da-4971-a981-92458de774f3",
                 "Pause": 0,
                 "RunsAgainstVersion": "",
                 "Constraints": {
@@ -312,7 +312,7 @@
     "TestAssemblyPath": "bin",
     "TestClass": "",
     "IsManual": false,
-    "ResourceFilePath": "Messages link should be visible in nav bar.resx",
+    "ResourceFilePath": "Messages Suite\\Messages link should be visible in nav bar.resx",
     "HasCodeBehind": false,
     "DataInfo": {
       "__type": "ArtOfTest.Common.Design.Data.DataInfo",
@@ -343,13 +343,13 @@
     "TestLinks": [],
     "Description": "",
     "Name": "Messages link should be visible in nav bar",
-    "Owner": null,
-    "Path": "Messages link should be visible in nav bar.tstest",
+    "Owner": "",
+    "Path": "Messages Suite\\Messages link should be visible in nav bar.tstest",
     "Priority": 0,
     "TestType": 0,
-    "UniqueId": "37c5bf2d-1de5-4a5a-84c8-9b14fb012e6c",
-    "Id": "37c5bf2d-1de5-4a5a-84c8-9b14fb012e6c",
-    "ProjectId": "dca07d80-0bcd-4f2f-b3f0-776670ca3202",
+    "UniqueId": "91bfd6ef-5fa5-4eee-a13a-40e0c7014891",
+    "Id": "91bfd6ef-5fa5-4eee-a13a-40e0c7014891",
+    "ProjectId": "848cb5a6-6824-4d24-bfaa-fbb2529f35c6",
     "Version": 200
   }
 }

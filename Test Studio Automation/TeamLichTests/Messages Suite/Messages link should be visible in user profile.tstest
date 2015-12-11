@@ -28,7 +28,7 @@
                 "WaitOnElements": false,
                 "TestName": "Log In",
                 "TestPath": "Log In.tstest",
-                "TestUniqueId": "83b5f51d-c2cf-4cc6-85f3-8d9cb728b71a",
+                "TestUniqueId": "45c59b9d-c3da-4971-a981-92458de774f3",
                 "Pause": 0,
                 "RunsAgainstVersion": "",
                 "Constraints": {
@@ -230,7 +230,7 @@
     "TestAssemblyPath": "bin",
     "TestClass": "",
     "IsManual": false,
-    "ResourceFilePath": "Messages link should be visible in user profile.resx",
+    "ResourceFilePath": "Messages Suite\\Messages link should be visible in user profile.resx",
     "HasCodeBehind": false,
     "DataInfo": {
       "__type": "ArtOfTest.Common.Design.Data.DataInfo",
@@ -261,13 +261,13 @@
     "TestLinks": [],
     "Description": "",
     "Name": "Messages link should be visible in user profile",
-    "Owner": null,
-    "Path": "Messages link should be visible in user profile.tstest",
+    "Owner": "",
+    "Path": "Messages Suite\\Messages link should be visible in user profile.tstest",
     "Priority": 0,
     "TestType": 0,
-    "UniqueId": "329365c4-7a48-4901-b5c6-c1a88d00944b",
-    "Id": "329365c4-7a48-4901-b5c6-c1a88d00944b",
-    "ProjectId": "dca07d80-0bcd-4f2f-b3f0-776670ca3202",
+    "UniqueId": "f887b033-ba19-410a-a3f2-93fdcfb177fb",
+    "Id": "f887b033-ba19-410a-a3f2-93fdcfb177fb",
+    "ProjectId": "848cb5a6-6824-4d24-bfaa-fbb2529f35c6",
     "Version": 200
   }
 }

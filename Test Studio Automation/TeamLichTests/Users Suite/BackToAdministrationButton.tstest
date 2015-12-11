@@ -36,7 +36,7 @@
                 "UseStepWaitOnElementsTimout": false,
                 "WaitOnElements": false,
                 "TestName": "LoginStep",
-                "TestPath": "Steps\\LoginStep.tstest",
+                "TestPath": "TestsAsSteps Suite\\LoginStep.tstest",
                 "TestUniqueId": "13802e77-8a84-4a1c-b293-10bc405cc646",
                 "Pause": 0,
                 "RunsAgainstVersion": "",

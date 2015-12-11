@@ -17,14 +17,14 @@
         {
           "__type": "ArtOfTest.WebAii.Design.ProjectModel.AutomationStep",
           "__value": {
-            "Runtime ID": "0891709d-fcc1-4f8f-a080-7653bcda0f45",
-            "Description": "Navigate to : 'http://stage.telerikacademy.com/Courses/Courses/Details/245'",
+            "Runtime ID": "de53d942-0114-49c3-9440-1cf243773987",
+            "Description": "Navigate to : 'http://stage.telerikacademy.com/Courses/Courses/Details/246'",
             "CustomDescription": null,
             "Step": {
               "__type": "ArtOfTest.WebAii.Design.IntrinsicTranslators.Descriptors.NavigateToActionDescriptor",
               "__value": {
                 "UseDecodedUrl": true,
-                "NavigateURL": "http://stage.telerikacademy.com/Courses/Courses/Details/245",
+                "NavigateURL": "http://stage.telerikacademy.com/Courses/Courses/Details/246",
                 "BaseUrl": "",
                 "WaitOnElementsTimeout": 0,
                 "UseStepWaitOnElementsTimout": false,
@@ -53,7 +53,7 @@
             "Id": "",
             "StepState": 0,
             "ContinueOnFailure": false,
-            "StepImageKey": "Signup from course pagex1m0nfth.0aq",
+            "StepImageKey": "Homework Accessgj444zzv.twh",
             "QcId": 0,
             "QcVersionStamp": 0,
             "Version": 200
@@ -62,124 +62,15 @@
         {
           "__type": "ArtOfTest.WebAii.Design.ProjectModel.AutomationStep",
           "__value": {
-            "Runtime ID": "f5e6cfd2-b4cd-45c1-91df-af5928862957",
-            "Description": "Click 'SignUpOnlineButtonSpan'",
-            "CustomDescription": null,
-            "Step": {
-              "__type": "ArtOfTest.WebAii.Design.IntrinsicTranslators.Descriptors.ClickActionDescriptor",
-              "__value": {
-                "SimulateRealClick": false,
-                "UsejQuery": false,
-                "UseBackupSearch": true,
-                "ClosesBrowser": false,
-                "AjaxTimeout": 0,
-                "Pause": 0,
-                "WaitOnElementsTimeout": 30000,
-                "UseStepWaitOnElementsTimout": false,
-                "WaitOnElements": true,
-                "RunsAgainstVersion": "",
-                "Constraints": {
-                  "__type": "ArtOfTest.Common.Design.Extensibility.Descriptors.DescriptorConstraints",
-                  "__value": {
-                    "ConstraintValues": {}
-                  }
-                },
-                "Elements": {
-                  "target": {
-                    "__type": "ArtOfTest.Common.Design.Extensibility.Descriptors.ElementDescriptor",
-                    "__value": {
-                      "Name": "target",
-                      "Region": null,
-                      "Page": {
-                        "__type": "ArtOfTest.WebAii.Design.ProjectModel.PageUri",
-                        "__value": {
-                          "Path": "http://stage.telerikacademy.com/Courses/Courses/List",
-                          "Query": "",
-                          "BaseUrl": "",
-                          "EquivalentUrls": [],
-                          "Fragment": "",
-                          "Title": "Курсове - Телерик Академия - Студентска система",
-                          "CompareMode": 2,
-                          "AlwaysUseTitleInCompare": false,
-                          "FriendlyName": "КурсовеТелерикАкадемия"
-                        }
-                      },
-                      "Frame": null,
-                      "FindInfo": null,
-                      "FindExpression": {
-                        "__type": "ArtOfTest.WebAii.Design.ProjectModel.HtmlFindExpressionElement",
-                        "__value": {
-                          "uniqueKey": "O6fDNYvz9W+uM3E1B6uTRMGFA5Y=",
-                          "NodeKind": 4,
-                          "TechnologyType": 1,
-                          "Name": "SignUpOnlineButtonSpan",
-                          "FindExpressions": [
-                            {
-                              "Key": 1,
-                              "Value": {
-                                "__type": "ArtOfTest.WebAii.Core.HtmlFindExpression",
-                                "__value": {
-                                  "Clauses": [
-                                    {
-                                      "__type": "ArtOfTest.WebAii.Core.HtmlFindClause",
-                                      "__value": {
-                                        "Clause": "tagname=span"
-                                      }
-                                    },
-                                    {
-                                      "__type": "ArtOfTest.WebAii.Core.HtmlFindClause",
-                                      "__value": {
-                                        "Clause": "id=SignUpOnlineButton"
-                                      }
-                                    }
-                                  ],
-                                  "Constraints": [],
-                                  "ChainStops": []
-                                }
-                              }
-                            }
-                          ],
-                          "BackupSearchClause": null,
-                          "DataBindingExpressions": {}
-                        }
-                      },
-                      "HtmlControlType": "ArtOfTest.WebAii.Controls.HtmlControls.HtmlSpan",
-                      "IsIndependent": false,
-                      "DomStateKey": "",
-                      "TechnologyType": 1,
-                      "Version": 200
-                    }
-                  }
-                },
-                "StepType": 4,
-                "LogMessageOnFailure": "",
-                "EditorType": "",
-                "DataBindingExpressions": {}
-              }
-            },
-            "Enabled": true,
-            "Order": 2,
-            "Id": "",
-            "StepState": 0,
-            "ContinueOnFailure": false,
-            "StepImageKey": "Signup from course pagexp5pchdq.hay",
-            "QcId": 0,
-            "QcVersionStamp": 0,
-            "Version": 200
-          }
-        },
-        {
-          "__type": "ArtOfTest.WebAii.Design.ProjectModel.AutomationStep",
-          "__value": {
-            "Runtime ID": "f4bd54cd-d5b4-4e3e-9cac-8a1e4a3ebae5",
-            "Description": "Verify 'TextContent' 'Contains' 'Записан/a сте заучастие в този курс' on 'ЗаписанAСтеSpan'",
+            "Runtime ID": "2536dc6f-31f9-4e5e-9b68-3511005c7654",
+            "Description": "Verify 'TextContent' 'Contains' 'Срокът е изтекъл' on 'СрокътЕSpan'",
             "CustomDescription": null,
             "Step": {
               "__type": "ArtOfTest.WebAii.Design.IntrinsicTranslators.Descriptors.ContentVerificationDescriptor",
               "__value": {
                 "CompareType": 2,
                 "SegmentType": 3,
-                "ExpectedString": "Записан/a сте заучастие в този курс",
+                "ExpectedString": "Срокът е изтекъл",
                 "UseBackupSearch": true,
                 "DataBindVariableName": null,
                 "Timeout": 30000,
@@ -205,15 +96,15 @@
                       "Page": {
                         "__type": "ArtOfTest.WebAii.Design.ProjectModel.PageUri",
                         "__value": {
-                          "Path": "http://stage.telerikacademy.com/Courses/Courses/Details/248",
+                          "Path": "http://stage.telerikacademy.com/Courses/Courses/Details/246",
                           "Query": "",
                           "BaseUrl": "",
                           "EquivalentUrls": [],
                           "Fragment": "",
-                          "Title": "Курс \"C# Part II\" - Телерик Академия - Студентска система",
+                          "Title": "Курс \"ДСА2016\" - Телерик Академия - Студентска система",
                           "CompareMode": 2,
                           "AlwaysUseTitleInCompare": false,
-                          "FriendlyName": "КурсCPartIIТелерик"
+                          "FriendlyName": "КурсДСА2016Телерик"
                         }
                       },
                       "Frame": null,
@@ -221,10 +112,10 @@
                       "FindExpression": {
                         "__type": "ArtOfTest.WebAii.Design.ProjectModel.HtmlFindExpressionElement",
                         "__value": {
-                          "uniqueKey": "hLdkG9pNLQhVDvr6pmn9O5gCIEY=",
+                          "uniqueKey": "txozXbQXjLQc2D0okWhrnq9kgKk=",
                           "NodeKind": 4,
                           "TechnologyType": 1,
-                          "Name": "ЗаписанAСтеSpan",
+                          "Name": "СрокътЕSpan",
                           "FindExpressions": [
                             {
                               "Key": 1,
@@ -235,23 +126,25 @@
                                     {
                                       "__type": "ArtOfTest.WebAii.Core.HtmlFindClause",
                                       "__value": {
-                                        "Clause": "TextContent=^Записан/a сте з"
+                                        "Clause": "id=MainContent"
                                       }
                                     },
                                     {
                                       "__type": "ArtOfTest.WebAii.Core.HtmlFindClause",
                                       "__value": {
-                                        "Clause": "tagname=span"
+                                        "Clause": "tagIndex=span:18"
                                       }
                                     }
                                   ],
                                   "Constraints": [],
-                                  "ChainStops": []
+                                  "ChainStops": [
+                                    1
+                                  ]
                                 }
                               }
                             }
                           ],
-                          "BackupSearchClause": "/html[1]/body[1]/div[1]/div[1]/section[1]/div[1]/div[4]/div[2]/div[6]/div[1]/div[1]/span[1]",
+                          "BackupSearchClause": "/html[1]/body[1]/div[1]/div[1]/section[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/span[1]",
                           "DataBindingExpressions": {}
                         }
                       },
@@ -270,11 +163,11 @@
               }
             },
             "Enabled": true,
-            "Order": 3,
+            "Order": 2,
             "Id": "",
             "StepState": 0,
             "ContinueOnFailure": false,
-            "StepImageKey": "Signup from course pagey223mirq.uzl",
+            "StepImageKey": "Homework Accessruokuua5.lul",
             "QcId": 0,
             "QcVersionStamp": 0,
             "Version": 200
@@ -292,11 +185,11 @@
     "SilverlightAppOriginUri": null,
     "WpfAppPath": null,
     "UseDefaultWpfAppPath": false,
-    "TestAssembly": "SingUp.dll",
+    "TestAssembly": "Lctures Homework Presentation.dll",
     "TestAssemblyPath": "bin",
     "TestClass": "",
     "IsManual": false,
-    "ResourceFilePath": "Signup from course page.resx",
+    "ResourceFilePath": "Lectures Homework Presentation Suite\\Homework Access.resx",
     "HasCodeBehind": false,
     "DataInfo": {
       "__type": "ArtOfTest.Common.Design.Data.DataInfo",
@@ -326,14 +219,14 @@
     "QcTestVersionStamp": 0,
     "TestLinks": [],
     "Description": "",
-    "Name": "Signup from course page",
-    "Owner": null,
-    "Path": "Signup from course page.tstest",
+    "Name": "Homework Access",
+    "Owner": "",
+    "Path": "Lectures Homework Presentation Suite\\Homework Access.tstest",
     "Priority": 0,
     "TestType": 0,
-    "UniqueId": "c83c2e68-b1fc-4dd4-a967-5545371f0f12",
-    "Id": "c83c2e68-b1fc-4dd4-a967-5545371f0f12",
-    "ProjectId": "6c0a8d37-2534-4573-bd0f-5b9c23629f56",
+    "UniqueId": "f929ffef-8f6f-46ac-b69d-aaeeda2b2655",
+    "Id": "f929ffef-8f6f-46ac-b69d-aaeeda2b2655",
+    "ProjectId": "848cb5a6-6824-4d24-bfaa-fbb2529f35c6",
     "Version": 200
   }
 }

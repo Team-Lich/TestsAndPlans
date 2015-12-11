@@ -1,10 +1,10 @@
 {
   "__type": "ArtOfTest.WebAii.Design.Execution.TestList",
   "__value": {
-    "TestListId": "73681ad9-f770-4081-8371-e96858c85448",
-    "Id": "73681ad9-f770-4081-8371-e96858c85448",
-    "TestListName": "Signup TestList",
-    "CreationDate": "2015-12-11T12:33:05",
+    "TestListId": "c9d36818-4f33-4e6c-8ed5-64c7c5e910e5",
+    "Id": "c9d36818-4f33-4e6c-8ed5-64c7c5e910e5",
+    "TestListName": "MessagesTestAutomation",
+    "CreationDate": "2015-12-11T17:40:17",
     "OwnerName": null,
     "Settings": {
       "__type": "ArtOfTest.WebAii.Core.Settings",
@@ -58,24 +58,8 @@
       {
         "__type": "ArtOfTest.WebAii.Design.Execution.TestInfo",
         "__value": {
-          "Id": "02c452b3-7c2c-4e89-a7ce-d701bba53e8d",
-          "Path": "Attendance  Signup.tstest",
-          "PathType": 0
-        }
-      },
-      {
-        "__type": "ArtOfTest.WebAii.Design.Execution.TestInfo",
-        "__value": {
-          "Id": "81581603-4f94-411e-aa44-0cbbc315d8a7",
-          "Path": "Online signup.tstest",
-          "PathType": 0
-        }
-      },
-      {
-        "__type": "ArtOfTest.WebAii.Design.Execution.TestInfo",
-        "__value": {
-          "Id": "c83c2e68-b1fc-4dd4-a967-5545371f0f12",
-          "Path": "Signup from course page.tstest",
+          "Id": "f9112ae1-28d3-44b6-96bc-b97c6bfe080a",
+          "Path": "Messages Suite\\Messages should be shown in Messages container.tstest",
           "PathType": 0
         }
       }
@@ -89,6 +73,6 @@
       }
     },
     "ListType": 0,
-    "ProjectId": "6c0a8d37-2534-4573-bd0f-5b9c23629f56"
+    "ProjectId": "848cb5a6-6824-4d24-bfaa-fbb2529f35c6"
   }
 }

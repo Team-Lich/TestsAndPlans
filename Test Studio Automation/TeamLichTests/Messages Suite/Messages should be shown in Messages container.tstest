@@ -37,7 +37,7 @@
                 "WaitOnElements": false,
                 "TestName": "Added friends should be listed in Friends section",
                 "TestPath": "Added friends should be listed in Friends section.tstest",
-                "TestUniqueId": "c8dc9865-109f-4a72-b47b-cd4d2d571511",
+                "TestUniqueId": "0901bb62-d40f-49c4-913c-bded1c0e27a1",
                 "Pause": 0,
                 "RunsAgainstVersion": "",
                 "Constraints": {
@@ -78,7 +78,7 @@
                 "WaitOnElements": false,
                 "TestName": "Log In",
                 "TestPath": "Log In.tstest",
-                "TestUniqueId": "83b5f51d-c2cf-4cc6-85f3-8d9cb728b71a",
+                "TestUniqueId": "45c59b9d-c3da-4971-a981-92458de774f3",
                 "Pause": 0,
                 "RunsAgainstVersion": "",
                 "Constraints": {
@@ -731,11 +731,11 @@
     "SilverlightAppOriginUri": null,
     "WpfAppPath": null,
     "UseDefaultWpfAppPath": false,
-    "TestAssembly": "Messages Suite.dll",
+    "TestAssembly": "TeamLichTests.dll",
     "TestAssemblyPath": "bin",
     "TestClass": "",
     "IsManual": false,
-    "ResourceFilePath": "Messages should be shown in Messages container.resx",
+    "ResourceFilePath": "Messages Suite\\Messages should be shown in Messages container.resx",
     "HasCodeBehind": false,
     "DataInfo": {
       "__type": "ArtOfTest.Common.Design.Data.DataInfo",
@@ -766,13 +766,13 @@
     "TestLinks": [],
     "Description": "",
     "Name": "Messages should be shown in Messages container",
-    "Owner": null,
-    "Path": "Messages should be shown in Messages container.tstest",
+    "Owner": "",
+    "Path": "Messages Suite\\Messages should be shown in Messages container.tstest",
     "Priority": 0,
     "TestType": 0,
-    "UniqueId": "c911d4e2-8053-4992-bc45-16a2d669bb70",
-    "Id": "c911d4e2-8053-4992-bc45-16a2d669bb70",
-    "ProjectId": "dca07d80-0bcd-4f2f-b3f0-776670ca3202",
+    "UniqueId": "f9112ae1-28d3-44b6-96bc-b97c6bfe080a",
+    "Id": "f9112ae1-28d3-44b6-96bc-b97c6bfe080a",
+    "ProjectId": "848cb5a6-6824-4d24-bfaa-fbb2529f35c6",
     "Version": 200
   }
 }

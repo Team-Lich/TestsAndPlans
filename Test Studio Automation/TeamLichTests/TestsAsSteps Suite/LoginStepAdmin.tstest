@@ -719,7 +719,7 @@
     "TestAssemblyPath": "bin",
     "TestClass": "",
     "IsManual": false,
-    "ResourceFilePath": "Steps\\LoginStepAdmin.resx",
+    "ResourceFilePath": "TestsAsSteps Suite\\LoginStepAdmin.resx",
     "HasCodeBehind": false,
     "DataInfo": {
       "__type": "ArtOfTest.Common.Design.Data.DataInfo",
@@ -751,7 +751,7 @@
     "Description": "",
     "Name": "LoginStepAdmin",
     "Owner": "",
-    "Path": "Steps\\LoginStepAdmin.tstest",
+    "Path": "TestsAsSteps Suite\\LoginStepAdmin.tstest",
     "Priority": 0,
     "TestType": 0,
     "UniqueId": "ea4e701f-f8b1-4015-9ce2-f51d063c0771",

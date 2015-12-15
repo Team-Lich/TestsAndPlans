@@ -153,5 +153,29 @@ namespace TeamLichTestAutomation.Tests
 
             mainPage.AssertUserIsLoggedAsAdmin();
         }
+
+        [TestMethod]
+        public void TestLoginWithInvalidAdminPassword()
+        {
+            MainPage mainPage = new MainPage(this.browser);
+            mainPage.Navigate().ClickLogin();
+
+            LoginPage loginPage = new LoginPage(this.browser);
+            loginPage.LoginUser("TeamLichTestAdmin", "hello");
+
+            mainPage.AssertUserIsNotLogged();
+        }
+
+        [TestMethod]
+        public void TestLoginWithInvalidRegularUserPassword()
+        {
+            MainPage mainPage = new MainPage(this.browser);
+            mainPage.Navigate().ClickLogin();
+
+            LoginPage loginPage = new LoginPage(this.browser);
+            loginPage.LoginUser("TeamLichTestUser", "hello");
+
+            mainPage.AssertUserIsNotLogged();
+        }
     }
 }

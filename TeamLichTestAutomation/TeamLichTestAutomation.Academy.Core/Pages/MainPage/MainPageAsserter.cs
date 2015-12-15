@@ -21,5 +21,10 @@
             Assert.IsTrue(mainPage.LogoutButton.IsEnabled);
             Assert.IsTrue(adminDropdownPresent);
         }
+
+        public static void AssertUserIsNotLogged(this MainPage mainPage)
+        {
+            Assert.IsTrue(mainPage.LoginButton.IsEnabled);
+        }
     }
 }

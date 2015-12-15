@@ -21,5 +21,12 @@
             this.PassTextBox.Text = "123456";
             this.SubmitButton.Click();
         }
+
+        public void LoginUser(string userName, string password)
+        {
+            this.UserTextBox.Text = userName;
+            this.PassTextBox.Text = password;
+            this.SubmitButton.Click();
+        }
     }
 }

@@ -4,6 +4,7 @@ namespace TeamLichTestAutomation.Tests
     using ArtOfTest.WebAii.TestTemplates;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
     using TeamLichTestAutomation.Academy.Core.Pages.MainPage;
+    using TeamLichTestAutomation.Academy.Core.Pages.LoginPage;
 
     /// <summary>
     /// Summary description for TelerikVSUnitTest1
@@ -133,6 +134,11 @@ namespace TeamLichTestAutomation.Tests
         {
             MainPage mainPage = new MainPage(this.browser);
             mainPage.Navigate().ClickLogin();
+
+            LoginPage loginPage = new LoginPage(this.browser);
+            loginPage.LoginRegularUser();
+
+            mainPage.AssertUserIsLogged();
         }
     }
 }

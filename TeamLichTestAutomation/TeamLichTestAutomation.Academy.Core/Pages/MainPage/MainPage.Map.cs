@@ -11,5 +11,13 @@
                 return this.Browser.Find.ById<HtmlAnchor>("EntranceButton");
             }
         }
+
+        internal HtmlAnchor LogoutButton
+        {
+            get
+            {
+                return this.Browser.Find.ById<HtmlAnchor>("ExitMI");
+            }
+        }
     }
 }

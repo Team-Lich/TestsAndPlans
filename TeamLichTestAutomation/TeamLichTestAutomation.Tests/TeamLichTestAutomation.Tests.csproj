@@ -37,7 +37,7 @@
   <ItemGroup>
     <Reference Include="ArtOfTest.WebAii, Version=2015.3.1015.0, Culture=neutral, PublicKeyToken=4fd5f65be123776c, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\ArtOfTest.WebAii.dll</HintPath>
+      <HintPath>..\TelerikFramework\ArtOfTest.WebAii.dll</HintPath>
     </Reference>
     <Reference Include="System" />
   </ItemGroup>
@@ -54,8 +54,14 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="LoginTestSuite.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="LoginTestSuite.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TeamLichTestAutomation.Academy.Core\TeamLichTestAutomation.Academy.Core.csproj">
+      <Project>{527ecb83-30f4-4504-860f-612d8c0a31c3}</Project>
+      <Name>TeamLichTestAutomation.Academy.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

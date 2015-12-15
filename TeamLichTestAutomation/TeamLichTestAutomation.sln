@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeamLichTestAutomation.Tests", "TeamLichTestAutomation.Tests\TeamLichTestAutomation.Tests.csproj", "{5849C82F-B8AC-41C6-B5FB-772718BECD71}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeamLichTestAutomation.Academy.Core", "TeamLichTestAutomation.Academy.Core\TeamLichTestAutomation.Academy.Core.csproj", "{527ECB83-30F4-4504-860F-612D8C0A31C3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeamLichTestAutomation.TestFramework.Core", "TeamLichTestAutomation.TestFramework.Core\TeamLichTestAutomation.TestFramework.Core.csproj", "{69A89417-AD24-4519-89FA-CBD846D4AF72}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeamLichTestAutomation.Utilities", "TeamLichTestAutomation.Utilities\TeamLichTestAutomation.Utilities.csproj", "{A04F0E40-4B64-4064-BDBE-BDE8506E0C2C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5849C82F-B8AC-41C6-B5FB-772718BECD71}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5849C82F-B8AC-41C6-B5FB-772718BECD71}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5849C82F-B8AC-41C6-B5FB-772718BECD71}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5849C82F-B8AC-41C6-B5FB-772718BECD71}.Release|Any CPU.Build.0 = Release|Any CPU
+		{527ECB83-30F4-4504-860F-612D8C0A31C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{527ECB83-30F4-4504-860F-612D8C0A31C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{527ECB83-30F4-4504-860F-612D8C0A31C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{527ECB83-30F4-4504-860F-612D8C0A31C3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{69A89417-AD24-4519-89FA-CBD846D4AF72}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69A89417-AD24-4519-89FA-CBD846D4AF72}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69A89417-AD24-4519-89FA-CBD846D4AF72}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69A89417-AD24-4519-89FA-CBD846D4AF72}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A04F0E40-4B64-4064-BDBE-BDE8506E0C2C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A04F0E40-4B64-4064-BDBE-BDE8506E0C2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A04F0E40-4B64-4064-BDBE-BDE8506E0C2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A04F0E40-4B64-4064-BDBE-BDE8506E0C2C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

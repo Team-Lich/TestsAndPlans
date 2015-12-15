@@ -14,5 +14,12 @@
             this.PassTextBox.Text = "123456";
             this.SubmitButton.Click();
         }
+
+        public void LoginAdminUser()
+        {
+            this.UserTextBox.Text = "TeamLichTestAdmin";
+            this.PassTextBox.Text = "123456";
+            this.SubmitButton.Click();
+        }
     }
 }

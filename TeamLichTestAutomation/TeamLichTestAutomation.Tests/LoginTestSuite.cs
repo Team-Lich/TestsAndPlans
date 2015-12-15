@@ -68,7 +68,7 @@ namespace TeamLichTestAutomation.Tests
             // location for this test.
 
             // Pass in 'true' to recycle the browser between test methods
-            Initialize(false, this.TestContext.TestLogsDir, new TestContextWriteLine(this.TestContext.WriteLine));
+            Initialize(true, this.TestContext.TestLogsDir, new TestContextWriteLine(this.TestContext.WriteLine));
 
             // If you need to override any other settings coming from the
             // config section you can comment the 'Initialize' line above and instead
@@ -95,13 +95,14 @@ namespace TeamLichTestAutomation.Tests
             // This method should always exist in [TestInitialize()] method.
             SetTestMethod(this, (string)TestContext.Properties["TestName"]);
 
-            #endregion
+            #endregion          
+
+            //Manager.Settings.Web.RecycleBrowser = true;
 
             Manager.LaunchNewBrowser();
             Manager.ActiveBrowser.ClearCache(BrowserCacheType.Cookies);
-            this.browser = Manager.ActiveBrowser;
 
-            Manager.Settings.Web.RecycleBrowser = true;
+            this.browser = Manager.ActiveBrowser;
         }
 
         // Use TestCleanup to run code after each test has run
@@ -138,7 +139,19 @@ namespace TeamLichTestAutomation.Tests
             LoginPage loginPage = new LoginPage(this.browser);
             loginPage.LoginRegularUser();
 
-            mainPage.AssertUserIsLogged();
+            mainPage.AssertUserIsLoggedAsRegularUser();
+        }
+
+        [TestMethod]
+        public void TestLoginWithValidAdminUserCredentials()
+        {
+            MainPage mainPage = new MainPage(this.browser);
+            mainPage.Navigate().ClickLogin();
+
+            LoginPage loginPage = new LoginPage(this.browser);
+            loginPage.LoginAdminUser();
+
+            mainPage.AssertUserIsLoggedAsAdmin();
         }
     }
 }

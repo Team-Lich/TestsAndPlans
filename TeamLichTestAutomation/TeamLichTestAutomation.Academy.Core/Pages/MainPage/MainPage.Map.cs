@@ -19,5 +19,29 @@
                 return this.Browser.Find.ById<HtmlAnchor>("ExitMI");
             }
         }
+
+        internal string[] NavigationBarItems
+        {
+            get
+            {
+                var anchors = this.Browser.Find.AllByTagName<HtmlAnchor>("a");
+                string[] anchorTexts = new string[anchors.Count];
+
+                for (int i = 0; i < anchors.Count; i++)
+                {
+                    anchorTexts[i] = anchors[i].InnerText;
+                }
+
+                return anchorTexts;
+            }
+        }
+
+        internal HtmlAnchor AdminNavigationDropdown
+        {
+            get
+            {
+                return this.Browser.Find.ByExpression<HtmlAnchor>("href=/Administration/Navigation");
+            }
+        }
     }
 }

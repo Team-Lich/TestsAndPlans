@@ -11,5 +11,12 @@
 
            Assert.AreEqual(message, coursesPage.SignOff.InnerText);
         }
+
+        public static void AssertCoursesFound(this CoursesPage coursesPage)
+        {
+            var title = "Курсове";
+
+            Assert.AreEqual(title, coursesPage.Title.InnerText);
+        }
     }
 }

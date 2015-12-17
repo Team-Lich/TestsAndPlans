@@ -28,5 +28,13 @@
                 return this.Browser.Find.ByXPath<HtmlButton>("//*[@id='MainContent']/div/div[5]/div[2]/div[6]/div/div[2]/span");
             }
         }
+
+        public HtmlSpan Title
+        {
+            get
+            {
+                return this.Browser.Find.ByXPath<HtmlSpan>(@"//*[@id='MainContent']/div/h1");
+            }
+        }
     }
 }

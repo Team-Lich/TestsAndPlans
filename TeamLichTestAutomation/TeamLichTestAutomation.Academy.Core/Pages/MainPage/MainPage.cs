@@ -23,6 +23,12 @@
             loginButton.Click();
         }
 
+        public void ClickFacebookLogin()
+        {
+            var facebookLoginButton = this.FacebookLoginButton;
+            facebookLoginButton.Click();
+        }
+
         public void ClickRegistration()
         {
             var registrationButton = this.RegistrationButton;

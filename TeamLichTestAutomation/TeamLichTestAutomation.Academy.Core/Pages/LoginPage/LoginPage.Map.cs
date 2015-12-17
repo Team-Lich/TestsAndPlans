@@ -26,6 +26,6 @@
             {
                 return this.Browser.Find.ByExpression<HtmlInputSubmit>("value=Вход");
             }
-        }
+        }        
     }
 }

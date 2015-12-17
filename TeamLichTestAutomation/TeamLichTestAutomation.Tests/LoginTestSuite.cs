@@ -3,9 +3,12 @@ namespace TeamLichTestAutomation.Tests
     using System;
     using System.Net;
     using System.Threading;
+    using ArtOfTest.WebAii.Controls.HtmlControls;
+
     using ArtOfTest.WebAii.Core;
     using ArtOfTest.WebAii.TestTemplates;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using TeamLichTestAutomation.Academy.Core.Pages.FacebookLoginPage;
     using TeamLichTestAutomation.Academy.Core.Pages.MainPage;
     using TeamLichTestAutomation.Academy.Core.Pages.LoginPage;
 
@@ -102,7 +105,7 @@ namespace TeamLichTestAutomation.Tests
 
             //Manager.Settings.Web.RecycleBrowser = true;
 
-            Manager.LaunchNewBrowser();
+            Manager.LaunchNewBrowser(BrowserType.Chrome);
             Manager.ActiveBrowser.ClearCache(BrowserCacheType.Cookies);
 
             this.browser = Manager.ActiveBrowser;

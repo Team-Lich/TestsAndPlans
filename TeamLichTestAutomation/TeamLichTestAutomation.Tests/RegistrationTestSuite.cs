@@ -67,7 +67,7 @@ namespace TeamLichTestAutomation.Tests
             // location for this test.
 
             // Pass in 'true' to recycle the browser between test methods
-            Initialize(false, this.TestContext.TestLogsDir, new TestContextWriteLine(this.TestContext.WriteLine));
+            Initialize(true, this.TestContext.TestLogsDir, new TestContextWriteLine(this.TestContext.WriteLine));
 
             // If you need to override any other settings coming from the
             // config section you can comment the 'Initialize' line above and instead
@@ -100,6 +100,10 @@ namespace TeamLichTestAutomation.Tests
             // Place any additional initialization here
             //
 
+            Manager.LaunchNewBrowser(BrowserType.Chrome);
+            Manager.ActiveBrowser.ClearCache(BrowserCacheType.Cookies);
+
+            this.browser = Manager.ActiveBrowser;
         }
 
         // Use TestCleanup to run code after each test has run

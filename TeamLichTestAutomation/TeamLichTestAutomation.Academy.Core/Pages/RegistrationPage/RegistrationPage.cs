@@ -20,6 +20,7 @@
             this.LastNameTextBox.Text = "ТестФамилия";
             this.EmailTextBox.Text = "mailtest@test.com";
             this.TermAndConditionsCheckBox.IsEnabled = true;
+            this.SubmitButton.Click();
         }
     }
 }

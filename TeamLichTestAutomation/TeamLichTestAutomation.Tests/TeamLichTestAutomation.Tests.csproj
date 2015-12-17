@@ -54,6 +54,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="AdministrationTestSuites\UniversitiesTestSuite.cs" />
     <Compile Include="CourseSignUpTestSuit.cs" />
     <Compile Include="LecturesPresentationHomeworkAccess.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -66,6 +67,7 @@
       <Name>TeamLichTestAutomation.Academy.Core</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>

@@ -36,12 +36,17 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="Telerik.TestingFramework.Controls.KendoUI, Version=2015.3.1015.0, Culture=neutral, PublicKeyToken=528163f3e645de45, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\TelerikFramework\Telerik.TestingFramework.Controls.KendoUI.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Facades\TelerikAcademyFacade.cs" />
@@ -49,6 +54,8 @@
     <Compile Include="Pages\AdminPages\AdminDashboardPage\AdminDashboardPage.Map.cs" />
     <Compile Include="Pages\AdminPages\RolesPage\RolesPage.cs" />
     <Compile Include="Pages\AdminPages\UniversitiesPage\UniversitiesPage.cs" />
+    <Compile Include="Pages\AdminPages\UniversitiesPage\UniversitiesPage.Map.cs" />
+    <Compile Include="Pages\AdminPages\UniversitiesPage\UniversitiesPageAsserter.cs" />
     <Compile Include="Pages\BasePage.cs" />
     <Compile Include="Pages\CoursesPage\CoursesPage.cs" />
     <Compile Include="Pages\CoursesPage\CoursesPage.Map.cs" />

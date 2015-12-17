@@ -40,5 +40,10 @@
             var coursesNavigation = this.CoursesNavigationDropdown;
             coursesNavigation.Click();
         }
+
+        public void ClickAdminNavigationDropdown()
+        {
+            this.AdminNavigationDropdown.Click();
+        }
     }
 }

@@ -11,5 +11,13 @@
                 return this.Browser.Find.ByExpression<HtmlAnchor>("href=/Administration_Users/Universities");
             }
         }
+
+        private HtmlAnchor RolesButton
+        {
+            get
+            {
+                return this.Browser.Find.ByExpression<HtmlAnchor>("href=/Administration_Users/Roles");
+            }
+        }
     }
 }

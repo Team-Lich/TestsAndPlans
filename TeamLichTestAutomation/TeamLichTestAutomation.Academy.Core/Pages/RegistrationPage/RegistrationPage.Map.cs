@@ -12,19 +12,19 @@
             }
         }
 
-        private HtmlInputText PasswordTextBox
+        private HtmlInputPassword PasswordTextBox
         {
             get
             {
-                return this.Browser.Find.ById<HtmlInputText>("Password");
+                return this.Browser.Find.ById<HtmlInputPassword>("Password");
             }
         }
 
-        private HtmlInputText RepeatPasswordTextBox
+        private HtmlInputPassword RepeatPasswordTextBox
         {
             get
             {
-                return this.Browser.Find.ById<HtmlInputText>("PasswordAgain");
+                return this.Browser.Find.ById<HtmlInputPassword>("PasswordAgain");
             }
         }
 

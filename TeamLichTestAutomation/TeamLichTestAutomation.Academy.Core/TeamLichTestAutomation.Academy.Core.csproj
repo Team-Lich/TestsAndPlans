@@ -47,6 +47,8 @@
     <Compile Include="Facades\TelerikAcademyFacade.cs" />
     <Compile Include="Pages\AdminPages\AdminDashboardPage\AdminDashboardPage.cs" />
     <Compile Include="Pages\AdminPages\AdminDashboardPage\AdminDashboardPage.Map.cs" />
+    <Compile Include="Pages\AdminPages\RolesPage\RolesPage.cs" />
+    <Compile Include="Pages\AdminPages\UniversitiesPage\UniversitiesPage.cs" />
     <Compile Include="Pages\BasePage.cs" />
     <Compile Include="Pages\CoursesPage\CoursesPage.cs" />
     <Compile Include="Pages\CoursesPage\CoursesPage.Map.cs" />
@@ -65,10 +67,7 @@
   <ItemGroup>
     <Compile Include="Pages\MainPage\MainPage.Map.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Pages\AdminPages\RolesPage\" />
-    <Folder Include="Pages\AdminPages\UniversitiesPage\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

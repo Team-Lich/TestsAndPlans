@@ -115,5 +115,13 @@
                 return this.Browser.Find.ById<HtmlSpan>("Password-error");
             }
         }
+
+        internal HtmlSpan IncorrectUsernameLengthErrorMessage
+        {
+            get
+            {
+                return this.Browser.Find.ById<HtmlSpan>("Username-error");
+            }
+        }
     }
 }

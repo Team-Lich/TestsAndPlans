@@ -96,5 +96,29 @@
             this.TermAndConditionsCheckBox.IsEnabled = true;
             this.SubmitButton.Click();
         }
+
+        public void RegistrationWithLengthOfUsernameLessThanMinimumAllowed()
+        {
+            this.UsernameTextBox.Text = "user";
+            this.PasswordTextBox.Text = Password;
+            this.RepeatPasswordTextBox.Text = Password;
+            this.FirstNameTextBox.Text = "ТестИме";
+            this.LastNameTextBox.Text = "ТестФамилия";
+            this.EmailTextBox.Text = "mailtest@test.com";
+            this.TermAndConditionsCheckBox.IsEnabled = true;
+            this.SubmitButton.Click();
+        }
+
+        public void RegistrationWithLengthOfUsernameGreaterThanMaximumAllowed()
+        {
+            this.UsernameTextBox.Text = "useruseruseruseruseruseruseruserus";
+            this.PasswordTextBox.Text = Password;
+            this.RepeatPasswordTextBox.Text = Password;
+            this.FirstNameTextBox.Text = "ТестИме";
+            this.LastNameTextBox.Text = "ТестФамилия";
+            this.EmailTextBox.Text = "mailtest@test.com";
+            this.TermAndConditionsCheckBox.IsEnabled = true;
+            this.SubmitButton.Click();
+        }
     }
 }

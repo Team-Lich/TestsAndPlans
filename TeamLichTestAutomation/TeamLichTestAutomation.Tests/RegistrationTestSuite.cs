@@ -219,5 +219,29 @@ namespace TeamLichTestAutomation.Tests
 
             registrationPage.AssertErrorMessageIsDisplayedWhenLengthOfPasswordIsLessThanMinimumAllowed();
         }
+
+        [TestMethod]
+        public void TestRegistrationWithLengthOfUsernameLessThanMinimumAllowed()
+        {
+            MainPage mainPage = new MainPage(this.browser);
+            mainPage.Navigate().ClickRegistration();
+
+            RegistrationPage registrationPage = new RegistrationPage(this.browser);
+            registrationPage.RegistrationWithLengthOfUsernameLessThanMinimumAllowed();
+
+            registrationPage.AssertErrorMessageIsDisplayedWhenLengthOfUsernameIsInccorect();
+        }
+
+        [TestMethod]
+        public void TestRegistrationWithLengthOfUsernameGreaterThanMaximumAllowed()
+        {
+            MainPage mainPage = new MainPage(this.browser);
+            mainPage.Navigate().ClickRegistration();
+
+            RegistrationPage registrationPage = new RegistrationPage(this.browser);
+            registrationPage.RegistrationWithLengthOfUsernameGreaterThanMaximumAllowed();
+
+            registrationPage.AssertErrorMessageIsDisplayedWhenLengthOfUsernameIsInccorect();
+        }
     }
 }

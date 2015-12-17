@@ -62,5 +62,12 @@
 
             Assert.AreEqual(incorrectPasswordErrorMessage, registrationPage.IncorrectPasswordLengthErrorMessage.InnerText);
         }
+
+        public static void AssertErrorMessageIsDisplayedWhenLengthOfUsernameIsInccorect(this RegistrationPage registrationPage)
+        {
+            string incorrectUsernameErrorMessage = "Потребителското име трябва да е между 5 и 32 символа";
+
+            Assert.AreEqual(incorrectUsernameErrorMessage, registrationPage.IncorrectUsernameLengthErrorMessage.InnerText);
+        }
     }
 }

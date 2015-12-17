@@ -183,5 +183,41 @@ namespace TeamLichTestAutomation.Tests
 
             registrationPage.AssertErrorMessageIsDisplayedWhenLastNameFieldIsEmpty();
         }
+
+        [TestMethod]
+        public void TestRegistrationWithUncheckedTermsAndConditionsCheckbox()
+        {
+            MainPage mainPage = new MainPage(this.browser);
+            mainPage.Navigate().ClickRegistration();
+
+            RegistrationPage registrationPage = new RegistrationPage(this.browser);
+            registrationPage.RegistrationWithUncheckedTermsAndConditionsCheckbox();
+
+            registrationPage.AssertErrorMessageIsDisplayedWhenCheckboxIsUnchecked();
+        }
+
+        [TestMethod]
+        public void TestRegistrationWithDifferentPasswordInPasswordAgainField()
+        {
+            MainPage mainPage = new MainPage(this.browser);
+            mainPage.Navigate().ClickRegistration();
+
+            RegistrationPage registrationPage = new RegistrationPage(this.browser);
+            registrationPage.RegistrationWithDifferentPasswordInPasswordAgainField();
+
+            registrationPage.AssertErrorMessageIsDisplayedWhenEnterDifferentPasswordInPasswordAgainField();
+        }
+
+        [TestMethod]
+        public void TestRegistrationWithLengthOfPasswordLessThanMinimumAllowed()
+        {
+            MainPage mainPage = new MainPage(this.browser);
+            mainPage.Navigate().ClickRegistration();
+
+            RegistrationPage registrationPage = new RegistrationPage(this.browser);
+            registrationPage.RegistrationWithLengthOfPasswordLessThanMinimumAllowed();
+
+            registrationPage.AssertErrorMessageIsDisplayedWhenLengthOfPasswordIsLessThanMinimumAllowed();
+        }
     }
 }

@@ -91,5 +91,29 @@
                 return this.Browser.Find.ById<HtmlSpan>("LastName-error");
             }
         }
+
+        internal HtmlDiv ConditionsErrorMessage
+        {
+            get
+            {
+                return this.Browser.Find.ByAttributes<HtmlDiv>("class=validation-summary-errors");
+            }
+        }
+
+        internal HtmlSpan DifferentPasswordErrorMessage
+        {
+            get
+            {
+                return this.Browser.Find.ById<HtmlSpan>("PasswordAgain-error");
+            }
+        }
+
+        internal HtmlSpan IncorrectPasswordLengthErrorMessage
+        {
+            get
+            {
+                return this.Browser.Find.ById<HtmlSpan>("Password-error");
+            }
+        }
     }
 }

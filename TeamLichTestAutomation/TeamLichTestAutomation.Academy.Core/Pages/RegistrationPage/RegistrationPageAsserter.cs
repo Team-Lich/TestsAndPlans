@@ -41,5 +41,26 @@
 
             Assert.AreEqual(lastNameErrorMessage, registrationPage.LastNameМandatoryErrorMessage.InnerText);
         }
+
+        public static void AssertErrorMessageIsDisplayedWhenCheckboxIsUnchecked(this RegistrationPage registrationPage)
+        {
+            string errorMessage = "За да се рагистрирате трябва да приемете условията и правилата на академията на Телерик";
+
+            Assert.AreEqual(errorMessage, registrationPage.ConditionsErrorMessage.InnerText);
+        }
+
+        public static void AssertErrorMessageIsDisplayedWhenEnterDifferentPasswordInPasswordAgainField(this RegistrationPage registrationPage)
+        {
+            string differentPassworErrorMessage = "Паролите не съвпадат";
+
+            Assert.AreEqual(differentPassworErrorMessage, registrationPage.DifferentPasswordErrorMessage.InnerText);
+        }
+
+        public static void AssertErrorMessageIsDisplayedWhenLengthOfPasswordIsLessThanMinimumAllowed(this RegistrationPage registrationPage)
+        {
+            string incorrectPasswordErrorMessage = "Паролата трябва да е повече от 6 символа";
+
+            Assert.AreEqual(incorrectPasswordErrorMessage, registrationPage.IncorrectPasswordLengthErrorMessage.InnerText);
+        }
     }
 }

@@ -20,6 +20,14 @@
             }
         }
 
+        internal HtmlAnchor RegistrationButton
+        {
+            get
+            {
+                return this.Browser.Find.ByContent<HtmlAnchor>("Регистрация");
+            }
+        }
+
         internal string[] NavigationBarItems
         {
             get

@@ -22,5 +22,11 @@
             var loginButton = this.LoginButton;
             loginButton.Click();
         }
+
+        public void ClickRegistration()
+        {
+            var registrationButton = this.RegistrationButton;
+            RegistrationButton.Click();
+        }
     }
 }

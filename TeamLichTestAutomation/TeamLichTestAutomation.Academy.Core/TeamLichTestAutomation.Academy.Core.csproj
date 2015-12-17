@@ -50,6 +50,9 @@
     <Compile Include="Pages\LoginPage\LoginPage.Map.cs" />
     <Compile Include="Pages\MainPage\MainPageAsserter.cs" />
     <Compile Include="Pages\MainPage\MainPage.cs" />
+    <Compile Include="Pages\RegistrationPage\RegistrationPage.Asserter.cs" />
+    <Compile Include="Pages\RegistrationPage\RegistrationPage.cs" />
+    <Compile Include="Pages\RegistrationPage\RegistrationPage.Map.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

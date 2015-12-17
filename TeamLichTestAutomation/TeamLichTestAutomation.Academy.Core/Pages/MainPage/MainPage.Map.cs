@@ -51,5 +51,13 @@
                 return this.Browser.Find.ByExpression<HtmlAnchor>("href=/Administration/Navigation");
             }
         }
+
+        internal HtmlAnchor CoursesNavigationDropdown
+        {
+            get
+            {
+                return this.Browser.Find.ByExpression<HtmlAnchor>("href=/Courses/Courses/List");
+            }
+        }
     }
 }

@@ -46,6 +46,9 @@
   <ItemGroup>
     <Compile Include="Facades\TelerikAcademyFacade.cs" />
     <Compile Include="Pages\BasePage.cs" />
+    <Compile Include="Pages\CoursesPage\CoursesPage.cs" />
+    <Compile Include="Pages\CoursesPage\CoursesPage.Map.cs" />
+    <Compile Include="Pages\CoursesPage\CoursesPageAsserter.cs" />
     <Compile Include="Pages\LoginPage\LoginPage.cs" />
     <Compile Include="Pages\LoginPage\LoginPage.Map.cs" />
     <Compile Include="Pages\MainPage\MainPageAsserter.cs" />

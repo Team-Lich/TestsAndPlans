@@ -28,5 +28,11 @@
             var registrationButton = this.RegistrationButton;
             RegistrationButton.Click();
         }
+
+        public void ClickCoursesNavigationDropdown()
+        {
+            var coursesNavigation = this.CoursesNavigationDropdown;
+            coursesNavigation.Click();
+        }
     }
 }

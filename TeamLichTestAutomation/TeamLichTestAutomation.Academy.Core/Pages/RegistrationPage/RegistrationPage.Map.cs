@@ -75,5 +75,21 @@
                 return this.Browser.Find.ById<HtmlSpan>("Username-error");
             }
         }
+
+        internal HtmlSpan LastNameErrorMessage
+        {
+            get
+            {
+                return this.Browser.Find.ById<HtmlSpan>("LastName-error");
+            }
+        }
+
+        internal HtmlSpan LastNameМandatoryErrorMessage
+        {
+            get
+            {
+                return this.Browser.Find.ById<HtmlSpan>("LastName-error");
+            }
+        }
     }
 }

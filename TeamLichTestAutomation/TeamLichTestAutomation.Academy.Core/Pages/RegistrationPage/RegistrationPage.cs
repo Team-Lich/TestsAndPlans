@@ -9,15 +9,52 @@
         {
         }
 
+        const string Password = "123456";
+
         public void RegistrationWithInvalidUsername()
         {
             string password = "123456";
 
             this.UsernameTextBox.Text = "user@test";
-            this.PasswordTextBox.Text = password;
-            this.RepeatPasswordTextBox.Text = password;
+            this.PasswordTextBox.Text = Password;
+            this.RepeatPasswordTextBox.Text = Password;
             this.FirstNameTextBox.Text = "ТестИме";
             this.LastNameTextBox.Text = "ТестФамилия";
+            this.EmailTextBox.Text = "mailtest@test.com";
+            this.TermAndConditionsCheckBox.IsEnabled = true;
+            this.SubmitButton.Click();
+        }
+
+        public void RegistrationWithLengthOfLastNameLessThanMinimumAllowed()
+        {
+            this.UsernameTextBox.Text = "usertest";
+            this.PasswordTextBox.Text = Password;
+            this.RepeatPasswordTextBox.Text = Password;
+            this.FirstNameTextBox.Text = "ТестИме";
+            this.LastNameTextBox.Text = "Ф";
+            this.EmailTextBox.Text = "mailtest@test.com";
+            this.TermAndConditionsCheckBox.IsEnabled = true;
+            this.SubmitButton.Click();
+        }
+
+        public void RegistrationWithNonCyrillicAlphabetSymbolsInLastNameField()
+        {
+            this.UsernameTextBox.Text = "usertest";
+            this.PasswordTextBox.Text = Password;
+            this.RepeatPasswordTextBox.Text = Password;
+            this.FirstNameTextBox.Text = "ТестИме";
+            this.LastNameTextBox.Text = "testфамилия";
+            this.EmailTextBox.Text = "mailtest@test.com";
+            this.TermAndConditionsCheckBox.IsEnabled = true;
+            this.SubmitButton.Click();
+        }
+
+        public void RegistrationWithEmptyLastNameField()
+        {
+            this.UsernameTextBox.Text = "usertest";
+            this.PasswordTextBox.Text = Password;
+            this.RepeatPasswordTextBox.Text = Password;
+            this.FirstNameTextBox.Text = "ТестИме";
             this.EmailTextBox.Text = "mailtest@test.com";
             this.TermAndConditionsCheckBox.IsEnabled = true;
             this.SubmitButton.Click();

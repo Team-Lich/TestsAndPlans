@@ -136,9 +136,8 @@ namespace TeamLichTestAutomation.Tests
 
         #endregion
 
-
         [TestMethod]
-        public void RegistrationWithInvalidUserName()
+        public void TestRegistrationWithInvalidUserName()
         {
             MainPage mainPage = new MainPage(this.browser);
             mainPage.Navigate().ClickRegistration();
@@ -147,6 +146,42 @@ namespace TeamLichTestAutomation.Tests
             registrationPage.RegistrationWithInvalidUsername();
 
             registrationPage.AssertErrorMessageIsDisplayedWhenEnterInvalidUsername();
+        }
+
+        [TestMethod]
+        public void TestRegistrationWithLengthOfLastNameLessThanMinimumAllowed()
+        {
+            MainPage mainPage = new MainPage(this.browser);
+            mainPage.Navigate().ClickRegistration();
+
+            RegistrationPage registrationPage = new RegistrationPage(this.browser);
+            registrationPage.RegistrationWithLengthOfLastNameLessThanMinimumAllowed();
+
+            registrationPage.AssertErrorMessageIsDisplayedWhenLastNameLengthIsLessThanMinimumAllowed();
+        }
+
+        [TestMethod]
+        public void TestRegistrationWithNonCyrillicAlphabetSymbolsInLastName()
+        {
+            MainPage mainPage = new MainPage(this.browser);
+            mainPage.Navigate().ClickRegistration();
+
+            RegistrationPage registrationPage = new RegistrationPage(this.browser);
+            registrationPage.RegistrationWithLengthOfLastNameLessThanMinimumAllowed();
+
+            registrationPage.AssertErrorMessageIsDisplayedWhenLastNameContainNonCyrillicAlphabetSymbol();
+        }
+
+        [TestMethod]
+        public void TestRegistrationWithEmptyLastNameField()
+        {
+            MainPage mainPage = new MainPage(this.browser);
+            mainPage.Navigate().ClickRegistration();
+
+            RegistrationPage registrationPage = new RegistrationPage(this.browser);
+            registrationPage.RegistrationWithEmptyLastNameField();
+
+            registrationPage.AssertErrorMessageIsDisplayedWhenLastNameFieldIsEmpty();
         }
     }
 }

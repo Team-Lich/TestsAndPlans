@@ -23,16 +23,9 @@
         }
 
         // FirstFriendUser and SecondFriendUser should be already friends
-        public void LoginFirstFriendUser()
+        public void LoginFriendUser(string userName)
         {
-            this.UserTextBox.Text = "TeamLich_Friend1";
-            this.PassTextBox.Text = "123456";
-            this.SubmitButton.Click();
-        }
-
-        public void LoginSecondFriendUser()
-        {
-            this.UserTextBox.Text = "TeamLich_Friend2";
+            this.UserTextBox.Text = userName;
             this.PassTextBox.Text = "123456";
             this.SubmitButton.Click();
         }

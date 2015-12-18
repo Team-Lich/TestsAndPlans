@@ -1,3 +1,5 @@
+using ArtOfTest.WebAii.Controls.HtmlControls;
+
 namespace TeamLichTestAutomation.Tests
 {
     using ArtOfTest.WebAii.Core;
@@ -105,6 +107,7 @@ namespace TeamLichTestAutomation.Tests
             Manager.ActiveBrowser.ClearCache(BrowserCacheType.Cookies);
 
             this.browser = Manager.ActiveBrowser;
+            this.MakeUsersFriends();
         }
 
         // Use TestCleanup to run code after each test has run
@@ -140,13 +143,7 @@ namespace TeamLichTestAutomation.Tests
         [TestMethod]
         public void TestSendMessageButtonActive()
         {
-            MainPage mainPage = new MainPage(this.browser);
-            mainPage.Navigate().ClickLogin();
-
-            LoginPage loginPage = new LoginPage(this.browser);
-            loginPage.LoginFirstFriendUser();
-
-            mainPage.NavigateTo(secondFriendUrl);
+            LoginFriendUser("TeamLich_Friend1").NavigateTo(secondFriendUrl);
 
             UserPage userPage = new UserPage(this.browser);
             userPage.ClickSendMessageButtonActive();
@@ -154,14 +151,44 @@ namespace TeamLichTestAutomation.Tests
         }
 
         [TestMethod]
-        public void TestAddFriendButtonActive()
+        public void TestRemoveFriendButton()
         {
-            MainPage mainPage = new MainPage(this.browser);
-            mainPage.NavigateTo(secondFriendUrl);
+            LoginFriendUser("TeamLich_Friend1").NavigateTo(secondFriendUrl);
 
             UserPage userPage = new UserPage(this.browser);
             userPage.ClickRemoveFriendButton();
             userPage.AssertFriendIsRemovedWhenRemoveFriendButtonIsClicked();
+        }
+
+        private void MakeUsersFriends()
+        {
+            var homePage = LoginFriendUser("TeamLich_Friend1");
+            homePage.NavigateTo(secondFriendUrl);
+
+            UserPage userPage = new UserPage(this.browser);
+            if (userPage.AddFriendButton.IsVisible())
+            {
+                userPage.AddFriendButton.Click();
+            }
+
+            homePage.LogoutButton.Click();
+
+            homePage = LoginFriendUser("TeamLich_Friend2");
+            homePage.NavigateTo("http://stage.telerikacademy.com/Friends");
+            homePage.Browser.Find.ByAttributes<HtmlDiv>("class=approveFriendship").Click();
+
+            homePage.LogoutButton.Click();
+        }
+
+        private MainPage LoginFriendUser(string userName)
+        {
+            MainPage mainPage = new MainPage(this.browser);
+            mainPage.Navigate().ClickLogin();
+
+            LoginPage loginPage = new LoginPage(this.browser);
+            loginPage.LoginFriendUser(userName);
+
+            return mainPage;
         }
     }
 }

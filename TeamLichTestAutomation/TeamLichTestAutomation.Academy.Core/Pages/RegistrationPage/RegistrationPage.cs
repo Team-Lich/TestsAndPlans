@@ -135,5 +135,87 @@
             this.TermAndConditionsCheckBox.IsEnabled = true;
             this.SubmitButton.Click();
         }
+
+        public void RegistrationWithEmptyPasswordAgainField()
+        {
+            this.UsernameTextBox.Text = "usertest";
+            this.PasswordTextBox.Text = Password;
+            this.FirstNameTextBox.Text = "ТестИме";
+            this.LastNameTextBox.Text = "ТестФамилия";
+            this.EmailTextBox.Text = "mailtest@test.com";
+            this.TermAndConditionsCheckBox.IsEnabled = true;
+            this.SubmitButton.Click();
+        }
+
+        public void RegistrationWithEmptyEmail()
+        {
+            this.UsernameTextBox.Text = "usertest";
+            this.PasswordTextBox.Text = Password;
+            this.RepeatPasswordTextBox.Text = Password;
+            this.FirstNameTextBox.Text = "ТестИме";
+            this.LastNameTextBox.Text = "ТестФамилия";
+            this.TermAndConditionsCheckBox.IsEnabled = true;
+            this.SubmitButton.Click();
+        }
+
+        public void RegistrationWithNonCyrillicAlphabetSymbolsInFirsttNameField()
+        {
+            this.UsernameTextBox.Text = "usertest";
+            this.PasswordTextBox.Text = Password;
+            this.RepeatPasswordTextBox.Text = Password;
+            this.FirstNameTextBox.Text = "testИме";
+            this.LastNameTextBox.Text = "фамилия";
+            this.EmailTextBox.Text = "mailtest@test.com";
+            this.TermAndConditionsCheckBox.IsEnabled = true;
+            this.SubmitButton.Click();
+        }
+
+        public void RegistrationWithLengthOfFirstNameLessThanMinimumAllowed()
+        {
+            this.UsernameTextBox.Text = "usertest";
+            this.PasswordTextBox.Text = Password;
+            this.RepeatPasswordTextBox.Text = Password;
+            this.FirstNameTextBox.Text = "и";
+            this.LastNameTextBox.Text = "Фамилия";
+            this.EmailTextBox.Text = "mailtest@test.com";
+            this.TermAndConditionsCheckBox.IsEnabled = true;
+            this.SubmitButton.Click();
+        }
+
+        public void RegistratioWithUsernameStartingWithNonAlphabetSymbol()
+        {
+            this.UsernameTextBox.Text = "1usertest";
+            this.PasswordTextBox.Text = Password;
+            this.RepeatPasswordTextBox.Text = Password;
+            this.FirstNameTextBox.Text = "имеТест";
+            this.LastNameTextBox.Text = "Фамилия";
+            this.EmailTextBox.Text = "mailtest@test.com";
+            this.TermAndConditionsCheckBox.IsEnabled = true;
+            this.SubmitButton.Click();
+        }
+
+        public void RegistrationWithEmailAddressNotContainingAtSymbol()
+        {
+            this.UsernameTextBox.Text = "usertest";
+            this.PasswordTextBox.Text = Password;
+            this.RepeatPasswordTextBox.Text = Password;
+            this.FirstNameTextBox.Text = "имеТест";
+            this.LastNameTextBox.Text = "Фамилия";
+            this.EmailTextBox.Text = "mailtest.com";
+            this.TermAndConditionsCheckBox.IsEnabled = true;
+            this.SubmitButton.Click();
+        }
+
+        public void RegistrationWithEmailAddressNotContainingPointSymbol()
+        {
+            this.UsernameTextBox.Text = "usertest";
+            this.PasswordTextBox.Text = Password;
+            this.RepeatPasswordTextBox.Text = Password;
+            this.FirstNameTextBox.Text = "имеТест";
+            this.LastNameTextBox.Text = "Фамилия";
+            this.EmailTextBox.Text = "mailtest@testcom";
+            this.TermAndConditionsCheckBox.IsEnabled = true;
+            this.SubmitButton.Click();
+        }
     }
 }

@@ -60,6 +60,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="LoginTestSuite.cs" />
     <Compile Include="RegistrationTestSuite.cs" />
+    <Compile Include="UserPageTestSuite.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TeamLichTestAutomation.Academy.Core\TeamLichTestAutomation.Academy.Core.csproj">

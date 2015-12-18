@@ -17,6 +17,12 @@
             return this;
         }
 
+        public MainPage NavigateTo(string url)
+        {
+            this.Browser.NavigateTo(url);
+            return this;
+        }
+
         public void ClickLogin()
         {
             var loginButton = this.LoginButton;

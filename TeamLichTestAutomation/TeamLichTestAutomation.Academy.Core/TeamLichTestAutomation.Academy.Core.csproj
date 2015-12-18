@@ -69,6 +69,9 @@
     <Compile Include="Pages\RegistrationPage\RegistrationPageAsserter.cs" />
     <Compile Include="Pages\RegistrationPage\RegistrationPage.cs" />
     <Compile Include="Pages\RegistrationPage\RegistrationPage.Map.cs" />
+    <Compile Include="Pages\UserPage\UserPage.cs" />
+    <Compile Include="Pages\UserPage\UserPage.Map.cs" />
+    <Compile Include="Pages\UserPage\UserPageAsserter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

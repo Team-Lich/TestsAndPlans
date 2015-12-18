@@ -166,5 +166,41 @@
             this.TermAndConditionsCheckBox.IsEnabled = true;
             this.SubmitButton.Click();
         }
+
+        public void RegistratioWithUsernameStartingWithNonAlphabetSymbol()
+        {
+            this.UsernameTextBox.Text = "1usertest";
+            this.PasswordTextBox.Text = Password;
+            this.RepeatPasswordTextBox.Text = Password;
+            this.FirstNameTextBox.Text = "имеТест";
+            this.LastNameTextBox.Text = "Фамилия";
+            this.EmailTextBox.Text = "mailtest@test.com";
+            this.TermAndConditionsCheckBox.IsEnabled = true;
+            this.SubmitButton.Click();
+        }
+
+        public void RegistrationWithEmailAddressNotContainingAtSymbol()
+        {
+            this.UsernameTextBox.Text = "usertest";
+            this.PasswordTextBox.Text = Password;
+            this.RepeatPasswordTextBox.Text = Password;
+            this.FirstNameTextBox.Text = "имеТест";
+            this.LastNameTextBox.Text = "Фамилия";
+            this.EmailTextBox.Text = "mailtest.com";
+            this.TermAndConditionsCheckBox.IsEnabled = true;
+            this.SubmitButton.Click();
+        }
+
+        public void RegistrationWithEmailAddressNotContainingPointSymbol()
+        {
+            this.UsernameTextBox.Text = "usertest";
+            this.PasswordTextBox.Text = Password;
+            this.RepeatPasswordTextBox.Text = Password;
+            this.FirstNameTextBox.Text = "имеТест";
+            this.LastNameTextBox.Text = "Фамилия";
+            this.EmailTextBox.Text = "mailtest@testcom";
+            this.TermAndConditionsCheckBox.IsEnabled = true;
+            this.SubmitButton.Click();
+        }
     }
 }

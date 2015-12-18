@@ -284,5 +284,38 @@ namespace TeamLichTestAutomation.Tests
 
             registrationPage.AssertErrorMessageIsDisplayedWhenFirstNameLengthIsLessThanMinimumAllowed();
         }
+
+        [TestMethod]
+        public void TestRegistratioWithUsernameStartingWithNonAlphabetSymbol()
+        {
+            this.NavigateToRegistrationForm();
+
+            RegistrationPage registrationPage = new RegistrationPage(this.browser);
+            registrationPage.RegistratioWithUsernameStartingWithNonAlphabetSymbol();
+
+            registrationPage.AssertErrorMessageIsDisplayedWhenUsernameStartsWithNonAlphabetSymbol();
+        }
+
+        [TestMethod]
+        public void TestRegistrationWithEmailAddressNotContainAtSymbol()
+        {
+            this.NavigateToRegistrationForm();
+
+            RegistrationPage registrationPage = new RegistrationPage(this.browser);
+            registrationPage.RegistrationWithEmailAddressNotContainingAtSymbol();
+
+            registrationPage.AssertErrorMessageIsDisplayedWhenEmailAddressNotContainSpecialSymbols();
+        }
+
+        [TestMethod]
+        public void TestRegistrationWithEmailAddressNotContainPointSymbol()
+        {
+            this.NavigateToRegistrationForm();
+
+            RegistrationPage registrationPage = new RegistrationPage(this.browser);
+            registrationPage.RegistrationWithEmailAddressNotContainingPointSymbol();
+
+            registrationPage.AssertErrorMessageIsDisplayedWhenEmailAddressNotContainSpecialSymbols();
+        }
     }
 }

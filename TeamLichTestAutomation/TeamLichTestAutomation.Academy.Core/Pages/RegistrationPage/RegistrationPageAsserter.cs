@@ -87,7 +87,7 @@
         public static void AssertErrorMessageIsDisplayedWhenFirstNameContainNonCyrillicAlphabetSymbol(this RegistrationPage registrationPage)
         {
             string firstNameErrorMessage = "Името може да съдържа само букви от българската азбука и знака тире. " +
-                                       "Името трябва да започва и да завършва с буква. Минимална дължина - 2 букви.";
+                                           "Името трябва да започва и да завършва с буква. Минимална дължина - 2 букви.";
 
             Assert.AreEqual(firstNameErrorMessage, registrationPage.FirstNameErrorMessage.InnerText);
         }
@@ -98,6 +98,22 @@
                                            "Името трябва да започва и да завършва с буква. Минимална дължина - 2 букви.";
 
             Assert.AreEqual(firstNameErrorMessage, registrationPage.FirstNameErrorMessage.InnerText);
+        }
+
+        public static void AssertErrorMessageIsDisplayedWhenUsernameStartsWithNonAlphabetSymbol(this RegistrationPage registrationPage)
+        {
+            string usernameErrorMessage = "Потребителското име може да съдържа само малки и главни " +
+                                           "латински букви, цифри и знаците точка и долна черта. " +
+                                           "Потребителското име трябва да започва с буква и да завършва с буква или цифра.";
+
+            Assert.AreEqual(usernameErrorMessage, registrationPage.UsernameErrorMessage.InnerText);
+        }
+
+        public static void AssertErrorMessageIsDisplayedWhenEmailAddressNotContainSpecialSymbols(this RegistrationPage registrationPage)
+        {
+            string emailErrorMessage = "Моля въведете валиден имейл адрес.";
+
+            Assert.AreEqual(emailErrorMessage, registrationPage.EmailErrorMessage.InnerText);
         }
     }
 }

@@ -100,7 +100,7 @@ namespace TeamLichTestAutomation.Tests
             // Place any additional initialization here
             //
 
-            Manager.LaunchNewBrowser(BrowserType.FireFox);
+            Manager.LaunchNewBrowser(BrowserType.Chrome);
             Manager.ActiveBrowser.ClearCache(BrowserCacheType.Cookies);
 
             this.browser = Manager.ActiveBrowser;

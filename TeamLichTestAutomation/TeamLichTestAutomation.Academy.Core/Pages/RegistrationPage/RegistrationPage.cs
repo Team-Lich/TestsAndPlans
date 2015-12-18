@@ -1,5 +1,6 @@
 ﻿namespace TeamLichTestAutomation.Academy.Core.Pages.RegistrationPage
 {
+    using System.Threading;
     using ArtOfTest.WebAii.Core;
     using TeamLichTestAutomation.Utilities;
 
@@ -36,7 +37,7 @@
             this.FirstNameTextBox.Text = "ТестИме";
             this.LastNameTextBox.Text = "ТестФамилия";
             this.EmailTextBox.Text = "mailtest@test.com";
-            this.TermAndConditionsCheckBox.IsEnabled = true;
+            this.TermAndConditionsCheckBox.Checked = true;
             this.SubmitButton.Click();
         }
 
@@ -48,7 +49,7 @@
             this.FirstNameTextBox.Text = "ТестИме";
             this.LastNameTextBox.Text = "Ф";
             this.EmailTextBox.Text = "mailtest@test.com";
-            this.TermAndConditionsCheckBox.IsEnabled = true;
+            this.TermAndConditionsCheckBox.Checked = true;
             this.SubmitButton.Click();
         }
 
@@ -60,7 +61,7 @@
             this.FirstNameTextBox.Text = "ТестИме";
             this.LastNameTextBox.Text = "testфамилия";
             this.EmailTextBox.Text = "mailtest@test.com";
-            this.TermAndConditionsCheckBox.IsEnabled = true;
+            this.TermAndConditionsCheckBox.Checked = true;
             this.SubmitButton.Click();
         }
 
@@ -71,7 +72,7 @@
             this.RepeatPasswordTextBox.Text = Password;
             this.FirstNameTextBox.Text = "ТестИме";
             this.EmailTextBox.Text = "mailtest@test.com";
-            this.TermAndConditionsCheckBox.IsEnabled = true;
+            this.TermAndConditionsCheckBox.Checked = true;
             this.SubmitButton.Click();
         }
 
@@ -94,7 +95,7 @@
             this.FirstNameTextBox.Text = "ТестИме";
             this.LastNameTextBox.Text = "ТестФамилия";
             this.EmailTextBox.Text = "mailtest@test.com";
-            this.TermAndConditionsCheckBox.IsEnabled = true;
+            this.TermAndConditionsCheckBox.Checked = true;
             this.SubmitButton.Click();
         }
 
@@ -108,7 +109,8 @@
             this.FirstNameTextBox.Text = "ТестИме";
             this.LastNameTextBox.Text = "ТестФамилия";
             this.EmailTextBox.Text = "mailtest@test.com";
-            this.TermAndConditionsCheckBox.IsEnabled = true;
+            this.TermAndConditionsCheckBox.Checked = true;
+            Thread.Sleep(1000);
             this.SubmitButton.Click();
         }
 
@@ -120,7 +122,7 @@
             this.FirstNameTextBox.Text = "ТестИме";
             this.LastNameTextBox.Text = "ТестФамилия";
             this.EmailTextBox.Text = "mailtest@test.com";
-            this.TermAndConditionsCheckBox.IsEnabled = true;
+            this.TermAndConditionsCheckBox.Checked = true;
             this.SubmitButton.Click();
         }
 
@@ -132,7 +134,7 @@
             this.FirstNameTextBox.Text = "ТестИме";
             this.LastNameTextBox.Text = "ТестФамилия";
             this.EmailTextBox.Text = "mailtest@test.com";
-            this.TermAndConditionsCheckBox.IsEnabled = true;
+            this.TermAndConditionsCheckBox.Checked = true;
             this.SubmitButton.Click();
         }
 
@@ -143,7 +145,7 @@
             this.FirstNameTextBox.Text = "ТестИме";
             this.LastNameTextBox.Text = "ТестФамилия";
             this.EmailTextBox.Text = "mailtest@test.com";
-            this.TermAndConditionsCheckBox.IsEnabled = true;
+            this.TermAndConditionsCheckBox.Checked = true;
             this.SubmitButton.Click();
         }
 
@@ -154,7 +156,7 @@
             this.RepeatPasswordTextBox.Text = Password;
             this.FirstNameTextBox.Text = "ТестИме";
             this.LastNameTextBox.Text = "ТестФамилия";
-            this.TermAndConditionsCheckBox.IsEnabled = true;
+            this.TermAndConditionsCheckBox.Checked = true;
             this.SubmitButton.Click();
         }
 
@@ -166,7 +168,7 @@
             this.FirstNameTextBox.Text = "testИме";
             this.LastNameTextBox.Text = "фамилия";
             this.EmailTextBox.Text = "mailtest@test.com";
-            this.TermAndConditionsCheckBox.IsEnabled = true;
+            this.TermAndConditionsCheckBox.Checked = true;
             this.SubmitButton.Click();
         }
 
@@ -178,7 +180,7 @@
             this.FirstNameTextBox.Text = "и";
             this.LastNameTextBox.Text = "Фамилия";
             this.EmailTextBox.Text = "mailtest@test.com";
-            this.TermAndConditionsCheckBox.IsEnabled = true;
+            this.TermAndConditionsCheckBox.Checked = true;
             this.SubmitButton.Click();
         }
 
@@ -190,7 +192,7 @@
             this.FirstNameTextBox.Text = "имеТест";
             this.LastNameTextBox.Text = "Фамилия";
             this.EmailTextBox.Text = "mailtest@test.com";
-            this.TermAndConditionsCheckBox.IsEnabled = true;
+            this.TermAndConditionsCheckBox.Checked = true;
             this.SubmitButton.Click();
         }
 
@@ -202,7 +204,7 @@
             this.FirstNameTextBox.Text = "имеТест";
             this.LastNameTextBox.Text = "Фамилия";
             this.EmailTextBox.Text = "mailtest.com";
-            this.TermAndConditionsCheckBox.IsEnabled = true;
+            this.TermAndConditionsCheckBox.Checked = true;
             this.SubmitButton.Click();
         }
 
@@ -214,7 +216,7 @@
             this.FirstNameTextBox.Text = "имеТест";
             this.LastNameTextBox.Text = "Фамилия";
             this.EmailTextBox.Text = "mailtest@testcom";
-            this.TermAndConditionsCheckBox.IsEnabled = true;
+            this.TermAndConditionsCheckBox.Checked = true;
             this.SubmitButton.Click();
         }
     }

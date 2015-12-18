@@ -120,5 +120,51 @@
             this.TermAndConditionsCheckBox.IsEnabled = true;
             this.SubmitButton.Click();
         }
+
+        public void RegistrationWithEmptyPasswordAgainField()
+        {
+            this.UsernameTextBox.Text = "usertest";
+            this.PasswordTextBox.Text = Password;
+            this.FirstNameTextBox.Text = "ТестИме";
+            this.LastNameTextBox.Text = "ТестФамилия";
+            this.EmailTextBox.Text = "mailtest@test.com";
+            this.TermAndConditionsCheckBox.IsEnabled = true;
+            this.SubmitButton.Click();
+        }
+
+        public void RegistrationWithEmptyEmail()
+        {
+            this.UsernameTextBox.Text = "usertest";
+            this.PasswordTextBox.Text = Password;
+            this.RepeatPasswordTextBox.Text = Password;
+            this.FirstNameTextBox.Text = "ТестИме";
+            this.LastNameTextBox.Text = "ТестФамилия";
+            this.TermAndConditionsCheckBox.IsEnabled = true;
+            this.SubmitButton.Click();
+        }
+
+        public void RegistrationWithNonCyrillicAlphabetSymbolsInFirsttNameField()
+        {
+            this.UsernameTextBox.Text = "usertest";
+            this.PasswordTextBox.Text = Password;
+            this.RepeatPasswordTextBox.Text = Password;
+            this.FirstNameTextBox.Text = "testИме";
+            this.LastNameTextBox.Text = "фамилия";
+            this.EmailTextBox.Text = "mailtest@test.com";
+            this.TermAndConditionsCheckBox.IsEnabled = true;
+            this.SubmitButton.Click();
+        }
+
+        public void RegistrationWithLengthOfFirstNameLessThanMinimumAllowed()
+        {
+            this.UsernameTextBox.Text = "usertest";
+            this.PasswordTextBox.Text = Password;
+            this.RepeatPasswordTextBox.Text = Password;
+            this.FirstNameTextBox.Text = "и";
+            this.LastNameTextBox.Text = "Фамилия";
+            this.EmailTextBox.Text = "mailtest@test.com";
+            this.TermAndConditionsCheckBox.IsEnabled = true;
+            this.SubmitButton.Click();
+        }
     }
 }

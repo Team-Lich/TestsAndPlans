@@ -100,7 +100,7 @@
             }
         }
 
-        internal HtmlSpan DifferentPasswordErrorMessage
+        internal HtmlSpan PasswordAgainErrorMessage
         {
             get
             {
@@ -121,6 +121,22 @@
             get
             {
                 return this.Browser.Find.ById<HtmlSpan>("Username-error");
+            }
+        }
+
+        internal HtmlSpan EmailErrorMessage
+        {
+            get
+            {
+                return this.Browser.Find.ById<HtmlSpan>("Email-error");
+            }
+        }
+
+        internal HtmlSpan FirstNameErrorMessage
+        {
+            get
+            {
+                return this.Browser.Find.ById<HtmlSpan>("FirstName-error");
             }
         }
     }

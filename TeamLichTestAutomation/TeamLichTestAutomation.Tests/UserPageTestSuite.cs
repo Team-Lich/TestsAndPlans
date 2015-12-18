@@ -101,6 +101,10 @@ namespace TeamLichTestAutomation.Tests
             // Place any additional initialization here
             //
 
+            Manager.LaunchNewBrowser(BrowserType.Chrome);
+            Manager.ActiveBrowser.ClearCache(BrowserCacheType.Cookies);
+
+            this.browser = Manager.ActiveBrowser;
         }
 
         // Use TestCleanup to run code after each test has run

@@ -20,7 +20,7 @@
             }
         }
 
-        internal HtmlAnchor LogoutButton
+        public HtmlAnchor LogoutButton
         {
             get
             {

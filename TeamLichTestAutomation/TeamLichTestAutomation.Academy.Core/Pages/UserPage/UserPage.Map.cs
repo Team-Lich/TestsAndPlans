@@ -8,7 +8,7 @@ namespace TeamLichTestAutomation.Academy.Core.Pages.UserPage
         {
             get
             {
-                return this.Browser.Find.ByAttributes<HtmlSpan>("class=btn-default");
+                return this.Browser.Find.ByAttributes<HtmlSpan>("class=~btn-default");
             }
         }
 
@@ -16,7 +16,7 @@ namespace TeamLichTestAutomation.Academy.Core.Pages.UserPage
         {
             get
             {
-                return this.Browser.Find.ByAttributes<HtmlAnchor>("class=btn-success");
+                return this.Browser.Find.ByAttributes<HtmlAnchor>("class=~btn-success");
             }
         }
 

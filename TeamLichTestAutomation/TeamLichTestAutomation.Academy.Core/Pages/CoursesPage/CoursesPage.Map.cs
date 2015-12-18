@@ -9,7 +9,7 @@
             get
             {
                 return this.Browser.Find.
-                    ById<HtmlSpan>("CourseLiveApplyForm");
+                    ById<HtmlSpan>("SignUpLiveButton");
             }
         }
 
@@ -17,15 +17,17 @@
         {
             get
             {
+                this.Browser.WaitForElement(5000, "id=SignUpOnlineButton");
                 return this.Browser.Find.ById<HtmlSpan>("SignUpOnlineButton");
             }
         }
 
-        public HtmlButton SignOff
+        public HtmlSpan SignOff
         {
             get
             {
-                return this.Browser.Find.ByXPath<HtmlButton>("//*[@id='MainContent']/div/div[5]/div[2]/div[6]/div/div[2]/span");
+                this.Browser.WaitForElement(5000, "onclick=~confirmQuitCourse");
+                return this.Browser.Find.ByExpression<HtmlSpan>("onclick=~confirmQuitCourse");
             }
         }
 

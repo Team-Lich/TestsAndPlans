@@ -7,9 +7,10 @@
     {
         public static void AssertSignOffBtn(this CoursesPage coursesPage)
         {
-            var message = "Отпишете курса";
+            var s = coursesPage.SignOff;
+            var signOffButtonExists = s.IsVisible();
 
-           Assert.AreEqual(message, coursesPage.SignOff.InnerText);
+            Assert.IsTrue(signOffButtonExists);
         }
 
         public static void AssertCoursesFound(this CoursesPage coursesPage)

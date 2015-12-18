@@ -113,7 +113,7 @@ namespace TeamLichTestAutomation.Tests.AdministrationTestSuites
 
             #endregion
 
-            Manager.LaunchNewBrowser(BrowserType.Chrome);
+            Manager.LaunchNewBrowser(BrowserType.FireFox);
             this.browser = Manager.ActiveBrowser;
             this.browser.ClearCache(BrowserCacheType.Cookies);
 

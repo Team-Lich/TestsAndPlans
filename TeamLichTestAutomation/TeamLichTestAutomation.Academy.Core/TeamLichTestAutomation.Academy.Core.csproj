@@ -77,7 +77,12 @@
   <ItemGroup>
     <Compile Include="Pages\MainPage\MainPage.Map.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\TeamLichTestAutomation.Utilities\TeamLichTestAutomation.Utilities.csproj">
+      <Project>{a04f0e40-4b64-4064-bdbe-bde8506e0c2c}</Project>
+      <Name>TeamLichTestAutomation.Utilities</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

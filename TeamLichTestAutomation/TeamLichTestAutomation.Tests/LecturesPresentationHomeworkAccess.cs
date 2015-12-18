@@ -99,7 +99,7 @@ namespace TeamLichTestAutomation.Tests
 
             #endregion
 
-            Manager.LaunchNewBrowser(BrowserType.Chrome);
+            Manager.LaunchNewBrowser(BrowserType.FireFox);
             Manager.ActiveBrowser.ClearCache(BrowserCacheType.Cookies);
 
             this.browser = Manager.ActiveBrowser;

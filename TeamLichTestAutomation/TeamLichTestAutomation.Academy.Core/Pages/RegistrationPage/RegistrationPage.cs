@@ -1,6 +1,7 @@
 ﻿namespace TeamLichTestAutomation.Academy.Core.Pages.RegistrationPage
 {
     using ArtOfTest.WebAii.Core;
+    using TeamLichTestAutomation.Utilities;
 
     public partial class RegistrationPage : BasePage
     {
@@ -10,6 +11,20 @@
         }
 
         const string Password = "123456";
+
+        public void RegisterRandomUser()
+        {
+            RandomStringGenerator generator = new RandomStringGenerator();
+
+            this.UsernameTextBox.Text = generator.GetString(8);
+            this.PasswordTextBox.Text = Password;
+            this.RepeatPasswordTextBox.Text = Password;
+            this.FirstNameTextBox.Text = "ТестИме";
+            this.LastNameTextBox.Text = "ТестФамилия";
+            this.EmailTextBox.Text = generator.GetString(8) + "@test.com";
+            this.TermAndConditionsCheckBox.Checked = true;
+            this.SubmitButton.Click();
+        }
 
         public void RegistrationWithInvalidUsername()
         {

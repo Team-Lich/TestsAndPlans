@@ -12,7 +12,15 @@
             }
         }
 
-        internal HtmlAnchor LogoutButton
+        internal HtmlAnchor FacebookLoginButton
+        {
+            get
+            {
+                return this.Browser.Find.ById<HtmlAnchor>("FbLogin");
+            }
+        }
+
+        public HtmlAnchor LogoutButton
         {
             get
             {

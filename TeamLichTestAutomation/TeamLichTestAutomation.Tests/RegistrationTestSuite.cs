@@ -136,17 +136,186 @@ namespace TeamLichTestAutomation.Tests
 
         #endregion
 
-
-        [TestMethod]
-        public void RegistrationWithInvalidUserName()
+        public void NavigateToRegistrationForm()
         {
             MainPage mainPage = new MainPage(this.browser);
             mainPage.Navigate().ClickRegistration();
+        }
+
+        [TestMethod]
+        public void TestRegistrationWithInvalidUserName()
+        {
+            this.NavigateToRegistrationForm();
 
             RegistrationPage registrationPage = new RegistrationPage(this.browser);
             registrationPage.RegistrationWithInvalidUsername();
 
             registrationPage.AssertErrorMessageIsDisplayedWhenEnterInvalidUsername();
+        }
+
+        [TestMethod]
+        public void TestRegistrationWithLengthOfLastNameLessThanMinimumAllowed()
+        {
+            this.NavigateToRegistrationForm();
+
+            RegistrationPage registrationPage = new RegistrationPage(this.browser);
+            registrationPage.RegistrationWithLengthOfLastNameLessThanMinimumAllowed();
+
+            registrationPage.AssertErrorMessageIsDisplayedWhenLastNameLengthIsLessThanMinimumAllowed();
+        }
+
+        [TestMethod]
+        public void TestRegistrationWithNonCyrillicAlphabetSymbolsInLastName()
+        {
+            this.NavigateToRegistrationForm();
+
+            RegistrationPage registrationPage = new RegistrationPage(this.browser);
+            registrationPage.RegistrationWithNonCyrillicAlphabetSymbolsInLastNameField();
+
+            registrationPage.AssertErrorMessageIsDisplayedWhenLastNameContainNonCyrillicAlphabetSymbol();
+        }
+
+        [TestMethod]
+        public void TestRegistrationWithEmptyLastNameField()
+        {
+            this.NavigateToRegistrationForm();
+
+            RegistrationPage registrationPage = new RegistrationPage(this.browser);
+            registrationPage.RegistrationWithEmptyLastNameField();
+
+            registrationPage.AssertErrorMessageIsDisplayedWhenLastNameFieldIsEmpty();
+        }
+
+        [TestMethod]
+        public void TestRegistrationWithUncheckedTermsAndConditionsCheckbox()
+        {
+            this.NavigateToRegistrationForm();
+
+            RegistrationPage registrationPage = new RegistrationPage(this.browser);
+            registrationPage.RegistrationWithUncheckedTermsAndConditionsCheckbox();
+
+            registrationPage.AssertErrorMessageIsDisplayedWhenCheckboxIsUnchecked();
+        }
+
+        [TestMethod]
+        public void TestRegistrationWithDifferentPasswordInPasswordAgainField()
+        {
+            this.NavigateToRegistrationForm();
+
+            RegistrationPage registrationPage = new RegistrationPage(this.browser);
+            registrationPage.RegistrationWithDifferentPasswordInPasswordAgainField();
+
+            registrationPage.AssertErrorMessageIsDisplayedWhenEnterDifferentPasswordInPasswordAgainField();
+        }
+
+        [TestMethod]
+        public void TestRegistrationWithLengthOfPasswordLessThanMinimumAllowed()
+        {
+            this.NavigateToRegistrationForm();
+
+            RegistrationPage registrationPage = new RegistrationPage(this.browser);
+            registrationPage.RegistrationWithLengthOfPasswordLessThanMinimumAllowed();
+
+            registrationPage.AssertErrorMessageIsDisplayedWhenLengthOfPasswordIsLessThanMinimumAllowed();
+        }
+
+        [TestMethod]
+        public void TestRegistrationWithLengthOfUsernameLessThanMinimumAllowed()
+        {
+            this.NavigateToRegistrationForm();
+
+            RegistrationPage registrationPage = new RegistrationPage(this.browser);
+            registrationPage.RegistrationWithLengthOfUsernameLessThanMinimumAllowed();
+
+            registrationPage.AssertErrorMessageIsDisplayedWhenLengthOfUsernameIsInccorect();
+        }
+
+        [TestMethod]
+        public void TestRegistrationWithLengthOfUsernameGreaterThanMaximumAllowed()
+        {
+            this.NavigateToRegistrationForm();
+
+            RegistrationPage registrationPage = new RegistrationPage(this.browser);
+            registrationPage.RegistrationWithLengthOfUsernameGreaterThanMaximumAllowed();
+
+            registrationPage.AssertErrorMessageIsDisplayedWhenLengthOfUsernameIsInccorect();
+        }
+
+        [TestMethod]
+        public void TestRegistrationWithEmptyPasswordAgainField()
+        {
+            this.NavigateToRegistrationForm();
+
+            RegistrationPage registrationPage = new RegistrationPage(this.browser);
+            registrationPage.RegistrationWithEmptyPasswordAgainField();
+
+            registrationPage.AssertErrorMessageIsDisplayedWhenPasswordAgainFieldIsEmpty();
+        }
+
+        [TestMethod]
+        public void TestRegistrationWithEmptyEmail()
+        {
+            this.NavigateToRegistrationForm();
+
+            RegistrationPage registrationPage = new RegistrationPage(this.browser);
+            registrationPage.RegistrationWithEmptyEmail();
+
+            registrationPage.AssertErrorMessageIsDisplayedWhenEmailIsEmpty();
+        }
+
+        [TestMethod]
+        public void TestRegistrationWithNonCyrillicAlphabetSymbolsInFirstName()
+        {
+            this.NavigateToRegistrationForm();
+
+            RegistrationPage registrationPage = new RegistrationPage(this.browser);
+            registrationPage.RegistrationWithNonCyrillicAlphabetSymbolsInFirsttNameField();
+
+            registrationPage.AssertErrorMessageIsDisplayedWhenFirstNameContainNonCyrillicAlphabetSymbol();
+        }
+
+        [TestMethod]
+        public void TestRegistrationWithLengthOfFirstNameLessThanMinimumAllowed()
+        {
+            this.NavigateToRegistrationForm();
+
+            RegistrationPage registrationPage = new RegistrationPage(this.browser);
+            registrationPage.RegistrationWithLengthOfFirstNameLessThanMinimumAllowed();
+
+            registrationPage.AssertErrorMessageIsDisplayedWhenFirstNameLengthIsLessThanMinimumAllowed();
+        }
+
+        [TestMethod]
+        public void TestRegistratioWithUsernameStartingWithNonAlphabetSymbol()
+        {
+            this.NavigateToRegistrationForm();
+
+            RegistrationPage registrationPage = new RegistrationPage(this.browser);
+            registrationPage.RegistratioWithUsernameStartingWithNonAlphabetSymbol();
+
+            registrationPage.AssertErrorMessageIsDisplayedWhenUsernameStartsWithNonAlphabetSymbol();
+        }
+
+        [TestMethod]
+        public void TestRegistrationWithEmailAddressNotContainAtSymbol()
+        {
+            this.NavigateToRegistrationForm();
+
+            RegistrationPage registrationPage = new RegistrationPage(this.browser);
+            registrationPage.RegistrationWithEmailAddressNotContainingAtSymbol();
+
+            registrationPage.AssertErrorMessageIsDisplayedWhenEmailAddressNotContainSpecialSymbols();
+        }
+
+        [TestMethod]
+        public void TestRegistrationWithEmailAddressNotContainPointSymbol()
+        {
+            this.NavigateToRegistrationForm();
+
+            RegistrationPage registrationPage = new RegistrationPage(this.browser);
+            registrationPage.RegistrationWithEmailAddressNotContainingPointSymbol();
+
+            registrationPage.AssertErrorMessageIsDisplayedWhenEmailAddressNotContainSpecialSymbols();
         }
     }
 }

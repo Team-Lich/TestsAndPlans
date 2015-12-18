@@ -75,5 +75,69 @@
                 return this.Browser.Find.ById<HtmlSpan>("Username-error");
             }
         }
+
+        internal HtmlSpan LastNameErrorMessage
+        {
+            get
+            {
+                return this.Browser.Find.ById<HtmlSpan>("LastName-error");
+            }
+        }
+
+        internal HtmlSpan LastNameМandatoryErrorMessage
+        {
+            get
+            {
+                return this.Browser.Find.ById<HtmlSpan>("LastName-error");
+            }
+        }
+
+        internal HtmlDiv ConditionsErrorMessage
+        {
+            get
+            {
+                return this.Browser.Find.ByAttributes<HtmlDiv>("class=validation-summary-errors");
+            }
+        }
+
+        internal HtmlSpan PasswordAgainErrorMessage
+        {
+            get
+            {
+                return this.Browser.Find.ById<HtmlSpan>("PasswordAgain-error");
+            }
+        }
+
+        internal HtmlSpan IncorrectPasswordLengthErrorMessage
+        {
+            get
+            {
+                return this.Browser.Find.ById<HtmlSpan>("Password-error");
+            }
+        }
+
+        internal HtmlSpan IncorrectUsernameLengthErrorMessage
+        {
+            get
+            {
+                return this.Browser.Find.ById<HtmlSpan>("Username-error");
+            }
+        }
+
+        internal HtmlSpan EmailErrorMessage
+        {
+            get
+            {
+                return this.Browser.Find.ById<HtmlSpan>("Email-error");
+            }
+        }
+
+        internal HtmlSpan FirstNameErrorMessage
+        {
+            get
+            {
+                return this.Browser.Find.ById<HtmlSpan>("FirstName-error");
+            }
+        }
     }
 }

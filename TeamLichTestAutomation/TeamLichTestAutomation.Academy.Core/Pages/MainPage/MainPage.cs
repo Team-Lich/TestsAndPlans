@@ -17,10 +17,22 @@
             return this;
         }
 
+        public MainPage NavigateTo(string url)
+        {
+            this.Browser.NavigateTo(url);
+            return this;
+        }
+
         public void ClickLogin()
         {
             var loginButton = this.LoginButton;
             loginButton.Click();
+        }
+
+        public void ClickFacebookLogin()
+        {
+            var facebookLoginButton = this.FacebookLoginButton;
+            facebookLoginButton.Click();
         }
 
         public void ClickRegistration()
@@ -33,6 +45,11 @@
         {
             var coursesNavigation = this.CoursesNavigationDropdown;
             coursesNavigation.Click();
+        }
+
+        public void ClickAdminNavigationDropdown()
+        {
+            this.AdminNavigationDropdown.Click();
         }
     }
 }

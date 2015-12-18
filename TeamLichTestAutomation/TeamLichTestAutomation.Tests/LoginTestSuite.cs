@@ -1,8 +1,14 @@
 namespace TeamLichTestAutomation.Tests
 {
+    using System;
+    using System.Net;
+    using System.Threading;
+    using ArtOfTest.WebAii.Controls.HtmlControls;
+
     using ArtOfTest.WebAii.Core;
     using ArtOfTest.WebAii.TestTemplates;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using TeamLichTestAutomation.Academy.Core.Pages.FacebookLoginPage;
     using TeamLichTestAutomation.Academy.Core.Pages.MainPage;
     using TeamLichTestAutomation.Academy.Core.Pages.LoginPage;
 
@@ -99,7 +105,7 @@ namespace TeamLichTestAutomation.Tests
 
             //Manager.Settings.Web.RecycleBrowser = true;
 
-            Manager.LaunchNewBrowser();
+            Manager.LaunchNewBrowser(BrowserType.Chrome);
             Manager.ActiveBrowser.ClearCache(BrowserCacheType.Cookies);
 
             this.browser = Manager.ActiveBrowser;
@@ -174,6 +180,80 @@ namespace TeamLichTestAutomation.Tests
 
             LoginPage loginPage = new LoginPage(this.browser);
             loginPage.LoginUser("TeamLichTestUser", "hello");
+
+            mainPage.AssertUserIsNotLogged();
+        }
+
+        [TestMethod]
+        public void TestLoginWithInvalidAdminUsername()
+        {
+            MainPage mainPage = new MainPage(this.browser);
+            mainPage.Navigate().ClickLogin();
+
+            LoginPage loginPage = new LoginPage(this.browser);
+            loginPage.LoginUser("TeamLichAdmin", "123456");
+
+            mainPage.AssertUserIsNotLogged();
+        }
+
+        [TestMethod]
+        public void TestLoginWithInvalidRegularUserUsername()
+        {
+            MainPage mainPage = new MainPage(this.browser);
+            mainPage.Navigate().ClickLogin();
+
+            LoginPage loginPage = new LoginPage(this.browser);
+            loginPage.LoginUser("TeamLichUser", "123456");
+
+            mainPage.AssertUserIsNotLogged();
+        }
+
+        [TestMethod]
+        public void TestLoginPersistenceOnBrowserRestart()
+        {
+            MainPage mainPage = new MainPage(this.browser);
+            mainPage.Navigate().ClickLogin();
+
+            LoginPage loginPage = new LoginPage(this.browser);
+            loginPage.LoginRegularUser();
+
+            browser.Close();
+
+            Manager.LaunchNewBrowser();
+            browser = Manager.ActiveBrowser;
+
+            mainPage = new MainPage(this.browser);
+            mainPage.Navigate();
+
+            mainPage.AssertUserIsLoggedAsRegularUser();
+        }
+
+        [TestMethod]
+        public void TestRegularUserIsLoggedOutOnCookieDeletion()
+        {
+            MainPage mainPage = new MainPage(this.browser);
+            mainPage.Navigate().ClickLogin();
+
+            LoginPage loginPage = new LoginPage(this.browser);
+            loginPage.LoginRegularUser();
+
+            browser.ClearCache(BrowserCacheType.Cookies);
+            browser.Refresh();
+
+            mainPage.AssertUserIsNotLogged();
+        }
+
+        [TestMethod]
+        public void TestAdminUserIsLoggedOutOnCookieDeletion()
+        {
+            MainPage mainPage = new MainPage(this.browser);
+            mainPage.Navigate().ClickLogin();
+
+            LoginPage loginPage = new LoginPage(this.browser);
+            loginPage.LoginAdminUser();
+
+            browser.ClearCache(BrowserCacheType.Cookies);
+            browser.Refresh();
 
             mainPage.AssertUserIsNotLogged();
         }

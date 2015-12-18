@@ -36,19 +36,32 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="Telerik.TestingFramework.Controls.KendoUI, Version=2015.3.1015.0, Culture=neutral, PublicKeyToken=528163f3e645de45, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\TelerikFramework\Telerik.TestingFramework.Controls.KendoUI.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Facades\TelerikAcademyFacade.cs" />
+    <Compile Include="Pages\AdminPages\AdminDashboardPage\AdminDashboardPage.cs" />
+    <Compile Include="Pages\AdminPages\AdminDashboardPage\AdminDashboardPage.Map.cs" />
+    <Compile Include="Pages\AdminPages\RolesPage\RolesPage.cs" />
+    <Compile Include="Pages\AdminPages\UniversitiesPage\UniversitiesPage.cs" />
+    <Compile Include="Pages\AdminPages\UniversitiesPage\UniversitiesPage.Map.cs" />
+    <Compile Include="Pages\AdminPages\UniversitiesPage\UniversitiesPageAsserter.cs" />
     <Compile Include="Pages\BasePage.cs" />
     <Compile Include="Pages\CoursesPage\CoursesPage.cs" />
     <Compile Include="Pages\CoursesPage\CoursesPage.Map.cs" />
     <Compile Include="Pages\CoursesPage\CoursesPageAsserter.cs" />
+    <Compile Include="Pages\FacebookLoginPage\FacebookLoginPage.cs" />
+    <Compile Include="Pages\FacebookLoginPage\FacebookLoginPage.Map.cs" />
     <Compile Include="Pages\LoginPage\LoginPage.cs" />
     <Compile Include="Pages\LoginPage\LoginPage.Map.cs" />
     <Compile Include="Pages\MainPage\MainPageAsserter.cs" />
@@ -56,11 +69,15 @@
     <Compile Include="Pages\RegistrationPage\RegistrationPageAsserter.cs" />
     <Compile Include="Pages\RegistrationPage\RegistrationPage.cs" />
     <Compile Include="Pages\RegistrationPage\RegistrationPage.Map.cs" />
+    <Compile Include="Pages\UserPage\UserPage.cs" />
+    <Compile Include="Pages\UserPage\UserPage.Map.cs" />
+    <Compile Include="Pages\UserPage\UserPageAsserter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Pages\MainPage\MainPage.Map.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -105,7 +105,7 @@ namespace TeamLichTestAutomation.Tests
 
             //Manager.Settings.Web.RecycleBrowser = true;
 
-            Manager.LaunchNewBrowser(BrowserType.Chrome);
+            Manager.LaunchNewBrowser(BrowserType.FireFox);
             Manager.ActiveBrowser.ClearCache(BrowserCacheType.Cookies);
 
             this.browser = Manager.ActiveBrowser;

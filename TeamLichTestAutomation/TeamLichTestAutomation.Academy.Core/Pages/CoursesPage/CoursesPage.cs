@@ -11,11 +11,13 @@
 
         public void liveSignUp()
         {
+            this.Browser.WaitForElement(3000, "id=SearchButton");
             this.CourseLiveApply.Click();
         }
 
         public void OnlineSignUp()
         {
+            this.Browser.WaitForElement(3000, "id=SearchButton");
             this.CourseOnlineApply.Click();
         }
     }

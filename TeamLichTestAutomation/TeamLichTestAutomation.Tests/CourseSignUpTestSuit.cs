@@ -2,11 +2,11 @@ namespace TeamLichTestAutomation.Tests
 {
     using ArtOfTest.WebAii.Core;
     using ArtOfTest.WebAii.TestTemplates;
-
     using Microsoft.VisualStudio.TestTools.UnitTesting;
-
     using TeamLichTestAutomation.Academy.Core.Pages.CoursesPage;
+    using TeamLichTestAutomation.Academy.Core.Pages.LoginPage;
     using TeamLichTestAutomation.Academy.Core.Pages.MainPage;
+    using TeamLichTestAutomation.Academy.Core.Pages.RegistrationPage;
 
     /// <summary>
     /// Summary description for CourseSignUpTestSuit
@@ -101,7 +101,7 @@ namespace TeamLichTestAutomation.Tests
             
             // Test Recycle is true
             
-            Manager.LaunchNewBrowser(BrowserType.Chrome);
+            Manager.LaunchNewBrowser(BrowserType.FireFox);
             Manager.ActiveBrowser.ClearCache(BrowserCacheType.Cookies);
 
             this.browser = Manager.ActiveBrowser;
@@ -138,10 +138,15 @@ namespace TeamLichTestAutomation.Tests
         #endregion
 
         [TestMethod]
-        public void AttendanceSignUp()
+        public void TestCourseAttendanceSignUpForLoggedRegularUser()
         {
             var mainPage = new MainPage(this.browser);
-            mainPage.Navigate().ClickCoursesNavigationDropdown();
+            mainPage.Navigate().ClickRegistration();
+
+            RegistrationPage registration = new RegistrationPage(this.browser);
+            registration.RegisterRandomUser();
+
+            mainPage.ClickCoursesNavigationDropdown();
 
             var coursesPage = new CoursesPage(this.browser);
             coursesPage.liveSignUp();

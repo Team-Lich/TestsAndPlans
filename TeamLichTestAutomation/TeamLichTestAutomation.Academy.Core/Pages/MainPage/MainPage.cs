@@ -43,6 +43,7 @@
 
         public void ClickCoursesNavigationDropdown()
         {
+            this.Browser.WaitForElement(5000, "href=/Courses/Courses/List");
             var coursesNavigation = this.CoursesNavigationDropdown;
             coursesNavigation.Click();
         }

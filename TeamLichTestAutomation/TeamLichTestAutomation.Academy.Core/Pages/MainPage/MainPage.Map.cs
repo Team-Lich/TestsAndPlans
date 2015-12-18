@@ -64,6 +64,7 @@
         {
             get
             {
+                this.Browser.WaitForElement(5000, "id=SearchButton");
                 return this.Browser.Find.ByExpression<HtmlAnchor>("href=/Courses/Courses/List");
             }
         }

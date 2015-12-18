@@ -136,11 +136,16 @@ namespace TeamLichTestAutomation.Tests
 
         #endregion
 
-        [TestMethod]
-        public void TestRegistrationWithInvalidUserName()
+        public void NavigateToRegistrationForm()
         {
             MainPage mainPage = new MainPage(this.browser);
             mainPage.Navigate().ClickRegistration();
+        }
+
+        [TestMethod]
+        public void TestRegistrationWithInvalidUserName()
+        {
+            this.NavigateToRegistrationForm();
 
             RegistrationPage registrationPage = new RegistrationPage(this.browser);
             registrationPage.RegistrationWithInvalidUsername();
@@ -151,8 +156,7 @@ namespace TeamLichTestAutomation.Tests
         [TestMethod]
         public void TestRegistrationWithLengthOfLastNameLessThanMinimumAllowed()
         {
-            MainPage mainPage = new MainPage(this.browser);
-            mainPage.Navigate().ClickRegistration();
+            this.NavigateToRegistrationForm();
 
             RegistrationPage registrationPage = new RegistrationPage(this.browser);
             registrationPage.RegistrationWithLengthOfLastNameLessThanMinimumAllowed();
@@ -163,11 +167,10 @@ namespace TeamLichTestAutomation.Tests
         [TestMethod]
         public void TestRegistrationWithNonCyrillicAlphabetSymbolsInLastName()
         {
-            MainPage mainPage = new MainPage(this.browser);
-            mainPage.Navigate().ClickRegistration();
+            this.NavigateToRegistrationForm();
 
             RegistrationPage registrationPage = new RegistrationPage(this.browser);
-            registrationPage.RegistrationWithLengthOfLastNameLessThanMinimumAllowed();
+            registrationPage.RegistrationWithNonCyrillicAlphabetSymbolsInLastNameField();
 
             registrationPage.AssertErrorMessageIsDisplayedWhenLastNameContainNonCyrillicAlphabetSymbol();
         }
@@ -175,8 +178,7 @@ namespace TeamLichTestAutomation.Tests
         [TestMethod]
         public void TestRegistrationWithEmptyLastNameField()
         {
-            MainPage mainPage = new MainPage(this.browser);
-            mainPage.Navigate().ClickRegistration();
+            this.NavigateToRegistrationForm();
 
             RegistrationPage registrationPage = new RegistrationPage(this.browser);
             registrationPage.RegistrationWithEmptyLastNameField();
@@ -187,8 +189,7 @@ namespace TeamLichTestAutomation.Tests
         [TestMethod]
         public void TestRegistrationWithUncheckedTermsAndConditionsCheckbox()
         {
-            MainPage mainPage = new MainPage(this.browser);
-            mainPage.Navigate().ClickRegistration();
+            this.NavigateToRegistrationForm();
 
             RegistrationPage registrationPage = new RegistrationPage(this.browser);
             registrationPage.RegistrationWithUncheckedTermsAndConditionsCheckbox();
@@ -199,8 +200,7 @@ namespace TeamLichTestAutomation.Tests
         [TestMethod]
         public void TestRegistrationWithDifferentPasswordInPasswordAgainField()
         {
-            MainPage mainPage = new MainPage(this.browser);
-            mainPage.Navigate().ClickRegistration();
+            this.NavigateToRegistrationForm();
 
             RegistrationPage registrationPage = new RegistrationPage(this.browser);
             registrationPage.RegistrationWithDifferentPasswordInPasswordAgainField();
@@ -211,8 +211,7 @@ namespace TeamLichTestAutomation.Tests
         [TestMethod]
         public void TestRegistrationWithLengthOfPasswordLessThanMinimumAllowed()
         {
-            MainPage mainPage = new MainPage(this.browser);
-            mainPage.Navigate().ClickRegistration();
+            this.NavigateToRegistrationForm();
 
             RegistrationPage registrationPage = new RegistrationPage(this.browser);
             registrationPage.RegistrationWithLengthOfPasswordLessThanMinimumAllowed();
@@ -223,8 +222,7 @@ namespace TeamLichTestAutomation.Tests
         [TestMethod]
         public void TestRegistrationWithLengthOfUsernameLessThanMinimumAllowed()
         {
-            MainPage mainPage = new MainPage(this.browser);
-            mainPage.Navigate().ClickRegistration();
+            this.NavigateToRegistrationForm();
 
             RegistrationPage registrationPage = new RegistrationPage(this.browser);
             registrationPage.RegistrationWithLengthOfUsernameLessThanMinimumAllowed();
@@ -235,13 +233,56 @@ namespace TeamLichTestAutomation.Tests
         [TestMethod]
         public void TestRegistrationWithLengthOfUsernameGreaterThanMaximumAllowed()
         {
-            MainPage mainPage = new MainPage(this.browser);
-            mainPage.Navigate().ClickRegistration();
+            this.NavigateToRegistrationForm();
 
             RegistrationPage registrationPage = new RegistrationPage(this.browser);
             registrationPage.RegistrationWithLengthOfUsernameGreaterThanMaximumAllowed();
 
             registrationPage.AssertErrorMessageIsDisplayedWhenLengthOfUsernameIsInccorect();
+        }
+
+        [TestMethod]
+        public void TestRegistrationWithEmptyPasswordAgainField()
+        {
+            this.NavigateToRegistrationForm();
+
+            RegistrationPage registrationPage = new RegistrationPage(this.browser);
+            registrationPage.RegistrationWithEmptyPasswordAgainField();
+
+            registrationPage.AssertErrorMessageIsDisplayedWhenPasswordAgainFieldIsEmpty();
+        }
+
+        [TestMethod]
+        public void TestRegistrationWithEmptyEmail()
+        {
+            this.NavigateToRegistrationForm();
+
+            RegistrationPage registrationPage = new RegistrationPage(this.browser);
+            registrationPage.RegistrationWithEmptyEmail();
+
+            registrationPage.AssertErrorMessageIsDisplayedWhenEmailIsEmpty();
+        }
+
+        [TestMethod]
+        public void TestRegistrationWithNonCyrillicAlphabetSymbolsInFirstName()
+        {
+            this.NavigateToRegistrationForm();
+
+            RegistrationPage registrationPage = new RegistrationPage(this.browser);
+            registrationPage.RegistrationWithNonCyrillicAlphabetSymbolsInFirsttNameField();
+
+            registrationPage.AssertErrorMessageIsDisplayedWhenFirstNameContainNonCyrillicAlphabetSymbol();
+        }
+
+        [TestMethod]
+        public void TestRegistrationWithLengthOfFirstNameLessThanMinimumAllowed()
+        {
+            this.NavigateToRegistrationForm();
+
+            RegistrationPage registrationPage = new RegistrationPage(this.browser);
+            registrationPage.RegistrationWithLengthOfFirstNameLessThanMinimumAllowed();
+
+            registrationPage.AssertErrorMessageIsDisplayedWhenFirstNameLengthIsLessThanMinimumAllowed();
         }
     }
 }

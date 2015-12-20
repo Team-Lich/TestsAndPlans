@@ -16,6 +16,7 @@
         {
             get
             {
+                this.Browser.WaitForElement(5000, "id=FbLogin");
                 return this.Browser.Find.ById<HtmlAnchor>("FbLogin");
             }
         }
@@ -24,6 +25,7 @@
         {
             get
             {
+                this.Browser.WaitForElement(5000, "id=ExitMI");
                 return this.Browser.Find.ById<HtmlAnchor>("ExitMI");
             }
         }
@@ -40,6 +42,7 @@
         {
             get
             {
+                this.Browser.WaitForElement(5000, "id=SearchButton");
                 var anchors = this.Browser.Find.AllByTagName<HtmlAnchor>("a");
                 string[] anchorTexts = new string[anchors.Count];
 

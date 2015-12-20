@@ -22,6 +22,7 @@ namespace TeamLichTestAutomation.Tests.AdministrationTestSuites
     using TeamLichTestAutomation.Academy.Core.Pages.LoginPage;
     using TeamLichTestAutomation.Academy.Core.Pages.MainPage;
     using Telerik.TestingFramework.Controls.KendoUI;
+    using TeamLichTestAutomation.Academy.Core.Models;
 
     /// <summary>
     /// Summary description for UniversitiesTestSuite
@@ -161,7 +162,7 @@ namespace TeamLichTestAutomation.Tests.AdministrationTestSuites
             mainPage.Navigate().ClickLogin();
 
             LoginPage loginPage = new LoginPage(this.browser);
-            loginPage.LoginAdminUser();
+            loginPage.LoginUser(User.Admin);
 
             mainPage.ClickAdminNavigationDropdown();
 

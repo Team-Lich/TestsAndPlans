@@ -186,7 +186,7 @@ namespace TeamLichTestAutomation.Tests
             mainPage.Navigate().ClickLogin();
 
             LoginPage loginPage = new LoginPage(this.browser);
-            loginPage.LoginFriendUser(userName);
+            //loginPage.LoginFriendUser(userName);
 
             return mainPage;
         }

@@ -11,6 +11,7 @@ namespace TeamLichTestAutomation.Tests
     using TeamLichTestAutomation.Academy.Core.Pages.FacebookLoginPage;
     using TeamLichTestAutomation.Academy.Core.Pages.MainPage;
     using TeamLichTestAutomation.Academy.Core.Pages.LoginPage;
+    using TeamLichTestAutomation.Academy.Core.Models;
 
     /// <summary>
     /// Summary description for TelerikVSUnitTest1
@@ -19,6 +20,8 @@ namespace TeamLichTestAutomation.Tests
     public class LoginTestSuite : BaseTest
     {
         private Browser browser;
+        private MainPage mainPage;
+        private LoginPage loginPage;
 
         #region [Setup / TearDown]
 
@@ -109,6 +112,11 @@ namespace TeamLichTestAutomation.Tests
             Manager.ActiveBrowser.ClearCache(BrowserCacheType.Cookies);
 
             this.browser = Manager.ActiveBrowser;
+
+            this.mainPage = new MainPage(this.browser);
+            this.loginPage = new LoginPage(this.browser);
+
+            mainPage.Navigate().ClickLogin();
         }
 
         // Use TestCleanup to run code after each test has run
@@ -139,11 +147,7 @@ namespace TeamLichTestAutomation.Tests
         [TestMethod]
         public void TestLoginWithValidRegularUserCredentials()
         {
-            MainPage mainPage = new MainPage(this.browser);
-            mainPage.Navigate().ClickLogin();
-
-            LoginPage loginPage = new LoginPage(this.browser);
-            loginPage.LoginRegularUser();
+            loginPage.LoginUser(User.Regular);
 
             mainPage.AssertUserIsLoggedAsRegularUser();
         }
@@ -151,47 +155,27 @@ namespace TeamLichTestAutomation.Tests
         [TestMethod]
         public void TestLoginWithValidAdminUserCredentials()
         {
-            MainPage mainPage = new MainPage(this.browser);
-            mainPage.Navigate().ClickLogin();
-
-            LoginPage loginPage = new LoginPage(this.browser);
-            loginPage.LoginAdminUser();
+            loginPage.LoginUser(User.Admin);
 
             mainPage.AssertUserIsLoggedAsAdmin();
         }
 
         [TestMethod]
-        public void TestLoginWithInvalidAdminPassword()
-        {
-            MainPage mainPage = new MainPage(this.browser);
-            mainPage.Navigate().ClickLogin();
-
-            LoginPage loginPage = new LoginPage(this.browser);
-            loginPage.LoginUser("TeamLichTestAdmin", "hello");
-
-            mainPage.AssertUserIsNotLogged();
-        }
-
-        [TestMethod]
-        public void TestLoginWithInvalidRegularUserPassword()
-        {
-            MainPage mainPage = new MainPage(this.browser);
-            mainPage.Navigate().ClickLogin();
-
-            LoginPage loginPage = new LoginPage(this.browser);
-            loginPage.LoginUser("TeamLichTestUser", "hello");
-
-            mainPage.AssertUserIsNotLogged();
-        }
-
-        [TestMethod]
         public void TestLoginWithInvalidAdminUsername()
         {
-            MainPage mainPage = new MainPage(this.browser);
-            mainPage.Navigate().ClickLogin();
+            User testUser = User.Admin;
+            testUser.UserName = "WrongUser";
+            loginPage.LoginUser(testUser);
 
-            LoginPage loginPage = new LoginPage(this.browser);
-            loginPage.LoginUser("TeamLichAdmin", "123456");
+            mainPage.AssertUserIsNotLogged();
+        }
+
+        [TestMethod]
+        public void TestLoginWithInvalidAdminPassword()
+        {
+            User testUser = User.Admin;
+            testUser.Password = "WrongPass";
+            loginPage.LoginUser(testUser);
 
             mainPage.AssertUserIsNotLogged();
         }
@@ -199,29 +183,33 @@ namespace TeamLichTestAutomation.Tests
         [TestMethod]
         public void TestLoginWithInvalidRegularUserUsername()
         {
-            MainPage mainPage = new MainPage(this.browser);
-            mainPage.Navigate().ClickLogin();
-
-            LoginPage loginPage = new LoginPage(this.browser);
-            loginPage.LoginUser("TeamLichUser", "123456");
+            User testUser = User.Regular;
+            testUser.UserName = "WrongUser";
+            loginPage.LoginUser(testUser);
 
             mainPage.AssertUserIsNotLogged();
         }
 
         [TestMethod]
-        public void TestLoginPersistenceOnBrowserRestart()
+        public void TestLoginWithInvalidRegularUserPassword()
         {
-            MainPage mainPage = new MainPage(this.browser);
-            mainPage.Navigate().ClickLogin();
+            User testUser = User.Regular;
+            testUser.Password = "WrongPass";
+            loginPage.LoginUser(testUser);
 
-            LoginPage loginPage = new LoginPage(this.browser);
-            loginPage.LoginRegularUser();
+            mainPage.AssertUserIsNotLogged();
+        }   
+
+        [TestMethod]
+        public void TestLoginPersistenceRegularUserOnBrowserRestart()
+        {
+            loginPage.LoginUser(User.Regular);
+
+            mainPage.AssertUserIsLoggedAsRegularUser();
 
             browser.Close();
-
             Manager.LaunchNewBrowser();
             browser = Manager.ActiveBrowser;
-
             mainPage = new MainPage(this.browser);
             mainPage.Navigate();
 
@@ -229,13 +217,25 @@ namespace TeamLichTestAutomation.Tests
         }
 
         [TestMethod]
-        public void TestRegularUserIsLoggedOutOnCookieDeletion()
+        public void TestLoginPersistenceAdminUserLOnBrowserRestart()
         {
-            MainPage mainPage = new MainPage(this.browser);
-            mainPage.Navigate().ClickLogin();
+            loginPage.LoginUser(User.Admin);
+            mainPage.AssertUserIsLoggedAsAdmin();
 
-            LoginPage loginPage = new LoginPage(this.browser);
-            loginPage.LoginRegularUser();
+            browser.Close();
+            Manager.LaunchNewBrowser();
+            browser = Manager.ActiveBrowser;
+            mainPage = new MainPage(this.browser);
+            mainPage.Navigate();
+
+            mainPage.AssertUserIsLoggedAsAdmin();
+        }
+
+        [TestMethod]
+        public void TestLogoutRegularUserOnCookieDeletion()
+        {
+            loginPage.LoginUser(User.Regular);
+            mainPage.AssertUserIsLoggedAsRegularUser();
 
             browser.ClearCache(BrowserCacheType.Cookies);
             browser.Refresh();
@@ -244,13 +244,10 @@ namespace TeamLichTestAutomation.Tests
         }
 
         [TestMethod]
-        public void TestAdminUserIsLoggedOutOnCookieDeletion()
+        public void TestLogoutAdminUserOnCookieDeletion()
         {
-            MainPage mainPage = new MainPage(this.browser);
-            mainPage.Navigate().ClickLogin();
-
-            LoginPage loginPage = new LoginPage(this.browser);
-            loginPage.LoginAdminUser();
+            loginPage.LoginUser(User.Admin);
+            mainPage.AssertUserIsLoggedAsRegularUser();
 
             browser.ClearCache(BrowserCacheType.Cookies);
             browser.Refresh();

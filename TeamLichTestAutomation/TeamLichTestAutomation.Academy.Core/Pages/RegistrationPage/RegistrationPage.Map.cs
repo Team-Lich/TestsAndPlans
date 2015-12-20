@@ -8,6 +8,7 @@
         {
             get
             {
+                this.Browser.WaitForElement(5000, "id=Username");
                 return this.Browser.Find.ById<HtmlInputText>("Username");
             }
         }
@@ -16,6 +17,7 @@
         {
             get
             {
+                this.Browser.WaitForElement(5000, "id=Password");
                 return this.Browser.Find.ById<HtmlInputPassword>("Password");
             }
         }
@@ -24,6 +26,7 @@
         {
             get
             {
+                this.Browser.WaitForElement(5000, "id=PasswordAgain");
                 return this.Browser.Find.ById<HtmlInputPassword>("PasswordAgain");
             }
         }
@@ -32,6 +35,7 @@
         {
             get
             {
+                this.Browser.WaitForElement(5000, "id=FirstName");
                 return this.Browser.Find.ById<HtmlInputText>("FirstName");
             }
         }
@@ -40,6 +44,7 @@
         {
             get
             {
+                this.Browser.WaitForElement(5000, "id=LastName");
                 return this.Browser.Find.ById<HtmlInputText>("LastName");
             }
         }
@@ -48,6 +53,7 @@
         {
             get
             {
+                this.Browser.WaitForElement(5000, "id=Email");
                 return this.Browser.Find.ById<HtmlInputText>("Email");
             }
         }
@@ -56,6 +62,7 @@
         {
             get
             {
+                this.Browser.WaitForElement(5000, "id=TermsAndConditions");
                 return this.Browser.Find.ById<HtmlInputCheckBox>("TermsAndConditions");
             }
         }
@@ -64,6 +71,7 @@
         {
             get
             {
+                this.Browser.WaitForElement(5000, "value=Регистрация");
                 return this.Browser.Find.ByExpression<HtmlInputSubmit>("value=Регистрация");
             }
         }
@@ -72,6 +80,8 @@
         {
             get
             {
+                this.Browser.WaitForElement(5000, "id=Username-error");
+
                 return this.Browser.Find.ById<HtmlSpan>("Username-error");
             }
         }
@@ -80,6 +90,7 @@
         {
             get
             {
+                this.Browser.WaitForElement(5000, "id=LastName-error");
                 return this.Browser.Find.ById<HtmlSpan>("LastName-error");
             }
         }
@@ -88,6 +99,7 @@
         {
             get
             {
+                this.Browser.WaitForElement(5000, "id=LastName-error");
                 return this.Browser.Find.ById<HtmlSpan>("LastName-error");
             }
         }
@@ -96,6 +108,7 @@
         {
             get
             {
+                this.Browser.WaitForElement(5000, "class=validation-summary-errors");
                 return this.Browser.Find.ByAttributes<HtmlDiv>("class=validation-summary-errors");
             }
         }
@@ -104,6 +117,7 @@
         {
             get
             {
+                this.Browser.WaitForElement(5000, "id=PasswordAgain-error");
                 return this.Browser.Find.ById<HtmlSpan>("PasswordAgain-error");
             }
         }
@@ -112,6 +126,7 @@
         {
             get
             {
+                this.Browser.WaitForElement(5000, "id=Password-error");
                 return this.Browser.Find.ById<HtmlSpan>("Password-error");
             }
         }
@@ -120,6 +135,7 @@
         {
             get
             {
+                this.Browser.WaitForElement(5000, "id=Username-error");
                 return this.Browser.Find.ById<HtmlSpan>("Username-error");
             }
         }
@@ -128,6 +144,7 @@
         {
             get
             {
+                this.Browser.WaitForElement(5000, "id=Email-error");
                 return this.Browser.Find.ById<HtmlSpan>("Email-error");
             }
         }
@@ -136,6 +153,7 @@
         {
             get
             {
+                this.Browser.WaitForElement(5000, "id=FirstName-error");
                 return this.Browser.Find.ById<HtmlSpan>("FirstName-error");
             }
         }

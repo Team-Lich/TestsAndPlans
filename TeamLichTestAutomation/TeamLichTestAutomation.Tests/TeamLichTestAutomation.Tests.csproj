@@ -40,6 +40,7 @@
       <HintPath>..\TelerikFramework\ArtOfTest.WebAii.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="Telerik.TestingFramework.Controls.KendoUI, Version=2015.3.1015.0, Culture=neutral, PublicKeyToken=528163f3e645de45, processorArchitecture=MSIL" />
   </ItemGroup>
   <Choose>
     <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">

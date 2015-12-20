@@ -1,5 +1,6 @@
 ﻿using ArtOfTest.WebAii.Controls.HtmlControls;
 using ArtOfTest.WebAii.ObjectModel;
+using Telerik.TestingFramework.Controls.KendoUI;
 
 namespace TeamLichTestAutomation.Academy.Core.Pages.AdminPages.UniversitiesPage
 {
@@ -30,11 +31,11 @@ namespace TeamLichTestAutomation.Academy.Core.Pages.AdminPages.UniversitiesPage
             }
         }
 
-        internal Element KendoTable
+        internal KendoGrid KendoTable
         {
             get
             {
-                return this.Browser.Find.ByExpression("role=grid");
+                return this.Browser.Find.ById<KendoGrid>("DataGrid");
             }
         }
     }

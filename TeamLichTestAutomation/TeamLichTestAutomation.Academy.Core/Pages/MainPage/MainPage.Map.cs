@@ -8,6 +8,7 @@
         {
             get
             {
+                this.Browser.WaitUntilReady();
                 return this.Browser.Find.ById<HtmlAnchor>("EntranceButton");
             }
         }
@@ -34,6 +35,7 @@
         {
             get
             {
+                this.Browser.WaitUntilReady();
                 return this.Browser.Find.ByContent<HtmlAnchor>("Регистрация");
             }
         }
@@ -59,6 +61,7 @@
         {
             get
             {
+                this.Browser.WaitForElement(5000, "id=SearchButton");
                 return this.Browser.Find.ByExpression<HtmlAnchor>("href=/Administration/Navigation");
             }
         }

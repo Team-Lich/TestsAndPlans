@@ -8,10 +8,10 @@ namespace TeamLichTestAutomation.Tests
     using ArtOfTest.WebAii.Core;
     using ArtOfTest.WebAii.TestTemplates;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using TeamLichTestAutomation.Academy.Core.Models;
     using TeamLichTestAutomation.Academy.Core.Pages.FacebookLoginPage;
     using TeamLichTestAutomation.Academy.Core.Pages.MainPage;
     using TeamLichTestAutomation.Academy.Core.Pages.LoginPage;
-    using TeamLichTestAutomation.Academy.Core.Models;
 
     /// <summary>
     /// Summary description for TelerikVSUnitTest1
@@ -147,7 +147,7 @@ namespace TeamLichTestAutomation.Tests
         [TestMethod]
         public void TestLoginWithValidRegularUserCredentials()
         {
-            loginPage.LoginUser(User.Regular);
+            loginPage.LoginUser(TelerikUser.Regular);
 
             mainPage.AssertUserIsLoggedAsRegularUser();
         }
@@ -155,7 +155,7 @@ namespace TeamLichTestAutomation.Tests
         [TestMethod]
         public void TestLoginWithValidAdminUserCredentials()
         {
-            loginPage.LoginUser(User.Admin);
+            loginPage.LoginUser(TelerikUser.Admin);
 
             mainPage.AssertUserIsLoggedAsAdmin();
         }
@@ -163,7 +163,7 @@ namespace TeamLichTestAutomation.Tests
         [TestMethod]
         public void TestLoginWithInvalidAdminUsername()
         {
-            User testUser = User.Admin;
+            TelerikUser testUser = TelerikUser.Admin;
             testUser.UserName = "WrongUser";
             loginPage.LoginUser(testUser);
 
@@ -173,7 +173,7 @@ namespace TeamLichTestAutomation.Tests
         [TestMethod]
         public void TestLoginWithInvalidAdminPassword()
         {
-            User testUser = User.Admin;
+            TelerikUser testUser = TelerikUser.Admin;
             testUser.Password = "WrongPass";
             loginPage.LoginUser(testUser);
 
@@ -183,7 +183,7 @@ namespace TeamLichTestAutomation.Tests
         [TestMethod]
         public void TestLoginWithInvalidRegularUserUsername()
         {
-            User testUser = User.Regular;
+            TelerikUser testUser = TelerikUser.Regular;
             testUser.UserName = "WrongUser";
             loginPage.LoginUser(testUser);
 
@@ -193,7 +193,7 @@ namespace TeamLichTestAutomation.Tests
         [TestMethod]
         public void TestLoginWithInvalidRegularUserPassword()
         {
-            User testUser = User.Regular;
+            TelerikUser testUser = TelerikUser.Regular;
             testUser.Password = "WrongPass";
             loginPage.LoginUser(testUser);
 
@@ -203,7 +203,7 @@ namespace TeamLichTestAutomation.Tests
         [TestMethod]
         public void TestLoginPersistenceRegularUserOnBrowserRestart()
         {
-            loginPage.LoginUser(User.Regular);
+            loginPage.LoginUser(TelerikUser.Regular);
 
             mainPage.AssertUserIsLoggedAsRegularUser();
 
@@ -219,7 +219,7 @@ namespace TeamLichTestAutomation.Tests
         [TestMethod]
         public void TestLoginPersistenceAdminUserLOnBrowserRestart()
         {
-            loginPage.LoginUser(User.Admin);
+            loginPage.LoginUser(TelerikUser.Admin);
             mainPage.AssertUserIsLoggedAsAdmin();
 
             browser.Close();
@@ -234,7 +234,7 @@ namespace TeamLichTestAutomation.Tests
         [TestMethod]
         public void TestLogoutRegularUserOnCookieDeletion()
         {
-            loginPage.LoginUser(User.Regular);
+            loginPage.LoginUser(TelerikUser.Regular);
             mainPage.AssertUserIsLoggedAsRegularUser();
 
             browser.ClearCache(BrowserCacheType.Cookies);
@@ -246,7 +246,7 @@ namespace TeamLichTestAutomation.Tests
         [TestMethod]
         public void TestLogoutAdminUserOnCookieDeletion()
         {
-            loginPage.LoginUser(User.Admin);
+            loginPage.LoginUser(TelerikUser.Admin);
             mainPage.AssertUserIsLoggedAsRegularUser();
 
             browser.ClearCache(BrowserCacheType.Cookies);

@@ -50,7 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Facades\TelerikAcademyFacade.cs" />
-    <Compile Include="Models\User.cs" />
+    <Compile Include="Models\TelerikUser.cs" />
     <Compile Include="Pages\AdminPages\AdminDashboardPage\AdminDashboardPage.cs" />
     <Compile Include="Pages\AdminPages\AdminDashboardPage\AdminDashboardPage.Map.cs" />
     <Compile Include="Pages\AdminPages\RolesPage\RolesPage.cs" />

@@ -1,14 +1,14 @@
 ﻿namespace TeamLichTestAutomation.Academy.Core.Models
 {
-    public class User
+    public class TelerikUser
     {
-        public User(string userName, string password)
+        public TelerikUser(string userName, string password)
         {
             this.UserName = userName;
             this.Password = password;
         }
 
-        public User(string userName, string password, string firstName, string lastName, string email) 
+        public TelerikUser(string userName, string password, string firstName, string lastName, string email) 
             : this(userName, password)
         {
             this.FirstName = firstName;
@@ -26,27 +26,27 @@
 
         public string Email { get; set; }
 
-        public static User Regular
+        public static TelerikUser Regular
         {
             get
             {
-                return new User("TeamLichTestUser", "123456");
+                return new TelerikUser("TeamLichTestUser", "123456");
             }
         }
 
-        public static User Admin
+        public static TelerikUser Admin
         {
             get
             {
-                return new User("TeamLichTestAdmin", "123456");
+                return new TelerikUser("TeamLichTestAdmin", "123456");
             }
         }
 
-        public static User FullValidInformation
+        public static TelerikUser FullValidInformation
         {
             get 
             {
-                return new User("LichTestUser", "123456", "Първото", "Фамилията", "mailtest@test.com");
+                return new TelerikUser("LichTestUser", "123456", "Първото", "Фамилията", "mailtest@test.com");
             }
         }
     }

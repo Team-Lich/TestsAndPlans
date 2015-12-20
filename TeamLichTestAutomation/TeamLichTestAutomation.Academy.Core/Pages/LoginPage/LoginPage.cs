@@ -9,7 +9,7 @@
         {
         }
 
-        public void LoginUser(User user)
+        public void LoginUser(TelerikUser user)
         {
             this.UserTextBox.Text = user.UserName;
             this.PassTextBox.Text = user.Password;

@@ -18,18 +18,6 @@
             {
                 return this.browser;
             }
-        }    
-
-        public T LocateById<T>(string id) where T : HtmlControl
-        {
-            this.browser.WaitForElement(5000, id);
-            return this.browser.Find.ById<T>(id);
-        }
-
-        public T LocateById<T>(int timeout, string id) where T : HtmlControl
-        {
-            this.browser.WaitForElement(timeout, id);
-            return this.browser.Find.ById<T>(id);
-        }
+        }   
     }
 }

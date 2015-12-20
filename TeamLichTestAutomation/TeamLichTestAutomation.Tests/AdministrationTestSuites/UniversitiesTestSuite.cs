@@ -17,12 +17,13 @@ namespace TeamLichTestAutomation.Tests.AdministrationTestSuites
     using ArtOfTest.WebAii.Silverlight.UI;
 
     using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using TeamLichTestAutomation.Academy.Core.Models;
     using TeamLichTestAutomation.Academy.Core.Pages.AdminPages.AdminDashboardPage;
     using TeamLichTestAutomation.Academy.Core.Pages.AdminPages.UniversitiesPage;
     using TeamLichTestAutomation.Academy.Core.Pages.LoginPage;
     using TeamLichTestAutomation.Academy.Core.Pages.MainPage;
     using Telerik.TestingFramework.Controls.KendoUI;
-    using TeamLichTestAutomation.Academy.Core.Models;
+    using TeamLichTestAutomation.Academy.Core;
 
     /// <summary>
     /// Summary description for UniversitiesTestSuite
@@ -162,7 +163,7 @@ namespace TeamLichTestAutomation.Tests.AdministrationTestSuites
             mainPage.Navigate().ClickLogin();
 
             LoginPage loginPage = new LoginPage(this.browser);
-            loginPage.LoginUser(User.Admin);
+            loginPage.LoginUser(TelerikUser.Admin);
 
             mainPage.ClickAdminNavigationDropdown();
 

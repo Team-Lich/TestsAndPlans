@@ -7,7 +7,7 @@
     {
         public static void AssertUserIsLoggedAsRegularUser(this MainPage mainPage)
         {
-            bool adminDropdownPresent = mainPage.NavigationBarItems.Contains("Админ");
+            bool adminDropdownPresent = mainPage.AdminDropdownEnabled;
 
             Assert.IsTrue(mainPage.LogoutButton.IsEnabled);
             Assert.IsFalse(adminDropdownPresent);
@@ -16,7 +16,7 @@
 
         public static void AssertUserIsLoggedAsAdmin(this MainPage mainPage)
         {
-            bool adminDropdownPresent = mainPage.NavigationBarItems.Contains("Админ");
+            bool adminDropdownPresent = mainPage.AdminDropdownEnabled;
 
             Assert.IsTrue(mainPage.LogoutButton.IsEnabled);
             Assert.IsTrue(adminDropdownPresent);

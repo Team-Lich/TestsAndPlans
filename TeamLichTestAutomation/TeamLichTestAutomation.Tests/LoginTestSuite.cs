@@ -208,7 +208,7 @@ namespace TeamLichTestAutomation.Tests
             mainPage.AssertUserIsLoggedAsRegularUser();
 
             browser.Close();
-            Manager.LaunchNewBrowser();
+            Manager.LaunchNewBrowser(BrowserType.FireFox);
             browser = Manager.ActiveBrowser;
             mainPage = new MainPage(this.browser);
             mainPage.Navigate();
@@ -217,13 +217,13 @@ namespace TeamLichTestAutomation.Tests
         }
 
         [TestMethod]
-        public void TestLoginPersistenceAdminUserLOnBrowserRestart()
+        public void TestLoginPersistenceAdminUserOnBrowserRestart()
         {
             loginPage.LoginUser(TelerikUser.Admin);
             mainPage.AssertUserIsLoggedAsAdmin();
 
             browser.Close();
-            Manager.LaunchNewBrowser();
+            Manager.LaunchNewBrowser(BrowserType.FireFox);
             browser = Manager.ActiveBrowser;
             mainPage = new MainPage(this.browser);
             mainPage.Navigate();
@@ -232,7 +232,7 @@ namespace TeamLichTestAutomation.Tests
         }
 
         [TestMethod]
-        public void TestLogoutRegularUserOnCookieDeletion()
+        public void TestLoginRegularUserIsNotPersistentOnCookieDeletion()
         {
             loginPage.LoginUser(TelerikUser.Regular);
             mainPage.AssertUserIsLoggedAsRegularUser();
@@ -244,10 +244,10 @@ namespace TeamLichTestAutomation.Tests
         }
 
         [TestMethod]
-        public void TestLogoutAdminUserOnCookieDeletion()
+        public void TestLoginAdminUserIsNotPersistentOnCookieDeletion()
         {
             loginPage.LoginUser(TelerikUser.Admin);
-            mainPage.AssertUserIsLoggedAsRegularUser();
+            mainPage.AssertUserIsLoggedAsAdmin();
 
             browser.ClearCache(BrowserCacheType.Cookies);
             browser.Refresh();

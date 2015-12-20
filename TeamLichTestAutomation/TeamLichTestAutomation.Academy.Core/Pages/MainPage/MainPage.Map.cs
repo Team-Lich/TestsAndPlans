@@ -9,6 +9,7 @@
             get
             {
                 this.Browser.WaitUntilReady();
+                this.Browser.RefreshDomTree();
                 return this.Browser.Find.ById<HtmlAnchor>("EntranceButton");
             }
         }
@@ -40,20 +41,21 @@
             }
         }
 
-        internal string[] NavigationBarItems
+        internal bool AdminDropdownEnabled
         {
             get
-            {
-                this.Browser.WaitForElement(5000, "id=SearchButton");
-                var anchors = this.Browser.Find.AllByTagName<HtmlAnchor>("a");
-                string[] anchorTexts = new string[anchors.Count];
-
-                for (int i = 0; i < anchors.Count; i++)
+            {    
+                try
                 {
-                    anchorTexts[i] = anchors[i].InnerText;
+                    this.Browser.WaitForElement(5000, "title=~Админ");
+                    this.Browser.RefreshDomTree();
+                    var adminDropdown = this.Browser.Find.ByExpression<HtmlSpan>("title=~Админ");
+                    return adminDropdown.IsEnabled;
                 }
-
-                return anchorTexts;
+                catch (System.Exception)
+                {
+                    return false;
+                }
             }
         }
 

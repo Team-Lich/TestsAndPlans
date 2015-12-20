@@ -8,6 +8,7 @@
         {
             get
             {
+                this.Browser.WaitForElement(5000, "id=UsernameOrEmail");
                 return this.Browser.Find.ById<HtmlInputText>("UsernameOrEmail");
             }
         }
@@ -16,6 +17,7 @@
         {
             get
             {
+                this.Browser.WaitForElement(5000, "id=Password");
                 return this.Browser.Find.ById<HtmlInputPassword>("Password");
             }
         }
@@ -24,6 +26,7 @@
         {
             get
             {
+                this.Browser.WaitForElement(5000, "value=Вход");
                 return this.Browser.Find.ByExpression<HtmlInputSubmit>("value=Вход");
             }
         }        

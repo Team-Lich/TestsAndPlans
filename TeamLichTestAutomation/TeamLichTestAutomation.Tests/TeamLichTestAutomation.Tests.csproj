@@ -68,6 +68,10 @@
       <Project>{527ecb83-30f4-4504-860f-612d8c0a31c3}</Project>
       <Name>TeamLichTestAutomation.Academy.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\TeamLichTestAutomation.Utilities\TeamLichTestAutomation.Utilities.csproj">
+      <Project>{A04F0E40-4B64-4064-BDBE-BDE8506E0C2C}</Project>
+      <Name>TeamLichTestAutomation.Utilities</Name>
+    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

@@ -12,6 +12,7 @@ namespace TeamLichTestAutomation.Tests
     using TeamLichTestAutomation.Academy.Core.Pages.FacebookLoginPage;
     using TeamLichTestAutomation.Academy.Core.Pages.MainPage;
     using TeamLichTestAutomation.Academy.Core.Pages.LoginPage;
+    using TeamLichTestAutomation.Utilities;
 
     /// <summary>
     /// Summary description for TelerikVSUnitTest1
@@ -144,7 +145,10 @@ namespace TeamLichTestAutomation.Tests
 
         #endregion
 
-        [TestMethod, TestCategory("PriorityHigh"), TestCategory("Login")]
+        [TestMethod]
+        [TestCategory("Login")]
+        [TestCategory("PriorityHigh")]
+        [TestOwner(Owner.DechoDechev)]
         public void TestLoginWithValidRegularUserCredentials()
         {
             loginPage.LoginUser(TelerikUser.Regular);
@@ -152,7 +156,10 @@ namespace TeamLichTestAutomation.Tests
             mainPage.AssertUserIsLoggedAsRegularUser();
         }
 
-        [TestMethod, TestCategory("PriorityHigh"), TestCategory("Login")]
+        [TestMethod]
+        [TestCategory("Login")]
+        [TestCategory("PriorityHigh")]
+        [TestOwner(Owner.DechoDechev)]
         public void TestLoginWithValidAdminUserCredentials()
         {
             loginPage.LoginUser(TelerikUser.Admin);
@@ -160,7 +167,10 @@ namespace TeamLichTestAutomation.Tests
             mainPage.AssertUserIsLoggedAsAdmin();
         }
 
-        [TestMethod, TestCategory("PriorityHigh"), TestCategory("Login")]
+        [TestMethod]
+        [TestCategory("Login")]
+        [TestCategory("PriorityHigh")]
+        [TestOwner(Owner.DechoDechev)]
         public void TestLoginWithInvalidAdminUsername()
         {
             TelerikUser testUser = TelerikUser.Admin;
@@ -170,7 +180,10 @@ namespace TeamLichTestAutomation.Tests
             mainPage.AssertUserIsNotLogged();
         }
 
-        [TestMethod, TestCategory("PriorityHigh"), TestCategory("Login")]
+        [TestMethod]
+        [TestCategory("Login")]
+        [TestCategory("PriorityHigh")]
+        [TestOwner(Owner.DechoDechev)]
         public void TestLoginWithInvalidAdminPassword()
         {
             TelerikUser testUser = TelerikUser.Admin;
@@ -180,7 +193,10 @@ namespace TeamLichTestAutomation.Tests
             mainPage.AssertUserIsNotLogged();
         }
 
-        [TestMethod, TestCategory("PriorityHigh"), TestCategory("Login")]
+        [TestMethod]
+        [TestCategory("Login")]
+        [TestCategory("PriorityHigh")]
+        [TestOwner(Owner.DechoDechev)]
         public void TestLoginWithInvalidRegularUserUsername()
         {
             TelerikUser testUser = TelerikUser.Regular;
@@ -190,7 +206,10 @@ namespace TeamLichTestAutomation.Tests
             mainPage.AssertUserIsNotLogged();
         }
 
-        [TestMethod, TestCategory("PriorityHigh"), TestCategory("Login")]
+        [TestMethod]
+        [TestCategory("Login")]
+        [TestCategory("PriorityHigh")]
+        [TestOwner(Owner.DechoDechev)]
         public void TestLoginWithInvalidRegularUserPassword()
         {
             TelerikUser testUser = TelerikUser.Regular;
@@ -200,7 +219,10 @@ namespace TeamLichTestAutomation.Tests
             mainPage.AssertUserIsNotLogged();
         }
 
-        [TestMethod, TestCategory("PriorityMedium"), TestCategory("Login")]
+        [TestMethod]
+        [TestCategory("Login")]
+        [TestCategory("PriorityMedium")]
+        [TestOwner(Owner.DechoDechev)]
         public void TestLoginPersistenceRegularUserOnBrowserRestart()
         {
             loginPage.LoginUser(TelerikUser.Regular);
@@ -216,7 +238,10 @@ namespace TeamLichTestAutomation.Tests
             mainPage.AssertUserIsLoggedAsRegularUser();
         }
 
-        [TestMethod, TestCategory("PriorityMedium"), TestCategory("Login")]
+        [TestMethod]
+        [TestCategory("Login")]
+        [TestCategory("PriorityMedium")]
+        [TestOwner(Owner.DechoDechev)]
         public void TestLoginPersistenceAdminUserOnBrowserRestart()
         {
             loginPage.LoginUser(TelerikUser.Admin);
@@ -231,7 +256,10 @@ namespace TeamLichTestAutomation.Tests
             mainPage.AssertUserIsLoggedAsAdmin();
         }
 
-        [TestMethod, TestCategory("PriorityHigh"), TestCategory("Login")]
+        [TestMethod]
+        [TestCategory("Login")]
+        [TestCategory("PriorityHigh")]
+        [TestOwner(Owner.DechoDechev)]
         public void TestLoginRegularUserIsNotPersistentOnCookieDeletion()
         {
             loginPage.LoginUser(TelerikUser.Regular);
@@ -243,7 +271,10 @@ namespace TeamLichTestAutomation.Tests
             mainPage.AssertUserIsNotLogged();
         }
 
-        [TestMethod, TestCategory("PriorityHigh"), TestCategory("Login")]
+        [TestMethod]
+        [TestCategory("Login")]
+        [TestCategory("PriorityHigh")]
+        [TestOwner(Owner.DechoDechev)]
         public void TestLoginAdminUserIsNotPersistentOnCookieDeletion()
         {
             loginPage.LoginUser(TelerikUser.Admin);

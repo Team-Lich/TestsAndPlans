@@ -285,5 +285,19 @@ namespace TeamLichTestAutomation.Tests
 
             mainPage.AssertUserIsNotLogged();
         }
+
+        [TestMethod]
+        [TestCategory("Login")]
+        [TestCategory("PriorityHigh")]
+        [TestOwner(Owner.DechoDechev)]
+        public void TestLoginUserFieldDoesNotAcceptForbiddenSymbols()
+        {
+            TelerikUser user = new TelerikUser(@"<script>window.alert();</script>", "123456");
+            loginPage.LoginUser(user);
+
+            this.browser.RefreshDomTree();
+
+            loginPage.AssertIfErrorMessageForIllegalDataIsShown();
+        }
     }
 }

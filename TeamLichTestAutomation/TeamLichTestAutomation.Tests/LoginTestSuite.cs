@@ -13,6 +13,7 @@ namespace TeamLichTestAutomation.Tests
     using TeamLichTestAutomation.Academy.Core.Pages.MainPage;
     using TeamLichTestAutomation.Academy.Core.Pages.LoginPage;
     using TeamLichTestAutomation.Utilities;
+    using TeamLichTestAutomation.Utilities.Attributes;
 
     /// <summary>
     /// Summary description for TelerikVSUnitTest1

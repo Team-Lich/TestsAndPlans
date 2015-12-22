@@ -68,8 +68,12 @@
       <Project>{527ecb83-30f4-4504-860f-612d8c0a31c3}</Project>
       <Name>TeamLichTestAutomation.Academy.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\TeamLichTestAutomation.TestFramework.Core\TeamLichTestAutomation.TestFramework.Core.csproj">
+      <Project>{69a89417-ad24-4519-89fa-cbd846d4af72}</Project>
+      <Name>TeamLichTestAutomation.TestFramework.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\TeamLichTestAutomation.Utilities\TeamLichTestAutomation.Utilities.csproj">
-      <Project>{A04F0E40-4B64-4064-BDBE-BDE8506E0C2C}</Project>
+      <Project>{a04f0e40-4b64-4064-bdbe-bde8506e0c2c}</Project>
       <Name>TeamLichTestAutomation.Utilities</Name>
     </ProjectReference>
   </ItemGroup>

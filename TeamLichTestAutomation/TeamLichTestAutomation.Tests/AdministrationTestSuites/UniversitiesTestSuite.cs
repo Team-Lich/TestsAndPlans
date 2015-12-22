@@ -24,6 +24,7 @@ namespace TeamLichTestAutomation.Tests.AdministrationTestSuites
     using TeamLichTestAutomation.Academy.Core.Pages.MainPage;
     using Telerik.TestingFramework.Controls.KendoUI;
     using TeamLichTestAutomation.Academy.Core;
+    using TeamLichTestAutomation.TestFramework.Core;
 
     /// <summary>
     /// Summary description for UniversitiesTestSuite
@@ -173,6 +174,7 @@ namespace TeamLichTestAutomation.Tests.AdministrationTestSuites
             UniversitiesPage uniPage = new UniversitiesPage(this.browser);
 
             KendoGrid grid = uniPage.Browser.Find.ByExpression<KendoGrid>("data-role=grid");
+            var contains = grid.ContainsValueInColumn("Университет в България", 1);
             //uniPage.AddUniversity("Telerik University");
             //uniPage.AssertUniversityIsPresentInTable("Telerik University");
         }

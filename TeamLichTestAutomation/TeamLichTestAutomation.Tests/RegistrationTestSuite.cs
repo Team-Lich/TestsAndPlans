@@ -8,6 +8,9 @@ namespace TeamLichTestAutomation.Tests
     using TeamLichTestAutomation.Academy.Core.Pages.MainPage;
     using TeamLichTestAutomation.Academy.Core.Pages.RegistrationPage;
 
+    using TeamLichTestAutomation.Utilities;
+    using TeamLichTestAutomation.Utilities.Attributes;
+
     [TestClass]
     public class RegistrationTestSuite : BaseTest
     {
@@ -98,10 +101,6 @@ namespace TeamLichTestAutomation.Tests
 
             #endregion
 
-            //
-            // Place any additional initialization here
-            //
-
             Manager.LaunchNewBrowser(BrowserType.Chrome);
             Manager.ActiveBrowser.ClearCache(BrowserCacheType.Cookies);
 
@@ -117,10 +116,6 @@ namespace TeamLichTestAutomation.Tests
         [TestCleanup()]
         public void MyTestCleanup()
         {
-
-            //
-            // Place any additional cleanup here
-            //
 
             #region WebAii CleanUp
 
@@ -144,6 +139,10 @@ namespace TeamLichTestAutomation.Tests
         #endregion
 
         [TestMethod]
+        [TestCategory("Registration")]
+        [TestId(51)]
+        [TestPriority(Priority.High)]
+        [TestOwner(Owner.Ilvie)]
         public void TestRegistrationWithInvalidUserName()
         {
             registrationPage.RegistrationWithInvalidUsername();
@@ -152,6 +151,10 @@ namespace TeamLichTestAutomation.Tests
         }
 
         [TestMethod]
+        [TestCategory("Registration")]
+        [TestId(68)]
+        [TestPriority(Priority.High)]
+        [TestOwner(Owner.Ilvie)]
         public void TestRegistrationWithLengthOfLastNameLessThanMinimumAllowed()
         {
             registrationPage.RegistrationWithLengthOfLastNameLessThanMinimumAllowed();
@@ -160,6 +163,10 @@ namespace TeamLichTestAutomation.Tests
         }
 
         [TestMethod]
+        [TestCategory("Registration")]
+        [TestId(65)]
+        [TestPriority(Priority.High)]
+        [TestOwner(Owner.Ilvie)]
         public void TestRegistrationWithNonCyrillicAlphabetSymbolsInLastName()
         {
             registrationPage.RegistrationWithNonCyrillicAlphabetSymbolsInLastNameField();
@@ -168,6 +175,10 @@ namespace TeamLichTestAutomation.Tests
         }
 
         [TestMethod]
+        [TestCategory("Registration")]
+        [TestId(64)]
+        [TestPriority(Priority.High)]
+        [TestOwner(Owner.Ilvie)]
         public void TestRegistrationWithEmptyLastNameField()
         {
             registrationPage.RegistrationWithEmptyLastNameField();
@@ -176,6 +187,10 @@ namespace TeamLichTestAutomation.Tests
         }
 
         [TestMethod]
+        [TestCategory("Registration")]
+        [TestId(73)]
+        [TestPriority(Priority.High)]
+        [TestOwner(Owner.Ilvie)]
         public void TestRegistrationWithUncheckedTermsAndConditionsCheckbox()
         {
             registrationPage.RegistrationWithUncheckedTermsAndConditionsCheckbox();
@@ -184,6 +199,10 @@ namespace TeamLichTestAutomation.Tests
         }
 
         [TestMethod]
+        [TestCategory("Registration")]
+        [TestId(56)]
+        [TestPriority(Priority.High)]
+        [TestOwner(Owner.Ilvie)]
         public void TestRegistrationWithDifferentPasswordInPasswordAgainField()
         {
             registrationPage.RegistrationWithDifferentPasswordInPasswordAgainField();
@@ -192,6 +211,10 @@ namespace TeamLichTestAutomation.Tests
         }
 
         [TestMethod]
+        [TestCategory("Registration")]
+        [TestId(57)]
+        [TestPriority(Priority.High)]
+        [TestOwner(Owner.Ilvie)]
         public void TestRegistrationWithLengthOfPasswordLessThanMinimumAllowed()
         {
             registrationPage.RegistrationWithLengthOfPasswordLessThanMinimumAllowed();
@@ -200,6 +223,10 @@ namespace TeamLichTestAutomation.Tests
         }
 
         [TestMethod]
+        [TestCategory("Registration")]
+        [TestId(49)]
+        [TestPriority(Priority.High)]
+        [TestOwner(Owner.Ilvie)]
         public void TestRegistrationWithLengthOfUsernameLessThanMinimumAllowed()
         {
             registrationPage.RegistrationWithLengthOfUsernameLessThanMinimumAllowed();
@@ -208,6 +235,10 @@ namespace TeamLichTestAutomation.Tests
         }
 
         [TestMethod]
+        [TestCategory("Registration")]
+        [TestId(50)]
+        [TestPriority(Priority.High)]
+        [TestOwner(Owner.Ilvie)]
         public void TestRegistrationWithLengthOfUsernameGreaterThanMaximumAllowed()
         {
             registrationPage.RegistrationWithLengthOfUsernameGreaterThanMaximumAllowed();
@@ -216,6 +247,10 @@ namespace TeamLichTestAutomation.Tests
         }
 
         [TestMethod]
+        [TestCategory("Registration")]
+        [TestId(55)]
+        [TestPriority(Priority.High)]
+        [TestOwner(Owner.Ilvie)]
         public void TestRegistrationWithEmptyPasswordAgainField()
         {
             registrationPage.RegistrationWithEmptyPasswordAgainField();
@@ -224,6 +259,10 @@ namespace TeamLichTestAutomation.Tests
         }
 
         [TestMethod]
+        [TestCategory("Registration")]
+        [TestId(69)]
+        [TestPriority(Priority.High)]
+        [TestOwner(Owner.Ilvie)]
         public void TestRegistrationWithEmptyEmail()
         {
             registrationPage.RegistrationWithEmptyEmail();
@@ -232,6 +271,10 @@ namespace TeamLichTestAutomation.Tests
         }
 
         [TestMethod]
+        [TestCategory("Registration")]
+        [TestId(59)]
+        [TestPriority(Priority.High)]
+        [TestOwner(Owner.Ilvie)]
         public void TestRegistrationWithNonCyrillicAlphabetSymbolsInFirstName()
         {
             registrationPage.RegistrationWithNonCyrillicAlphabetSymbolsInFirsttNameField();
@@ -240,6 +283,10 @@ namespace TeamLichTestAutomation.Tests
         }
 
         [TestMethod]
+        [TestCategory("Registration")]
+        [TestId(63)]
+        [TestPriority(Priority.High)]
+        [TestOwner(Owner.Ilvie)]
         public void TestRegistrationWithLengthOfFirstNameLessThanMinimumAllowed()
         {
             registrationPage.RegistrationWithLengthOfFirstNameLessThanMinimumAllowed();
@@ -248,6 +295,10 @@ namespace TeamLichTestAutomation.Tests
         }
 
         [TestMethod]
+        [TestCategory("Registration")]
+        [TestId(52)]
+        [TestPriority(Priority.High)]
+        [TestOwner(Owner.Ilvie)]
         public void TestRegistratioWithUsernameStartingWithNonAlphabetSymbol()
         {
             registrationPage.RegistratioWithUsernameStartingWithNonAlphabetSymbol();
@@ -256,6 +307,10 @@ namespace TeamLichTestAutomation.Tests
         }
 
         [TestMethod]
+        [TestCategory("Registration")]
+        [TestId(71)]
+        [TestPriority(Priority.High)]
+        [TestOwner(Owner.Ilvie)]
         public void TestRegistrationWithEmailAddressNotContainAtSymbol()
         {
             registrationPage.RegistrationWithEmailAddressNotContainingAtSymbol();
@@ -264,6 +319,10 @@ namespace TeamLichTestAutomation.Tests
         }
 
         [TestMethod]
+        [TestCategory("Registration")]
+        [TestId(70)]
+        [TestPriority(Priority.High)]
+        [TestOwner(Owner.Ilvie)]
         public void TestRegistrationWithEmailAddressNotContainPointSymbol()
         {
             registrationPage.RegistrationWithEmailAddressNotContainingPointSymbol();

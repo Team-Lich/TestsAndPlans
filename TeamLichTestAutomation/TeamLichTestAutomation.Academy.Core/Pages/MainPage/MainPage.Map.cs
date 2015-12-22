@@ -10,6 +10,7 @@
             {
                 this.Browser.WaitUntilReady();
                 this.Browser.RefreshDomTree();
+                this.Browser.WaitForElement(5000, "id=EntranceButton");
                 return this.Browser.Find.ById<HtmlAnchor>("EntranceButton");
             }
         }

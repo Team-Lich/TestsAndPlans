@@ -161,6 +161,108 @@ namespace TeamLichTestAutomation.Tests
         [TestCategory("Login")]
         [TestCategory("PriorityHigh")]
         [TestOwner(Owner.DechoDechev)]
+        public void TestLoginWithEmptyFields()
+        {
+            TelerikUser user = new TelerikUser(string.Empty, string.Empty);
+            loginPage.LoginUser(user);
+
+            mainPage.AssertUserIsNotLogged();
+        }
+
+        [TestMethod]
+        [TestCategory("Login")]
+        [TestCategory("PriorityHigh")]
+        [TestOwner(Owner.DechoDechev)]
+        public void TestLoginWithEmptyUserField()
+        {
+            TelerikUser user = TelerikUser.Regular;
+            user.UserName = string.Empty;
+            loginPage.LoginUser(user);
+
+            mainPage.AssertUserIsNotLogged();
+        }
+
+        [TestMethod]
+        [TestCategory("Login")]
+        [TestCategory("PriorityHigh")]
+        [TestOwner(Owner.DechoDechev)]
+        public void TestLoginRegularUserWithEmptyPasswordField()
+        {
+            TelerikUser user = TelerikUser.Regular;
+            user.Password = string.Empty;
+            loginPage.LoginUser(user);
+
+            mainPage.AssertUserIsNotLogged();
+        }
+
+        [TestMethod]
+        [TestCategory("Login")]
+        [TestCategory("PriorityHigh")]
+        [TestOwner(Owner.DechoDechev)]
+        public void TestLoginUserWithNullFields()
+        {
+            TelerikUser user = new TelerikUser(null, null);
+            loginPage.LoginUser(user);
+
+            mainPage.AssertUserIsNotLogged();
+        }
+
+        [TestMethod]
+        [TestCategory("Login")]
+        [TestCategory("PriorityHigh")]
+        [TestOwner(Owner.DechoDechev)]
+        public void TestLoginUserWithNullUserField()
+        {
+            TelerikUser user = TelerikUser.Regular;
+            user.UserName = null;
+            loginPage.LoginUser(user);
+
+            mainPage.AssertUserIsNotLogged();
+        }
+
+        [TestMethod]
+        [TestCategory("Login")]
+        [TestCategory("PriorityHigh")]
+        [TestOwner(Owner.DechoDechev)]
+        public void TestLoginRegularUserWithNullPasswordField()
+        {
+            TelerikUser user = TelerikUser.Regular;
+            user.Password = null;
+            loginPage.LoginUser(user);
+
+            mainPage.AssertUserIsNotLogged();
+        }
+
+        [TestMethod]
+        [TestCategory("Login")]
+        [TestCategory("PriorityHigh")]
+        [TestOwner(Owner.DechoDechev)]
+        public void TestLoginAdminUserWithNullPasswordField()
+        {
+            TelerikUser user = TelerikUser.Admin;
+            user.Password = null;
+            loginPage.LoginUser(user);
+
+            mainPage.AssertUserIsNotLogged();
+        }
+
+        [TestMethod]
+        [TestCategory("Login")]
+        [TestCategory("PriorityHigh")]
+        [TestOwner(Owner.DechoDechev)]
+        public void TestLoginAdminUserWithEmptyPasswordField()
+        {
+            TelerikUser user = TelerikUser.Admin;
+            user.Password = string.Empty;
+            loginPage.LoginUser(user);
+
+            mainPage.AssertUserIsNotLogged();
+        }
+
+        [TestMethod]
+        [TestCategory("Login")]
+        [TestCategory("PriorityHigh")]
+        [TestOwner(Owner.DechoDechev)]
         public void TestLoginWithValidAdminUserCredentials()
         {
             loginPage.LoginUser(TelerikUser.Admin);
@@ -294,6 +396,20 @@ namespace TeamLichTestAutomation.Tests
         public void TestLoginUserFieldDoesNotAcceptForbiddenSymbols()
         {
             TelerikUser user = new TelerikUser(@"<script>window.alert();</script>", "123456");
+            loginPage.LoginUser(user);
+
+            this.browser.RefreshDomTree();
+
+            loginPage.AssertIfErrorMessageForIllegalDataIsShown();
+        }
+
+        [TestMethod]
+        [TestCategory("Login")]
+        [TestCategory("PriorityHigh")]
+        [TestOwner(Owner.DechoDechev)]
+        public void TestLoginPasswordFieldDoesNotAcceptForbiddenSymbols()
+        {
+            TelerikUser user = new TelerikUser("TeamLichTestUser", @"<script>window.alert();</script>");
             loginPage.LoginUser(user);
 
             this.browser.RefreshDomTree();

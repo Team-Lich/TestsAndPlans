@@ -17,7 +17,8 @@
 
         public static string FirstNameValid = "Първоиме";
         public static string FirstNameInvalidLength = "П";
-        public static string FirstNameInvalidSymbols = "Firstname";
+        public static string FirstNameNonCyrillicSymbols = "Firstname";
+        public static string FirstNameInvalidBoundarySymbols = "%Първоиме&";
 
         public static string LastNameValid = "Фамилия";
         public static string LastNameInvalidLength = "Ф";

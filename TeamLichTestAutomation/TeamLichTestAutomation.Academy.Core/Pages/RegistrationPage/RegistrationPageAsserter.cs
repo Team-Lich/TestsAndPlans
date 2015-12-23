@@ -50,7 +50,19 @@
         public static void AssertErrorMessageIsDisplayedWhenLastNameFieldIsEmpty(this RegistrationPage registrationPage)
         {
             Assert.AreEqual(RegistrationPageErrorMessages.LastNameMissing,
-                registrationPage.LastNameМandatoryErrorMessage.InnerText);
+                registrationPage.LastNameErrorMessage.InnerText);
+        }
+
+        public static void AssertErrorMessageIsDisplayedWhenFirstNameFieldIsEmpty(this RegistrationPage registrationPage)
+        {
+            Assert.AreEqual(RegistrationPageErrorMessages.FirstNameMissing,
+                registrationPage.FirstNameErrorMessage.InnerText);
+        }
+
+        public static void AssertErrorMessageIsDisplayedWhenFirstNameStartsWithInvalidSymbol(this RegistrationPage registrationPage)
+        {
+            Assert.IsTrue(registrationPage.FirstNameErrorMessage.InnerText
+               .Contains(RegistrationPageErrorMessages.FirstNameInvalidBoundarySymbols));
         }
 
         public static void AssertErrorMessageIsDisplayedWhenCheckboxIsUnchecked(this RegistrationPage registrationPage)
@@ -68,13 +80,19 @@
         public static void AssertErrorMessageIsDisplayedWhenLengthOfPasswordIsLessThanMinimumAllowed(this RegistrationPage registrationPage)
         {
             Assert.AreEqual(RegistrationPageErrorMessages.PasswordInvalidLength, 
-                registrationPage.IncorrectPasswordLengthErrorMessage.InnerText);
+                registrationPage.PasswordErrorMessage.InnerText);
         }
 
         public static void AssertErrorMessageIsDisplayedWhenPasswordAgainFieldIsEmpty(this RegistrationPage registrationPage)
         {
             Assert.AreEqual(RegistrationPageErrorMessages.PasswordAgainMissing,
                 registrationPage.PasswordAgainErrorMessage.InnerText);
+        }
+
+        public static void AssertErrorMessageIsDisplayedWhenPasswordFieldIsEmpty(this RegistrationPage registrationPage)
+        {
+            Assert.IsTrue(registrationPage.PasswordErrorMessage.InnerText
+               .Contains(RegistrationPageErrorMessages.PasswordMissing));
         }
 
         public static void AssertErrorMessageIsDisplayedWhenEmailIsEmpty(this RegistrationPage registrationPage)
@@ -86,7 +104,7 @@
         public static void AssertErrorMessageIsDisplayedWhenFirstNameContainNonCyrillicAlphabetSymbol(this RegistrationPage registrationPage)
         {
             Assert.IsTrue(registrationPage.FirstNameErrorMessage.InnerText
-               .Contains(RegistrationPageErrorMessages.FirstNameInvalid));
+               .Contains(RegistrationPageErrorMessages.FirstNameNonCyrillicSymbol));
         }
 
         public static void AssertErrorMessageIsDisplayedWhenFirstNameLengthIsLessThanMinimumAllowed(this RegistrationPage registrationPage)

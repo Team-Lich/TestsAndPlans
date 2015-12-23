@@ -1,16 +1,15 @@
 ﻿namespace TeamLichTestAutomation.Academy.Core.Pages.RegistrationPage
 {
+    using System;
     using System.Threading;
+
     using ArtOfTest.WebAii.Core;
+
     using TeamLichTestAutomation.Utilities;
     using TeamLichTestAutomation.Academy.Core.Models;
-    using System;
 
     public partial class RegistrationPage : BasePage
     {
-
-        public const string Password = "123456";
-
         public RegistrationPage(Browser browser)
             : base(browser)
         {
@@ -21,8 +20,8 @@
             RandomStringGenerator generator = new RandomStringGenerator();
 
             this.UsernameTextBox.Text = generator.GetString(8);
-            this.PasswordTextBox.Text = Password;
-            this.RepeatPasswordTextBox.Text = Password;
+            this.PasswordTextBox.Text = "123456";
+            this.RepeatPasswordTextBox.Text = "123456";
             this.FirstNameTextBox.Text = "ТестИме";
             this.LastNameTextBox.Text = "ТестФамилия";
             this.EmailTextBox.Text = generator.GetString(8) + "@test.com";

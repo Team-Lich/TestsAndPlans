@@ -81,35 +81,16 @@
             get
             {
                 this.Browser.WaitForElement(5000, "id=Username-error");
-
                 return this.Browser.Find.ById<HtmlSpan>("Username-error");
             }
         }
 
-        internal HtmlSpan LastNameErrorMessage
+        internal HtmlSpan PasswordErrorMessage
         {
             get
             {
-                this.Browser.WaitForElement(5000, "id=LastName-error");
-                return this.Browser.Find.ById<HtmlSpan>("LastName-error");
-            }
-        }
-
-        internal HtmlSpan LastNameМandatoryErrorMessage
-        {
-            get
-            {
-                this.Browser.WaitForElement(5000, "id=LastName-error");
-                return this.Browser.Find.ById<HtmlSpan>("LastName-error");
-            }
-        }
-
-        internal HtmlDiv ConditionsErrorMessage
-        {
-            get
-            {
-                this.Browser.WaitForElement(5000, "class=validation-summary-errors");
-                return this.Browser.Find.ByAttributes<HtmlDiv>("class=validation-summary-errors");
+                this.Browser.WaitForElement(5000, "id=Password-error");
+                return this.Browser.Find.ById<HtmlSpan>("Password-error");
             }
         }
 
@@ -122,24 +103,24 @@
             }
         }
 
-        internal HtmlSpan IncorrectPasswordLengthErrorMessage
+        internal HtmlSpan FirstNameErrorMessage
         {
             get
             {
-                this.Browser.WaitForElement(5000, "id=Password-error");
-                return this.Browser.Find.ById<HtmlSpan>("Password-error");
+                this.Browser.WaitForElement(5000, "id=FirstName-error");
+                return this.Browser.Find.ById<HtmlSpan>("FirstName-error");
             }
         }
 
-        internal HtmlSpan IncorrectUsernameLengthErrorMessage
+        internal HtmlSpan LastNameErrorMessage
         {
             get
             {
-                this.Browser.WaitForElement(5000, "id=Username-error");
-                return this.Browser.Find.ById<HtmlSpan>("Username-error");
+                this.Browser.WaitForElement(5000, "id=LastName-error");
+                return this.Browser.Find.ById<HtmlSpan>("LastName-error");
             }
         }
-
+      
         internal HtmlSpan EmailErrorMessage
         {
             get
@@ -149,12 +130,12 @@
             }
         }
 
-        internal HtmlSpan FirstNameErrorMessage
+        internal HtmlDiv ConditionsErrorMessage
         {
             get
             {
-                this.Browser.WaitForElement(5000, "id=FirstName-error");
-                return this.Browser.Find.ById<HtmlSpan>("FirstName-error");
+                this.Browser.WaitForElement(5000, "class=validation-summary-errors");
+                return this.Browser.Find.ByAttributes<HtmlDiv>("class=validation-summary-errors");
             }
         }
     }

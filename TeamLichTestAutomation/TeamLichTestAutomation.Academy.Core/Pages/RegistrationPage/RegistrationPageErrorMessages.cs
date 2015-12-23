@@ -13,15 +13,19 @@
 
         public const string UsernameInvalidLength = "Потребителското име трябва да е между 5 и 32 символа";
 
+        public const string PasswordMissing = "Паролата е задължителна";
+
         public const string PasswordInvalidLength = "Паролата трябва да е повече от 6 символа";
 
         public const string PasswordAgainDifferent = "Паролите не съвпадат";
 
         public const string PasswordAgainMissing = "Паролата отново е задължителна";
 
-        public const string FirstNameInvalid = "Името може да съдържа само букви от българската азбука и знака тире. " +
-                                               "Името трябва да започва и да завършва с буква";
+        public const string FirstNameMissing = "Името на български е задължително";
 
+        public const string FirstNameNonCyrillicSymbol = "Името може да съдържа само букви от българската азбука и знака тире.";
+
+        public const string FirstNameInvalidBoundarySymbols = "Името трябва да започва и да завършва с буква.";
 
         public const string LastNameInvalid = "Фамилията може да съдържа само букви от българската азбука " +
                                               "и знака тире. Фамилията трябва да започва и да завършва с буква.";

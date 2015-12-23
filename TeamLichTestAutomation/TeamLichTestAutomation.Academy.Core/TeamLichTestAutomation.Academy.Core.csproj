@@ -49,6 +49,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\TelerikUserData.cs" />
     <Compile Include="Facades\TelerikAcademyFacade.cs" />
     <Compile Include="Models\TelerikUser.cs" />
     <Compile Include="Pages\AdminPages\AdminDashboardPage\AdminDashboardPage.cs" />

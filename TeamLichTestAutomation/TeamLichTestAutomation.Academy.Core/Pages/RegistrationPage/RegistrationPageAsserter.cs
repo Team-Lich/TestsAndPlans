@@ -5,6 +5,12 @@
 
     public static class RegistrationPageAsserter
     {
+        public static void AssertErrorMessageIsDisplayedWhenUsernameIsEmpty(this RegistrationPage registrationPage)
+        {
+            Assert.AreEqual(RegistrationPageErrorMessages.UsernameMissing,
+                registrationPage.UsernameErrorMessage.InnerText);
+        }
+
         public static void AssertErrorMessageIsDisplayedWhenEnterInvalidUsername(this RegistrationPage registrationPage)
         {
             Assert.AreEqual(RegistrationPageErrorMessages.UsernameInvalid, 

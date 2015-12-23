@@ -2,6 +2,8 @@
 {
     public static class RegistrationPageErrorMessages
     {
+        public const string UsernameMissing = "Потребителското име е задължително";
+
         public const string UsernameInvalid = "Потребителското име може да съдържа само малки и " +
                                               "главни латински букви, цифри и знаците точка и долна черта. " +
                                               "Потребителското име трябва да започва с буква и да завършва с буква или цифра.";

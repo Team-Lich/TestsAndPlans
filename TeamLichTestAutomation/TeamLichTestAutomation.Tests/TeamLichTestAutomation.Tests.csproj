@@ -55,6 +55,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="AdministrationTestSuites\FriendshipTestSuite.cs" />
     <Compile Include="AdministrationTestSuites\UniversitiesTestSuite.cs" />
     <Compile Include="CourseSignUpTestSuit.cs" />
     <Compile Include="LecturesPresentationHomeworkAccess.cs" />

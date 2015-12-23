@@ -142,7 +142,7 @@ namespace TeamLichTestAutomation.Tests
 
         [TestMethod]
         [TestCategory("Registration")]
-        [TestId(51)]
+        [TestId(48)]
         [TestPriority(Priority.High)]
         [TestOwner(Owner.Ilvie)]
         public void TestRegistrationWithUsernameEmpty()
@@ -217,6 +217,22 @@ namespace TeamLichTestAutomation.Tests
             registrationPage.RegisterTelerikUser(user);
 
             registrationPage.AssertErrorMessageIsDisplayedWhenUsernameStartsWithNonAlphabetSymbol();
+        }
+
+        [TestMethod]
+        [TestCategory("Registration")]
+        [TestId(52)]
+        [TestPriority(Priority.High)]
+        [TestOwner(Owner.Ilvie)]
+        public void TestRegistratioWithUsernameEndingWithNonAlphabetSymbol()
+        {
+            TelerikUser user = new TelerikUser(TelerikUserData.UsernameEndingInvalidSymbol,
+               TelerikUserData.PasswordValid, TelerikUserData.FirstNameValid,
+               TelerikUserData.LastNameValid, TelerikUserData.EmailValid);
+
+            registrationPage.RegisterTelerikUser(user);
+
+            registrationPage.AssertErrorMessageIsDisplayedWhenUsernameEndsWithNonAlphabetSymbol();
         }
 
         [TestMethod]
@@ -320,7 +336,7 @@ namespace TeamLichTestAutomation.Tests
         [TestId(59)]
         [TestPriority(Priority.High)]
         [TestOwner(Owner.Ilvie)]
-        public void TestRegistrationWithNonCyrillicAlphabetSymbolsInFirstName()
+        public void TestRegistrationWithFirstNameContainingNonCyrillicAlphabetSymbols()
         {
             TelerikUser user = new TelerikUser(TelerikUserData.UsernameValid,
                 TelerikUserData.PasswordValid, TelerikUserData.FirstNameInvalidSymbols,
@@ -336,7 +352,7 @@ namespace TeamLichTestAutomation.Tests
         [TestId(63)]
         [TestPriority(Priority.High)]
         [TestOwner(Owner.Ilvie)]
-        public void TestRegistrationWithLengthOfFirstNameLessThanMinimumAllowed()
+        public void TestRegistrationWithFirstNameLengthLessThanMinimumAllowed()
         {
             TelerikUser user = new TelerikUser(TelerikUserData.UsernameValid,
                  TelerikUserData.PasswordValid, TelerikUserData.FirstNameInvalidLength,

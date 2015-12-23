@@ -13,20 +13,38 @@
 
         public static void AssertErrorMessageIsDisplayedWhenEnterInvalidUsername(this RegistrationPage registrationPage)
         {
-            Assert.AreEqual(RegistrationPageErrorMessages.UsernameInvalid, 
-                registrationPage.UsernameErrorMessage.InnerText);
+            Assert.IsTrue(registrationPage.UsernameErrorMessage.InnerText
+                 .Contains(RegistrationPageErrorMessages.UsernameInvalid));
+        }
+
+        public static void AssertErrorMessageIsDisplayedWhenUsernameStartsWithNonAlphabetSymbol(this RegistrationPage registrationPage)
+        {
+            Assert.IsTrue(registrationPage.UsernameErrorMessage.InnerText
+                .Contains(RegistrationPageErrorMessages.UsernameInvalidInitialSymbol));
+        }
+
+        public static void AssertErrorMessageIsDisplayedWhenUsernameEndsWithNonAlphabetSymbol(this RegistrationPage registrationPage)
+        {
+           Assert.IsTrue(registrationPage.UsernameErrorMessage.InnerText
+                .Contains(RegistrationPageErrorMessages.UsernameInvalidInitialSymbol));
+        }
+
+        public static void AssertErrorMessageIsDisplayedWhenLengthOfUsernameIsInccorect(this RegistrationPage registrationPage)
+        {
+            Assert.IsTrue(registrationPage.UsernameErrorMessage.InnerText
+               .Contains(RegistrationPageErrorMessages.UsernameInvalidLength));
         }
 
         public static void AssertErrorMessageIsDisplayedWhenLastNameLengthIsLessThanMinimumAllowed(this RegistrationPage registrationPage)
         {
-            Assert.AreEqual(RegistrationPageErrorMessages.LastNameInvalid,
-                registrationPage.LastNameErrorMessage.InnerText);
+            Assert.IsTrue(registrationPage.LastNameErrorMessage.InnerText
+                .Contains(RegistrationPageErrorMessages.NameInvalidLength));
         }
 
         public static void AssertErrorMessageIsDisplayedWhenLastNameContainNonCyrillicAlphabetSymbol(this RegistrationPage registrationPage)
         {
-            Assert.AreEqual(RegistrationPageErrorMessages.LastNameInvalid, 
-                registrationPage.LastNameErrorMessage.InnerText);
+            Assert.IsTrue(registrationPage.LastNameErrorMessage.InnerText
+                .Contains(RegistrationPageErrorMessages.LastNameInvalid));
         }
 
         public static void AssertErrorMessageIsDisplayedWhenLastNameFieldIsEmpty(this RegistrationPage registrationPage)
@@ -53,12 +71,6 @@
                 registrationPage.IncorrectPasswordLengthErrorMessage.InnerText);
         }
 
-        public static void AssertErrorMessageIsDisplayedWhenLengthOfUsernameIsInccorect(this RegistrationPage registrationPage)
-        {
-            Assert.AreEqual(RegistrationPageErrorMessages.UsernameInvalidLength, 
-                registrationPage.IncorrectUsernameLengthErrorMessage.InnerText);
-        }
-
         public static void AssertErrorMessageIsDisplayedWhenPasswordAgainFieldIsEmpty(this RegistrationPage registrationPage)
         {
             Assert.AreEqual(RegistrationPageErrorMessages.PasswordAgainMissing,
@@ -73,20 +85,14 @@
 
         public static void AssertErrorMessageIsDisplayedWhenFirstNameContainNonCyrillicAlphabetSymbol(this RegistrationPage registrationPage)
         {
-            Assert.AreEqual(RegistrationPageErrorMessages.FirstNameInvalid,
-                registrationPage.FirstNameErrorMessage.InnerText);
+            Assert.IsTrue(registrationPage.FirstNameErrorMessage.InnerText
+               .Contains(RegistrationPageErrorMessages.FirstNameInvalid));
         }
 
         public static void AssertErrorMessageIsDisplayedWhenFirstNameLengthIsLessThanMinimumAllowed(this RegistrationPage registrationPage)
         {
-            Assert.AreEqual(RegistrationPageErrorMessages.FirstNameInvalid, 
-                registrationPage.FirstNameErrorMessage.InnerText);
-        }
-
-        public static void AssertErrorMessageIsDisplayedWhenUsernameStartsWithNonAlphabetSymbol(this RegistrationPage registrationPage)
-        {
-            Assert.AreEqual(RegistrationPageErrorMessages.UsernameInvalid, 
-                registrationPage.UsernameErrorMessage.InnerText);
+            Assert.IsTrue(registrationPage.FirstNameErrorMessage.InnerText
+               .Contains(RegistrationPageErrorMessages.NameInvalidLength));
         }
 
         public static void AssertErrorMessageIsDisplayedWhenEmailAddressNotContainSpecialSymbols(this RegistrationPage registrationPage)

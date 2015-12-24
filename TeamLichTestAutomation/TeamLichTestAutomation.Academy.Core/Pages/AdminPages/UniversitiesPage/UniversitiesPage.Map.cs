@@ -31,6 +31,14 @@ namespace TeamLichTestAutomation.Academy.Core.Pages.AdminPages.UniversitiesPage
             }
         }
 
+        private HtmlAnchor BackToAdminButton
+        {
+            get 
+            {
+                return this.Browser.Find.ByExpression<HtmlAnchor>("href=/Administration/Navigation");
+            }
+        }
+
         internal KendoGrid KendoTable
         {
             get

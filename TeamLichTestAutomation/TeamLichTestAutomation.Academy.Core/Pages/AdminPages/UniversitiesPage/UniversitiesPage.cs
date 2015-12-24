@@ -15,6 +15,11 @@
         {
         }
 
+        public void BackToAdmin()
+        {
+            this.BackToAdminButton.Click();
+        }
+
         public void AddUniversity(string universityName)
         {
             this.AddButton.Click();

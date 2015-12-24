@@ -29,6 +29,9 @@ namespace TeamLichTestAutomation.Tests.AdministrationTestSuites
     using Telerik.TestingFramework.Controls.KendoUI;
     using TeamLichTestAutomation.Academy.Core;
     using TeamLichTestAutomation.TestFramework.Core;
+    using ArtOfTest.Common.Serialization;
+    using TeamLichTestAutomation.Utilities.Attributes;
+    using TeamLichTestAutomation.Utilities;
 
     /// <summary>
     /// Summary description for UniversitiesTestSuite
@@ -37,6 +40,10 @@ namespace TeamLichTestAutomation.Tests.AdministrationTestSuites
     public class UniversitiesTestSuite : BaseTest
     {
         private Browser browser;
+        private MainPage mainPage;
+        private LoginPage loginPage;
+        private AdminDashboardPage dashboardPage;
+        private UniversitiesPage uniPage;
 
         #region [Setup / TearDown]
 
@@ -121,9 +128,22 @@ namespace TeamLichTestAutomation.Tests.AdministrationTestSuites
 
             #endregion
 
-            Manager.LaunchNewBrowser(BrowserType.InternetExplorer);
+            Manager.LaunchNewBrowser(BrowserType.Chrome);
             this.browser = Manager.ActiveBrowser;
             this.browser.ClearCache(BrowserCacheType.Cookies);
+
+            this.mainPage = new MainPage(this.browser);
+            mainPage.Navigate().ClickLogin();
+
+            loginPage = new LoginPage(this.browser);
+            this.loginPage.LoginUser(TelerikUser.Admin);
+
+            mainPage.ClickAdminNavigationDropdown();
+
+            dashboardPage = new AdminDashboardPage(this.browser);
+            this.dashboardPage.ClickUniversitiesButton();
+
+            uniPage = new UniversitiesPage(this.browser);
 
             //
             // Place any additional initialization here
@@ -162,31 +182,33 @@ namespace TeamLichTestAutomation.Tests.AdministrationTestSuites
         #endregion
 
         [TestMethod]
+        [TestCategory("AdministrationUniversities")]
+        [TestCategory("PriorityHigh")]
+        [TestOwner(Owner.DechoDechev)]
         public void TestIfAddUniversityFunctionalityWorks()
-        {
-            MainPage mainPage = new MainPage(this.browser);
-            mainPage.Navigate().ClickLogin();
-
-            LoginPage loginPage = new LoginPage(this.browser);
-            loginPage.LoginUser(TelerikUser.Admin);
-
-            mainPage.ClickAdminNavigationDropdown();
-
-            AdminDashboardPage dashboardPage = new AdminDashboardPage(this.browser);
-            dashboardPage.ClickUniversitiesButton();
-
-            UniversitiesPage uniPage = new UniversitiesPage(this.browser);
-
-            KendoGrid grid = uniPage.Browser.Find.ByExpression<KendoGrid>("data-role=grid");
-
+        {   
             uniPage.AddUniversity("Telerik University");
-            var contains = grid.ContainsValueInColumn("Telerik University", 1);
-            uniPage.AssertUniversityIsPresentInTable("Telerik University");
+            KendoGrid grid = uniPage.Browser.Find.ByExpression<KendoGrid>("data-role=grid");
+            uniPage.AssertUniversityIsPresentInGrid(grid, "Telerik University");
 
             grid = uniPage.Browser.Find.ByExpression<KendoGrid>("data-role=grid");
+            uniPage.DeleteRow(grid, "Telerik University", 1);
+        }
 
-            grid.DeleteRowWithValueInColumn("Telerik University", 1, this.browser);
-            
+        [TestMethod]
+        [TestCategory("AdministrationUniversities")]
+        [TestCategory("PriorityHigh")]
+        [TestOwner(Owner.DechoDechev)]
+        public void TestIfRemoveUniversityFunctionalityWorks()
+        {
+            uniPage.AddUniversity("Telerik University");
+
+            KendoGrid grid = uniPage.Browser.Find.ByExpression<KendoGrid>("data-role=grid");
+            uniPage.DeleteRow(grid, "Telerik University", 1);
+
+            uniPage.Browser.RefreshDomTree();
+            grid = uniPage.Browser.Find.ByExpression<KendoGrid>("data-role=grid");
+            uniPage.AssertUniversityIsNotPresentInGrid(grid, "Telerik University");
         }
     }
 }

@@ -39,6 +39,7 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Drawing.Design" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -86,6 +87,10 @@
     <Compile Include="Pages\MainPage\MainPage.Map.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\TeamLichTestAutomation.TestFramework.Core\TeamLichTestAutomation.TestFramework.Core.csproj">
+      <Project>{69a89417-ad24-4519-89fa-cbd846d4af72}</Project>
+      <Name>TeamLichTestAutomation.TestFramework.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\TeamLichTestAutomation.Utilities\TeamLichTestAutomation.Utilities.csproj">
       <Project>{a04f0e40-4b64-4064-bdbe-bde8506e0c2c}</Project>
       <Name>TeamLichTestAutomation.Utilities</Name>

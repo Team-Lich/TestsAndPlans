@@ -26,29 +26,5 @@
 
             return false;
         }
-
-        public static void DeleteRowWithValueInColumn(this KendoGrid grid, string value, int searchColumn, Browser browser)
-        {
-            var rows = grid.DataItems;
-            HtmlAnchor deleteButton = null;   
-         
-            foreach (var row in rows)
-            {
-                if (row[searchColumn].InnerText == value)
-                {
-                    deleteButton = row.Find.ByExpression<HtmlAnchor>("class=~k-grid-delete");
-                    deleteButton.ScrollToVisible();
-                    browser.RefreshDomTree();
-                    var rec = deleteButton.GetRectangle();
-
-                    browser.Desktop.Mouse.Click(MouseClickType.LeftClick, rec);
-                    Thread.Sleep(1000);
-
-                    
-                    browser.Desktop.KeyBoard.KeyPress(System.Windows.Forms.Keys.Return);
-                    //Manager.Current.Desktop.KeyBoard.KeyPress(System.Windows.Forms.Keys.Return);
-                }
-            }
-        }
     }
 }

@@ -4,7 +4,9 @@ namespace TeamLichTestAutomation.Tests.AdministrationTestSuites
     using System.Collections.Generic;
     using System.Linq;
     using System.Text;
+    using System.Drawing;
 
+    using System.Threading;
     using ArtOfTest.WebAii.Controls.HtmlControls;
     using ArtOfTest.WebAii.Controls.HtmlControls.HtmlAsserts;
     using ArtOfTest.WebAii.Core;
@@ -12,6 +14,8 @@ namespace TeamLichTestAutomation.Tests.AdministrationTestSuites
     using ArtOfTest.WebAii.TestAttributes;
     using ArtOfTest.WebAii.TestTemplates;
     using ArtOfTest.WebAii.Win32.Dialogs;
+
+    using System.Windows.Forms;
 
     using ArtOfTest.WebAii.Silverlight;
     using ArtOfTest.WebAii.Silverlight.UI;
@@ -174,9 +178,15 @@ namespace TeamLichTestAutomation.Tests.AdministrationTestSuites
             UniversitiesPage uniPage = new UniversitiesPage(this.browser);
 
             KendoGrid grid = uniPage.Browser.Find.ByExpression<KendoGrid>("data-role=grid");
-            var contains = grid.ContainsValueInColumn("Университет в България", 1);
-            //uniPage.AddUniversity("Telerik University");
-            //uniPage.AssertUniversityIsPresentInTable("Telerik University");
+
+            uniPage.AddUniversity("Telerik University");
+            var contains = grid.ContainsValueInColumn("Telerik University", 1);
+            uniPage.AssertUniversityIsPresentInTable("Telerik University");
+
+            grid = uniPage.Browser.Find.ByExpression<KendoGrid>("data-role=grid");
+
+            grid.DeleteRowWithValueInColumn("Telerik University", 1, this.browser);
+            
         }
     }
 }

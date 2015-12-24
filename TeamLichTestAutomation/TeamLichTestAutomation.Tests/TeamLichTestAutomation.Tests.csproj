@@ -40,6 +40,8 @@
       <HintPath>..\TelerikFramework\ArtOfTest.WebAii.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="Telerik.TestingFramework.Controls.KendoUI, Version=2015.3.1015.0, Culture=neutral, PublicKeyToken=528163f3e645de45, processorArchitecture=MSIL" />
   </ItemGroup>
   <Choose>

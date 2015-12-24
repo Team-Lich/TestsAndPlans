@@ -25,7 +25,7 @@
             this.UpdateButton.Click();
         }
 
-        public void AddAgain()
+        public void DeleteRow(string value, int column)
         {
             
         }

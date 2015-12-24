@@ -56,6 +56,7 @@
     <Compile Include="Models\TelerikUser.cs" />
     <Compile Include="Pages\AdminPages\AdminDashboardPage\AdminDashboardPage.cs" />
     <Compile Include="Pages\AdminPages\AdminDashboardPage\AdminDashboardPage.Map.cs" />
+    <Compile Include="Pages\AdminPages\AdminDashboardPage\AdminDashboardPageAsserter.cs" />
     <Compile Include="Pages\AdminPages\FriendshipPage\FriendshipPage.cs" />
     <Compile Include="Pages\AdminPages\FriendshipPage\FriendshipPage.Map.cs" />
     <Compile Include="Pages\AdminPages\FriendshipPage\FriendshipPageAsserter.cs" />

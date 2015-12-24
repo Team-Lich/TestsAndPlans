@@ -185,7 +185,7 @@ namespace TeamLichTestAutomation.Tests.AdministrationTestSuites
         [TestCategory("AdministrationUniversities")]
         [TestCategory("PriorityHigh")]
         [TestOwner(Owner.DechoDechev)]
-        public void TestIfAddUniversityFunctionalityWorks()
+        public void TestUniversityAddFunctionalityWorks()
         {   
             uniPage.AddUniversity("Telerik University");
             KendoGrid grid = uniPage.Browser.Find.ByExpression<KendoGrid>("data-role=grid");
@@ -197,9 +197,9 @@ namespace TeamLichTestAutomation.Tests.AdministrationTestSuites
 
         [TestMethod]
         [TestCategory("AdministrationUniversities")]
-        [TestCategory("PriorityHigh")]
+        [TestCategory("PriorityMedium")]
         [TestOwner(Owner.DechoDechev)]
-        public void TestIfRemoveUniversityFunctionalityWorks()
+        public void TestUniversityRemoveFunctionalityWorks()
         {
             uniPage.AddUniversity("Telerik University");
 
@@ -209,6 +209,17 @@ namespace TeamLichTestAutomation.Tests.AdministrationTestSuites
             uniPage.Browser.RefreshDomTree();
             grid = uniPage.Browser.Find.ByExpression<KendoGrid>("data-role=grid");
             uniPage.AssertUniversityIsNotPresentInGrid(grid, "Telerik University");
+        }
+
+        [TestMethod]
+        [TestCategory("AdministrationUniversities")]
+        [TestCategory("PriorityLow")]
+        [TestOwner(Owner.DechoDechev)]
+        public void TestUniversityBackToAdministrationButtonWorks()
+        {
+            uniPage.BackToAdmin();
+
+            dashboardPage.AssertCurrentlyOnThePage();
         }
     }
 }

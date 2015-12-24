@@ -221,5 +221,21 @@ namespace TeamLichTestAutomation.Tests.AdministrationTestSuites
 
             dashboardPage.AssertCurrentlyOnThePage();
         }
+
+        [TestMethod]
+        [TestCategory("AdministrationUniversities")]
+        [TestCategory("PriorityMedium")]
+        [TestOwner(Owner.DechoDechev)]
+        public void TestUniversityEditNameWorks()
+        {
+            string newUniversityName = "Telerik University";
+            uniPage.AddUniversity(newUniversityName);
+            KendoGrid grid = uniPage.Browser.Find.ByExpression<KendoGrid>("data-role=grid");
+            uniPage.EditRow(grid, newUniversityName, "Name", "Progress University", 1);
+
+            this.browser.RefreshDomTree();
+            grid = uniPage.Browser.Find.ByExpression<KendoGrid>("data-role=grid");
+            var isThere = grid.ContainsValueInColumn("Progress", 1);
+        }
     }
 }

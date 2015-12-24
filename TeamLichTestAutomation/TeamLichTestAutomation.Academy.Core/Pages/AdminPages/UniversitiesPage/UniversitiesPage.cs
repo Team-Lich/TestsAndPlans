@@ -57,5 +57,38 @@
                 }
             }
         }
+
+        public void EditRow(KendoGrid grid, string value, string idOfEditField, string newValue, int searchColumn)
+        {
+            var rows = grid.DataItems;
+            HtmlAnchor editButton = null;
+
+            foreach (var row in rows)
+            {
+                if (row[searchColumn].InnerText == value)
+                {
+                    editButton = row.Find.ByExpression<HtmlAnchor>("class=~k-grid-edit");
+                    editButton.ScrollToVisible();
+                    this.Browser.RefreshDomTree();
+                    var rec = editButton.GetRectangle();
+
+                    this.Browser.Desktop.Mouse.Click(MouseClickType.LeftClick, rec);
+                    Thread.Sleep(1000);
+
+                    this.Browser.RefreshDomTree();
+                    var fieldToEdit = this.Browser.Find.ById(idOfEditField);
+
+                    var currentManager = Manager.Current;
+                    currentManager.Desktop.Mouse.Click(MouseClickType.LeftClick, fieldToEdit.GetRectangle());
+                    currentManager.Desktop.KeyBoard.KeyDown(Keys.ControlKey);
+                    currentManager.Desktop.KeyBoard.KeyPress(Keys.A);
+                    currentManager.Desktop.KeyBoard.KeyUp(Keys.ControlKey);
+
+                    currentManager.Desktop.KeyBoard.TypeText(newValue, 50);
+                    currentManager.Desktop.KeyBoard.KeyPress(Keys.Return);
+                    this.UpdateButton.Click();
+                }
+            }
+        }
     }
 }

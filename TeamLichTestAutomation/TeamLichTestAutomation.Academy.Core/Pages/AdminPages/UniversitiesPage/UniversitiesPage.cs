@@ -6,6 +6,7 @@
     using System.Drawing;
     using System.Threading;
     using System.Web;
+    using ArtOfTest.WebAii.Win32.Dialogs;
     using Telerik.TestingFramework.Controls.KendoUI;
 
     public partial class UniversitiesPage : BasePage
@@ -26,10 +27,20 @@
 
             var currentManager = Manager.Current;
 
-            currentManager.Desktop.Mouse.Click(MouseClickType.LeftDoubleClick, this.NameTextbox.GetRectangle());
+            var nameBox = this.NameTextbox.GetRectangle();
+            //nameBox.Offset(0, -30);
+            //var offset = nameBox;
+            //offset.Offset(30, 0);
+
+            //currentManager.Desktop.Mouse.Move(nameBox.Left, nameBox.Top, nameBox.Right, nameBox.Top);
+            //currentManager.Desktop.Mouse.Move(nameBox.Right, nameBox.Top, nameBox.Right, nameBox.Bottom);
+            //currentManager.Desktop.Mouse.Move(nameBox.Right, nameBox.Bottom, nameBox.Left, nameBox.Bottom);
+            //currentManager.Desktop.Mouse.Move(nameBox.Left, nameBox.Bottom, nameBox.Left, nameBox.Top);
+
+            currentManager.Desktop.Mouse.Click(MouseClickType.LeftDoubleClick, nameBox);
             currentManager.Desktop.KeyBoard.TypeText(universityName, 50);
 
-            currentManager.Desktop.Mouse.Click(MouseClickType.LeftClick, this.NameTextbox.GetRectangle().Right + 10, this.NameTextbox.GetRectangle().Top + 10);
+            currentManager.Desktop.Mouse.Click(MouseClickType.LeftClick, nameBox.Right + 10, nameBox.Top + 10);
 
             this.UpdateButton.Click();
         }
@@ -43,17 +54,23 @@
             {
                 if (row[searchColumn].InnerText == value)
                 {
+                    // It works only on Internet Explorer on my machine
+                    // I cant handle the confirm dialog on Chrome and there is some odd offset on firefox
+                    // preventing me to click on the name field. Firefox problem can be resolved, i am not sure
+                    // if i will be able to handle the dialog afterwards
+
                     deleteButton = row.Find.ByExpression<HtmlAnchor>("class=~k-grid-delete");
-                    deleteButton.ScrollToVisible();
                     this.Browser.RefreshDomTree();
-                    var rec = deleteButton.GetRectangle();
+                    var deleteRectangle = deleteButton.GetRectangle();
+                    
+                    var currentManager = Manager.Current;
+                   
+                    AlertDialog alertDialog = new AlertDialog(this.Browser, DialogButton.OK);
+                    currentManager.DialogMonitor.AddDialog(alertDialog);
 
-                    this.Browser.Desktop.Mouse.Click(MouseClickType.LeftClick, rec);
-                    Thread.Sleep(1000);
-
-
+                    currentManager.Desktop.Mouse.Click(MouseClickType.LeftClick, deleteRectangle);
+                    
                     this.Browser.Desktop.KeyBoard.KeyPress(Keys.Return);
-                    Manager.Current.Desktop.KeyBoard.KeyPress(Keys.Return);
                 }
             }
         }

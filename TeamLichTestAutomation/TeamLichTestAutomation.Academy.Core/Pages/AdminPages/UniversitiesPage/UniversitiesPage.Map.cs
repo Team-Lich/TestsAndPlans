@@ -19,7 +19,9 @@ namespace TeamLichTestAutomation.Academy.Core.Pages.AdminPages.UniversitiesPage
         {
             get
             {
-                return this.Browser.Find.ById<HtmlInputText>("Name");
+                this.Browser.RefreshDomTree();
+                var box = this.Browser.Find.ById<HtmlInputText>("Name");
+                return box;
             }
         }
 

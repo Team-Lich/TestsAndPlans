@@ -128,9 +128,10 @@ namespace TeamLichTestAutomation.Tests.AdministrationTestSuites
 
             #endregion
 
-            Manager.LaunchNewBrowser(BrowserType.Chrome);
+            Manager.LaunchNewBrowser(BrowserType.InternetExplorer);
             this.browser = Manager.ActiveBrowser;
             this.browser.ClearCache(BrowserCacheType.Cookies);
+            this.browser.Window.Maximize();
 
             this.mainPage = new MainPage(this.browser);
             mainPage.Navigate().ClickLogin();
@@ -201,9 +202,13 @@ namespace TeamLichTestAutomation.Tests.AdministrationTestSuites
         [TestOwner(Owner.DechoDechev)]
         public void TestUniversityRemoveFunctionalityWorks()
         {
-            uniPage.AddUniversity("Telerik University");
-
             KendoGrid grid = uniPage.Browser.Find.ByExpression<KendoGrid>("data-role=grid");
+            uniPage.AddUniversity("Telerik University");
+            this.browser.RefreshDomTree();
+            grid = uniPage.Browser.Find.ByExpression<KendoGrid>("data-role=grid");
+            uniPage.AssertUniversityIsPresentInGrid(grid, "Telerik University");
+
+            grid = uniPage.Browser.Find.ByExpression<KendoGrid>("data-role=grid");
             uniPage.DeleteRow(grid, "Telerik University", 1);
 
             uniPage.Browser.RefreshDomTree();
@@ -218,7 +223,6 @@ namespace TeamLichTestAutomation.Tests.AdministrationTestSuites
         public void TestUniversityBackToAdministrationButtonWorks()
         {
             uniPage.BackToAdmin();
-
             dashboardPage.AssertCurrentlyOnThePage();
         }
 

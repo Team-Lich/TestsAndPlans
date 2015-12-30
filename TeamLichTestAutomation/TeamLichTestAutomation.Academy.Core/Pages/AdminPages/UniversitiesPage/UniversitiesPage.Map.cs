@@ -11,6 +11,7 @@ namespace TeamLichTestAutomation.Academy.Core.Pages.AdminPages.UniversitiesPage
             get 
             {
                 string expressionString = @"href=/Administration_Users/Universities/Read?DataGrid-mode=insert";
+                this.Browser.WaitForElement(5000, expressionString);
                 return this.Browser.Find.ByExpression<HtmlAnchor>(expressionString);
             }
         }
@@ -20,6 +21,7 @@ namespace TeamLichTestAutomation.Academy.Core.Pages.AdminPages.UniversitiesPage
             get
             {
                 this.Browser.RefreshDomTree();
+                this.Browser.WaitForElement(5000, "id=Name");
                 var box = this.Browser.Find.ById<HtmlInputText>("Name");
                 return box;
             }
@@ -38,6 +40,16 @@ namespace TeamLichTestAutomation.Academy.Core.Pages.AdminPages.UniversitiesPage
             get 
             {
                 return this.Browser.Find.ByExpression<HtmlAnchor>("href=/Administration/Navigation");
+            }
+        }
+
+        private HtmlTableCell NameHeader
+        {
+            get
+            {
+                this.Browser.RefreshDomTree();
+                this.Browser.WaitForElement(5000, "data-field=Name", "data-role=columnsorter");
+                return this.Browser.Find.ByAttributes<HtmlTableCell>("data-field=Name");
             }
         }
 

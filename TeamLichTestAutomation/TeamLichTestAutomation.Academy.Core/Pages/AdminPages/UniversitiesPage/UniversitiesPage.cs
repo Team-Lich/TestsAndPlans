@@ -23,6 +23,7 @@
 
         public void AddUniversity(string universityName)
         {
+            this.Browser.RefreshDomTree();
             this.AddButton.Click();
 
             var currentManager = Manager.Current;
@@ -35,6 +36,7 @@
             currentManager.Desktop.Mouse.Click(MouseClickType.LeftClick, nameBox.Right + 10, nameBox.Top + 10);
 
             this.UpdateButton.Click();
+            Thread.Sleep(1000);
         }
 
         public void DeleteRow(KendoGrid grid, string value, int searchColumn)
@@ -52,6 +54,8 @@
                     // if i will be able to handle the dialog afterwards
 
                     deleteButton = row.Find.ByExpression<HtmlAnchor>("class=~k-grid-delete");
+                    deleteButton.ScrollToVisible();
+
                     this.Browser.RefreshDomTree();
                     var deleteRectangle = deleteButton.GetRectangle();
                     
@@ -111,6 +115,11 @@
                     //this.UpdateButton.Click();
                 }
             }
+        }
+
+        public void SortByName(KendoGrid grid)
+        {
+            this.NameHeader.Click();
         }
     }
 }

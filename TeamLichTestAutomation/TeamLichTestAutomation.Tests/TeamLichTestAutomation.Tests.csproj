@@ -64,7 +64,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="LoginTestSuite.cs" />
     <Compile Include="RegistrationTestSuite.cs" />
-    <Compile Include="RelatedUsersTestSuite.cs" />
+    <Compile Include="RelatedUsersTestSuites\MessagesTestSuite.cs" />
+    <Compile Include="RelatedUsersTestSuites\FriendsTestSuite.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TeamLichTestAutomation.Academy.Core\TeamLichTestAutomation.Academy.Core.csproj">
@@ -79,6 +80,9 @@
       <Project>{a04f0e40-4b64-4064-bdbe-bde8506e0c2c}</Project>
       <Name>TeamLichTestAutomation.Utilities</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="RelatedUsersTestSuites\RelatedUsersUtilities.cs" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

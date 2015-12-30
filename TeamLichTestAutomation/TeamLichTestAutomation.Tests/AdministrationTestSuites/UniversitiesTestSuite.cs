@@ -182,6 +182,10 @@ namespace TeamLichTestAutomation.Tests.AdministrationTestSuites
 
         #endregion
 
+
+        // These tests work only on Internet Explorer.
+        // I can not handle the confirmation dialog on deletion in Chrome and Firefox
+
         [TestMethod]
         [TestCategory("AdministrationUniversities")]
         [TestCategory("PriorityHigh")]

@@ -28,14 +28,6 @@
             var currentManager = Manager.Current;
 
             var nameBox = this.NameTextbox.GetRectangle();
-            //nameBox.Offset(0, -30);
-            //var offset = nameBox;
-            //offset.Offset(30, 0);
-
-            //currentManager.Desktop.Mouse.Move(nameBox.Left, nameBox.Top, nameBox.Right, nameBox.Top);
-            //currentManager.Desktop.Mouse.Move(nameBox.Right, nameBox.Top, nameBox.Right, nameBox.Bottom);
-            //currentManager.Desktop.Mouse.Move(nameBox.Right, nameBox.Bottom, nameBox.Left, nameBox.Bottom);
-            //currentManager.Desktop.Mouse.Move(nameBox.Left, nameBox.Bottom, nameBox.Left, nameBox.Top);
 
             currentManager.Desktop.Mouse.Click(MouseClickType.LeftDoubleClick, nameBox);
             currentManager.Desktop.KeyBoard.TypeText(universityName, 50);

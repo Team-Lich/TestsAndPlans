@@ -166,16 +166,15 @@ namespace TeamLichTestAutomation.Tests
             homePage.NavigateTo(secondFriendUrl);
 
             UserPage userPage = new UserPage(this.browser);
-            if (userPage.AddFriendButton.IsVisible())
+            if (userPage.AddFriendButton != null && userPage.AddFriendButton.IsVisible())
             {
                 userPage.AddFriendButton.Click();
+                homePage.LogoutButton.Click();
+
+                homePage = LoginFriendUser("TeamLich_Friend2");
+                homePage.NavigateTo("http://stage.telerikacademy.com/Friends");
+                homePage.Browser.Find.ByAttributes<HtmlDiv>("class=approveFriendship").Click();
             }
-
-            homePage.LogoutButton.Click();
-
-            homePage = LoginFriendUser("TeamLich_Friend2");
-            homePage.NavigateTo("http://stage.telerikacademy.com/Friends");
-            homePage.Browser.Find.ByAttributes<HtmlDiv>("class=approveFriendship").Click();
 
             homePage.LogoutButton.Click();
         }

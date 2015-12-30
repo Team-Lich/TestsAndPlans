@@ -5,13 +5,20 @@ namespace TeamLichTestAutomation.Tests
 
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
+    using TeamLichTestAutomation.Academy.Core.Data;
+    using TeamLichTestAutomation.Academy.Core.Models;
     using TeamLichTestAutomation.Academy.Core.Pages.MainPage;
     using TeamLichTestAutomation.Academy.Core.Pages.RegistrationPage;
+
+    using TeamLichTestAutomation.Utilities;
+    using TeamLichTestAutomation.Utilities.Attributes;
 
     [TestClass]
     public class RegistrationTestSuite : BaseTest
     {
         private Browser browser;
+        private MainPage mainPage;
+        private RegistrationPage registrationPage;
 
         #region [Setup / TearDown]
 
@@ -96,24 +103,21 @@ namespace TeamLichTestAutomation.Tests
 
             #endregion
 
-            //
-            // Place any additional initialization here
-            //
-
             Manager.LaunchNewBrowser(BrowserType.Chrome);
             Manager.ActiveBrowser.ClearCache(BrowserCacheType.Cookies);
 
             this.browser = Manager.ActiveBrowser;
+
+            this.mainPage = new MainPage(this.browser);
+            this.registrationPage = new RegistrationPage(this.browser);
+
+            mainPage.Navigate().ClickRegistration();
         }
 
         // Use TestCleanup to run code after each test has run
         [TestCleanup()]
         public void MyTestCleanup()
         {
-
-            //
-            // Place any additional cleanup here
-            //
 
             #region WebAii CleanUp
 
@@ -136,153 +140,339 @@ namespace TeamLichTestAutomation.Tests
 
         #endregion
 
-        public void NavigateToRegistrationForm()
+        [TestMethod]
+        [TestCategory("Registration")]
+        [TestId(48)]
+        [TestPriority(Priority.High)]
+        [TestOwner(Owner.Ilvie)]
+        public void TestRegistrationWithUsernameEmpty()
         {
-            MainPage mainPage = new MainPage(this.browser);
-            mainPage.Navigate().ClickRegistration();
+            TelerikUser user = new TelerikUser(string.Empty, TelerikUserData.PasswordValid,
+                TelerikUserData.FirstNameValid, TelerikUserData.LastNameValid, TelerikUserData.EmailValid);
+
+            registrationPage.RegisterTelerikUser(user);
+
+            registrationPage.AssertErrorMessageIsDisplayedWhenUsernameIsEmpty();
         }
 
         [TestMethod]
-        public void TestRegistrationWithInvalidUserName()
+        [TestCategory("Registration")]
+        [TestId(51)]
+        [TestPriority(Priority.High)]
+        [TestOwner(Owner.Ilvie)]
+        public void TestRegistrationWithUsernameInvalid()
         {
-            this.NavigateToRegistrationForm();
+            TelerikUser user = new TelerikUser(TelerikUserData.UsernameInvalidSymbols, 
+                TelerikUserData.PasswordValid, TelerikUserData.FirstNameValid, 
+                TelerikUserData.LastNameValid, TelerikUserData.EmailValid);
 
-            RegistrationPage registrationPage = new RegistrationPage(this.browser);
-            registrationPage.RegistrationWithInvalidUsername();
+            registrationPage.RegisterTelerikUser(user);
 
             registrationPage.AssertErrorMessageIsDisplayedWhenEnterInvalidUsername();
         }
 
         [TestMethod]
-        public void TestRegistrationWithLengthOfLastNameLessThanMinimumAllowed()
+        [TestCategory("Registration")]
+        [TestId(49)]
+        [TestPriority(Priority.High)]
+        [TestOwner(Owner.Ilvie)]
+        public void TestRegistrationWithUsernameLengthLessThanMinimumAllowed()
         {
-            this.NavigateToRegistrationForm();
+            TelerikUser user = new TelerikUser(TelerikUserData.UsernameInvalidLengthDown, 
+                TelerikUserData.PasswordValid, TelerikUserData.FirstNameValid, 
+                TelerikUserData.LastNameValid, TelerikUserData.EmailValid);
 
-            RegistrationPage registrationPage = new RegistrationPage(this.browser);
-            registrationPage.RegistrationWithLengthOfLastNameLessThanMinimumAllowed();
+            registrationPage.RegisterTelerikUser(user);
 
-            registrationPage.AssertErrorMessageIsDisplayedWhenLastNameLengthIsLessThanMinimumAllowed();
+            registrationPage.AssertErrorMessageIsDisplayedWhenLengthOfUsernameIsInccorect();
         }
 
         [TestMethod]
-        public void TestRegistrationWithNonCyrillicAlphabetSymbolsInLastName()
+        [TestCategory("Registration")]
+        [TestId(50)]
+        [TestPriority(Priority.High)]
+        [TestOwner(Owner.Ilvie)]
+        public void TestRegistrationWithUsernameLengthGreaterThanMaximumAllowed()
         {
-            this.NavigateToRegistrationForm();
+            TelerikUser user = new TelerikUser(TelerikUserData.UsernameInvalidLengthUp, 
+                TelerikUserData.PasswordValid, TelerikUserData.FirstNameValid, 
+                TelerikUserData.LastNameValid, TelerikUserData.EmailValid);
 
-            RegistrationPage registrationPage = new RegistrationPage(this.browser);
-            registrationPage.RegistrationWithNonCyrillicAlphabetSymbolsInLastNameField();
+            registrationPage.RegisterTelerikUser(user);
 
-            registrationPage.AssertErrorMessageIsDisplayedWhenLastNameContainNonCyrillicAlphabetSymbol();
+            registrationPage.AssertErrorMessageIsDisplayedWhenLengthOfUsernameIsInccorect();
         }
 
         [TestMethod]
-        public void TestRegistrationWithEmptyLastNameField()
+        [TestCategory("Registration")]
+        [TestId(52)]
+        [TestPriority(Priority.High)]
+        [TestOwner(Owner.Ilvie)]
+        public void TestRegistratioWithUsernameStartingWithNonAlphabetSymbol()
         {
-            this.NavigateToRegistrationForm();
+            TelerikUser user = new TelerikUser(TelerikUserData.UsernameStartingInvalidSymbol,
+               TelerikUserData.PasswordValid, TelerikUserData.FirstNameValid,
+               TelerikUserData.LastNameValid, TelerikUserData.EmailValid);
 
-            RegistrationPage registrationPage = new RegistrationPage(this.browser);
-            registrationPage.RegistrationWithEmptyLastNameField();
+            registrationPage.RegisterTelerikUser(user);
 
-            registrationPage.AssertErrorMessageIsDisplayedWhenLastNameFieldIsEmpty();
+            registrationPage.AssertErrorMessageIsDisplayedWhenUsernameStartsWithNonAlphabetSymbol();
         }
 
         [TestMethod]
-        public void TestRegistrationWithUncheckedTermsAndConditionsCheckbox()
+        [TestCategory("Registration")]
+        [TestId(52)]
+        [TestPriority(Priority.High)]
+        [TestOwner(Owner.Ilvie)]
+        public void TestRegistratioWithUsernameEndingWithNonAlphabetSymbol()
         {
-            this.NavigateToRegistrationForm();
+            TelerikUser user = new TelerikUser(TelerikUserData.UsernameEndingInvalidSymbol,
+               TelerikUserData.PasswordValid, TelerikUserData.FirstNameValid,
+               TelerikUserData.LastNameValid, TelerikUserData.EmailValid);
 
-            RegistrationPage registrationPage = new RegistrationPage(this.browser);
-            registrationPage.RegistrationWithUncheckedTermsAndConditionsCheckbox();
+            registrationPage.RegisterTelerikUser(user);
 
-            registrationPage.AssertErrorMessageIsDisplayedWhenCheckboxIsUnchecked();
+            registrationPage.AssertErrorMessageIsDisplayedWhenUsernameEndsWithNonAlphabetSymbol();
         }
 
         [TestMethod]
-        public void TestRegistrationWithDifferentPasswordInPasswordAgainField()
+        [TestCategory("Registration")]
+        [TestId(218)]
+        [TestPriority(Priority.High)]
+        [TestOwner(Owner.Ilvie)]
+        public void TestRegistrationWithPasswordEmpty()
         {
-            this.NavigateToRegistrationForm();
+            TelerikUser user = new TelerikUser(TelerikUserData.UsernameValid,
+                 string.Empty, TelerikUserData.FirstNameValid,
+                 TelerikUserData.LastNameValid, TelerikUserData.EmailValid);
 
-            RegistrationPage registrationPage = new RegistrationPage(this.browser);
-            registrationPage.RegistrationWithDifferentPasswordInPasswordAgainField();
+            registrationPage.RegisterTelerikUser(user);
 
-            registrationPage.AssertErrorMessageIsDisplayedWhenEnterDifferentPasswordInPasswordAgainField();
+            registrationPage.AssertErrorMessageIsDisplayedWhenPasswordFieldIsEmpty();
         }
 
         [TestMethod]
-        public void TestRegistrationWithLengthOfPasswordLessThanMinimumAllowed()
+        [TestCategory("Registration")]
+        [TestId(57)]
+        [TestPriority(Priority.High)]
+        [TestOwner(Owner.Ilvie)]
+        public void TestRegistrationWithPasswordLengthLessThanMinimumAllowed()
         {
-            this.NavigateToRegistrationForm();
+            TelerikUser user = new TelerikUser(TelerikUserData.UsernameValid,
+                TelerikUserData.PasswordInvalidLength, TelerikUserData.FirstNameValid,
+                TelerikUserData.LastNameValid, TelerikUserData.EmailValid);
 
-            RegistrationPage registrationPage = new RegistrationPage(this.browser);
-            registrationPage.RegistrationWithLengthOfPasswordLessThanMinimumAllowed();
+            registrationPage.RegisterTelerikUser(user);
 
             registrationPage.AssertErrorMessageIsDisplayedWhenLengthOfPasswordIsLessThanMinimumAllowed();
         }
 
         [TestMethod]
-        public void TestRegistrationWithLengthOfUsernameLessThanMinimumAllowed()
+        [TestCategory("Registration")]
+        [TestId(56)]
+        [TestPriority(Priority.High)]
+        [TestOwner(Owner.Ilvie)]
+        public void TestRegistrationWithPasswordAgainDifferent()
         {
-            this.NavigateToRegistrationForm();
+            TelerikUser user = new TelerikUser(TelerikUserData.UsernameValid,
+               TelerikUserData.PasswordValid, TelerikUserData.FirstNameValid,
+               TelerikUserData.LastNameValid, TelerikUserData.EmailValid);
 
-            RegistrationPage registrationPage = new RegistrationPage(this.browser);
-            registrationPage.RegistrationWithLengthOfUsernameLessThanMinimumAllowed();
+            registrationPage.RegisterTelerikUser(user, TelerikUserData.PasswordAgainValid);
 
-            registrationPage.AssertErrorMessageIsDisplayedWhenLengthOfUsernameIsInccorect();
+            registrationPage.AssertErrorMessageIsDisplayedWhenEnterDifferentPasswordInPasswordAgainField();
         }
 
         [TestMethod]
-        public void TestRegistrationWithLengthOfUsernameGreaterThanMaximumAllowed()
+        [TestCategory("Registration")]
+        [TestId(55)]
+        [TestPriority(Priority.High)]
+        [TestOwner(Owner.Ilvie)]
+        public void TestRegistrationWithPasswordAgainEmpty()
         {
-            this.NavigateToRegistrationForm();
+            TelerikUser user = new TelerikUser(TelerikUserData.UsernameValid,
+                 TelerikUserData.PasswordValid, TelerikUserData.FirstNameValid,
+                 TelerikUserData.LastNameValid, TelerikUserData.EmailValid);
 
-            RegistrationPage registrationPage = new RegistrationPage(this.browser);
-            registrationPage.RegistrationWithLengthOfUsernameGreaterThanMaximumAllowed();
-
-            registrationPage.AssertErrorMessageIsDisplayedWhenLengthOfUsernameIsInccorect();
-        }
-
-        [TestMethod]
-        public void TestRegistrationWithEmptyPasswordAgainField()
-        {
-            this.NavigateToRegistrationForm();
-
-            RegistrationPage registrationPage = new RegistrationPage(this.browser);
-            registrationPage.RegistrationWithEmptyPasswordAgainField();
+            registrationPage.RegisterTelerikUser(user, string.Empty);
 
             registrationPage.AssertErrorMessageIsDisplayedWhenPasswordAgainFieldIsEmpty();
         }
 
         [TestMethod]
-        public void TestRegistrationWithEmptyEmail()
+        [TestCategory("Registration")]
+        [TestId(64)]
+        [TestPriority(Priority.High)]
+        [TestOwner(Owner.Ilvie)]
+        public void TestRegistrationWithFirstNameEmptyField()
         {
-            this.NavigateToRegistrationForm();
+            TelerikUser user = new TelerikUser(TelerikUserData.UsernameValid,
+                TelerikUserData.PasswordValid, string.Empty,
+                TelerikUserData.LastNameValid, TelerikUserData.EmailValid);
 
-            RegistrationPage registrationPage = new RegistrationPage(this.browser);
-            registrationPage.RegistrationWithEmptyEmail();
+            registrationPage.RegisterTelerikUser(user);
 
-            registrationPage.AssertErrorMessageIsDisplayedWhenEmailIsEmpty();
+            registrationPage.AssertErrorMessageIsDisplayedWhenFirstNameFieldIsEmpty();
         }
 
         [TestMethod]
-        public void TestRegistrationWithNonCyrillicAlphabetSymbolsInFirstName()
+        [TestCategory("Registration")]
+        [TestId(59)]
+        [TestPriority(Priority.High)]
+        [TestOwner(Owner.Ilvie)]
+        public void TestRegistrationWithFirstNameContainingNonCyrillicAlphabetSymbols()
         {
-            this.NavigateToRegistrationForm();
+            TelerikUser user = new TelerikUser(TelerikUserData.UsernameValid,
+                TelerikUserData.PasswordValid, TelerikUserData.FirstNameNonCyrillicSymbols,
+                TelerikUserData.LastNameValid, TelerikUserData.EmailValid);
 
-            RegistrationPage registrationPage = new RegistrationPage(this.browser);
-            registrationPage.RegistrationWithNonCyrillicAlphabetSymbolsInFirsttNameField();
+            registrationPage.RegisterTelerikUser(user);
 
             registrationPage.AssertErrorMessageIsDisplayedWhenFirstNameContainNonCyrillicAlphabetSymbol();
         }
 
         [TestMethod]
-        public void TestRegistrationWithLengthOfFirstNameLessThanMinimumAllowed()
+        [TestCategory("Registration")]
+        [TestId(61)]
+        [TestPriority(Priority.High)]
+        [TestOwner(Owner.Ilvie)]
+        public void TestRegistrationWithFirstNameStartingWithInvalidSymbols()
         {
-            this.NavigateToRegistrationForm();
+            TelerikUser user = new TelerikUser(TelerikUserData.UsernameValid,
+                TelerikUserData.PasswordValid, TelerikUserData.FirstNameInvalidBoundarySymbols,
+                TelerikUserData.LastNameValid, TelerikUserData.EmailValid);
 
-            RegistrationPage registrationPage = new RegistrationPage(this.browser);
-            registrationPage.RegistrationWithLengthOfFirstNameLessThanMinimumAllowed();
+            registrationPage.RegisterTelerikUser(user);
+
+            registrationPage.AssertErrorMessageIsDisplayedWhenFirstNameStartsWithInvalidSymbol();
+        }
+
+        [TestMethod]
+        [TestCategory("Registration")]
+        [TestId(63)]
+        [TestPriority(Priority.High)]
+        [TestOwner(Owner.Ilvie)]
+        public void TestRegistrationWithFirstNameLengthLessThanMinimumAllowed()
+        {
+            TelerikUser user = new TelerikUser(TelerikUserData.UsernameValid,
+                 TelerikUserData.PasswordValid, TelerikUserData.FirstNameInvalidLength,
+                 TelerikUserData.LastNameValid, TelerikUserData.EmailValid);
+
+            registrationPage.RegisterTelerikUser(user);
 
             registrationPage.AssertErrorMessageIsDisplayedWhenFirstNameLengthIsLessThanMinimumAllowed();
+        }
+
+        [TestMethod]
+        [TestCategory("Registration")]
+        [TestId(64)]
+        [TestPriority(Priority.High)]
+        [TestOwner(Owner.Ilvie)]
+        public void TestRegistrationWithLastNameEmptyField()
+        {
+            TelerikUser user = new TelerikUser(TelerikUserData.UsernameValid,
+                TelerikUserData.PasswordValid, TelerikUserData.FirstNameValid,
+                string.Empty, TelerikUserData.EmailValid);
+
+            registrationPage.RegisterTelerikUser(user);
+
+            registrationPage.AssertErrorMessageIsDisplayedWhenLastNameFieldIsEmpty();
+        }
+
+        [TestMethod]
+        [TestCategory("Registration")]
+        [TestId(68)]
+        [TestPriority(Priority.High)]
+        [TestOwner(Owner.Ilvie)]
+        public void TestRegistrationWithLastNameLengthLessThanMinimumAllowed()
+        {
+            TelerikUser user = new TelerikUser(TelerikUserData.UsernameValid,
+                TelerikUserData.PasswordValid, TelerikUserData.FirstNameValid,
+                TelerikUserData.LastNameInvalidLength, TelerikUserData.EmailValid);
+
+            registrationPage.RegisterTelerikUser(user);
+
+            registrationPage.AssertErrorMessageIsDisplayedWhenLastNameLengthIsLessThanMinimumAllowed();
+        }
+
+        [TestMethod]
+        [TestCategory("Registration")]
+        [TestId(65)]
+        [TestPriority(Priority.High)]
+        [TestOwner(Owner.Ilvie)]
+        public void TestRegistrationWithLastNameContainingNonCyrillicAlphabetSymbols()
+        {
+            TelerikUser user = new TelerikUser(TelerikUserData.UsernameValid,
+                TelerikUserData.PasswordValid, TelerikUserData.FirstNameValid,
+                TelerikUserData.LastNameInvalidSymbols, TelerikUserData.EmailValid);
+
+            registrationPage.RegisterTelerikUser(user);
+
+            registrationPage.AssertErrorMessageIsDisplayedWhenLastNameContainNonCyrillicAlphabetSymbol();
+        }
+
+        [TestMethod]
+        [TestCategory("Registration")]
+        [TestId(69)]
+        [TestPriority(Priority.High)]
+        [TestOwner(Owner.Ilvie)]
+        public void TestRegistrationWithEmailAddressEmpty()
+        {
+            TelerikUser user = new TelerikUser(TelerikUserData.UsernameValid,
+                TelerikUserData.PasswordValid, TelerikUserData.FirstNameValid,
+                TelerikUserData.LastNameValid, string.Empty);
+
+            registrationPage.RegisterTelerikUser(user);
+
+            registrationPage.AssertErrorMessageIsDisplayedWhenEmailIsEmpty();
+        }
+
+        [TestMethod]
+        [TestCategory("Registration")]
+        [TestId(71)]
+        [TestPriority(Priority.High)]
+        [TestOwner(Owner.Ilvie)]
+        public void TestRegistrationWithEmailAddressNotContainingAtSymbol()
+        {
+            TelerikUser user = new TelerikUser(TelerikUserData.UsernameValid,
+                TelerikUserData.PasswordValid, TelerikUserData.FirstNameValid,
+                TelerikUserData.LastNameValid, TelerikUserData.EmailMissingAtSymbol);
+
+            registrationPage.RegisterTelerikUser(user);
+
+            registrationPage.AssertErrorMessageIsDisplayedWhenEmailAddressNotContainSpecialSymbols();
+        }
+
+        [TestMethod]
+        [TestCategory("Registration")]
+        [TestId(70)]
+        [TestPriority(Priority.High)]
+        [TestOwner(Owner.Ilvie)]
+        public void TestRegistrationWithEmailAddressNotContainPointSymbol()
+        {
+            TelerikUser user = new TelerikUser(TelerikUserData.UsernameValid,
+                TelerikUserData.PasswordValid, TelerikUserData.FirstNameValid,
+                TelerikUserData.LastNameValid, TelerikUserData.EmailMissingPointSymbol);
+
+            registrationPage.RegisterTelerikUser(user);
+
+            registrationPage.AssertErrorMessageIsDisplayedWhenEmailAddressNotContainSpecialSymbols();
+        }
+
+        [TestMethod]
+        [TestCategory("Registration")]
+        [TestId(73)]
+        [TestPriority(Priority.High)]
+        [TestOwner(Owner.Ilvie)]
+        public void TestRegistrationWithTermsAndConditionsCheckboxUnchecked()
+        {
+            TelerikUser user = new TelerikUser(TelerikUserData.UsernameValid,
+                TelerikUserData.PasswordValid, TelerikUserData.FirstNameValid,
+                TelerikUserData.LastNameValid, TelerikUserData.EmailValid);
+
+            registrationPage.RegisterTelerikUserWithUncheckedCheckbox(user);
+
+            registrationPage.AssertErrorMessageIsDisplayedWhenCheckboxIsUnchecked();
         }
     }
 }

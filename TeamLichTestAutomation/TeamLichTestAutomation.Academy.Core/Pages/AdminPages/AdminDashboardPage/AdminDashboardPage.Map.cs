@@ -19,5 +19,13 @@
                 return this.Browser.Find.ByExpression<HtmlAnchor>("href=/Administration_Users/Roles");
             }
         }
+
+        private HtmlAnchor FriendshipButton
+        {
+            get
+            {
+                return this.Browser.Find.ByExpression<HtmlAnchor>("href=/Administration_Users/Friendship");
+            }
+        }
     }
 }

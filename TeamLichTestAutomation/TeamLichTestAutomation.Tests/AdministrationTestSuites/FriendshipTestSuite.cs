@@ -1,18 +1,13 @@
-namespace TeamLichTestAutomation.Tests
+namespace TeamLichTestAutomation.Tests.AdministrationTestSuites
 {
+
     using ArtOfTest.WebAii.Core;
     using ArtOfTest.WebAii.TestTemplates;
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
-    using TeamLichTestAutomation.Academy.Core.Pages.CoursesPage;
-    using TeamLichTestAutomation.Academy.Core.Pages.LoginPage;
-    using TeamLichTestAutomation.Academy.Core.Pages.MainPage;
-    using TeamLichTestAutomation.Academy.Core.Pages.RegistrationPage;
 
-    /// <summary>
-    /// Summary description for CourseSignUpTestSuit
-    /// </summary>
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+
     [TestClass]
-    public class CourseSignUpTestSuit : BaseTest
+    public class FriendshipTestSuite : BaseTest
     {
         private Browser browser;
 
@@ -70,7 +65,7 @@ namespace TeamLichTestAutomation.Tests
             // location for this test.
 
             // Pass in 'true' to recycle the browser between test methods
-            Initialize(true, this.TestContext.TestLogsDir, new TestContextWriteLine(this.TestContext.WriteLine));
+            Initialize(false, this.TestContext.TestLogsDir, new TestContextWriteLine(this.TestContext.WriteLine));
 
             // If you need to override any other settings coming from the
             // config section you can comment the 'Initialize' line above and instead
@@ -98,13 +93,11 @@ namespace TeamLichTestAutomation.Tests
             SetTestMethod(this, (string)TestContext.Properties["TestName"]);
 
             #endregion
-            
-            // Test Recycle is true
-            
-            Manager.LaunchNewBrowser(BrowserType.FireFox);
-            Manager.ActiveBrowser.ClearCache(BrowserCacheType.Cookies);
 
-            this.browser = Manager.ActiveBrowser;
+            //
+            // Place any additional initialization here
+            //
+
         }
 
         // Use TestCleanup to run code after each test has run
@@ -138,32 +131,8 @@ namespace TeamLichTestAutomation.Tests
         #endregion
 
         [TestMethod]
-        public void TestCourseAttendanceSignUpForLoggedRegularUser()
+        public void TestBackToAdministrationButton()
         {
-            var mainPage = new MainPage(this.browser);
-            mainPage.Navigate().ClickRegistration();
-
-            RegistrationPage registration = new RegistrationPage(this.browser);
-            registration.RegisterRandomUser();
-
-            mainPage.ClickCoursesNavigationDropdown();
-
-            var coursesPage = new CoursesPage(this.browser);
-            coursesPage.liveSignUp();
-
-            coursesPage.AssertSignOffBtn();
-         }
-
-        [TestMethod]
-        public void OnlineSignUp()
-        {
-            var mainPage = new MainPage(this.browser);
-            mainPage.Navigate().ClickCoursesNavigationDropdown();
-
-            var coursesPage = new CoursesPage(this.browser);
-            coursesPage.OnlineSignUp();
-
-            coursesPage.AssertSignOffBtn();
         }
     }
 }

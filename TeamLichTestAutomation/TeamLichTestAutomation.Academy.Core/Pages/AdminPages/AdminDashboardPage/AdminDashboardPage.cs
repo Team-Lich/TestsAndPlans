@@ -11,6 +11,11 @@
         public void ClickUniversitiesButton()
         {
             this.UniversitiesButton.Click();
-        }        
+        }
+        
+        public void ClickFriendshipButton()
+        {
+            this.FriendshipButton.Click();
+        }
     }
 }

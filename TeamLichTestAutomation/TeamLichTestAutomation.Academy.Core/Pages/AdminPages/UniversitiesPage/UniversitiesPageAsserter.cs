@@ -4,25 +4,22 @@
     using System.Threading;
     using ArtOfTest.Common.UnitTesting;
     using Telerik.TestingFramework.Controls.KendoUI;
+    using TeamLichTestAutomation.TestFramework.Core;
 
     public static class UniversitiesPageAsserter
     {
-        public static void AssertUniversityIsPresentInTable(this UniversitiesPage uniPage, string universityName)
+        public static void AssertUniversityIsPresentInGrid(this UniversitiesPage uniPage, KendoGrid grid, string universityName)
         {
-            var element = uniPage.KendoTable;
-            Thread.Sleep(2000);
-
-            var isContained = element.InnerText.Contains(universityName);
+            var isContained = grid.ContainsValueInColumn(universityName, 1);
 
             Assert.IsTrue(isContained);
+        }
 
-            //KendoGrid kendoGrid = new KendoGrid(element);
-            //kendoGrid.FindItems(k => k.InnerText == universityName);
+        public static void AssertUniversityIsNotPresentInGrid(this UniversitiesPage uniPage, KendoGrid grid, string universityName)
+        {
+            var isContained = grid.ContainsValueInColumn(universityName, 1);
 
-            //foreach (var item in kendoGrid.DataItems)
-            //{
-            //    item
-            //}
+            Assert.IsFalse(isContained);
         }
     }
 }

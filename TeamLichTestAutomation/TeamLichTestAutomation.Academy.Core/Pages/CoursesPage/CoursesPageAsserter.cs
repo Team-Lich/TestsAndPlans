@@ -1,22 +1,43 @@
 ﻿namespace TeamLichTestAutomation.Academy.Core.Pages.CoursesPage
 {
     using System.Linq;
+    using System.Threading;
     using ArtOfTest.Common.UnitTesting;
 
     public static class CoursesPageAsserter
     {
         public static void AssertSignOffBtn(this CoursesPage coursesPage)
         {
-            var message = "Отпишете курса";
+            var s = coursesPage.SignOff;
+            Thread.Sleep(2000);
+            var signOffButtonExists = s.IsVisible();
 
-           Assert.AreEqual(message, coursesPage.SignOff.InnerText);
+            Assert.IsTrue(signOffButtonExists);
         }
 
         public static void AssertCoursesFound(this CoursesPage coursesPage)
         {
             var title = "Курсове";
+            var value = coursesPage.Title.GetValue<string>("innerText");
+            Assert.AreEqual(title, value);
+        }
 
-            Assert.AreEqual(title, coursesPage.Title.InnerText);
+        public static void AssertLecturePresent(this CoursesPage coursesPage)
+        {
+            var firstCourse = coursesPage.FirstCourse;
+            Assert.IsNotNull(firstCourse);
+        }
+
+        public static void AssertSendHomeworkLinkPresent(this CoursesPage coursesPage)
+        {
+            var link = coursesPage.SendHomeworkLink;
+            Assert.IsNotNull(link);
+        }
+
+        public static void AssertPresentationLinkPresent(this CoursesPage coursesPage)
+        {
+            var link = coursesPage.PresentationLink;
+            Assert.IsNotNull(link);
         }
     }
 }

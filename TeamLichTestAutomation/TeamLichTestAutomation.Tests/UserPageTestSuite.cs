@@ -103,7 +103,7 @@ namespace TeamLichTestAutomation.Tests
             // Place any additional initialization here
             //
 
-            Manager.LaunchNewBrowser(BrowserType.Chrome);
+            Manager.LaunchNewBrowser(BrowserType.FireFox);
             Manager.ActiveBrowser.ClearCache(BrowserCacheType.Cookies);
 
             this.browser = Manager.ActiveBrowser;
@@ -185,7 +185,7 @@ namespace TeamLichTestAutomation.Tests
             mainPage.Navigate().ClickLogin();
 
             LoginPage loginPage = new LoginPage(this.browser);
-            loginPage.LoginFriendUser(userName);
+            //loginPage.LoginFriendUser(userName);
 
             return mainPage;
         }

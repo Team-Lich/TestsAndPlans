@@ -8,6 +8,7 @@
         {
             get
             {
+                this.Browser.WaitForElement(5000, "id=UsernameOrEmail");
                 return this.Browser.Find.ById<HtmlInputText>("UsernameOrEmail");
             }
         }
@@ -16,6 +17,7 @@
         {
             get
             {
+                this.Browser.WaitForElement(5000, "id=Password");
                 return this.Browser.Find.ById<HtmlInputPassword>("Password");
             }
         }
@@ -24,8 +26,29 @@
         {
             get
             {
+                this.Browser.WaitForElement(5000, "value=Вход");
                 return this.Browser.Find.ByExpression<HtmlInputSubmit>("value=Вход");
             }
         }        
+
+        public HtmlListItem[] ErrorsShown
+        {
+            get 
+            {
+                this.Browser.WaitForElement(5000, "class=validation-summary-errors");
+                var container = this.Browser.Find.ByExpression<HtmlDiv>("class=validation-summary-errors");
+                var list = container.Find.AllByTagName<HtmlUnorderedList>("ul")[0];
+                var listItems = list.Find.AllByTagName<HtmlListItem>("li");
+
+                var result = new HtmlListItem[listItems.Count];
+
+                for (int i = 0; i < result.Length; i++)
+                {
+                    result[i] = listItems[i];
+                }
+
+                return result;
+            }
+        }
     }
 }

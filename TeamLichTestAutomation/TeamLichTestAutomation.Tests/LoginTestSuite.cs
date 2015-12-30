@@ -8,9 +8,12 @@ namespace TeamLichTestAutomation.Tests
     using ArtOfTest.WebAii.Core;
     using ArtOfTest.WebAii.TestTemplates;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using TeamLichTestAutomation.Academy.Core.Models;
     using TeamLichTestAutomation.Academy.Core.Pages.FacebookLoginPage;
     using TeamLichTestAutomation.Academy.Core.Pages.MainPage;
     using TeamLichTestAutomation.Academy.Core.Pages.LoginPage;
+    using TeamLichTestAutomation.Utilities;
+    using TeamLichTestAutomation.Utilities.Attributes;
 
     /// <summary>
     /// Summary description for TelerikVSUnitTest1
@@ -19,6 +22,8 @@ namespace TeamLichTestAutomation.Tests
     public class LoginTestSuite : BaseTest
     {
         private Browser browser;
+        private MainPage mainPage;
+        private LoginPage loginPage;
 
         #region [Setup / TearDown]
 
@@ -109,6 +114,11 @@ namespace TeamLichTestAutomation.Tests
             Manager.ActiveBrowser.ClearCache(BrowserCacheType.Cookies);
 
             this.browser = Manager.ActiveBrowser;
+
+            this.mainPage = new MainPage(this.browser);
+            this.loginPage = new LoginPage(this.browser);
+
+            mainPage.Navigate().ClickLogin();
         }
 
         // Use TestCleanup to run code after each test has run
@@ -137,91 +147,194 @@ namespace TeamLichTestAutomation.Tests
         #endregion
 
         [TestMethod]
+        [TestCategory("Login")]
+        [TestCategory("PriorityHigh")]
+        [TestOwner(Owner.DechoDechev)]
         public void TestLoginWithValidRegularUserCredentials()
         {
-            MainPage mainPage = new MainPage(this.browser);
-            mainPage.Navigate().ClickLogin();
-
-            LoginPage loginPage = new LoginPage(this.browser);
-            loginPage.LoginRegularUser();
+            loginPage.LoginUser(TelerikUser.Regular);
 
             mainPage.AssertUserIsLoggedAsRegularUser();
         }
 
         [TestMethod]
+        [TestCategory("Login")]
+        [TestCategory("PriorityHigh")]
+        [TestOwner(Owner.DechoDechev)]
+        public void TestLoginWithEmptyFields()
+        {
+            TelerikUser user = new TelerikUser(string.Empty, string.Empty);
+            loginPage.LoginUser(user);
+
+            mainPage.AssertUserIsNotLogged();
+        }
+
+        [TestMethod]
+        [TestCategory("Login")]
+        [TestCategory("PriorityHigh")]
+        [TestOwner(Owner.DechoDechev)]
+        public void TestLoginWithEmptyUserField()
+        {
+            TelerikUser user = TelerikUser.Regular;
+            user.UserName = string.Empty;
+            loginPage.LoginUser(user);
+
+            mainPage.AssertUserIsNotLogged();
+        }
+
+        [TestMethod]
+        [TestCategory("Login")]
+        [TestCategory("PriorityHigh")]
+        [TestOwner(Owner.DechoDechev)]
+        public void TestLoginRegularUserWithEmptyPasswordField()
+        {
+            TelerikUser user = TelerikUser.Regular;
+            user.Password = string.Empty;
+            loginPage.LoginUser(user);
+
+            mainPage.AssertUserIsNotLogged();
+        }
+
+        [TestMethod]
+        [TestCategory("Login")]
+        [TestCategory("PriorityHigh")]
+        [TestOwner(Owner.DechoDechev)]
+        public void TestLoginUserWithNullFields()
+        {
+            TelerikUser user = new TelerikUser(null, null);
+            loginPage.LoginUser(user);
+
+            mainPage.AssertUserIsNotLogged();
+        }
+
+        [TestMethod]
+        [TestCategory("Login")]
+        [TestCategory("PriorityHigh")]
+        [TestOwner(Owner.DechoDechev)]
+        public void TestLoginUserWithNullUserField()
+        {
+            TelerikUser user = TelerikUser.Regular;
+            user.UserName = null;
+            loginPage.LoginUser(user);
+
+            mainPage.AssertUserIsNotLogged();
+        }
+
+        [TestMethod]
+        [TestCategory("Login")]
+        [TestCategory("PriorityHigh")]
+        [TestOwner(Owner.DechoDechev)]
+        public void TestLoginRegularUserWithNullPasswordField()
+        {
+            TelerikUser user = TelerikUser.Regular;
+            user.Password = null;
+            loginPage.LoginUser(user);
+
+            mainPage.AssertUserIsNotLogged();
+        }
+
+        [TestMethod]
+        [TestCategory("Login")]
+        [TestCategory("PriorityHigh")]
+        [TestOwner(Owner.DechoDechev)]
+        public void TestLoginAdminUserWithNullPasswordField()
+        {
+            TelerikUser user = TelerikUser.Admin;
+            user.Password = null;
+            loginPage.LoginUser(user);
+
+            mainPage.AssertUserIsNotLogged();
+        }
+
+        [TestMethod]
+        [TestCategory("Login")]
+        [TestCategory("PriorityHigh")]
+        [TestOwner(Owner.DechoDechev)]
+        public void TestLoginAdminUserWithEmptyPasswordField()
+        {
+            TelerikUser user = TelerikUser.Admin;
+            user.Password = string.Empty;
+            loginPage.LoginUser(user);
+
+            mainPage.AssertUserIsNotLogged();
+        }
+
+        [TestMethod]
+        [TestCategory("Login")]
+        [TestCategory("PriorityHigh")]
+        [TestOwner(Owner.DechoDechev)]
         public void TestLoginWithValidAdminUserCredentials()
         {
-            MainPage mainPage = new MainPage(this.browser);
-            mainPage.Navigate().ClickLogin();
-
-            LoginPage loginPage = new LoginPage(this.browser);
-            loginPage.LoginAdminUser();
+            loginPage.LoginUser(TelerikUser.Admin);
 
             mainPage.AssertUserIsLoggedAsAdmin();
         }
 
         [TestMethod]
-        public void TestLoginWithInvalidAdminPassword()
-        {
-            MainPage mainPage = new MainPage(this.browser);
-            mainPage.Navigate().ClickLogin();
-
-            LoginPage loginPage = new LoginPage(this.browser);
-            loginPage.LoginUser("TeamLichTestAdmin", "hello");
-
-            mainPage.AssertUserIsNotLogged();
-        }
-
-        [TestMethod]
-        public void TestLoginWithInvalidRegularUserPassword()
-        {
-            MainPage mainPage = new MainPage(this.browser);
-            mainPage.Navigate().ClickLogin();
-
-            LoginPage loginPage = new LoginPage(this.browser);
-            loginPage.LoginUser("TeamLichTestUser", "hello");
-
-            mainPage.AssertUserIsNotLogged();
-        }
-
-        [TestMethod]
+        [TestCategory("Login")]
+        [TestCategory("PriorityHigh")]
+        [TestOwner(Owner.DechoDechev)]
         public void TestLoginWithInvalidAdminUsername()
         {
-            MainPage mainPage = new MainPage(this.browser);
-            mainPage.Navigate().ClickLogin();
-
-            LoginPage loginPage = new LoginPage(this.browser);
-            loginPage.LoginUser("TeamLichAdmin", "123456");
+            TelerikUser testUser = TelerikUser.Admin;
+            testUser.UserName = "WrongUser";
+            loginPage.LoginUser(testUser);
 
             mainPage.AssertUserIsNotLogged();
         }
 
         [TestMethod]
+        [TestCategory("Login")]
+        [TestCategory("PriorityHigh")]
+        [TestOwner(Owner.DechoDechev)]
+        public void TestLoginWithInvalidAdminPassword()
+        {
+            TelerikUser testUser = TelerikUser.Admin;
+            testUser.Password = "WrongPass";
+            loginPage.LoginUser(testUser);
+
+            mainPage.AssertUserIsNotLogged();
+        }
+
+        [TestMethod]
+        [TestCategory("Login")]
+        [TestCategory("PriorityHigh")]
+        [TestOwner(Owner.DechoDechev)]
         public void TestLoginWithInvalidRegularUserUsername()
         {
-            MainPage mainPage = new MainPage(this.browser);
-            mainPage.Navigate().ClickLogin();
-
-            LoginPage loginPage = new LoginPage(this.browser);
-            loginPage.LoginUser("TeamLichUser", "123456");
+            TelerikUser testUser = TelerikUser.Regular;
+            testUser.UserName = "WrongUser";
+            loginPage.LoginUser(testUser);
 
             mainPage.AssertUserIsNotLogged();
         }
 
         [TestMethod]
-        public void TestLoginPersistenceOnBrowserRestart()
+        [TestCategory("Login")]
+        [TestCategory("PriorityHigh")]
+        [TestOwner(Owner.DechoDechev)]
+        public void TestLoginWithInvalidRegularUserPassword()
         {
-            MainPage mainPage = new MainPage(this.browser);
-            mainPage.Navigate().ClickLogin();
+            TelerikUser testUser = TelerikUser.Regular;
+            testUser.Password = "WrongPass";
+            loginPage.LoginUser(testUser);
 
-            LoginPage loginPage = new LoginPage(this.browser);
-            loginPage.LoginRegularUser();
+            mainPage.AssertUserIsNotLogged();
+        }
+
+        [TestMethod]
+        [TestCategory("Login")]
+        [TestCategory("PriorityMedium")]
+        [TestOwner(Owner.DechoDechev)]
+        public void TestLoginPersistenceRegularUserOnBrowserRestart()
+        {
+            loginPage.LoginUser(TelerikUser.Regular);
+
+            mainPage.AssertUserIsLoggedAsRegularUser();
 
             browser.Close();
-
-            Manager.LaunchNewBrowser();
+            Manager.LaunchNewBrowser(BrowserType.FireFox);
             browser = Manager.ActiveBrowser;
-
             mainPage = new MainPage(this.browser);
             mainPage.Navigate();
 
@@ -229,13 +342,31 @@ namespace TeamLichTestAutomation.Tests
         }
 
         [TestMethod]
-        public void TestRegularUserIsLoggedOutOnCookieDeletion()
+        [TestCategory("Login")]
+        [TestCategory("PriorityMedium")]
+        [TestOwner(Owner.DechoDechev)]
+        public void TestLoginPersistenceAdminUserOnBrowserRestart()
         {
-            MainPage mainPage = new MainPage(this.browser);
-            mainPage.Navigate().ClickLogin();
+            loginPage.LoginUser(TelerikUser.Admin);
+            mainPage.AssertUserIsLoggedAsAdmin();
 
-            LoginPage loginPage = new LoginPage(this.browser);
-            loginPage.LoginRegularUser();
+            browser.Close();
+            Manager.LaunchNewBrowser(BrowserType.FireFox);
+            browser = Manager.ActiveBrowser;
+            mainPage = new MainPage(this.browser);
+            mainPage.Navigate();
+
+            mainPage.AssertUserIsLoggedAsAdmin();
+        }
+
+        [TestMethod]
+        [TestCategory("Login")]
+        [TestCategory("PriorityHigh")]
+        [TestOwner(Owner.DechoDechev)]
+        public void TestLoginRegularUserIsNotPersistentOnCookieDeletion()
+        {
+            loginPage.LoginUser(TelerikUser.Regular);
+            mainPage.AssertUserIsLoggedAsRegularUser();
 
             browser.ClearCache(BrowserCacheType.Cookies);
             browser.Refresh();
@@ -244,18 +375,46 @@ namespace TeamLichTestAutomation.Tests
         }
 
         [TestMethod]
-        public void TestAdminUserIsLoggedOutOnCookieDeletion()
+        [TestCategory("Login")]
+        [TestCategory("PriorityHigh")]
+        [TestOwner(Owner.DechoDechev)]
+        public void TestLoginAdminUserIsNotPersistentOnCookieDeletion()
         {
-            MainPage mainPage = new MainPage(this.browser);
-            mainPage.Navigate().ClickLogin();
-
-            LoginPage loginPage = new LoginPage(this.browser);
-            loginPage.LoginAdminUser();
+            loginPage.LoginUser(TelerikUser.Admin);
+            mainPage.AssertUserIsLoggedAsAdmin();
 
             browser.ClearCache(BrowserCacheType.Cookies);
             browser.Refresh();
 
             mainPage.AssertUserIsNotLogged();
+        }
+
+        [TestMethod]
+        [TestCategory("Login")]
+        [TestCategory("PriorityHigh")]
+        [TestOwner(Owner.DechoDechev)]
+        public void TestLoginUserFieldDoesNotAcceptForbiddenSymbols()
+        {
+            TelerikUser user = new TelerikUser(@"<script>window.alert();</script>", "123456");
+            loginPage.LoginUser(user);
+
+            this.browser.RefreshDomTree();
+
+            loginPage.AssertIfErrorMessageForIllegalDataIsShown();
+        }
+
+        [TestMethod]
+        [TestCategory("Login")]
+        [TestCategory("PriorityHigh")]
+        [TestOwner(Owner.DechoDechev)]
+        public void TestLoginPasswordFieldDoesNotAcceptForbiddenSymbols()
+        {
+            TelerikUser user = new TelerikUser("TeamLichTestUser", @"<script>window.alert();</script>");
+            loginPage.LoginUser(user);
+
+            this.browser.RefreshDomTree();
+
+            loginPage.AssertIfErrorMessageForIllegalDataIsShown();
         }
     }
 }

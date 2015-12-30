@@ -1,5 +1,6 @@
 ﻿using ArtOfTest.WebAii.Controls.HtmlControls;
 using ArtOfTest.WebAii.ObjectModel;
+using Telerik.TestingFramework.Controls.KendoUI;
 
 namespace TeamLichTestAutomation.Academy.Core.Pages.AdminPages.UniversitiesPage
 {
@@ -18,7 +19,9 @@ namespace TeamLichTestAutomation.Academy.Core.Pages.AdminPages.UniversitiesPage
         {
             get
             {
-                return this.Browser.Find.ById<HtmlInputText>("Name");
+                this.Browser.RefreshDomTree();
+                var box = this.Browser.Find.ById<HtmlInputText>("Name");
+                return box;
             }
         }
 
@@ -30,11 +33,19 @@ namespace TeamLichTestAutomation.Academy.Core.Pages.AdminPages.UniversitiesPage
             }
         }
 
-        internal Element KendoTable
+        private HtmlAnchor BackToAdminButton
+        {
+            get 
+            {
+                return this.Browser.Find.ByExpression<HtmlAnchor>("href=/Administration/Navigation");
+            }
+        }
+
+        internal KendoGrid KendoTable
         {
             get
             {
-                return this.Browser.Find.ByExpression("role=grid");
+                return this.Browser.Find.ById<KendoGrid>("DataGrid");
             }
         }
     }

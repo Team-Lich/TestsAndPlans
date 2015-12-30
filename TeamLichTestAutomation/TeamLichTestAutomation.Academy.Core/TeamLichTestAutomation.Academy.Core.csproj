@@ -37,7 +37,9 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Drawing.Design" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -49,9 +51,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\TelerikUserData.cs" />
     <Compile Include="Facades\TelerikAcademyFacade.cs" />
+    <Compile Include="Models\TelerikUser.cs" />
     <Compile Include="Pages\AdminPages\AdminDashboardPage\AdminDashboardPage.cs" />
     <Compile Include="Pages\AdminPages\AdminDashboardPage\AdminDashboardPage.Map.cs" />
+    <Compile Include="Pages\AdminPages\AdminDashboardPage\AdminDashboardPageAsserter.cs" />
+    <Compile Include="Pages\AdminPages\FriendshipPage\FriendshipPage.cs" />
+    <Compile Include="Pages\AdminPages\FriendshipPage\FriendshipPage.Map.cs" />
+    <Compile Include="Pages\AdminPages\FriendshipPage\FriendshipPageAsserter.cs" />
     <Compile Include="Pages\AdminPages\RolesPage\RolesPage.cs" />
     <Compile Include="Pages\AdminPages\UniversitiesPage\UniversitiesPage.cs" />
     <Compile Include="Pages\AdminPages\UniversitiesPage\UniversitiesPage.Map.cs" />
@@ -64,11 +72,13 @@
     <Compile Include="Pages\FacebookLoginPage\FacebookLoginPage.Map.cs" />
     <Compile Include="Pages\LoginPage\LoginPage.cs" />
     <Compile Include="Pages\LoginPage\LoginPage.Map.cs" />
+    <Compile Include="Pages\LoginPage\LoginPageAsserter.cs" />
     <Compile Include="Pages\MainPage\MainPageAsserter.cs" />
     <Compile Include="Pages\MainPage\MainPage.cs" />
     <Compile Include="Pages\RegistrationPage\RegistrationPageAsserter.cs" />
     <Compile Include="Pages\RegistrationPage\RegistrationPage.cs" />
     <Compile Include="Pages\RegistrationPage\RegistrationPage.Map.cs" />
+    <Compile Include="Pages\RegistrationPage\RegistrationPageErrorMessages.cs" />
     <Compile Include="Pages\UserPage\UserPage.cs" />
     <Compile Include="Pages\UserPage\UserPage.Map.cs" />
     <Compile Include="Pages\UserPage\UserPageAsserter.cs" />
@@ -78,6 +88,10 @@
     <Compile Include="Pages\MainPage\MainPage.Map.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\TeamLichTestAutomation.TestFramework.Core\TeamLichTestAutomation.TestFramework.Core.csproj">
+      <Project>{69a89417-ad24-4519-89fa-cbd846d4af72}</Project>
+      <Name>TeamLichTestAutomation.TestFramework.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\TeamLichTestAutomation.Utilities\TeamLichTestAutomation.Utilities.csproj">
       <Project>{a04f0e40-4b64-4064-bdbe-bde8506e0c2c}</Project>
       <Name>TeamLichTestAutomation.Utilities</Name>

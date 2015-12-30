@@ -4,7 +4,9 @@ namespace TeamLichTestAutomation.Tests.AdministrationTestSuites
     using System.Collections.Generic;
     using System.Linq;
     using System.Text;
+    using System.Drawing;
 
+    using System.Threading;
     using ArtOfTest.WebAii.Controls.HtmlControls;
     using ArtOfTest.WebAii.Controls.HtmlControls.HtmlAsserts;
     using ArtOfTest.WebAii.Core;
@@ -13,14 +15,23 @@ namespace TeamLichTestAutomation.Tests.AdministrationTestSuites
     using ArtOfTest.WebAii.TestTemplates;
     using ArtOfTest.WebAii.Win32.Dialogs;
 
+    using System.Windows.Forms;
+
     using ArtOfTest.WebAii.Silverlight;
     using ArtOfTest.WebAii.Silverlight.UI;
 
     using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using TeamLichTestAutomation.Academy.Core.Models;
     using TeamLichTestAutomation.Academy.Core.Pages.AdminPages.AdminDashboardPage;
     using TeamLichTestAutomation.Academy.Core.Pages.AdminPages.UniversitiesPage;
     using TeamLichTestAutomation.Academy.Core.Pages.LoginPage;
     using TeamLichTestAutomation.Academy.Core.Pages.MainPage;
+    using Telerik.TestingFramework.Controls.KendoUI;
+    using TeamLichTestAutomation.Academy.Core;
+    using TeamLichTestAutomation.TestFramework.Core;
+    using ArtOfTest.Common.Serialization;
+    using TeamLichTestAutomation.Utilities.Attributes;
+    using TeamLichTestAutomation.Utilities;
 
     /// <summary>
     /// Summary description for UniversitiesTestSuite
@@ -29,6 +40,10 @@ namespace TeamLichTestAutomation.Tests.AdministrationTestSuites
     public class UniversitiesTestSuite : BaseTest
     {
         private Browser browser;
+        private MainPage mainPage;
+        private LoginPage loginPage;
+        private AdminDashboardPage dashboardPage;
+        private UniversitiesPage uniPage;
 
         #region [Setup / TearDown]
 
@@ -113,9 +128,23 @@ namespace TeamLichTestAutomation.Tests.AdministrationTestSuites
 
             #endregion
 
-            Manager.LaunchNewBrowser(BrowserType.FireFox);
+            Manager.LaunchNewBrowser(BrowserType.InternetExplorer);
             this.browser = Manager.ActiveBrowser;
             this.browser.ClearCache(BrowserCacheType.Cookies);
+            this.browser.Window.Maximize();
+
+            this.mainPage = new MainPage(this.browser);
+            mainPage.Navigate().ClickLogin();
+
+            loginPage = new LoginPage(this.browser);
+            this.loginPage.LoginUser(TelerikUser.Admin);
+
+            mainPage.ClickAdminNavigationDropdown();
+
+            dashboardPage = new AdminDashboardPage(this.browser);
+            this.dashboardPage.ClickUniversitiesButton();
+
+            uniPage = new UniversitiesPage(this.browser);
 
             //
             // Place any additional initialization here
@@ -154,23 +183,63 @@ namespace TeamLichTestAutomation.Tests.AdministrationTestSuites
         #endregion
 
         [TestMethod]
-        public void TestIfAddUniversityFunctionalityWorks()
-        {
-            MainPage mainPage = new MainPage(this.browser);
-            mainPage.Navigate().ClickLogin();
-
-            LoginPage loginPage = new LoginPage(this.browser);
-            loginPage.LoginAdminUser();
-
-            mainPage.ClickAdminNavigationDropdown();
-
-            AdminDashboardPage dashboardPage = new AdminDashboardPage(this.browser);
-            dashboardPage.ClickUniversitiesButton();
-
-            UniversitiesPage uniPage = new UniversitiesPage(this.browser);
+        [TestCategory("AdministrationUniversities")]
+        [TestCategory("PriorityHigh")]
+        [TestOwner(Owner.DechoDechev)]
+        public void TestUniversityAddFunctionalityWorks()
+        {   
             uniPage.AddUniversity("Telerik University");
+            KendoGrid grid = uniPage.Browser.Find.ByExpression<KendoGrid>("data-role=grid");
+            uniPage.AssertUniversityIsPresentInGrid(grid, "Telerik University");
 
-            uniPage.AssertUniversityIsPresentInTable("Telerik University");
+            grid = uniPage.Browser.Find.ByExpression<KendoGrid>("data-role=grid");
+            uniPage.DeleteRow(grid, "Telerik University", 1);
+        }
+
+        [TestMethod]
+        [TestCategory("AdministrationUniversities")]
+        [TestCategory("PriorityMedium")]
+        [TestOwner(Owner.DechoDechev)]
+        public void TestUniversityRemoveFunctionalityWorks()
+        {
+            KendoGrid grid = uniPage.Browser.Find.ByExpression<KendoGrid>("data-role=grid");
+            uniPage.AddUniversity("Telerik University");
+            this.browser.RefreshDomTree();
+            grid = uniPage.Browser.Find.ByExpression<KendoGrid>("data-role=grid");
+            uniPage.AssertUniversityIsPresentInGrid(grid, "Telerik University");
+
+            grid = uniPage.Browser.Find.ByExpression<KendoGrid>("data-role=grid");
+            uniPage.DeleteRow(grid, "Telerik University", 1);
+
+            uniPage.Browser.RefreshDomTree();
+            grid = uniPage.Browser.Find.ByExpression<KendoGrid>("data-role=grid");
+            uniPage.AssertUniversityIsNotPresentInGrid(grid, "Telerik University");
+        }
+
+        [TestMethod]
+        [TestCategory("AdministrationUniversities")]
+        [TestCategory("PriorityLow")]
+        [TestOwner(Owner.DechoDechev)]
+        public void TestUniversityBackToAdministrationButtonWorks()
+        {
+            uniPage.BackToAdmin();
+            dashboardPage.AssertCurrentlyOnThePage();
+        }
+
+        [TestMethod]
+        [TestCategory("AdministrationUniversities")]
+        [TestCategory("PriorityMedium")]
+        [TestOwner(Owner.DechoDechev)]
+        public void TestUniversityEditNameWorks()
+        {
+            string newUniversityName = "Telerik University";
+            uniPage.AddUniversity(newUniversityName);
+            KendoGrid grid = uniPage.Browser.Find.ByExpression<KendoGrid>("data-role=grid");
+            uniPage.EditRow(grid, newUniversityName, "Name", "Progress University", 1);
+
+            this.browser.RefreshDomTree();
+            grid = uniPage.Browser.Find.ByExpression<KendoGrid>("data-role=grid");
+            var isThere = grid.ContainsValueInColumn("Progress", 1);
         }
     }
 }

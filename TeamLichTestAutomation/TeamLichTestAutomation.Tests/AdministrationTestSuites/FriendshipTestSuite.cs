@@ -1,20 +1,15 @@
-using ArtOfTest.WebAii.Controls.HtmlControls;
-
-namespace TeamLichTestAutomation.Tests
+namespace TeamLichTestAutomation.Tests.AdministrationTestSuites
 {
+
     using ArtOfTest.WebAii.Core;
     using ArtOfTest.WebAii.TestTemplates;
+
     using Microsoft.VisualStudio.TestTools.UnitTesting;
-    using TeamLichTestAutomation.Academy.Core.Pages.MainPage;
-    using TeamLichTestAutomation.Academy.Core.Pages.LoginPage;
-    using TeamLichTestAutomation.Academy.Core.Pages.UserPage;
 
     [TestClass]
-    public class UserPageTestSuite : BaseTest
+    public class FriendshipTestSuite : BaseTest
     {
         private Browser browser;
-        private readonly string firstFriendUrl = "http://stage.telerikacademy.com/Users/TeamLich_Friend1";
-        private readonly string secondFriendUrl = "http://stage.telerikacademy.com/Users/TeamLich_Friend2";
 
         #region [Setup / TearDown]
 
@@ -70,7 +65,7 @@ namespace TeamLichTestAutomation.Tests
             // location for this test.
 
             // Pass in 'true' to recycle the browser between test methods
-            Initialize(true, this.TestContext.TestLogsDir, new TestContextWriteLine(this.TestContext.WriteLine));
+            Initialize(false, this.TestContext.TestLogsDir, new TestContextWriteLine(this.TestContext.WriteLine));
 
             // If you need to override any other settings coming from the
             // config section you can comment the 'Initialize' line above and instead
@@ -103,11 +98,6 @@ namespace TeamLichTestAutomation.Tests
             // Place any additional initialization here
             //
 
-            Manager.LaunchNewBrowser(BrowserType.FireFox);
-            Manager.ActiveBrowser.ClearCache(BrowserCacheType.Cookies);
-
-            this.browser = Manager.ActiveBrowser;
-            this.MakeUsersFriends();
         }
 
         // Use TestCleanup to run code after each test has run
@@ -141,54 +131,8 @@ namespace TeamLichTestAutomation.Tests
         #endregion
 
         [TestMethod]
-        public void TestSendMessageButtonActive()
+        public void TestBackToAdministrationButton()
         {
-            LoginFriendUser("TeamLich_Friend1").NavigateTo(secondFriendUrl);
-
-            UserPage userPage = new UserPage(this.browser);
-            userPage.ClickSendMessageButtonActive();
-            userPage.AssertMessagesPageIsOpenedWhenSendMessageButtonIsClicked();
-        }
-
-        [TestMethod]
-        public void TestRemoveFriendButton()
-        {
-            LoginFriendUser("TeamLich_Friend1").NavigateTo(secondFriendUrl);
-
-            UserPage userPage = new UserPage(this.browser);
-            userPage.ClickRemoveFriendButton();
-            userPage.AssertFriendIsRemovedWhenRemoveFriendButtonIsClicked();
-        }
-
-        private void MakeUsersFriends()
-        {
-            var homePage = LoginFriendUser("TeamLich_Friend1");
-            homePage.NavigateTo(secondFriendUrl);
-
-            UserPage userPage = new UserPage(this.browser);
-            if (userPage.AddFriendButton.IsVisible())
-            {
-                userPage.AddFriendButton.Click();
-            }
-
-            homePage.LogoutButton.Click();
-
-            homePage = LoginFriendUser("TeamLich_Friend2");
-            homePage.NavigateTo("http://stage.telerikacademy.com/Friends");
-            homePage.Browser.Find.ByAttributes<HtmlDiv>("class=approveFriendship").Click();
-
-            homePage.LogoutButton.Click();
-        }
-
-        private MainPage LoginFriendUser(string userName)
-        {
-            MainPage mainPage = new MainPage(this.browser);
-            mainPage.Navigate().ClickLogin();
-
-            LoginPage loginPage = new LoginPage(this.browser);
-            //loginPage.LoginFriendUser(userName);
-
-            return mainPage;
         }
     }
 }

@@ -7,7 +7,6 @@
     {
         public static void AssertMessagesPageIsOpenedWhenSendMessageButtonIsClicked(this UserPage userPage)
         {
-            userPage.Browser.WaitUntilReady();
             Assert.AreEqual(userPage.Browser.PageTitle, "Съобщения - Телерик Академия - Студентска система");
         }
 

@@ -6,9 +6,10 @@
         {
             this.UserName = userName;
             this.Password = password;
+            this.Url = "http://stage.telerikacademy.com/Users/" + userName;
         }
 
-        public TelerikUser(string userName, string password, string firstName, string lastName, string email) 
+        public TelerikUser(string userName, string password, string firstName, string lastName, string email)
             : this(userName, password)
         {
             this.FirstName = firstName;
@@ -26,6 +27,8 @@
 
         public string Email { get; set; }
 
+        public string Url { get; set; }
+
         public static TelerikUser Regular
         {
             get
@@ -42,9 +45,25 @@
             }
         }
 
+        public static TelerikUser Related1
+        {
+            get
+            {
+                return new TelerikUser("TeamLichRelatedtUser1", "123456");
+            }
+        }
+
+        public static TelerikUser Related2
+        {
+            get
+            {
+                return new TelerikUser("TeamLichRelatedtUser2", "123456");
+            }
+        }
+
         public static TelerikUser FullValidInformation
         {
-            get 
+            get
             {
                 return new TelerikUser("LichTestUser", "123456", "Първото", "Фамилията", "mailtest@test.com");
             }

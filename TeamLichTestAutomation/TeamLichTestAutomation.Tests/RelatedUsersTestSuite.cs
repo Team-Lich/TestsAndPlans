@@ -1,20 +1,20 @@
-using ArtOfTest.WebAii.Controls.HtmlControls;
-
 namespace TeamLichTestAutomation.Tests
 {
+    using Academy.Core.Models;
+    using ArtOfTest.WebAii.Controls.HtmlControls;
     using ArtOfTest.WebAii.Core;
     using ArtOfTest.WebAii.TestTemplates;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
-    using TeamLichTestAutomation.Academy.Core.Pages.MainPage;
     using TeamLichTestAutomation.Academy.Core.Pages.LoginPage;
+    using TeamLichTestAutomation.Academy.Core.Pages.MainPage;
     using TeamLichTestAutomation.Academy.Core.Pages.UserPage;
+    using Utilities;
+    using Utilities.Attributes;
 
     [TestClass]
-    public class UserPageTestSuite : BaseTest
+    public class RelatedUsersTestSuite : BaseTest
     {
         private Browser browser;
-        private readonly string firstFriendUrl = "http://stage.telerikacademy.com/Users/TeamLich_Friend1";
-        private readonly string secondFriendUrl = "http://stage.telerikacademy.com/Users/TeamLich_Friend2";
 
         #region [Setup / TearDown]
 
@@ -141,29 +141,39 @@ namespace TeamLichTestAutomation.Tests
         #endregion
 
         [TestMethod]
+        [TestCategory("RelatedUsers")]
+        [TestPriority(Priority.High)]
+        [TestOwner(Owner.Yane)]
         public void TestSendMessageButtonActive()
         {
-            LoginFriendUser("TeamLich_Friend1").NavigateTo(secondFriendUrl);
+            LoginRelatedUser(TelerikUser.Related1).NavigateTo(TelerikUser.Related2.Url);
 
             UserPage userPage = new UserPage(this.browser);
             userPage.ClickSendMessageButtonActive();
+            userPage.Browser.WaitUntilReady();
+
             userPage.AssertMessagesPageIsOpenedWhenSendMessageButtonIsClicked();
         }
 
         [TestMethod]
+        [TestCategory("RelatedUsers")]
+        [TestPriority(Priority.High)]
+        [TestOwner(Owner.Yane)]
         public void TestRemoveFriendButton()
         {
-            LoginFriendUser("TeamLich_Friend1").NavigateTo(secondFriendUrl);
+            LoginRelatedUser(TelerikUser.Related1).NavigateTo(TelerikUser.Related2.Url);
 
             UserPage userPage = new UserPage(this.browser);
             userPage.ClickRemoveFriendButton();
+            userPage.Browser.WaitForElement(3000, "id=AddFriendButton");
+
             userPage.AssertFriendIsRemovedWhenRemoveFriendButtonIsClicked();
         }
 
         private void MakeUsersFriends()
         {
-            var homePage = LoginFriendUser("TeamLich_Friend1");
-            homePage.NavigateTo(secondFriendUrl);
+            var homePage = LoginRelatedUser(TelerikUser.Related1);
+            homePage.NavigateTo(TelerikUser.Related2.Url);
 
             UserPage userPage = new UserPage(this.browser);
             if (userPage.AddFriendButton != null && userPage.AddFriendButton.IsVisible())
@@ -171,7 +181,7 @@ namespace TeamLichTestAutomation.Tests
                 userPage.AddFriendButton.Click();
                 homePage.LogoutButton.Click();
 
-                homePage = LoginFriendUser("TeamLich_Friend2");
+                homePage = LoginRelatedUser(TelerikUser.Related2);
                 homePage.NavigateTo("http://stage.telerikacademy.com/Friends");
                 homePage.Browser.Find.ByAttributes<HtmlDiv>("class=approveFriendship").Click();
             }
@@ -179,13 +189,13 @@ namespace TeamLichTestAutomation.Tests
             homePage.LogoutButton.Click();
         }
 
-        private MainPage LoginFriendUser(string userName)
+        private MainPage LoginRelatedUser(TelerikUser relatedUser)
         {
             MainPage mainPage = new MainPage(this.browser);
             mainPage.Navigate().ClickLogin();
 
             LoginPage loginPage = new LoginPage(this.browser);
-            //loginPage.LoginFriendUser(userName);
+            loginPage.LoginUser(relatedUser);
 
             return mainPage;
         }

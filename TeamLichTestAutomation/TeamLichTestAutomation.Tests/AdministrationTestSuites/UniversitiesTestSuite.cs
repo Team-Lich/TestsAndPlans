@@ -244,7 +244,13 @@ namespace TeamLichTestAutomation.Tests.AdministrationTestSuites
 
             this.browser.RefreshDomTree();
             grid = uniPage.Browser.Find.ByExpression<KendoGrid>("data-role=grid");
-            var isThere = grid.ContainsValueInColumn("Progress", 1);
+            uniPage.AssertUniversityIsPresentInGrid(grid, "Progress University");
+            uniPage.DeleteRow(grid, "Progress University", 1);
+
+            Thread.Sleep(1000);
+            this.browser.RefreshDomTree();
+            grid = uniPage.Browser.Find.ByExpression<KendoGrid>("data-role=grid");
+            uniPage.AssertUniversityIsNotPresentInGrid(grid, "Progress University");
         }
     }
 }

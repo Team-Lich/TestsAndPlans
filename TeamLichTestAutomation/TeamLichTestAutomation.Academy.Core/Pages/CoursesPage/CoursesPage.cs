@@ -4,9 +4,17 @@
 
     public partial class CoursesPage : BasePage
     {
+        private string url = "http://stage.telerikacademy.com/Courses/Courses/Details/265";
+
         public CoursesPage(Browser browser)
             : base(browser)
         {
+        }
+
+        public CoursesPage Navigate()
+        {
+            this.Browser.NavigateTo(this.url);
+            return this;
         }
 
         public void liveSignUp()

@@ -1,12 +1,15 @@
 namespace TeamLichTestAutomation.Tests
 {
+    using ArtOfTest.WebAii.Controls.HtmlControls;
     using ArtOfTest.WebAii.Core;
     using ArtOfTest.WebAii.TestTemplates;
-
     using Microsoft.VisualStudio.TestTools.UnitTesting;
-
+    using TeamLichTestAutomation.Academy.Core.Models;
     using TeamLichTestAutomation.Academy.Core.Pages.CoursesPage;
+    using TeamLichTestAutomation.Academy.Core.Pages.LoginPage;
     using TeamLichTestAutomation.Academy.Core.Pages.MainPage;
+    using TeamLichTestAutomation.Utilities;
+    using TeamLichTestAutomation.Utilities.Attributes;
 
     /// <summary>
     /// Summary description for LecturesPresentationHomeworkAccess
@@ -15,7 +18,17 @@ namespace TeamLichTestAutomation.Tests
     public class LecturesPresentationHomeworkAccess : BaseTest
     {
         private Browser browser;
-        
+        private MainPage mainPage;
+        private CoursesPage coursesPage;
+        private LoginPage loginPage;
+
+        private void LoginWithRegularUser()
+        {
+            mainPage.Navigate().ClickLogin();
+            TelerikUser user = TelerikUser.Regular;
+            loginPage.LoginUser(user);
+        }
+
         #region [Setup / TearDown]
 
         private TestContext testContextInstance = null;
@@ -99,11 +112,14 @@ namespace TeamLichTestAutomation.Tests
 
             #endregion
 
-            Manager.LaunchNewBrowser(BrowserType.FireFox);
+            Manager.LaunchNewBrowser(BrowserType.Chrome);
             Manager.ActiveBrowser.ClearCache(BrowserCacheType.Cookies);
 
             this.browser = Manager.ActiveBrowser;
 
+            this.mainPage = new MainPage(this.browser);            
+            this.coursesPage = new CoursesPage(this.browser);
+            this.loginPage = new LoginPage(this.browser);
         }
 
         // Use TestCleanup to run code after each test has run
@@ -137,14 +153,85 @@ namespace TeamLichTestAutomation.Tests
         #endregion
 
         [TestMethod]
-        public void CoursesListAccess()
+        [TestCategory("LecturesPresentationsHomework")]
+        //[TestId(101)]
+        [TestPriority(Priority.High)]
+        [TestOwner(Owner.Ivan)]
+        public void CoursesListAccessWithoutLogin()
         {
-            var mainPage = new MainPage(this.browser);
             mainPage.Navigate().ClickCoursesNavigationDropdown();
-
-            var coursesPage = new CoursesPage(this.browser);
-
             coursesPage.AssertCoursesFound();
+        }
+
+        [TestMethod]
+        [TestCategory("LecturesPresentationsHomework")]
+        //[TestId(101)]
+        [TestPriority(Priority.High)]
+        [TestOwner(Owner.Ivan)]
+        public void CoursesListAccessWithLogin()
+        {
+            LoginWithRegularUser();
+
+            mainPage.Navigate().ClickCoursesNavigationDropdown();
+            coursesPage.AssertCoursesFound();
+        }
+
+        [TestMethod]
+        [TestCategory("LecturesPresentationsHomework")]
+        //[TestId(101)]
+        [TestPriority(Priority.High)]
+        [TestOwner(Owner.Ivan)]
+        public void CoursesAccessFromUserDropdown()
+        {
+            LoginWithRegularUser();
+
+            mainPage.HoverMyCoursesSpan();
+            mainPage.MyCourseClick();
+
+            coursesPage.AssertLecturePresent();
+        }
+
+        [TestMethod]
+        [TestCategory("LecturesPresentationsHomework")]
+        //[TestId(101)]
+        [TestPriority(Priority.High)]
+        [TestOwner(Owner.Ivan)]
+        public void PressentationAccess()
+        {
+            LoginWithRegularUser();
+            coursesPage.Navigate();
+
+            coursesPage.AssertPresentationLinkPresent();
+        }
+
+        [TestMethod]
+        [TestCategory("LecturesPresentationsHomework")]
+        //[TestId(101)]
+        [TestPriority(Priority.High)]
+        [TestOwner(Owner.Ivan)]
+        public void HomeworkAccess()
+        {
+            LoginWithRegularUser();
+
+            coursesPage.Navigate();
+
+            coursesPage.AssertSendHomeworkLinkPresent();
+        }
+
+        [TestMethod]
+        [TestCategory("LecturesPresentationsHomework")]
+        //[TestId(101)]
+        [TestPriority(Priority.High)]
+        [TestOwner(Owner.Ivan)]
+        public void HomeworkEvalAccess()
+        {
+            LoginWithRegularUser();
+            mainPage.EvalHomeworkClick();
+
+            var actualTitle = browser.Find.ByExpression<HtmlControl>(@"class=sectionTitle").GetValue<string>("innerText");
+            var title = "ќцен€ване на домашно";
+
+            Assert.AreEqual(title, actualTitle);
         }
     }
 }

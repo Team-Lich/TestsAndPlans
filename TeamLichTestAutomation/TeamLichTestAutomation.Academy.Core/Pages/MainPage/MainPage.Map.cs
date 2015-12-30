@@ -77,5 +77,39 @@
                 return this.Browser.Find.ByExpression<HtmlAnchor>("href=/Courses/Courses/List");
             }
         }
+
+        internal HtmlAnchor UserNavigationDropdown
+        {
+            get
+            {
+                this.Browser.WaitForElement(5000, "id=SearchButton");
+                return this.Browser.Find.ByExpression<HtmlAnchor>("href=/Users/TeamLichTestUser");
+            }
+        }
+
+        internal HtmlSpan UserNavigationDropdownMyCoursesSpan
+        {
+            get
+            {
+                //this.Browser.WaitForElement(5000, "id=SearchButton");
+                return this.Browser.Find.ByExpression<HtmlSpan>("title=Моите курсове");
+            }
+        }
+
+        internal HtmlAnchor MyCourse
+        {
+            get
+            {
+                return this.Browser.Find.ByExpression<HtmlAnchor>("href=/Courses/Courses/Details/265");
+            }
+        }
+
+        internal HtmlAnchor EvalHomework
+        {
+            get
+            {
+                return this.Browser.Find.ByExpression<HtmlAnchor>("href=/Courses/HomeworkEvaluations/Evaluate");
+            }
+        }
     }
 }

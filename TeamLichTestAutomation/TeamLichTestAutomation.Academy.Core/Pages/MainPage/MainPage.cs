@@ -52,5 +52,27 @@
         {
             this.AdminNavigationDropdown.Click();
         }
+
+        public void HoverUserNavigationDropdown()
+        {
+            this.UserNavigationDropdown.MouseHover();
+        }
+
+        public void HoverMyCoursesSpan()
+        {
+            this.UserNavigationDropdown.MouseHover();
+            this.UserNavigationDropdownMyCoursesSpan.MouseHover();
+        }
+
+        public void MyCourseClick()
+        {
+            this.MyCourse.Click();
+        }
+
+        public void EvalHomeworkClick()
+        {
+            this.UserNavigationDropdown.MouseHover();
+            this.EvalHomework.Click();
+        }
     }
 }

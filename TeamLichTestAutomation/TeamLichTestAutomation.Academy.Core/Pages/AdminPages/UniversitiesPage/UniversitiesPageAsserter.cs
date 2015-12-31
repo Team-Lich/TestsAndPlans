@@ -21,5 +21,17 @@
 
             Assert.IsFalse(isContained);
         }
+
+        public static void AssertColumnIsSortedDescending(this UniversitiesPage uniPage, string[] initialOrder, string[] sortedOrder)
+        {
+            string[] computedSort = initialOrder.OrderBy(s => s).ToArray();
+
+            for (int i = 0; i < computedSort.Length; i++)
+            {
+                string expected = computedSort[i];
+                string actual = sortedOrder[i];
+                Assert.AreEqual(expected, actual);
+            }
+        }
     }
 }

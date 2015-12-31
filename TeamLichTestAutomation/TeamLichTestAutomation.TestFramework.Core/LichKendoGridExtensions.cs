@@ -1,6 +1,7 @@
 ﻿namespace TeamLichTestAutomation.TestFramework.Core
 {
     
+    using System.Collections.Generic;
     using System.Threading;
     using ArtOfTest.WebAii.Controls.HtmlControls;
     using ArtOfTest.WebAii.Core;
@@ -25,6 +26,22 @@
             }
 
             return false;
+        }
+
+        public static string[] ValuesInColumn(this KendoGrid grid, int column)
+        {
+            var manager = Manager.Current;
+            manager.ActiveBrowser.RefreshDomTree();
+
+            var rowCollection = grid.DataItems;
+            var result = new List<string>();
+
+            foreach (var row in rowCollection)
+            {
+                result.Add(row[column].InnerText);
+            }
+
+            return result.ToArray();
         }
     }
 }

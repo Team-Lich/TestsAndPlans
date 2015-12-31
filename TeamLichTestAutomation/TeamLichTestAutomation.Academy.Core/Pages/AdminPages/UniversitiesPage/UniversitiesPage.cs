@@ -23,19 +23,12 @@
 
         public void AddUniversity(string universityName)
         {
+            this.Browser.RefreshDomTree();
             this.AddButton.Click();
 
             var currentManager = Manager.Current;
 
             var nameBox = this.NameTextbox.GetRectangle();
-            //nameBox.Offset(0, -30);
-            //var offset = nameBox;
-            //offset.Offset(30, 0);
-
-            //currentManager.Desktop.Mouse.Move(nameBox.Left, nameBox.Top, nameBox.Right, nameBox.Top);
-            //currentManager.Desktop.Mouse.Move(nameBox.Right, nameBox.Top, nameBox.Right, nameBox.Bottom);
-            //currentManager.Desktop.Mouse.Move(nameBox.Right, nameBox.Bottom, nameBox.Left, nameBox.Bottom);
-            //currentManager.Desktop.Mouse.Move(nameBox.Left, nameBox.Bottom, nameBox.Left, nameBox.Top);
 
             currentManager.Desktop.Mouse.Click(MouseClickType.LeftDoubleClick, nameBox);
             currentManager.Desktop.KeyBoard.TypeText(universityName, 50);
@@ -43,6 +36,7 @@
             currentManager.Desktop.Mouse.Click(MouseClickType.LeftClick, nameBox.Right + 10, nameBox.Top + 10);
 
             this.UpdateButton.Click();
+            Thread.Sleep(1000);
         }
 
         public void DeleteRow(KendoGrid grid, string value, int searchColumn)
@@ -60,6 +54,8 @@
                     // if i will be able to handle the dialog afterwards
 
                     deleteButton = row.Find.ByExpression<HtmlAnchor>("class=~k-grid-delete");
+                    deleteButton.ScrollToVisible();
+
                     this.Browser.RefreshDomTree();
                     var deleteRectangle = deleteButton.GetRectangle();
                     
@@ -95,17 +91,35 @@
                     this.Browser.RefreshDomTree();
                     var fieldToEdit = this.Browser.Find.ById(idOfEditField);
 
+                    var rectangle = fieldToEdit.GetRectangle();
+
                     var currentManager = Manager.Current;
-                    currentManager.Desktop.Mouse.Click(MouseClickType.LeftClick, fieldToEdit.GetRectangle());
+
+                    //currentManager.Desktop.Mouse.Move(rectangle.Left, rectangle.Top, rectangle.Right, rectangle.Top);
+                    //currentManager.Desktop.Mouse.Move(rectangle.Right, rectangle.Top, rectangle.Left, rectangle.Bottom);
+                    
+                    currentManager.Desktop.Mouse.Click(MouseClickType.LeftClick, rectangle);
                     currentManager.Desktop.KeyBoard.KeyDown(Keys.ControlKey);
                     currentManager.Desktop.KeyBoard.KeyPress(Keys.A);
                     currentManager.Desktop.KeyBoard.KeyUp(Keys.ControlKey);
 
                     currentManager.Desktop.KeyBoard.TypeText(newValue, 50);
-                    currentManager.Desktop.KeyBoard.KeyPress(Keys.Return);
-                    this.UpdateButton.Click();
+                    //currentManager.Desktop.KeyBoard.KeyPress(Keys.Return);
+
+                    Thread.Sleep(1000);
+                    this.Browser.RefreshDomTree();
+                    var updateButtonPosition = this.UpdateButton.GetRectangle();
+                    currentManager.Desktop.Mouse.Move(rectangle, updateButtonPosition);
+
+                    currentManager.Desktop.Mouse.Click(MouseClickType.LeftClick, updateButtonPosition);
+                    //this.UpdateButton.Click();
                 }
             }
+        }
+
+        public void SortByName(KendoGrid grid)
+        {
+            this.NameHeader.Click();
         }
     }
 }

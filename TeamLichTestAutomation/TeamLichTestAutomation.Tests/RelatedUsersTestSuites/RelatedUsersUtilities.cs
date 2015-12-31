@@ -1,6 +1,6 @@
 ﻿namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
 {
-    using ArtOfTest.WebAii.Controls.HtmlControls;
+    using Academy.Core.Pages.FriendsPage;
     using ArtOfTest.WebAii.Core;
     using TeamLichTestAutomation.Academy.Core.Models;
     using TeamLichTestAutomation.Academy.Core.Pages.LoginPage;
@@ -22,7 +22,9 @@
 
                 homePage = LoginRelatedUser(TelerikUser.Related2, browser);
                 homePage.NavigateTo("http://stage.telerikacademy.com/Friends");
-                homePage.Browser.Find.ByAttributes<HtmlDiv>("class=approveFriendship").Click();
+
+                FriendsPage friendsPage = new FriendsPage(browser);
+                friendsPage.ClickApproveFriendshipIcon();
             }
 
             homePage.LogoutButton.Click();

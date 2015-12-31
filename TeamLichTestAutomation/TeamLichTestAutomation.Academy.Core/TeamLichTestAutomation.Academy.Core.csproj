@@ -70,6 +70,9 @@
     <Compile Include="Pages\CoursesPage\CoursesPageAsserter.cs" />
     <Compile Include="Pages\FacebookLoginPage\FacebookLoginPage.cs" />
     <Compile Include="Pages\FacebookLoginPage\FacebookLoginPage.Map.cs" />
+    <Compile Include="Pages\FriendsPage\FriendsPage.cs" />
+    <Compile Include="Pages\FriendsPage\FriendsPage.Map.cs" />
+    <Compile Include="Pages\FriendsPage\FriendsPageAsserter.cs" />
     <Compile Include="Pages\LoginPage\LoginPage.cs" />
     <Compile Include="Pages\LoginPage\LoginPage.Map.cs" />
     <Compile Include="Pages\LoginPage\LoginPageAsserter.cs" />

@@ -49,7 +49,7 @@
         {
             get
             {
-                return new TelerikUser("TeamLichRelatedtUser1", "123456");
+                return new TelerikUser("TeamLichRelatedUser1", "123456");
             }
         }
 
@@ -57,7 +57,7 @@
         {
             get
             {
-                return new TelerikUser("TeamLichRelatedtUser2", "123456");
+                return new TelerikUser("TeamLichRelatedUser2", "123456");
             }
         }
 

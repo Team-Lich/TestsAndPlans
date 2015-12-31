@@ -1,6 +1,7 @@
 namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
 {
     using Academy.Core.Models;
+    using Academy.Core.Pages.FriendsPage;
     using ArtOfTest.WebAii.Core;
     using ArtOfTest.WebAii.TestTemplates;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -12,6 +13,7 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
     public class FriendsTestSuite : BaseTest
     {
         private Browser browser;
+        private readonly string friendsPageUrl = "http://stage.telerikacademy.com/Friends";
 
         #region [Setup / TearDown]
 
@@ -139,29 +141,60 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
 
         [TestMethod]
         [TestCategory("Friends")]
+        [TestId(107)]
         [TestPriority(Priority.High)]
         [TestOwner(Owner.Yane)]
         public void RemoveFriendButtonShoudBeVisible()
         {
             RelatedUsersUtilities.LoginRelatedUser(TelerikUser.Related1, this.browser).NavigateTo(TelerikUser.Related2.Url);
-
             UserPage userPage = new UserPage(this.browser);
+
             userPage.AssertRemoveFriendButtonIsVisible();
         }
 
         [TestMethod]
         [TestCategory("Friends")]
+        [TestId(109)]
         [TestPriority(Priority.High)]
         [TestOwner(Owner.Yane)]
         public void TestRemoveFriendButton()
         {
             RelatedUsersUtilities.LoginRelatedUser(TelerikUser.Related1, this.browser).NavigateTo(TelerikUser.Related2.Url);
-
             UserPage userPage = new UserPage(this.browser);
             userPage.ClickRemoveFriendButton();
             userPage.Browser.WaitForElement(2000, "id=AddFriendButton");
 
             userPage.AssertFriendIsRemovedWhenRemoveFriendButtonIsClicked();
+        }
+
+        [TestMethod]
+        [TestCategory("Friends")]
+        [TestId(111)]
+        [TestPriority(Priority.High)]
+        [TestOwner(Owner.Yane)]
+        public void FriendsListShouldContainsFriends()
+        {
+            RelatedUsersUtilities.LoginRelatedUser(TelerikUser.Related1, this.browser).NavigateTo(friendsPageUrl);
+            FriendsPage friendsPage = new FriendsPage(this.browser);
+
+            friendsPage.AssertFriendsListPanelHasProperHeading();
+            friendsPage.AssertFriendsListPanelBodyContainsFriends();
+        }
+
+        [TestMethod]
+        [TestCategory("Friends")]
+        [TestId(115)]
+        [TestPriority(Priority.High)]
+        [TestOwner(Owner.Yane)]
+        public void ClickOnFriendShouldOpenHisProfile()
+        {
+            RelatedUsersUtilities.LoginRelatedUser(TelerikUser.Related1, this.browser).NavigateTo(friendsPageUrl);
+            FriendsPage friendsPage = new FriendsPage(this.browser);
+            friendsPage.ClickFriendItem();
+            friendsPage.Browser.WaitUntilReady();
+            friendsPage.Browser.RefreshDomTree();
+
+            friendsPage.AssertCorrespondingProfilePageIsOpenedWhenFriendItemIsClicked();
         }
     }
 }

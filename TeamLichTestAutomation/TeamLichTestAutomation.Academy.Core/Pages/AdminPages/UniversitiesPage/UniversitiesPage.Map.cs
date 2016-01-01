@@ -53,6 +53,16 @@ namespace TeamLichTestAutomation.Academy.Core.Pages.AdminPages.UniversitiesPage
             }
         }
 
+        private HtmlTableCell IdHeader
+        {
+            get
+            {
+                this.Browser.RefreshDomTree();
+                this.Browser.WaitForElement(5000, "data-field=UniversityId", "data-role=columnsorter");
+                return this.Browser.Find.ByAttributes<HtmlTableCell>("data-field=UniversityId");
+            }
+        }
+
         internal KendoGrid KendoTable
         {
             get

@@ -302,5 +302,37 @@ namespace TeamLichTestAutomation.Tests.AdministrationTestSuites
             grid = uniPage.Browser.Find.ByExpression<KendoGrid>("data-role=grid");
             uniPage.DeleteRow(grid, "Ямболски университет", 1);
         }
+
+        [TestMethod]
+        [TestCategory("AdministrationUniversities")]
+        [TestCategory("PriorityLow")]
+        [TestOwner(Owner.DechoDechev)]
+        public void TestSortByIdInUniversityGridWorks()
+        {
+            KendoGrid grid = uniPage.Browser.Find.ByExpression<KendoGrid>("data-role=grid");
+
+            var initialUniversityOrder = grid.ValuesInColumn(0);
+
+            uniPage.SortById(grid);
+
+            var manager = Manager.ActiveBrowser;
+            Thread.Sleep(2000);
+            manager.RefreshDomTree();
+            grid = uniPage.Browser.Find.ByExpression<KendoGrid>("data-role=grid");
+
+            var sortedUniversityOrder = grid.ValuesInColumn(0);
+
+            uniPage.AssertColumnIsSorted(initialUniversityOrder, sortedUniversityOrder, false);
+
+            uniPage.SortById(grid);
+
+            Thread.Sleep(2000);
+            manager.RefreshDomTree();
+            grid = uniPage.Browser.Find.ByExpression<KendoGrid>("data-role=grid");
+
+            sortedUniversityOrder = grid.ValuesInColumn(0);
+
+            uniPage.AssertColumnIsSorted(initialUniversityOrder, sortedUniversityOrder, true);
+        }
     }
 }

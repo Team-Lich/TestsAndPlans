@@ -22,9 +22,18 @@
             Assert.IsFalse(isContained);
         }
 
-        public static void AssertColumnIsSortedDescending(this UniversitiesPage uniPage, string[] initialOrder, string[] sortedOrder)
+        public static void AssertColumnIsSorted(this UniversitiesPage uniPage, string[] initialOrder, string[] sortedOrder, bool descending = true)
         {
-            string[] computedSort = initialOrder.OrderBy(s => s).ToArray();
+            string[] computedSort;
+
+            if (descending)
+            {
+                computedSort = initialOrder.OrderBy(s => s).ToArray();
+            }
+            else
+            {
+                computedSort = initialOrder.OrderByDescending(s => s).ToArray();
+            }
 
             for (int i = 0; i < computedSort.Length; i++)
             {

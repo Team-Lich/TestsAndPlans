@@ -129,10 +129,5 @@ namespace TeamLichTestAutomation.Tests.AdministrationTestSuites
         }
 
         #endregion
-
-        [TestMethod]
-        public void TestBackToAdministrationButton()
-        {
-        }
     }
 }

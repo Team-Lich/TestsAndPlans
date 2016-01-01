@@ -278,7 +278,17 @@ namespace TeamLichTestAutomation.Tests.AdministrationTestSuites
 
             var sortedUniversityOrder = grid.ValuesInColumn(1);
 
-            uniPage.AssertColumnIsSortedDescending(initialUniversityOrder, sortedUniversityOrder);
+            uniPage.AssertColumnIsSorted(initialUniversityOrder, sortedUniversityOrder, true);
+
+            uniPage.SortByName(grid);
+
+            Thread.Sleep(2000);
+            manager.RefreshDomTree();
+            grid = uniPage.Browser.Find.ByExpression<KendoGrid>("data-role=grid");
+
+            sortedUniversityOrder = grid.ValuesInColumn(1);
+
+            uniPage.AssertColumnIsSorted(initialUniversityOrder, sortedUniversityOrder, false);
 
             grid = uniPage.Browser.Find.ByExpression<KendoGrid>("data-role=grid");
             uniPage.DeleteRow(grid, "Аграрен Университет", 1);

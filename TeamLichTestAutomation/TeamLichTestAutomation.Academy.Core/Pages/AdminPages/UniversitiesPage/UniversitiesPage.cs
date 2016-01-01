@@ -121,5 +121,10 @@
         {
             this.NameHeader.Click();
         }
+
+        public void SortById(KendoGrid grid)
+        {
+            this.IdHeader.Click();
+        }
     }
 }

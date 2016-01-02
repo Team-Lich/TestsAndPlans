@@ -12,7 +12,7 @@ namespace TeamLichTestAutomation.Tests
     /// Summary description for CourseSignUpTestSuit
     /// </summary>
     [TestClass]
-    public class CourseSignUpTestSuit : BaseTest
+    public class CourseSignUpTestSuite : BaseTest
     {
         private Browser browser;
 

@@ -1,6 +1,6 @@
 ﻿namespace TeamLichTestAutomation.TestFramework.Core
 {
-    
+    using System.Linq;
     using System.Collections.Generic;
     using System.Threading;
     using ArtOfTest.WebAii.Controls.HtmlControls;
@@ -42,6 +42,23 @@
             }
 
             return result.ToArray();
+        }
+
+        public static bool IsColumnSortDescending(this KendoGrid grid, int column)
+        {
+            bool result = false;
+
+            string[] findExpressions = 
+            { 
+                "data-index=" + column, 
+                "data-role=columnsorter"
+            };
+
+            var targetColumnHeader =  grid.Find.ByExpression<HtmlTableCell>(findExpressions);
+            var attribute = targetColumnHeader.Attributes.FirstOrDefault(a => a.Name == "aria-sort");
+            bool isDescending = attribute.Value == "descending";
+
+            return result;
         }
     }
 }

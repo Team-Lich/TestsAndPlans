@@ -218,7 +218,7 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
             friendsPage.RemoveAllFriends();
             friendsPage.Browser.Refresh();
 
-            friendsPage.AssertNoFriendsMessageShouldBeVisible();
+            friendsPage.AssertNoFriendsMessageIsVisible();
         }
 
         [TestMethod]
@@ -233,7 +233,54 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
             friendsPage = new FriendsPage(this.browser);
 
             friendsPage.AssertFriendsListPanelHasProperHeading();
-            friendsPage.AssertFriendsListPanelBodyContainsFriends();
+            friendsPage.AssertFriendsListPanelBodyContainsFriend();
+        }
+
+        [TestMethod]
+        [TestCategory("Friends")]
+        [TestId(112)]
+        [TestPriority(Priority.High)]
+        [TestOwner(Owner.Yane)]
+        public void RemoveFriendConfirmationShouldBeVisible()
+        {
+            RelatedUsersUtilities.AddFriend(this.browser);
+            RelatedUsersUtilities.LoginUser(TelerikUser.Related1, this.browser).NavigateTo(friendsPageUrl);
+            friendsPage = new FriendsPage(this.browser);
+            friendsPage.ClickRemoveFriendshipIcon();
+
+            friendsPage.AssertConfirmationIsVisible();
+        }
+
+        [TestMethod]
+        [TestCategory("Friends")]
+        [TestId(113)]
+        [TestPriority(Priority.High)]
+        [TestOwner(Owner.Yane)]
+        public void RemoveFriendAfterConfirmYes()
+        {
+            RelatedUsersUtilities.AddFriend(this.browser);
+            RelatedUsersUtilities.LoginUser(TelerikUser.Related1, this.browser).NavigateTo(friendsPageUrl);
+            friendsPage = new FriendsPage(this.browser);
+            friendsPage.ClickRemoveFriendshipIcon();
+            friendsPage.ClickRemoveFriendshipConfirmYes();
+
+            friendsPage.AssertFriendIsRemovedFromFriendsListPanelBody();
+        }
+
+        [TestMethod]
+        [TestCategory("Friends")]
+        [TestId(114)]
+        [TestPriority(Priority.High)]
+        [TestOwner(Owner.Yane)]
+        public void KeepFriendAfterConfirmNo()
+        {
+            RelatedUsersUtilities.AddFriend(this.browser);
+            RelatedUsersUtilities.LoginUser(TelerikUser.Related1, this.browser).NavigateTo(friendsPageUrl);
+            friendsPage = new FriendsPage(this.browser);
+            friendsPage.ClickRemoveFriendshipIcon();
+            friendsPage.ClickRemoveFriendshipConfirmNo();
+
+            friendsPage.AssertFriendsListPanelBodyContainsFriend();
         }
 
         [TestMethod]
@@ -250,7 +297,7 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
             friendsPage.Browser.WaitUntilReady();
             friendsPage.Browser.RefreshDomTree();
 
-            friendsPage.AssertCorrespondingProfilePageIsOpenedWhenFriendItemIsClicked();
+            friendsPage.AssertCorrespondingProfilePageIsOpened();
         }
     }
 }

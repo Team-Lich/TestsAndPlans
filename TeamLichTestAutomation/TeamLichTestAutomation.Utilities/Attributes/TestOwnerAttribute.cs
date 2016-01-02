@@ -17,6 +17,7 @@
             {
                 return this.owner;
             }
+
             private set
             {
                 this.owner = value;

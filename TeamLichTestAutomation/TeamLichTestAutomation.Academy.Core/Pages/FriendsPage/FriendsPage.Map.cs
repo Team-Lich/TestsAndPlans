@@ -38,11 +38,27 @@
             }
         }
 
+        public HtmlDiv RemoveFriendshipIcon
+        {
+            get
+            {
+                return this.Browser.Find.ByAttributes<HtmlDiv>("class=removeFriendship");
+            }
+        }
+
         public ICollection<HtmlDiv> RemoveFriendshipIconCollection
         {
             get
             {
                 return this.Browser.Find.AllByAttributes<HtmlDiv>("class=removeFriendship");
+            }
+        }
+
+        public HtmlDiv RemoveFriendshipConfirm
+        {
+            get
+            {
+                return this.Browser.Find.ByExpression<HtmlDiv>("class=~sureOption");
             }
         }
 
@@ -59,6 +75,14 @@
             get
             {
                 return this.Browser.Find.ByExpression<HtmlAnchor>("class=~noHide");
+            }
+        }
+
+        public HtmlContainerControl FriendsMainContent
+        {
+            get
+            {
+                return this.Browser.Find.ById<HtmlContainerControl>("MainContent");
             }
         }
 

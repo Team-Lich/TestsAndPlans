@@ -13,6 +13,9 @@ namespace TeamLichTestAutomation.Tests
     using TeamLichTestAutomation.Utilities;
     using TeamLichTestAutomation.Utilities.Attributes;
 
+    /// <summary>
+    /// Summary description for RegistrationTestSuite
+    /// </summary>
     [TestClass]
     public class RegistrationTestSuite : BaseTest
     {

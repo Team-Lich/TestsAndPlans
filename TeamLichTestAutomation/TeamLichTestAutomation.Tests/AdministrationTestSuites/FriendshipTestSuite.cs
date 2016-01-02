@@ -1,11 +1,13 @@
 namespace TeamLichTestAutomation.Tests.AdministrationTestSuites
 {
-
     using ArtOfTest.WebAii.Core;
     using ArtOfTest.WebAii.TestTemplates;
 
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
+    /// <summary>
+    /// Summary description for FriendshipTestSuite
+    /// </summary>
     [TestClass]
     public class FriendshipTestSuite : BaseTest
     {

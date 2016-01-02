@@ -1,15 +1,9 @@
 ﻿namespace TeamLichTestAutomation.TestFramework.Core
 {
     using System.Linq;
-    using System.Collections.Generic;
-    using System.Threading;
-    using ArtOfTest.WebAii.Controls.HtmlControls;
     using ArtOfTest.WebAii.Core;
+    using System.Collections.Generic;
     using Telerik.TestingFramework.Controls.KendoUI;
-    using ArtOfTest.WebAii.TestTemplates;
-    using System.Web;
-    using System.Drawing;
-
 
     public static class LichKendoGridExtensions
     {

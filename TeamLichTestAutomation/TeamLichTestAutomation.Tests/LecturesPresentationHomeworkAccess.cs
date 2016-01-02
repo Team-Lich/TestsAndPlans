@@ -3,11 +3,14 @@ namespace TeamLichTestAutomation.Tests
     using ArtOfTest.WebAii.Controls.HtmlControls;
     using ArtOfTest.WebAii.Core;
     using ArtOfTest.WebAii.TestTemplates;
+
     using Microsoft.VisualStudio.TestTools.UnitTesting;
+
     using TeamLichTestAutomation.Academy.Core.Models;
     using TeamLichTestAutomation.Academy.Core.Pages.CoursesPage;
     using TeamLichTestAutomation.Academy.Core.Pages.LoginPage;
     using TeamLichTestAutomation.Academy.Core.Pages.MainPage;
+
     using TeamLichTestAutomation.Utilities;
     using TeamLichTestAutomation.Utilities.Attributes;
 

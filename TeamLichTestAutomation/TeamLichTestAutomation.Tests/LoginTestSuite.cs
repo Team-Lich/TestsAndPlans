@@ -1,22 +1,19 @@
 namespace TeamLichTestAutomation.Tests
 {
-    using System;
-    using System.Net;
-    using System.Threading;
-    using ArtOfTest.WebAii.Controls.HtmlControls;
-
     using ArtOfTest.WebAii.Core;
     using ArtOfTest.WebAii.TestTemplates;
+
     using Microsoft.VisualStudio.TestTools.UnitTesting;
+
     using TeamLichTestAutomation.Academy.Core.Models;
-    using TeamLichTestAutomation.Academy.Core.Pages.FacebookLoginPage;
-    using TeamLichTestAutomation.Academy.Core.Pages.MainPage;
     using TeamLichTestAutomation.Academy.Core.Pages.LoginPage;
+    using TeamLichTestAutomation.Academy.Core.Pages.MainPage;
+
     using TeamLichTestAutomation.Utilities;
     using TeamLichTestAutomation.Utilities.Attributes;
 
     /// <summary>
-    /// Summary description for TelerikVSUnitTest1
+    /// Summary description for LoginTestSuite
     /// </summary>
     [TestClass]
     public class LoginTestSuite : BaseTest

@@ -10,14 +10,30 @@
             Assert.IsTrue(friendsPage.FriendsListPanelHeading.InnerText.Contains("Списък с приятели"));
         }
 
-        public static void AssertFriendsListPanelBodyContainsFriends(this FriendsPage friendsPage)
+        public static void AssertFriendsListPanelBodyContainsFriend(this FriendsPage friendsPage)
         {
             Assert.IsTrue(friendsPage.FriendsListPanelBody.InnerText.Contains(TelerikUser.Related2.UserName.Substring(0, 15)));
         }
 
-        public static void AssertCorrespondingProfilePageIsOpenedWhenFriendItemIsClicked(this FriendsPage friendsPage)
+        public static void AssertFriendIsRemovedFromFriendsListPanelBody(this FriendsPage friendsPage)
         {
-            Assert.IsTrue(friendsPage.Browser.PageTitle.Equals("Профилът на " + TelerikUser.Related2.UserName + " - Телерик Академия - Студентска система"));
+            Assert.IsFalse(friendsPage.FriendsMainContent.InnerText.Contains(TelerikUser.Related2.UserName.Substring(0, 15)));
+        }
+
+        public static void AssertConfirmationIsVisible(this FriendsPage friendsPage)
+        {
+            Assert.IsTrue(friendsPage.RemoveFriendshipConfirm.IsVisible());
+        }
+
+        public static void AssertNoFriendsMessageIsVisible(this FriendsPage friendsPage)
+        {
+            Assert.IsTrue(friendsPage.NoFriendsMessage.InnerText.StartsWith("В момента нямате добавени приятели!"));
+        }
+
+        public static void AssertCorrespondingProfilePageIsOpened(this FriendsPage friendsPage)
+        {
+            Assert.IsTrue(friendsPage.Browser.PageTitle.Equals(
+                "Профилът на " + TelerikUser.Related2.UserName + " - Телерик Академия - Студентска система"));
         }
     }
 }

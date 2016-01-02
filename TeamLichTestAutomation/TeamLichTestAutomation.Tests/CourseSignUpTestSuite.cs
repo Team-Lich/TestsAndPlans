@@ -2,17 +2,18 @@ namespace TeamLichTestAutomation.Tests
 {
     using ArtOfTest.WebAii.Core;
     using ArtOfTest.WebAii.TestTemplates;
+
     using Microsoft.VisualStudio.TestTools.UnitTesting;
+
     using TeamLichTestAutomation.Academy.Core.Pages.CoursesPage;
-    using TeamLichTestAutomation.Academy.Core.Pages.LoginPage;
     using TeamLichTestAutomation.Academy.Core.Pages.MainPage;
     using TeamLichTestAutomation.Academy.Core.Pages.RegistrationPage;
 
     /// <summary>
-    /// Summary description for CourseSignUpTestSuit
+    /// Summary description for CourseSignUpTestSuite
     /// </summary>
     [TestClass]
-    public class CourseSignUpTestSuit : BaseTest
+    public class CourseSignUpTestSuite : BaseTest
     {
         private Browser browser;
 

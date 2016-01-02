@@ -1,17 +1,24 @@
 namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
 {
-    using Academy.Core.Models;
     using ArtOfTest.WebAii.Core;
     using ArtOfTest.WebAii.TestTemplates;
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
-    using TeamLichTestAutomation.Academy.Core.Pages.UserPage;
-    using Utilities;
-    using Utilities.Attributes;
 
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+    using TeamLichTestAutomation.Academy.Core.Models;
+    using TeamLichTestAutomation.Academy.Core.Pages.UserPage;
+
+    using TeamLichTestAutomation.Utilities;
+    using TeamLichTestAutomation.Utilities.Attributes;
+
+    /// <summary>
+    /// Summary description for MessagesTestSuite
+    /// </summary>
     [TestClass]
     public class MessagesTestSuite : BaseTest
     {
         private Browser browser;
+        private UserPage userPage;
 
         #region [Setup / TearDown]
 
@@ -104,7 +111,7 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
             Manager.ActiveBrowser.ClearCache(BrowserCacheType.Cookies);
 
             this.browser = Manager.ActiveBrowser;
-            RelatedUsersUtilities.MakeUsersFriends(this.browser);
+            RelatedUsersUtilities.AddFriend(this.browser);
         }
 
         // Use TestCleanup to run code after each test has run
@@ -143,9 +150,9 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
         [TestOwner(Owner.Yane)]
         public void TestSendMessageButtonActive()
         {
-            RelatedUsersUtilities.LoginRelatedUser(TelerikUser.Related1, this.browser).NavigateTo(TelerikUser.Related2.Url);
+            RelatedUsersUtilities.LoginUser(TelerikUser.Related1, this.browser).NavigateTo(TelerikUser.Related2.Url);
 
-            UserPage userPage = new UserPage(this.browser);
+            userPage = new UserPage(this.browser);
             userPage.ClickSendMessageButtonActive();
             userPage.Browser.WaitUntilReady();
 

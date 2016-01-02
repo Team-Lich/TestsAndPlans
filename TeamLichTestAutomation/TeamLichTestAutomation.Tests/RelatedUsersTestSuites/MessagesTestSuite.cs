@@ -1,12 +1,15 @@
 namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
 {
-    using Academy.Core.Models;
     using ArtOfTest.WebAii.Core;
     using ArtOfTest.WebAii.TestTemplates;
+
     using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+    using TeamLichTestAutomation.Academy.Core.Models;
     using TeamLichTestAutomation.Academy.Core.Pages.UserPage;
-    using Utilities;
-    using Utilities.Attributes;
+
+    using TeamLichTestAutomation.Utilities;
+    using TeamLichTestAutomation.Utilities.Attributes;
 
     [TestClass]
     public class MessagesTestSuite : BaseTest

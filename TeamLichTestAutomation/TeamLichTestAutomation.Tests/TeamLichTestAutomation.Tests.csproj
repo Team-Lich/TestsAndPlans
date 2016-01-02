@@ -59,7 +59,7 @@
   <ItemGroup>
     <Compile Include="AdministrationTestSuites\FriendshipTestSuite.cs" />
     <Compile Include="AdministrationTestSuites\UniversitiesTestSuite.cs" />
-    <Compile Include="CourseSignUpTestSuit.cs" />
+    <Compile Include="CourseSignUpTestSuite.cs" />
     <Compile Include="LecturesPresentationHomeworkAccess.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="LoginTestSuite.cs" />

@@ -1,37 +1,24 @@
 namespace TeamLichTestAutomation.Tests.AdministrationTestSuites
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Drawing;
-
-    using System.Threading;
-    using ArtOfTest.WebAii.Controls.HtmlControls;
-    using ArtOfTest.WebAii.Controls.HtmlControls.HtmlAsserts;
     using ArtOfTest.WebAii.Core;
-    using ArtOfTest.WebAii.ObjectModel;
-    using ArtOfTest.WebAii.TestAttributes;
     using ArtOfTest.WebAii.TestTemplates;
-    using ArtOfTest.WebAii.Win32.Dialogs;
-
-    using System.Windows.Forms;
-
-    using ArtOfTest.WebAii.Silverlight;
-    using ArtOfTest.WebAii.Silverlight.UI;
 
     using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+    using System.Threading;
+
     using TeamLichTestAutomation.Academy.Core.Models;
     using TeamLichTestAutomation.Academy.Core.Pages.AdminPages.AdminDashboardPage;
     using TeamLichTestAutomation.Academy.Core.Pages.AdminPages.UniversitiesPage;
     using TeamLichTestAutomation.Academy.Core.Pages.LoginPage;
     using TeamLichTestAutomation.Academy.Core.Pages.MainPage;
-    using Telerik.TestingFramework.Controls.KendoUI;
-    using TeamLichTestAutomation.Academy.Core;
+
     using TeamLichTestAutomation.TestFramework.Core;
-    using ArtOfTest.Common.Serialization;
-    using TeamLichTestAutomation.Utilities.Attributes;
+
     using TeamLichTestAutomation.Utilities;
+    using TeamLichTestAutomation.Utilities.Attributes;
+
+    using Telerik.TestingFramework.Controls.KendoUI;
 
     /// <summary>
     /// Summary description for UniversitiesTestSuite

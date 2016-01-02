@@ -1,6 +1,5 @@
 namespace TeamLichTestAutomation.Tests.AdministrationTestSuites
 {
-
     using ArtOfTest.WebAii.Core;
     using ArtOfTest.WebAii.TestTemplates;
 

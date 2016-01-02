@@ -2,6 +2,7 @@
 {
     using ArtOfTest.WebAii.Controls.HtmlControls;
     using Models;
+    using System.Collections.Generic;
 
     public partial class FriendsPage
     {
@@ -21,6 +22,14 @@
             }
         }
 
+        public HtmlDiv FriendItem
+        {
+            get
+            {
+                return this.Browser.Find.ByExpression<HtmlDiv>("data-username=" + TelerikUser.Related2.UserName);
+            }
+        }
+
         public HtmlDiv ApproveFriendshipIcon
         {
             get
@@ -29,11 +38,35 @@
             }
         }
 
-        public HtmlDiv FriendItem
+        public ICollection<HtmlDiv> RemoveFriendshipIconCollection
         {
             get
             {
-                return this.Browser.Find.ByExpression<HtmlDiv>("data-username=" + TelerikUser.Related2.UserName);
+                return this.Browser.Find.AllByAttributes<HtmlDiv>("class=removeFriendship");
+            }
+        }
+
+        public HtmlAnchor RemoveFriendshipConfirmYes
+        {
+            get
+            {
+                return this.Browser.Find.ByExpression<HtmlAnchor>("class=~yesRemove");
+            }
+        }
+
+        public HtmlAnchor RemoveFriendshipConfirmNo
+        {
+            get
+            {
+                return this.Browser.Find.ByExpression<HtmlAnchor>("class=~noHide");
+            }
+        }
+
+        public HtmlDiv NoFriendsMessage
+        {
+            get
+            {
+                return this.Browser.Find.ByAttributes<HtmlDiv>("class=importantMessageInfo");
             }
         }
     }

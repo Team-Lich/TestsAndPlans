@@ -9,14 +9,24 @@
         {
         }
 
+        public void ClickFriendItem()
+        {
+            this.FriendItem.MouseClick();
+        }
+
         public void ClickApproveFriendshipIcon()
         {
             this.ApproveFriendshipIcon.Click();
         }
 
-        public void ClickFriendItem()
+        public void RemoveAllFriends()
         {
-            this.FriendItem.MouseClick();
+            foreach (var friend in this.RemoveFriendshipIconCollection)
+            {
+                friend.Click();
+                RemoveFriendshipConfirmYes.Click();
+                this.Browser.RefreshDomTree();
+            }
         }
     }
 }

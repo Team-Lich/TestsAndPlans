@@ -13,7 +13,7 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
     public class FriendsTestSuite : BaseTest
     {
         private Browser browser;
-        private readonly string friendsPageUrl = "http://stage.telerikacademy.com/Friends";
+        public static readonly string friendsPageUrl = "http://stage.telerikacademy.com/Friends";
 
         #region [Setup / TearDown]
 
@@ -102,11 +102,10 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
             // Place any additional initialization here
             //
 
-            Manager.LaunchNewBrowser(BrowserType.FireFox);
+            Manager.LaunchNewBrowser(BrowserType.Chrome);
             Manager.ActiveBrowser.ClearCache(BrowserCacheType.Cookies);
 
             this.browser = Manager.ActiveBrowser;
-            RelatedUsersUtilities.MakeUsersFriends(this.browser);
         }
 
         // Use TestCleanup to run code after each test has run
@@ -141,15 +140,46 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
 
         [TestMethod]
         [TestCategory("Friends")]
+        [TestId(106)]
+        [TestPriority(Priority.High)]
+        [TestOwner(Owner.Yane)]
+        public void AddFriendButtonShoudBeVisible()
+        {
+            RelatedUsersUtilities.RemoveFriend(this.browser);
+            RelatedUsersUtilities.LoginUser(TelerikUser.Related1, this.browser).NavigateTo(TelerikUser.Related2.Url);
+            UserPage userPage = new UserPage(this.browser);
+
+            userPage.AssertAddFriendButtonIsVisible();
+        }
+
+        [TestMethod]
+        [TestCategory("Friends")]
         [TestId(107)]
         [TestPriority(Priority.High)]
         [TestOwner(Owner.Yane)]
         public void RemoveFriendButtonShoudBeVisible()
         {
-            RelatedUsersUtilities.LoginRelatedUser(TelerikUser.Related1, this.browser).NavigateTo(TelerikUser.Related2.Url);
+            RelatedUsersUtilities.AddFriend(this.browser);
+            RelatedUsersUtilities.LoginUser(TelerikUser.Related1, this.browser).NavigateTo(TelerikUser.Related2.Url);
             UserPage userPage = new UserPage(this.browser);
 
             userPage.AssertRemoveFriendButtonIsVisible();
+        }
+
+        [TestMethod]
+        [TestCategory("Friends")]
+        [TestId(108)]
+        [TestPriority(Priority.High)]
+        [TestOwner(Owner.Yane)]
+        public void TestAddFriendButton()
+        {
+            RelatedUsersUtilities.RemoveFriend(this.browser);
+            RelatedUsersUtilities.LoginUser(TelerikUser.Related1, this.browser).NavigateTo(TelerikUser.Related2.Url);
+            UserPage userPage = new UserPage(this.browser);
+            userPage.ClickAddFriendButton();
+            userPage.Browser.WaitForElement(2000, "id=UnfriendButton");
+
+            userPage.AssertFriendIsAddedWhenAddFriendButtonIsClicked();
         }
 
         [TestMethod]
@@ -159,7 +189,8 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
         [TestOwner(Owner.Yane)]
         public void TestRemoveFriendButton()
         {
-            RelatedUsersUtilities.LoginRelatedUser(TelerikUser.Related1, this.browser).NavigateTo(TelerikUser.Related2.Url);
+            RelatedUsersUtilities.AddFriend(this.browser);
+            RelatedUsersUtilities.LoginUser(TelerikUser.Related1, this.browser).NavigateTo(TelerikUser.Related2.Url);
             UserPage userPage = new UserPage(this.browser);
             userPage.ClickRemoveFriendButton();
             userPage.Browser.WaitForElement(2000, "id=AddFriendButton");
@@ -169,12 +200,28 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
 
         [TestMethod]
         [TestCategory("Friends")]
+        [TestId(110)]
+        [TestPriority(Priority.High)]
+        [TestOwner(Owner.Yane)]
+        public void FriendsListShouldContainNoFriends()
+        {
+            RelatedUsersUtilities.LoginUser(TelerikUser.Related1, this.browser).NavigateTo(friendsPageUrl);
+            FriendsPage friendsPage = new FriendsPage(this.browser);
+            friendsPage.RemoveAllFriends();
+            friendsPage.Browser.Refresh();
+
+            friendsPage.AssertNoFriendsMessageShouldBeVisible();
+        }
+
+        [TestMethod]
+        [TestCategory("Friends")]
         [TestId(111)]
         [TestPriority(Priority.High)]
         [TestOwner(Owner.Yane)]
-        public void FriendsListShouldContainsFriends()
+        public void FriendsListShouldContainFriends()
         {
-            RelatedUsersUtilities.LoginRelatedUser(TelerikUser.Related1, this.browser).NavigateTo(friendsPageUrl);
+            RelatedUsersUtilities.AddFriend(this.browser);
+            RelatedUsersUtilities.LoginUser(TelerikUser.Related1, this.browser).NavigateTo(friendsPageUrl);
             FriendsPage friendsPage = new FriendsPage(this.browser);
 
             friendsPage.AssertFriendsListPanelHasProperHeading();
@@ -188,7 +235,8 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
         [TestOwner(Owner.Yane)]
         public void ClickOnFriendShouldOpenHisProfile()
         {
-            RelatedUsersUtilities.LoginRelatedUser(TelerikUser.Related1, this.browser).NavigateTo(friendsPageUrl);
+            RelatedUsersUtilities.AddFriend(this.browser);
+            RelatedUsersUtilities.LoginUser(TelerikUser.Related1, this.browser).NavigateTo(friendsPageUrl);
             FriendsPage friendsPage = new FriendsPage(this.browser);
             friendsPage.ClickFriendItem();
             friendsPage.Browser.WaitUntilReady();

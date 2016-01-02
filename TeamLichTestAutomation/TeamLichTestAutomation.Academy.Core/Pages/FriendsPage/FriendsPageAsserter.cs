@@ -17,7 +17,13 @@
 
         public static void AssertCorrespondingProfilePageIsOpenedWhenFriendItemIsClicked(this FriendsPage friendsPage)
         {
-            Assert.IsTrue(friendsPage.Browser.PageTitle.Equals("Профилът на " + TelerikUser.Related2.UserName + " - Телерик Академия - Студентска система"));
+            Assert.IsTrue(friendsPage.Browser.PageTitle.Equals(
+                "Профилът на " + TelerikUser.Related2.UserName + " - Телерик Академия - Студентска система"));
+        }
+
+        public static void AssertNoFriendsMessageShouldBeVisible(this FriendsPage friendsPage)
+        {
+            Assert.IsTrue(friendsPage.NoFriendsMessage.InnerText.StartsWith("В момента нямате добавени приятели!"));
         }
     }
 }

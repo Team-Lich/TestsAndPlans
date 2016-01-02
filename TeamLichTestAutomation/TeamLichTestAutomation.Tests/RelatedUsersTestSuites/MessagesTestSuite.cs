@@ -104,7 +104,7 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
             Manager.ActiveBrowser.ClearCache(BrowserCacheType.Cookies);
 
             this.browser = Manager.ActiveBrowser;
-            RelatedUsersUtilities.MakeUsersFriends(this.browser);
+            RelatedUsersUtilities.AddFriend(this.browser);
         }
 
         // Use TestCleanup to run code after each test has run
@@ -143,7 +143,7 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
         [TestOwner(Owner.Yane)]
         public void TestSendMessageButtonActive()
         {
-            RelatedUsersUtilities.LoginRelatedUser(TelerikUser.Related1, this.browser).NavigateTo(TelerikUser.Related2.Url);
+            RelatedUsersUtilities.LoginUser(TelerikUser.Related1, this.browser).NavigateTo(TelerikUser.Related2.Url);
 
             UserPage userPage = new UserPage(this.browser);
             userPage.ClickSendMessageButtonActive();

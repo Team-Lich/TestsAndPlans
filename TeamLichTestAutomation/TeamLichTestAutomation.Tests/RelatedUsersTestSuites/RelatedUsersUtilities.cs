@@ -9,9 +9,23 @@
 
     public static class RelatedUsersUtilities
     {
-        public static void MakeUsersFriends(Browser browser)
+        public static void RemoveFriend(Browser browser)
         {
-            var homePage = LoginRelatedUser(TelerikUser.Related1, browser);
+            var homePage = LoginUser(TelerikUser.Related1, browser);
+            homePage.NavigateTo(TelerikUser.Related2.Url);
+
+            UserPage userPage = new UserPage(browser);
+            if (userPage.RemoveFriendButton != null && userPage.RemoveFriendButton.IsVisible())
+            {
+                userPage.RemoveFriendButton.Click();
+            }
+
+            homePage.LogoutButton.Click();
+        }
+
+        public static void AddFriend(Browser browser)
+        {
+            var homePage = LoginUser(TelerikUser.Related1, browser);
             homePage.NavigateTo(TelerikUser.Related2.Url);
 
             UserPage userPage = new UserPage(browser);
@@ -20,8 +34,8 @@
                 userPage.AddFriendButton.Click();
                 homePage.LogoutButton.Click();
 
-                homePage = LoginRelatedUser(TelerikUser.Related2, browser);
-                homePage.NavigateTo("http://stage.telerikacademy.com/Friends");
+                homePage = LoginUser(TelerikUser.Related2, browser);
+                homePage.NavigateTo(FriendsTestSuite.friendsPageUrl);
 
                 FriendsPage friendsPage = new FriendsPage(browser);
                 friendsPage.ClickApproveFriendshipIcon();
@@ -30,7 +44,7 @@
             homePage.LogoutButton.Click();
         }
 
-        public static MainPage LoginRelatedUser(TelerikUser relatedUser, Browser browser)
+        public static MainPage LoginUser(TelerikUser relatedUser, Browser browser)
         {
             MainPage mainPage = new MainPage(browser);
             mainPage.Navigate().ClickLogin();

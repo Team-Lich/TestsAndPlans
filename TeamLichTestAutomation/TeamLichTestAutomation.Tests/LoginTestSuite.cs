@@ -13,7 +13,7 @@ namespace TeamLichTestAutomation.Tests
     using TeamLichTestAutomation.Utilities.Attributes;
 
     /// <summary>
-    /// Summary description for TelerikVSUnitTest1
+    /// Summary description for LoginTestSuite
     /// </summary>
     [TestClass]
     public class LoginTestSuite : BaseTest

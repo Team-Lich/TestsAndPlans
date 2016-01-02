@@ -10,7 +10,7 @@ namespace TeamLichTestAutomation.Tests
     using TeamLichTestAutomation.Academy.Core.Pages.RegistrationPage;
 
     /// <summary>
-    /// Summary description for CourseSignUpTestSuit
+    /// Summary description for CourseSignUpTestSuite
     /// </summary>
     [TestClass]
     public class CourseSignUpTestSuite : BaseTest

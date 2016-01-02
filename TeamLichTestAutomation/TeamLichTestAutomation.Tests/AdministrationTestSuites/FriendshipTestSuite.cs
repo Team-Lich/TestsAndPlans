@@ -5,6 +5,9 @@ namespace TeamLichTestAutomation.Tests.AdministrationTestSuites
 
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
+    /// <summary>
+    /// Summary description for FriendshipTestSuite
+    /// </summary>
     [TestClass]
     public class FriendshipTestSuite : BaseTest
     {

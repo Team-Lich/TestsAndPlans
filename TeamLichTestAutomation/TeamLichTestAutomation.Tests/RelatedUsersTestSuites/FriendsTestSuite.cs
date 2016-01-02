@@ -12,10 +12,15 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
     using TeamLichTestAutomation.Utilities;
     using TeamLichTestAutomation.Utilities.Attributes;
 
+    /// <summary>
+    /// Summary description for FriendsTestSuite
+    /// </summary>
     [TestClass]
     public class FriendsTestSuite : BaseTest
     {
         private Browser browser;
+        private UserPage userPage;
+        private FriendsPage friendsPage;
         public static readonly string friendsPageUrl = "http://stage.telerikacademy.com/Friends";
 
         #region [Setup / TearDown]
@@ -150,7 +155,7 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
         {
             RelatedUsersUtilities.RemoveFriend(this.browser);
             RelatedUsersUtilities.LoginUser(TelerikUser.Related1, this.browser).NavigateTo(TelerikUser.Related2.Url);
-            UserPage userPage = new UserPage(this.browser);
+            userPage = new UserPage(this.browser);
 
             userPage.AssertAddFriendButtonIsVisible();
         }
@@ -164,7 +169,7 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
         {
             RelatedUsersUtilities.AddFriend(this.browser);
             RelatedUsersUtilities.LoginUser(TelerikUser.Related1, this.browser).NavigateTo(TelerikUser.Related2.Url);
-            UserPage userPage = new UserPage(this.browser);
+            userPage = new UserPage(this.browser);
 
             userPage.AssertRemoveFriendButtonIsVisible();
         }
@@ -178,7 +183,7 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
         {
             RelatedUsersUtilities.RemoveFriend(this.browser);
             RelatedUsersUtilities.LoginUser(TelerikUser.Related1, this.browser).NavigateTo(TelerikUser.Related2.Url);
-            UserPage userPage = new UserPage(this.browser);
+            userPage = new UserPage(this.browser);
             userPage.ClickAddFriendButton();
             userPage.Browser.WaitForElement(2000, "id=UnfriendButton");
 
@@ -194,7 +199,7 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
         {
             RelatedUsersUtilities.AddFriend(this.browser);
             RelatedUsersUtilities.LoginUser(TelerikUser.Related1, this.browser).NavigateTo(TelerikUser.Related2.Url);
-            UserPage userPage = new UserPage(this.browser);
+            userPage = new UserPage(this.browser);
             userPage.ClickRemoveFriendButton();
             userPage.Browser.WaitForElement(2000, "id=AddFriendButton");
 
@@ -209,7 +214,7 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
         public void FriendsListShouldContainNoFriends()
         {
             RelatedUsersUtilities.LoginUser(TelerikUser.Related1, this.browser).NavigateTo(friendsPageUrl);
-            FriendsPage friendsPage = new FriendsPage(this.browser);
+            friendsPage = new FriendsPage(this.browser);
             friendsPage.RemoveAllFriends();
             friendsPage.Browser.Refresh();
 
@@ -225,7 +230,7 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
         {
             RelatedUsersUtilities.AddFriend(this.browser);
             RelatedUsersUtilities.LoginUser(TelerikUser.Related1, this.browser).NavigateTo(friendsPageUrl);
-            FriendsPage friendsPage = new FriendsPage(this.browser);
+            friendsPage = new FriendsPage(this.browser);
 
             friendsPage.AssertFriendsListPanelHasProperHeading();
             friendsPage.AssertFriendsListPanelBodyContainsFriends();
@@ -240,7 +245,7 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
         {
             RelatedUsersUtilities.AddFriend(this.browser);
             RelatedUsersUtilities.LoginUser(TelerikUser.Related1, this.browser).NavigateTo(friendsPageUrl);
-            FriendsPage friendsPage = new FriendsPage(this.browser);
+            friendsPage = new FriendsPage(this.browser);
             friendsPage.ClickFriendItem();
             friendsPage.Browser.WaitUntilReady();
             friendsPage.Browser.RefreshDomTree();

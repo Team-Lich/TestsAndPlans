@@ -8,6 +8,9 @@
     using TeamLichTestAutomation.Academy.Core.Pages.MainPage;
     using TeamLichTestAutomation.Academy.Core.Pages.UserPage;
 
+    /// <summary>
+    /// Summary description for RelatedUsersUtilities
+    /// </summary>
     public static class RelatedUsersUtilities
     {
         private static MainPage mainPage;

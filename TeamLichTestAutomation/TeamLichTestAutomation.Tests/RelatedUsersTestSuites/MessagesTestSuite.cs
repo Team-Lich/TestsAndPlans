@@ -11,10 +11,14 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
     using TeamLichTestAutomation.Utilities;
     using TeamLichTestAutomation.Utilities.Attributes;
 
+    /// <summary>
+    /// Summary description for MessagesTestSuite
+    /// </summary>
     [TestClass]
     public class MessagesTestSuite : BaseTest
     {
         private Browser browser;
+        private UserPage userPage;
 
         #region [Setup / TearDown]
 
@@ -148,7 +152,7 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
         {
             RelatedUsersUtilities.LoginUser(TelerikUser.Related1, this.browser).NavigateTo(TelerikUser.Related2.Url);
 
-            UserPage userPage = new UserPage(this.browser);
+            userPage = new UserPage(this.browser);
             userPage.ClickSendMessageButtonActive();
             userPage.Browser.WaitUntilReady();
 

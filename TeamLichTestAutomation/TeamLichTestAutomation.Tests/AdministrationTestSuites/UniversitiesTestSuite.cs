@@ -334,5 +334,29 @@ namespace TeamLichTestAutomation.Tests.AdministrationTestSuites
 
             uniPage.AssertColumnIsSorted(initialUniversityOrder, sortedUniversityOrder, true);
         }
+
+        [TestMethod]
+        [TestCategory("AdministrationUniversities")]
+        [TestCategory("PriorityLow")]
+        [TestOwner(Owner.DechoDechev)]
+        public void Test()
+        {
+            KendoGrid grid = uniPage.Browser.Find.ByExpression<KendoGrid>("data-role=grid");
+
+            uniPage.SortByName(grid);
+            Thread.Sleep(1000);
+            Manager manager = Manager.Current;
+            manager.ActiveBrowser.RefreshDomTree();
+            grid = uniPage.Browser.Find.ByExpression<KendoGrid>("data-role=grid");
+
+            grid.IsColumnSortDescending(1);
+
+            uniPage.SortByName(grid);
+            Thread.Sleep(1000);
+            manager.ActiveBrowser.RefreshDomTree();
+            grid = uniPage.Browser.Find.ByExpression<KendoGrid>("data-role=grid");
+
+            grid.IsColumnSortDescending(1);
+        }
     }
 }

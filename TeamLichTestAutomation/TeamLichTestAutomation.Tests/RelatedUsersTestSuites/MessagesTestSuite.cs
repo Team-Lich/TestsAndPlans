@@ -6,6 +6,7 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     using TeamLichTestAutomation.Academy.Core.Models;
+    using TeamLichTestAutomation.Academy.Core.Pages.MessagesPage;
     using TeamLichTestAutomation.Academy.Core.Pages.UserPage;
 
     using TeamLichTestAutomation.Utilities;
@@ -19,6 +20,8 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
     {
         private Browser browser;
         private UserPage userPage;
+        private MessagesPage messagesPage;
+        private readonly string messagesPageUrl = "http://stage.telerikacademy.com/Messages";
 
         #region [Setup / TearDown]
 
@@ -107,11 +110,10 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
             // Place any additional initialization here
             //
 
-            Manager.LaunchNewBrowser(BrowserType.FireFox);
+            Manager.LaunchNewBrowser(BrowserType.Chrome);
             Manager.ActiveBrowser.ClearCache(BrowserCacheType.Cookies);
 
             this.browser = Manager.ActiveBrowser;
-            RelatedUsersUtilities.AddFriend(this.browser);
         }
 
         // Use TestCleanup to run code after each test has run
@@ -148,8 +150,9 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
         [TestCategory("Messages")]
         [TestPriority(Priority.High)]
         [TestOwner(Owner.Yane)]
-        public void TestSendMessageButtonActive()
+        public void SendMessageButtonShouldOpenMessagesPage()
         {
+            RelatedUsersUtilities.AddFriend(this.browser);
             RelatedUsersUtilities.LoginUser(TelerikUser.Related1, this.browser).NavigateTo(TelerikUser.Related2.Url);
 
             userPage = new UserPage(this.browser);
@@ -157,6 +160,28 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
             userPage.Browser.WaitUntilReady();
 
             userPage.AssertMessagesPageIsOpenedWhenSendMessageButtonIsClicked();
+        }
+
+        [TestMethod]
+        [TestCategory("Messages")]
+        [TestId(118)]
+        [TestPriority(Priority.High)]
+        [TestOwner(Owner.Yane)]
+        public void MessagesPageElementsShouldBeDisplayedCorrectly()
+        {
+            RelatedUsersUtilities.AddFriend(this.browser);
+            RelatedUsersUtilities.LoginUser(TelerikUser.Related1, this.browser).NavigateTo(messagesPageUrl);
+            messagesPage = new MessagesPage(this.browser);
+
+            messagesPage.AssertMessagesHeadingIsVisible();
+            messagesPage.AssertMessagePanelTitleIsVisible();
+            messagesPage.AssertInfoMessageIsVisible();
+            messagesPage.AssertMessageToSendTextAreaIsVisible();
+            messagesPage.AssertSubmitByEnterCheckboxIsNotVisible();
+            messagesPage.AssertSendButtonIsVisible();
+            messagesPage.AssertFriendsPanelTitleIsVisible();
+            messagesPage.AssertFriendSearchInputIsVisible();
+            messagesPage.AssertFriendItemIsVisible();
         }
     }
 }

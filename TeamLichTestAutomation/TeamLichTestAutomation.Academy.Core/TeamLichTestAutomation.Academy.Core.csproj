@@ -78,6 +78,9 @@
     <Compile Include="Pages\LoginPage\LoginPageAsserter.cs" />
     <Compile Include="Pages\MainPage\MainPageAsserter.cs" />
     <Compile Include="Pages\MainPage\MainPage.cs" />
+    <Compile Include="Pages\MessagesPage\MessagesPage.cs" />
+    <Compile Include="Pages\MessagesPage\MessagesPage.Map.cs" />
+    <Compile Include="Pages\MessagesPage\MessagesPageAsserter.cs" />
     <Compile Include="Pages\RegistrationPage\RegistrationPageAsserter.cs" />
     <Compile Include="Pages\RegistrationPage\RegistrationPage.cs" />
     <Compile Include="Pages\RegistrationPage\RegistrationPage.Map.cs" />

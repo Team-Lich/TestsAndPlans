@@ -1,6 +1,5 @@
 ﻿namespace TeamLichTestAutomation.Academy.Core.Pages
 {
-    using ArtOfTest.WebAii.Controls.HtmlControls;
     using ArtOfTest.WebAii.Core;
 
     public abstract class BasePage

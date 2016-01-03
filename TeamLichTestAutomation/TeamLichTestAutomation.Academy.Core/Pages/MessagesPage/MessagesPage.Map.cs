@@ -1,6 +1,7 @@
 ﻿namespace TeamLichTestAutomation.Academy.Core.Pages.MessagesPage
 {
     using ArtOfTest.WebAii.Controls.HtmlControls;
+    using Models;
     using System.Collections.Generic;
 
     public partial class MessagesPage
@@ -61,7 +62,7 @@
             }
         }
 
-        public HtmlInputText FriendSearchInput
+        public HtmlInputText SearchField
         {
             get
             {
@@ -74,6 +75,54 @@
             get
             {
                 return this.Browser.Find.AllByExpression<HtmlDiv>("class=~friend", "class=~bgSuccessDark");
+            }
+        }
+
+        public HtmlDiv FriendItem
+        {
+            get
+            {
+                foreach (var friend in this.FriendItemsCollection)
+                {
+                    if (friend.Find.ByAttributes<HtmlDiv>("data-username=" + TelerikUser.Related2.UserName) != null)
+                    {
+                        return friend;
+                    }
+                }
+
+                return null;
+            }
+        }
+
+        public HtmlImage FriendAvatar
+        {
+            get
+            {
+                return FriendItem.Find.ByAttributes<HtmlImage>("class=img-thumbnail");
+            }
+        }
+
+        public HtmlSpan FriendNames
+        {
+            get
+            {
+                return FriendItem.Find.ByAttributes<HtmlSpan>("class=friendName");
+            }
+        }
+
+        public HtmlSpan FriendLastMessageBeginning
+        {
+            get
+            {
+                return FriendItem.Find.ByAttributes<HtmlSpan>("class=friendMessage");
+            }
+        }
+
+        public HtmlSpan FriendLastMessageTime
+        {
+            get
+            {
+                return FriendItem.Find.ByExpression<HtmlSpan>("class=~friendTime");
             }
         }
     }

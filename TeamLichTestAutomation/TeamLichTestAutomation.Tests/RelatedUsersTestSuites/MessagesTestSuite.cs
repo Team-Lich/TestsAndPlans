@@ -18,10 +18,11 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
     [TestClass]
     public class MessagesTestSuite : BaseTest
     {
+        private readonly string messagesPageUrl = "http://stage.telerikacademy.com/Messages";
+
         private Browser browser;
         private UserPage userPage;
         private MessagesPage messagesPage;
-        private readonly string messagesPageUrl = "http://stage.telerikacademy.com/Messages";
 
         #region [Setup / TearDown]
 
@@ -154,7 +155,6 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
         {
             RelatedUsersUtilities.AddFriend(this.browser);
             RelatedUsersUtilities.LoginUser(TelerikUser.Related1, this.browser).NavigateTo(TelerikUser.Related2.Url);
-
             userPage = new UserPage(this.browser);
             userPage.ClickSendMessageButtonActive();
             userPage.Browser.WaitUntilReady();
@@ -180,8 +180,37 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
             messagesPage.AssertSubmitByEnterCheckboxIsNotVisible();
             messagesPage.AssertSendButtonIsVisible();
             messagesPage.AssertFriendsPanelTitleIsVisible();
-            messagesPage.AssertFriendSearchInputIsVisible();
             messagesPage.AssertFriendItemIsVisible();
+        }
+
+        [TestMethod]
+        [TestCategory("Messages")]
+        [TestId(119)]
+        [TestPriority(Priority.High)]
+        [TestOwner(Owner.Yane)]
+        public void FriendItemsShouldBeDisplayedCorrectly()
+        {
+            RelatedUsersUtilities.AddFriend(this.browser);
+            RelatedUsersUtilities.LoginUser(TelerikUser.Related1, this.browser).NavigateTo(messagesPageUrl);
+            messagesPage = new MessagesPage(this.browser);
+
+            messagesPage.AssertFriendAvatarIsVisible();
+            messagesPage.AssertFriendNamesAreVisible();
+            messagesPage.AssertFriendLastMessageBeginningIsVisible();
+        }
+
+        [TestMethod]
+        [TestCategory("Messages")]
+        [TestId(120)]
+        [TestPriority(Priority.High)]
+        [TestOwner(Owner.Yane)]
+        public void SearchFieldShouldBeVisible()
+        {
+            RelatedUsersUtilities.AddFriend(this.browser);
+            RelatedUsersUtilities.LoginUser(TelerikUser.Related1, this.browser).NavigateTo(messagesPageUrl);
+            messagesPage = new MessagesPage(this.browser);
+
+            messagesPage.AssertSearchFieldIsVisible();
         }
     }
 }

@@ -18,10 +18,11 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
     [TestClass]
     public class FriendsTestSuite : BaseTest
     {
+        public static readonly string friendsPageUrl = "http://stage.telerikacademy.com/Friends";
+
         private Browser browser;
         private UserPage userPage;
         private FriendsPage friendsPage;
-        public static readonly string friendsPageUrl = "http://stage.telerikacademy.com/Friends";
 
         #region [Setup / TearDown]
 

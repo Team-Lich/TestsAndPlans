@@ -39,14 +39,34 @@
             Assert.IsTrue(messagesPage.FriendsPanelTitle.IsVisible());
         }
 
-        public static void AssertFriendSearchInputIsVisible(this MessagesPage messagesPage)
+        public static void AssertSearchFieldIsVisible(this MessagesPage messagesPage)
         {
-            Assert.IsTrue(messagesPage.FriendSearchInput.IsVisible());
+            Assert.IsTrue(messagesPage.SearchField.IsVisible());
         }
 
         public static void AssertFriendItemIsVisible(this MessagesPage messagesPage)
         {
-            Assert.IsTrue(messagesPage.FriendItem().IsVisible());
+            Assert.IsTrue(messagesPage.FriendItem.IsVisible());
+        }
+
+        public static void AssertFriendAvatarIsVisible(this MessagesPage messagesPage)
+        {
+            Assert.IsTrue(messagesPage.FriendAvatar.IsVisible());
+        }
+
+        public static void AssertFriendNamesAreVisible(this MessagesPage messagesPage)
+        {
+            Assert.IsTrue(messagesPage.FriendNames.IsVisible());
+        }
+
+        public static void AssertFriendLastMessageBeginningIsVisible(this MessagesPage messagesPage)
+        {
+            Assert.IsTrue(messagesPage.FriendLastMessageBeginning.IsVisible());
+        }
+
+        public static void AssertFriendLastMessageTimeIsVisible(this MessagesPage messagesPage)
+        {
+            Assert.IsTrue(messagesPage.FriendLastMessageTime.IsVisible());
         }
     }
 }

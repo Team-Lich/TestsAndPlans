@@ -251,6 +251,7 @@ namespace TeamLichTestAutomation.Tests
         {
             this.RegNewUser();
             this.coursesPage.Navigate();
+            this.coursesPage.LiveSignUp();
             this.coursesPage.SendHomework();
         }
 
@@ -263,6 +264,7 @@ namespace TeamLichTestAutomation.Tests
         {
             this.RegNewUser();
             this.coursesPage.Navigate();
+            //this.coursesPage.LiveSignUp();
             this.coursesPage.SendHomework();
             this.coursesPage.AssertDownloadLastHwPresent();
         }
@@ -277,7 +279,7 @@ namespace TeamLichTestAutomation.Tests
             this.LoginWithRegularUser();
             this.coursesPage.Navigate();
             this.coursesPage.SendHomework();
-
+            this.coursesPage.AssertHomewrokEvalBtnPresent();
         }
         public RegistrationPage registrationPage { get; set; }
     }

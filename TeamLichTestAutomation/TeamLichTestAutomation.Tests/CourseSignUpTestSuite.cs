@@ -2,12 +2,12 @@ namespace TeamLichTestAutomation.Tests
 {
     using ArtOfTest.WebAii.Core;
     using ArtOfTest.WebAii.TestTemplates;
-
     using Microsoft.VisualStudio.TestTools.UnitTesting;
-
     using TeamLichTestAutomation.Academy.Core.Pages.CoursesPage;
     using TeamLichTestAutomation.Academy.Core.Pages.MainPage;
     using TeamLichTestAutomation.Academy.Core.Pages.RegistrationPage;
+    using TeamLichTestAutomation.Utilities;
+    using TeamLichTestAutomation.Utilities.Attributes;
 
     /// <summary>
     /// Summary description for CourseSignUpTestSuite
@@ -16,6 +16,16 @@ namespace TeamLichTestAutomation.Tests
     public class CourseSignUpTestSuite : BaseTest
     {
         private Browser browser;
+        private RegistrationPage registrationPage;
+        private MainPage mainPage;
+        private CoursesPage coursesPage;
+
+        private void RegRandUser()
+        {
+            mainPage.Navigate().ClickRegistration();
+            this.registrationPage = new RegistrationPage(this.browser);
+            registrationPage.RegisterRandomUser();
+        }
 
         #region [Setup / TearDown]
 
@@ -101,10 +111,13 @@ namespace TeamLichTestAutomation.Tests
 
             // Test Recycle is true
 
-            Manager.LaunchNewBrowser(BrowserType.FireFox);
+            Manager.LaunchNewBrowser(BrowserType.Chrome);
             Manager.ActiveBrowser.ClearCache(BrowserCacheType.Cookies);
 
             this.browser = Manager.ActiveBrowser;
+
+            this.mainPage = new MainPage(this.browser);
+            this.coursesPage = new CoursesPage(this.browser);
         }
 
         // Use TestCleanup to run code after each test has run
@@ -137,32 +150,56 @@ namespace TeamLichTestAutomation.Tests
         #endregion [Setup / TearDown]
 
         [TestMethod]
-        public void TestCourseAttendanceSignUpForLoggedRegularUser()
+        [TestCategory("CourseSignUp")]
+        ////[TestId(101)]
+        [TestPriority(Priority.High)]
+        [TestOwner(Owner.Ivan)]
+        public void LiveSignUp()
         {
-            var mainPage = new MainPage(this.browser);
-            mainPage.Navigate().ClickRegistration();
-
-            RegistrationPage registration = new RegistrationPage(this.browser);
-            registration.RegisterRandomUser();
-
-            mainPage.ClickCoursesNavigationDropdown();
-
-            var coursesPage = new CoursesPage(this.browser);
+            RegRandUser();
+            mainPage.NavigateTo("http://stage.telerikacademy.com/Courses/Courses/Details/265");
             coursesPage.LiveSignUp();
 
             coursesPage.AssertSignOffBtn();
         }
 
         [TestMethod]
+        [TestCategory("CourseSignUp")]
+        ////[TestId(101)]
+        [TestPriority(Priority.High)]
+        [TestOwner(Owner.Ivan)]
         public void OnlineSignUp()
         {
-            var mainPage = new MainPage(this.browser);
-            mainPage.Navigate().ClickCoursesNavigationDropdown();
-
-            var coursesPage = new CoursesPage(this.browser);
+            RegRandUser();
+            mainPage.NavigateTo("http://stage.telerikacademy.com/Courses/Courses/Details/265");
             coursesPage.OnlineSignUp();
 
             coursesPage.AssertSignOffBtn();
+        }
+
+        [TestMethod]
+        [TestCategory("CourseSignUp")]
+        ////[TestId(101)]
+        [TestPriority(Priority.High)]
+        [TestOwner(Owner.Ivan)]
+        public void SignUpWithoutLogIn()
+        {
+            this.mainPage.NavigateTo("http://stage.telerikacademy.com/Courses/Courses/Details/265");
+            this.coursesPage.AssertPleaseLogInBtnPresent();
+        }
+
+        [TestMethod]
+        [TestCategory("CourseSignUp")]
+        ////[TestId(101)]
+        [TestPriority(Priority.High)]
+        [TestOwner(Owner.Ivan)]
+        public void LiveSignUpFromCoursesList()
+        {
+            this.RegRandUser();
+            this.mainPage.HoverCoursesNavigationDropdown();
+            this.mainPage.MyCourseClick();
+            this.coursesPage.LiveSignUp();
+            this.coursesPage.AssertSignOffBtn();
         }
     }
 }

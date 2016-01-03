@@ -49,7 +49,9 @@
         {
             get
             {
-                return this.Browser.Find.ById<HtmlSpan>("SignUpLiveButton");
+                this.Browser.WaitForElement(5000, "id=SignUpLiveButton");
+                var btn = this.Browser.Find.ById<HtmlSpan>("SignUpLiveButton");
+                return btn;
             }
         }
 
@@ -93,6 +95,15 @@
             get
             {
                 return this.Browser.Find.ByExpression<HtmlAnchor>("href=/Courses/HomeworkEvaluations/Evaluate/2223");
+            }
+        }
+
+        public HtmlAnchor PleaseLogInBtn
+        {
+            get
+            {
+                var btn = this.Browser.Find.ByExpression<HtmlAnchor>("href=/Users/Auth/Login?ReturnUrl=%2fCourses%2fCourses%2fList");
+                return btn;
             }
         }
     }

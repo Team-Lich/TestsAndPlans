@@ -99,7 +99,7 @@
         internal HtmlAnchor MyCourse
         {
             get
-            {
+            {                                                                  
                 return this.Browser.Find.ByExpression<HtmlAnchor>("href=/Courses/Courses/Details/265");
             }
         }

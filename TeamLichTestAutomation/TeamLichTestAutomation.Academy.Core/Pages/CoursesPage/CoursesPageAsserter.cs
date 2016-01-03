@@ -48,6 +48,13 @@
         public static void AssertHomewrokEvalBtnPresent(this CoursesPage coursesPage)
         {
             var btn = coursesPage.EvalHomeworkBtn;
+            Assert.IsNotNull(btn);
+        }
+
+        public static void AssertPleaseLogInBtnPresent(this CoursesPage coursesPage)
+        {
+            var btn = coursesPage.PleaseLogInBtn;
+            Assert.IsNotNull(btn);
         }
     }
 }

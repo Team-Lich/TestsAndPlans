@@ -28,5 +28,12 @@
             this.Browser.WaitForElement(3000, "id=SearchButton");
             this.CourseOnlineApply.Click();
         }
+
+        public void SendHomework()
+        {
+            this.SendHomeworkLink.Click();
+            this.ChooseFileToSend.Upload("../../../homeworkfile.zip", 10000);
+            this.SendHomeworkBtn.Click();
+        }
     }
 }

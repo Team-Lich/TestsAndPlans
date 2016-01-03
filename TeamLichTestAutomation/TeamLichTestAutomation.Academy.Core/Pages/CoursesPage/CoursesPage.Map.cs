@@ -61,5 +61,39 @@
                 return this.Browser.Find.ById<HtmlSpan>("SignUpOnlineButton");
             }
         }
+
+        private HtmlAnchor DownloadLastSendedHW
+        {
+            get
+            {
+                return this.Browser.Find.ByExpression<HtmlAnchor>("href=/Courses/Homework/Download/190873");
+            }
+        }
+
+        private HtmlInputFile ChooseFileToSend
+        {
+            get
+            {
+                this.Browser.WaitForElement(5000, "id=homeworkFile");
+                return this.Browser.Find.ById<HtmlInputFile>("homeworkFile");
+            }
+        }
+
+        private HtmlControl SendHomeworkBtn
+        {
+            get
+            {
+                this.Browser.WaitForElement(3000, "id=SendButton");
+                return this.Browser.Find.ById<HtmlControl>("SendButton");
+            }
+        }
+
+        public HtmlAnchor EvalHomeworkBtn
+        {
+            get
+            {
+                return this.Browser.Find.ByExpression<HtmlAnchor>("href=/Courses/HomeworkEvaluations/Evaluate/2223");
+            }
+        }
     }
 }

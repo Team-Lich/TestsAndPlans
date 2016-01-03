@@ -4,6 +4,15 @@
 
     public partial class MainPage : BasePage
     {
+        public HtmlAnchor LogoutButton
+        {
+            get
+            {
+                this.Browser.WaitForElement(5000, "id=ExitMI");
+                return this.Browser.Find.ById<HtmlAnchor>("ExitMI");
+            }
+        }
+
         internal HtmlAnchor LoginButton
         {
             get
@@ -21,15 +30,6 @@
             {
                 this.Browser.WaitForElement(5000, "id=FbLogin");
                 return this.Browser.Find.ById<HtmlAnchor>("FbLogin");
-            }
-        }
-
-        public HtmlAnchor LogoutButton
-        {
-            get
-            {
-                this.Browser.WaitForElement(5000, "id=ExitMI");
-                return this.Browser.Find.ById<HtmlAnchor>("ExitMI");
             }
         }
 
@@ -91,7 +91,7 @@
         {
             get
             {
-                //this.Browser.WaitForElement(5000, "id=SearchButton");
+                //// this.Browser.WaitForElement(5000, "id=SearchButton");
                 return this.Browser.Find.ByExpression<HtmlSpan>("title=Моите курсове");
             }
         }

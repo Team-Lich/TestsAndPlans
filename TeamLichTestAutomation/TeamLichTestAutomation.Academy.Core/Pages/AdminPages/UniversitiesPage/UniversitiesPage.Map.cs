@@ -1,8 +1,8 @@
-﻿using ArtOfTest.WebAii.Controls.HtmlControls;
-using Telerik.TestingFramework.Controls.KendoUI;
-
-namespace TeamLichTestAutomation.Academy.Core.Pages.AdminPages.UniversitiesPage
+﻿namespace TeamLichTestAutomation.Academy.Core.Pages.AdminPages.UniversitiesPage
 {
+    using ArtOfTest.WebAii.Controls.HtmlControls;
+    using Telerik.TestingFramework.Controls.KendoUI;
+
     public partial class UniversitiesPage
     {
         private HtmlAnchor AddButton

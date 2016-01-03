@@ -153,11 +153,11 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
         {
             RelatedUsersUtilities.AddFriend(this.browser);
             RelatedUsersUtilities.LoginUser(TelerikUser.Related1, this.browser).NavigateTo(TelerikUser.Related2.Url);
-            userPage = new UserPage(this.browser);
-            userPage.ClickSendMessageButtonActive();
-            userPage.Browser.WaitUntilReady();
+            this.userPage = new UserPage(this.browser);
+            this.userPage.ClickSendMessageButtonActive();
+            this.userPage.Browser.WaitUntilReady();
 
-            userPage.AssertMessagesPageIsOpenedWhenSendMessageButtonIsClicked();
+            this.userPage.AssertMessagesPageIsOpenedWhenSendMessageButtonIsClicked();
         }
 
         [TestMethod]
@@ -168,17 +168,17 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
         public void MessagesPageElementsShouldBeDisplayedCorrectly()
         {
             RelatedUsersUtilities.AddFriend(this.browser);
-            RelatedUsersUtilities.LoginUser(TelerikUser.Related1, this.browser).NavigateTo(messagesPageUrl);
-            messagesPage = new MessagesPage(this.browser);
+            RelatedUsersUtilities.LoginUser(TelerikUser.Related1, this.browser).NavigateTo(this.messagesPageUrl);
+            this.messagesPage = new MessagesPage(this.browser);
 
-            messagesPage.AssertMessagesHeadingIsVisible();
-            messagesPage.AssertMessagePanelTitleIsVisible();
-            messagesPage.AssertInfoMessageIsVisible();
-            messagesPage.AssertMessageToSendTextAreaIsVisible();
-            messagesPage.AssertSubmitByEnterCheckboxIsNotVisible();
-            messagesPage.AssertSendButtonIsVisible();
-            messagesPage.AssertFriendsPanelTitleIsVisible();
-            messagesPage.AssertFriendItemIsVisible();
+            this.messagesPage.AssertMessagesHeadingIsVisible();
+            this.messagesPage.AssertMessagePanelTitleIsVisible();
+            this.messagesPage.AssertInfoMessageIsVisible();
+            this.messagesPage.AssertMessageToSendTextAreaIsVisible();
+            this.messagesPage.AssertSubmitByEnterCheckboxIsNotVisible();
+            this.messagesPage.AssertSendButtonIsVisible();
+            this.messagesPage.AssertFriendsPanelTitleIsVisible();
+            this.messagesPage.AssertFriendItemIsVisible();
         }
 
         [TestMethod]
@@ -189,12 +189,12 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
         public void FriendItemsShouldBeDisplayedCorrectly()
         {
             RelatedUsersUtilities.AddFriend(this.browser);
-            RelatedUsersUtilities.LoginUser(TelerikUser.Related1, this.browser).NavigateTo(messagesPageUrl);
-            messagesPage = new MessagesPage(this.browser);
+            RelatedUsersUtilities.LoginUser(TelerikUser.Related1, this.browser).NavigateTo(this.messagesPageUrl);
+            this.messagesPage = new MessagesPage(this.browser);
 
-            messagesPage.AssertFriendAvatarIsVisible();
-            messagesPage.AssertFriendNamesAreVisible();
-            messagesPage.AssertFriendLastMessageBeginningIsVisible();
+            this.messagesPage.AssertFriendAvatarIsVisible();
+            this.messagesPage.AssertFriendNamesAreVisible();
+            this.messagesPage.AssertFriendLastMessageBeginningIsVisible();
         }
 
         [TestMethod]
@@ -205,10 +205,10 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
         public void SearchFieldShouldBeVisible()
         {
             RelatedUsersUtilities.AddFriend(this.browser);
-            RelatedUsersUtilities.LoginUser(TelerikUser.Related1, this.browser).NavigateTo(messagesPageUrl);
-            messagesPage = new MessagesPage(this.browser);
+            RelatedUsersUtilities.LoginUser(TelerikUser.Related1, this.browser).NavigateTo(this.messagesPageUrl);
+            this.messagesPage = new MessagesPage(this.browser);
 
-            messagesPage.AssertSearchFieldIsVisible();
+            this.messagesPage.AssertSearchFieldIsVisible();
         }
     }
 }

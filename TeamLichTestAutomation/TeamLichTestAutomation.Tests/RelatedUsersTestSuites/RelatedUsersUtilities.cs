@@ -13,6 +13,8 @@
     /// </summary>
     public static class RelatedUsersUtilities
     {
+        private static readonly string LoginPageUrl = "http://stage.telerikacademy.com/Users/Auth/Login";
+
         private static MainPage mainPage;
         private static LoginPage loginPage;
         private static UserPage userPage;
@@ -20,7 +22,7 @@
 
         public static void RemoveFriend(Browser browser)
         {
-            mainPage = LoginUser(TelerikUser.Related1, browser);
+            LoginUser(TelerikUser.Related1, browser);
             mainPage.NavigateTo(TelerikUser.Related2.Url);
 
             userPage = new UserPage(browser);
@@ -34,29 +36,29 @@
 
         public static void AddFriend(Browser browser)
         {
-            var homePage = LoginUser(TelerikUser.Related1, browser);
-            homePage.NavigateTo(TelerikUser.Related2.Url);
+            LoginUser(TelerikUser.Related1, browser);
+            mainPage.NavigateTo(TelerikUser.Related2.Url);
 
             userPage = new UserPage(browser);
             if (userPage.AddFriendButton != null && userPage.AddFriendButton.IsVisible())
             {
                 userPage.AddFriendButton.Click();
-                homePage.LogoutButton.Click();
+                mainPage.LogoutButton.Click();
 
-                homePage = LoginUser(TelerikUser.Related2, browser);
-                homePage.NavigateTo(FriendsTestSuite.friendsPageUrl);
+                mainPage = LoginUser(TelerikUser.Related2, browser);
+                mainPage.NavigateTo(FriendsTestSuite.FriendsPageUrl);
 
                 friendsPage = new FriendsPage(browser);
                 friendsPage.ClickApproveFriendshipIcon();
             }
 
-            homePage.LogoutButton.Click();
+            mainPage.LogoutButton.Click();
         }
 
         public static MainPage LoginUser(TelerikUser relatedUser, Browser browser)
         {
             mainPage = new MainPage(browser);
-            mainPage.Navigate().ClickLogin();
+            mainPage.NavigateTo(LoginPageUrl);
 
             loginPage = new LoginPage(browser);
             loginPage.LoginUser(relatedUser);

@@ -148,7 +148,7 @@ namespace TeamLichTestAutomation.Tests
             mainPage.ClickCoursesNavigationDropdown();
 
             var coursesPage = new CoursesPage(this.browser);
-            coursesPage.liveSignUp();
+            coursesPage.LiveSignUp();
 
             coursesPage.AssertSignOffBtn();
         }

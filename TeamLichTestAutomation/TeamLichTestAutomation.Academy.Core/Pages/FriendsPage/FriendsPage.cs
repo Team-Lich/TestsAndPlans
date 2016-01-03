@@ -1,7 +1,7 @@
 ﻿namespace TeamLichTestAutomation.Academy.Core.Pages.FriendsPage
 {
-    using ArtOfTest.WebAii.Core;
     using System.Threading;
+    using ArtOfTest.WebAii.Core;
 
     public partial class FriendsPage : BasePage
     {
@@ -44,7 +44,7 @@
             foreach (var friend in this.RemoveFriendshipIconCollection)
             {
                 friend.Click();
-                RemoveFriendshipConfirmYes.Click();
+                this.RemoveFriendshipConfirmYes.Click();
                 this.Browser.RefreshDomTree();
             }
         }

@@ -1,8 +1,8 @@
 ﻿namespace TeamLichTestAutomation.Academy.Core.Pages.MessagesPage
 {
+    using System.Collections.Generic;
     using ArtOfTest.WebAii.Controls.HtmlControls;
     using Models;
-    using System.Collections.Generic;
 
     public partial class MessagesPage
     {
@@ -98,7 +98,7 @@
         {
             get
             {
-                return FriendItem.Find.ByAttributes<HtmlImage>("class=img-thumbnail");
+                return this.FriendItem.Find.ByAttributes<HtmlImage>("class=img-thumbnail");
             }
         }
 
@@ -106,7 +106,7 @@
         {
             get
             {
-                return FriendItem.Find.ByAttributes<HtmlSpan>("class=friendName");
+                return this.FriendItem.Find.ByAttributes<HtmlSpan>("class=friendName");
             }
         }
 
@@ -114,7 +114,7 @@
         {
             get
             {
-                return FriendItem.Find.ByAttributes<HtmlSpan>("class=friendMessage");
+                return this.FriendItem.Find.ByAttributes<HtmlSpan>("class=friendMessage");
             }
         }
 
@@ -122,7 +122,7 @@
         {
             get
             {
-                return FriendItem.Find.ByExpression<HtmlSpan>("class=~friendTime");
+                return this.FriendItem.Find.ByExpression<HtmlSpan>("class=~friendTime");
             }
         }
     }

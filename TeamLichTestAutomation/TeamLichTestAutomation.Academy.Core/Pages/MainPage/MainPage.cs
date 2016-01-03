@@ -38,7 +38,7 @@
         public void ClickRegistration()
         {
             var registrationButton = this.RegistrationButton;
-            RegistrationButton.Click();
+            this.RegistrationButton.Click();
         }
 
         public void ClickCoursesNavigationDropdown()

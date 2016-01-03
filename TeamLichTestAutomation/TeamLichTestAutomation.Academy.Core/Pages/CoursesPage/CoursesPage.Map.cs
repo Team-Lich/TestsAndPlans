@@ -4,24 +4,6 @@
 
     public partial class CoursesPage
     {
-        private HtmlSpan CourseLiveApply
-        {
-            get
-            {
-                return this.Browser.Find.
-                    ById<HtmlSpan>("SignUpLiveButton");
-            }
-        }
-
-        private HtmlSpan CourseOnlineApply
-        {
-            get
-            {
-                this.Browser.WaitForElement(5000, "id=SignUpOnlineButton");
-                return this.Browser.Find.ById<HtmlSpan>("SignUpOnlineButton");
-            }
-        }
-
         public HtmlSpan SignOff
         {
             get
@@ -60,6 +42,23 @@
             get
             {
                 return this.Browser.Find.ByExpression<HtmlAnchor>("href=http://www.bgcoder.com/Contests/0");
+            }
+        }
+
+        private HtmlSpan CourseLiveApply
+        {
+            get
+            {
+                return this.Browser.Find.ById<HtmlSpan>("SignUpLiveButton");
+            }
+        }
+
+        private HtmlSpan CourseOnlineApply
+        {
+            get
+            {
+                this.Browser.WaitForElement(5000, "id=SignUpOnlineButton");
+                return this.Browser.Find.ById<HtmlSpan>("SignUpOnlineButton");
             }
         }
     }

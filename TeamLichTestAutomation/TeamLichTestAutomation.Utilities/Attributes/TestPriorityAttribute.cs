@@ -17,6 +17,7 @@
             {
                 return this.priority;
             }
+
             set
             {
                 this.priority = value;

@@ -1,7 +1,7 @@
 ﻿namespace TeamLichTestAutomation.Academy.Core.Pages.RegistrationPage
 {
-    using ArtOfTest.WebAii.Core;
     using System;
+    using ArtOfTest.WebAii.Core;
     using TeamLichTestAutomation.Academy.Core.Models;
     using TeamLichTestAutomation.Utilities;
 

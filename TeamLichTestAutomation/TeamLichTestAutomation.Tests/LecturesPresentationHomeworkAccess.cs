@@ -27,9 +27,9 @@ namespace TeamLichTestAutomation.Tests
 
         private void LoginWithRegularUser()
         {
-            mainPage.Navigate().ClickLogin();
+            this.mainPage.Navigate().ClickLogin();
             TelerikUser user = TelerikUser.Regular;
-            loginPage.LoginUser(user);
+            this.loginPage.LoginUser(user);
         }
 
         #region [Setup / TearDown]
@@ -155,81 +155,81 @@ namespace TeamLichTestAutomation.Tests
 
         [TestMethod]
         [TestCategory("LecturesPresentationsHomework")]
-        //[TestId(101)]
+        ////[TestId(101)]
         [TestPriority(Priority.High)]
         [TestOwner(Owner.Ivan)]
         public void CoursesListAccessWithoutLogin()
         {
-            mainPage.Navigate().ClickCoursesNavigationDropdown();
-            coursesPage.AssertCoursesFound();
+            this.mainPage.Navigate().ClickCoursesNavigationDropdown();
+            this.coursesPage.AssertCoursesFound();
         }
 
         [TestMethod]
         [TestCategory("LecturesPresentationsHomework")]
-        //[TestId(101)]
+        ////[TestId(101)]
         [TestPriority(Priority.High)]
         [TestOwner(Owner.Ivan)]
         public void CoursesListAccessWithLogin()
         {
             LoginWithRegularUser();
 
-            mainPage.Navigate().ClickCoursesNavigationDropdown();
-            coursesPage.AssertCoursesFound();
+            this.mainPage.Navigate().ClickCoursesNavigationDropdown();
+            this.coursesPage.AssertCoursesFound();
         }
 
         [TestMethod]
         [TestCategory("LecturesPresentationsHomework")]
-        //[TestId(101)]
+        ////[TestId(101)]
         [TestPriority(Priority.High)]
         [TestOwner(Owner.Ivan)]
         public void CoursesAccessFromUserDropdown()
         {
-            LoginWithRegularUser();
+            this.LoginWithRegularUser();
 
-            mainPage.HoverMyCoursesSpan();
-            mainPage.MyCourseClick();
+            this.mainPage.HoverMyCoursesSpan();
+            this.mainPage.MyCourseClick();
 
-            coursesPage.AssertLecturePresent();
+            this.coursesPage.AssertLecturePresent();
         }
 
         [TestMethod]
         [TestCategory("LecturesPresentationsHomework")]
-        //[TestId(101)]
+        ////[TestId(101)]
         [TestPriority(Priority.High)]
         [TestOwner(Owner.Ivan)]
         public void PressentationAccess()
         {
-            LoginWithRegularUser();
-            coursesPage.Navigate();
+            this.LoginWithRegularUser();
+            this.coursesPage.Navigate();
 
-            coursesPage.AssertPresentationLinkPresent();
+            this.coursesPage.AssertPresentationLinkPresent();
         }
 
         [TestMethod]
         [TestCategory("LecturesPresentationsHomework")]
-        //[TestId(101)]
+        ////[TestId(101)]
         [TestPriority(Priority.High)]
         [TestOwner(Owner.Ivan)]
         public void HomeworkAccess()
         {
-            LoginWithRegularUser();
+            this.LoginWithRegularUser();
 
-            coursesPage.Navigate();
+            this.coursesPage.Navigate();
 
-            coursesPage.AssertSendHomeworkLinkPresent();
+            this.coursesPage.AssertSendHomeworkLinkPresent();
         }
 
         [TestMethod]
         [TestCategory("LecturesPresentationsHomework")]
-        //[TestId(101)]
+        ////[TestId(101)]
         [TestPriority(Priority.High)]
         [TestOwner(Owner.Ivan)]
         public void HomeworkEvalAccess()
         {
-            LoginWithRegularUser();
-            mainPage.EvalHomeworkClick();
+            this.LoginWithRegularUser();
+            this.mainPage.EvalHomeworkClick();
 
-            var actualTitle = browser.Find.ByExpression<HtmlControl>(@"class=sectionTitle").GetValue<string>("innerText");
+            var actualTitle = this.browser.Find.ByExpression<HtmlControl>(@"class=sectionTitle").GetValue<string>("innerText");
             var title = "ќцен€ване на домашно";
 
             Assert.AreEqual(title, actualTitle);

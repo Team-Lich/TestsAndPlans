@@ -17,7 +17,7 @@
             return this;
         }
 
-        public void liveSignUp()
+        public void LiveSignUp()
         {
             this.Browser.WaitForElement(3000, "id=SearchButton");
             this.CourseLiveApply.Click();

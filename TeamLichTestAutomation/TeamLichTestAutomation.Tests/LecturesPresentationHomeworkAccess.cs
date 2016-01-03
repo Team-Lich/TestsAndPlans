@@ -35,6 +35,7 @@ namespace TeamLichTestAutomation.Tests
         #region [Setup / TearDown]
 
         private TestContext testContextInstance = null;
+
         /// <summary>
         ///Gets or sets the VS test context which provides
         ///information about and functionality for the
@@ -52,13 +53,11 @@ namespace TeamLichTestAutomation.Tests
             }
         }
 
-
         //Use ClassInitialize to run code before running the first test in the class
         [ClassInitialize()]
         public static void MyClassInitialize(TestContext testContext)
         {
         }
-
 
         // Use TestInitialize to run code before running each test
         [TestInitialize()]
@@ -113,14 +112,14 @@ namespace TeamLichTestAutomation.Tests
             // This method should always exist in [TestInitialize()] method.
             SetTestMethod(this, (string)TestContext.Properties["TestName"]);
 
-            #endregion
+            #endregion WebAii Initialization
 
             Manager.LaunchNewBrowser(BrowserType.Chrome);
             Manager.ActiveBrowser.ClearCache(BrowserCacheType.Cookies);
 
             this.browser = Manager.ActiveBrowser;
 
-            this.mainPage = new MainPage(this.browser);            
+            this.mainPage = new MainPage(this.browser);
             this.coursesPage = new CoursesPage(this.browser);
             this.loginPage = new LoginPage(this.browser);
         }
@@ -129,7 +128,6 @@ namespace TeamLichTestAutomation.Tests
         [TestCleanup()]
         public void MyTestCleanup()
         {
-
             //
             // Place any additional cleanup here
             //
@@ -140,7 +138,7 @@ namespace TeamLichTestAutomation.Tests
             // after each test. This call is ignored if recycleBrowser is set
             this.CleanUp();
 
-            #endregion
+            #endregion WebAii CleanUp
         }
 
         //Use ClassCleanup to run code after all tests in a class have run
@@ -153,7 +151,7 @@ namespace TeamLichTestAutomation.Tests
             ShutDown();
         }
 
-        #endregion
+        #endregion [Setup / TearDown]
 
         [TestMethod]
         [TestCategory("LecturesPresentationsHomework")]

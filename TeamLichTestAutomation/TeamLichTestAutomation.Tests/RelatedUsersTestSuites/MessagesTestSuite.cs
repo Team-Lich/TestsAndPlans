@@ -27,6 +27,7 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
         #region [Setup / TearDown]
 
         private TestContext testContextInstance = null;
+
         /// <summary>
         ///Gets or sets the VS test context which provides
         ///information about and functionality for the
@@ -44,13 +45,11 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
             }
         }
 
-
         //Use ClassInitialize to run code before running the first test in the class
         [ClassInitialize()]
         public static void MyClassInitialize(TestContext testContext)
         {
         }
-
 
         // Use TestInitialize to run code before running each test
         [TestInitialize()]
@@ -105,7 +104,7 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
             // This method should always exist in [TestInitialize()] method.
             SetTestMethod(this, (string)TestContext.Properties["TestName"]);
 
-            #endregion
+            #endregion WebAii Initialization
 
             //
             // Place any additional initialization here
@@ -121,7 +120,6 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
         [TestCleanup()]
         public void MyTestCleanup()
         {
-
             //
             // Place any additional cleanup here
             //
@@ -132,7 +130,7 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
             // after each test. This call is ignored if recycleBrowser is set
             this.CleanUp();
 
-            #endregion
+            #endregion WebAii CleanUp
         }
 
         //Use ClassCleanup to run code after all tests in a class have run
@@ -145,7 +143,7 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
             ShutDown();
         }
 
-        #endregion
+        #endregion [Setup / TearDown]
 
         [TestMethod]
         [TestCategory("Messages")]

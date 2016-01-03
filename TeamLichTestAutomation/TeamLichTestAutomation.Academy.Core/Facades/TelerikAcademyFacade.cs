@@ -2,7 +2,7 @@
 {
     using System;
 
-    class TelerikAcademyFacade : IDisposable
+    internal class TelerikAcademyFacade : IDisposable
     {
         public void Dispose()
         {

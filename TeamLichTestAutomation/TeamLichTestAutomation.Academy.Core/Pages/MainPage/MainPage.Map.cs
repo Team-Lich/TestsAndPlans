@@ -45,7 +45,7 @@
         internal bool AdminDropdownEnabled
         {
             get
-            {    
+            {
                 try
                 {
                     this.Browser.WaitForElement(5000, "title=~Админ");

@@ -2,11 +2,9 @@
 {
     using ArtOfTest.WebAii.Controls.HtmlControls;
     using ArtOfTest.WebAii.Core;
-    using System.Windows.Forms;
-    using System.Drawing;
-    using System.Threading;
-    using System.Web;
     using ArtOfTest.WebAii.Win32.Dialogs;
+    using System.Threading;
+    using System.Windows.Forms;
     using Telerik.TestingFramework.Controls.KendoUI;
 
     public partial class UniversitiesPage : BasePage
@@ -58,14 +56,14 @@
 
                     this.Browser.RefreshDomTree();
                     var deleteRectangle = deleteButton.GetRectangle();
-                    
+
                     var currentManager = Manager.Current;
-                   
+
                     AlertDialog alertDialog = new AlertDialog(this.Browser, DialogButton.OK);
                     currentManager.DialogMonitor.AddDialog(alertDialog);
 
                     currentManager.Desktop.Mouse.Click(MouseClickType.LeftClick, deleteRectangle);
-                    
+
                     this.Browser.Desktop.KeyBoard.KeyPress(Keys.Return);
                 }
             }
@@ -97,7 +95,7 @@
 
                     //currentManager.Desktop.Mouse.Move(rectangle.Left, rectangle.Top, rectangle.Right, rectangle.Top);
                     //currentManager.Desktop.Mouse.Move(rectangle.Right, rectangle.Top, rectangle.Left, rectangle.Bottom);
-                    
+
                     currentManager.Desktop.Mouse.Click(MouseClickType.LeftClick, rectangle);
                     currentManager.Desktop.KeyBoard.KeyDown(Keys.ControlKey);
                     currentManager.Desktop.KeyBoard.KeyPress(Keys.A);

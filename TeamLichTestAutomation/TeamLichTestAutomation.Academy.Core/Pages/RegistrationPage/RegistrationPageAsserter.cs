@@ -1,6 +1,5 @@
 ﻿namespace TeamLichTestAutomation.Academy.Core.Pages.RegistrationPage
 {
-    using System.Linq;
     using ArtOfTest.Common.UnitTesting;
 
     public static class RegistrationPageAsserter
@@ -25,8 +24,8 @@
 
         public static void AssertErrorMessageIsDisplayedWhenUsernameEndsWithNonAlphabetSymbol(this RegistrationPage registrationPage)
         {
-           Assert.IsTrue(registrationPage.UsernameErrorMessage.InnerText
-                .Contains(RegistrationPageErrorMessages.UsernameInvalidInitialSymbol));
+            Assert.IsTrue(registrationPage.UsernameErrorMessage.InnerText
+                 .Contains(RegistrationPageErrorMessages.UsernameInvalidInitialSymbol));
         }
 
         public static void AssertErrorMessageIsDisplayedWhenLengthOfUsernameIsInccorect(this RegistrationPage registrationPage)
@@ -79,7 +78,7 @@
 
         public static void AssertErrorMessageIsDisplayedWhenLengthOfPasswordIsLessThanMinimumAllowed(this RegistrationPage registrationPage)
         {
-            Assert.AreEqual(RegistrationPageErrorMessages.PasswordInvalidLength, 
+            Assert.AreEqual(RegistrationPageErrorMessages.PasswordInvalidLength,
                 registrationPage.PasswordErrorMessage.InnerText);
         }
 

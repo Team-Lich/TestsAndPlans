@@ -20,6 +20,7 @@ namespace TeamLichTestAutomation.Tests
         #region [Setup / TearDown]
 
         private TestContext testContextInstance = null;
+
         /// <summary>
         ///Gets or sets the VS test context which provides
         ///information about and functionality for the
@@ -37,13 +38,11 @@ namespace TeamLichTestAutomation.Tests
             }
         }
 
-
         //Use ClassInitialize to run code before running the first test in the class
         [ClassInitialize()]
         public static void MyClassInitialize(TestContext testContext)
         {
         }
-
 
         // Use TestInitialize to run code before running each test
         [TestInitialize()]
@@ -98,10 +97,10 @@ namespace TeamLichTestAutomation.Tests
             // This method should always exist in [TestInitialize()] method.
             SetTestMethod(this, (string)TestContext.Properties["TestName"]);
 
-            #endregion
-            
+            #endregion WebAii Initialization
+
             // Test Recycle is true
-            
+
             Manager.LaunchNewBrowser(BrowserType.FireFox);
             Manager.ActiveBrowser.ClearCache(BrowserCacheType.Cookies);
 
@@ -112,7 +111,6 @@ namespace TeamLichTestAutomation.Tests
         [TestCleanup()]
         public void MyTestCleanup()
         {
-
             //
             // Place any additional cleanup here
             //
@@ -123,7 +121,7 @@ namespace TeamLichTestAutomation.Tests
             // after each test. This call is ignored if recycleBrowser is set
             this.CleanUp();
 
-            #endregion
+            #endregion WebAii CleanUp
         }
 
         //Use ClassCleanup to run code after all tests in a class have run
@@ -136,7 +134,7 @@ namespace TeamLichTestAutomation.Tests
             ShutDown();
         }
 
-        #endregion
+        #endregion [Setup / TearDown]
 
         [TestMethod]
         public void TestCourseAttendanceSignUpForLoggedRegularUser()
@@ -153,7 +151,7 @@ namespace TeamLichTestAutomation.Tests
             coursesPage.liveSignUp();
 
             coursesPage.AssertSignOffBtn();
-         }
+        }
 
         [TestMethod]
         public void OnlineSignUp()

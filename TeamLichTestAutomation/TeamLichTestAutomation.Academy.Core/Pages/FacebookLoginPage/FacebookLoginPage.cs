@@ -1,10 +1,9 @@
 ﻿namespace TeamLichTestAutomation.Academy.Core.Pages.FacebookLoginPage
 {
-    using System;
     using ArtOfTest.WebAii.Core;
 
     public partial class FacebookLoginPage : BasePage
-    { 
+    {
         public FacebookLoginPage(Browser browser) : base(browser)
         {
         }

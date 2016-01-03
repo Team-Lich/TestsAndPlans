@@ -1,6 +1,5 @@
 ﻿namespace TeamLichTestAutomation.Academy.Core.Pages.MainPage
 {
-    using System.Linq;
     using ArtOfTest.Common.UnitTesting;
 
     public static class MainPageAsserter
@@ -11,7 +10,6 @@
 
             Assert.IsTrue(mainPage.LogoutButton.IsEnabled);
             Assert.IsFalse(adminDropdownPresent);
-
         }
 
         public static void AssertUserIsLoggedAsAdmin(this MainPage mainPage)

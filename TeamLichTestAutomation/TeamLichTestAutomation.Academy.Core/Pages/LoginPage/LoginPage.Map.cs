@@ -29,11 +29,11 @@
                 this.Browser.WaitForElement(5000, "value=Вход");
                 return this.Browser.Find.ByExpression<HtmlInputSubmit>("value=Вход");
             }
-        }        
+        }
 
         public HtmlListItem[] ErrorsShown
         {
-            get 
+            get
             {
                 this.Browser.WaitForElement(5000, "class=validation-summary-errors");
                 var container = this.Browser.Find.ByExpression<HtmlDiv>("class=validation-summary-errors");

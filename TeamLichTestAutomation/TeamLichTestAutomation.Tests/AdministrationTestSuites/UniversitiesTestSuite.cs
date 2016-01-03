@@ -35,6 +35,7 @@ namespace TeamLichTestAutomation.Tests.AdministrationTestSuites
         #region [Setup / TearDown]
 
         private TestContext testContextInstance = null;
+
         /// <summary>
         ///Gets or sets the VS test context which provides
         ///information about and functionality for the
@@ -52,13 +53,11 @@ namespace TeamLichTestAutomation.Tests.AdministrationTestSuites
             }
         }
 
-
         //Use ClassInitialize to run code before running the first test in the class
         [ClassInitialize()]
         public static void MyClassInitialize(TestContext testContext)
         {
         }
-
 
         // Use TestInitialize to run code before running each test
         [TestInitialize()]
@@ -113,7 +112,7 @@ namespace TeamLichTestAutomation.Tests.AdministrationTestSuites
             // This method should always exist in [TestInitialize()] method.
             SetTestMethod(this, (string)TestContext.Properties["TestName"]);
 
-            #endregion
+            #endregion WebAii Initialization
 
             Manager.LaunchNewBrowser(BrowserType.InternetExplorer);
             this.browser = Manager.ActiveBrowser;
@@ -136,14 +135,12 @@ namespace TeamLichTestAutomation.Tests.AdministrationTestSuites
             //
             // Place any additional initialization here
             //
-
         }
 
         // Use TestCleanup to run code after each test has run
         [TestCleanup()]
         public void MyTestCleanup()
         {
-
             //
             // Place any additional cleanup here
             //
@@ -154,7 +151,7 @@ namespace TeamLichTestAutomation.Tests.AdministrationTestSuites
             // after each test. This call is ignored if recycleBrowser is set
             this.CleanUp();
 
-            #endregion
+            #endregion WebAii CleanUp
         }
 
         //Use ClassCleanup to run code after all tests in a class have run
@@ -167,8 +164,7 @@ namespace TeamLichTestAutomation.Tests.AdministrationTestSuites
             ShutDown();
         }
 
-        #endregion
-
+        #endregion [Setup / TearDown]
 
         // These tests work only on Internet Explorer.
         // I can not handle the confirmation dialog on deletion in Chrome and Firefox
@@ -178,7 +174,7 @@ namespace TeamLichTestAutomation.Tests.AdministrationTestSuites
         [TestCategory("PriorityHigh")]
         [TestOwner(Owner.DechoDechev)]
         public void TestAdminUniversityAddFunctionalityWorks()
-        {   
+        {
             uniPage.AddUniversity("Telerik University");
             KendoGrid grid = uniPage.Browser.Find.ByExpression<KendoGrid>("data-role=grid");
             uniPage.AssertUniversityIsPresentInGrid(grid, "Telerik University");

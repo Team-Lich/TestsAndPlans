@@ -14,7 +14,7 @@
 
         public string GetString(int length)
         {
-            StringBuilder stringBuilder = new StringBuilder();            
+            StringBuilder stringBuilder = new StringBuilder();
 
             for (int i = 0; i < length; i++)
             {

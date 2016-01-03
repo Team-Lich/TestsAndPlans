@@ -25,6 +25,7 @@ namespace TeamLichTestAutomation.Tests
         #region [Setup / TearDown]
 
         private TestContext testContextInstance = null;
+
         /// <summary>
         /// Gets or sets the VS test context which provides
         /// information about and functionality for the
@@ -42,7 +43,6 @@ namespace TeamLichTestAutomation.Tests
                 testContextInstance = value;
             }
         }
-
 
         // Use ClassInitialize to run code before running the first test in the class
         [ClassInitialize()]
@@ -103,7 +103,9 @@ namespace TeamLichTestAutomation.Tests
             // This method should always exist in [TestInitialize()] method.
             SetTestMethod(this, (string)TestContext.Properties["TestName"]);
 
-            #endregion          
+            #endregion WebAii Initialization
+
+
 
             //Manager.Settings.Web.RecycleBrowser = true;
 
@@ -128,7 +130,7 @@ namespace TeamLichTestAutomation.Tests
             // after each test. This call is ignored if recycleBrowser is set
             this.CleanUp();
 
-            #endregion
+            #endregion WebAii CleanUp
         }
 
         // Use ClassCleanup to run code after all tests in a class have run
@@ -141,7 +143,7 @@ namespace TeamLichTestAutomation.Tests
             ShutDown();
         }
 
-        #endregion
+        #endregion [Setup / TearDown]
 
         [TestMethod]
         [TestCategory("Login")]

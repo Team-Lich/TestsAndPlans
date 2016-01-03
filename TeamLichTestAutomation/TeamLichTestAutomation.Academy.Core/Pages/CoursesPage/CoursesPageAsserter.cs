@@ -1,8 +1,7 @@
 ﻿namespace TeamLichTestAutomation.Academy.Core.Pages.CoursesPage
 {
-    using System.Linq;
-    using System.Threading;
     using ArtOfTest.Common.UnitTesting;
+    using System.Threading;
 
     public static class CoursesPageAsserter
     {

@@ -1,10 +1,9 @@
 ﻿namespace TeamLichTestAutomation.Academy.Core.Pages.AdminPages.UniversitiesPage
 {
-    using System.Linq;
-    using System.Threading;
     using ArtOfTest.Common.UnitTesting;
-    using Telerik.TestingFramework.Controls.KendoUI;
+    using System.Linq;
     using TeamLichTestAutomation.TestFramework.Core;
+    using Telerik.TestingFramework.Controls.KendoUI;
 
     public static class UniversitiesPageAsserter
     {

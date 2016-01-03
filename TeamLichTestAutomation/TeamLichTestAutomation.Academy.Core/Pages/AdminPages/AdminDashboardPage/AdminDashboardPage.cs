@@ -2,7 +2,7 @@
 {
     using ArtOfTest.WebAii.Core;
 
-    public partial class AdminDashboardPage :BasePage
+    public partial class AdminDashboardPage : BasePage
     {
         public AdminDashboardPage(Browser browser) : base(browser)
         {
@@ -12,7 +12,7 @@
         {
             this.UniversitiesButton.Click();
         }
-        
+
         public void ClickFriendshipButton()
         {
             this.FriendshipButton.Click();

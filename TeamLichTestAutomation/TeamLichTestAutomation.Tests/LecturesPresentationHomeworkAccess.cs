@@ -22,6 +22,7 @@ namespace TeamLichTestAutomation.Tests
         private MainPage mainPage;
         private CoursesPage coursesPage;
         private LoginPage loginPage;
+        public RegistrationPage registrationPage;
 
         private void LoginWithRegularUser()
         {
@@ -281,6 +282,40 @@ namespace TeamLichTestAutomation.Tests
             this.coursesPage.SendHomework();
             this.coursesPage.AssertHomewrokEvalBtnPresent();
         }
-        public RegistrationPage registrationPage { get; set; }
+
+        [TestMethod]
+        [TestCategory("LecturesPresentationsHomework")]
+        ////[TestId(101)]
+        [TestPriority(Priority.High)]
+        [TestOwner(Owner.Ivan)]
+        public void PresentationsAccessWithoutLogin()
+        {
+            this.coursesPage.Navigate();
+            this.coursesPage.AssertPresentationLinkPresent();
+
+        }
+
+        [TestMethod]
+        [TestCategory("LecturesPresentationsHomework")]
+        ////[TestId(101)]
+        [TestPriority(Priority.High)]
+        [TestOwner(Owner.Ivan)]
+        public void HomeworkAccessWithoutLogIn()
+        {
+            this.coursesPage.Navigate();
+
+            this.coursesPage.AssertSendHomeworkLinkNotPresent();
+        }
+
+        [TestMethod]
+        [TestCategory("LecturesPresentationsHomework")]
+        ////[TestId(101)]
+        [TestPriority(Priority.High)]
+        [TestOwner(Owner.Ivan)]
+        public void CoursesAccessWihtouLogIn()
+        {
+            this.coursesPage.Navigate();
+
+        }
     }
 }

@@ -9,9 +9,9 @@
 
     using Telerik.TestingFramework.Controls.KendoUI;
 
-    public partial class RolesPage : BasePage
+    public partial class AttendanceLogsPage : BasePage
     {
-        public RolesPage(Browser browser)
+        public AttendanceLogsPage(Browser browser)
            : base(browser)
         {
         }

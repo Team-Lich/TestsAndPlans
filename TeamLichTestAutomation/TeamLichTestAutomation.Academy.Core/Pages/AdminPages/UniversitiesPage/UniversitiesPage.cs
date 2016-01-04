@@ -70,6 +70,12 @@
             }
         }
 
+        public void ExportAsExcel()
+            {
+                this.Browser.RefreshDomTree();
+                this.ExprotAsExcelButton.Click();
+            }
+
         public void EditRow(KendoGrid grid, string value, string idOfEditField, string newValue, int searchColumn)
         {
             var rows = grid.DataItems;

@@ -3,7 +3,9 @@ namespace TeamLichTestAutomation.Tests
     using ArtOfTest.WebAii.Core;
     using ArtOfTest.WebAii.TestTemplates;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using TeamLichTestAutomation.Academy.Core.Models;
     using TeamLichTestAutomation.Academy.Core.Pages.CoursesPage;
+    using TeamLichTestAutomation.Academy.Core.Pages.LoginPage;
     using TeamLichTestAutomation.Academy.Core.Pages.MainPage;
     using TeamLichTestAutomation.Academy.Core.Pages.RegistrationPage;
     using TeamLichTestAutomation.Utilities;
@@ -19,12 +21,20 @@ namespace TeamLichTestAutomation.Tests
         private RegistrationPage registrationPage;
         private MainPage mainPage;
         private CoursesPage coursesPage;
+        private LoginPage loginPage;
 
         private void RegRandUser()
         {
             mainPage.Navigate().ClickRegistration();
             this.registrationPage = new RegistrationPage(this.browser);
             registrationPage.RegisterRandomUser();
+        }
+
+        private void LoginWithRegularUser()
+        {
+            this.mainPage.Navigate().ClickLogin();
+            TelerikUser user = TelerikUser.Regular;
+            this.loginPage.LoginUser(user);
         }
 
         #region [Setup / TearDown]
@@ -118,6 +128,7 @@ namespace TeamLichTestAutomation.Tests
 
             this.mainPage = new MainPage(this.browser);
             this.coursesPage = new CoursesPage(this.browser);
+            this.loginPage = new LoginPage(this.browser);
         }
 
         // Use TestCleanup to run code after each test has run
@@ -201,5 +212,56 @@ namespace TeamLichTestAutomation.Tests
             this.coursesPage.LiveSignUp();
             this.coursesPage.AssertSignOffBtn();
         }
+
+        [TestMethod]
+        [TestCategory("CourseSignUp")]
+        ////[TestId(101)]
+        [TestPriority(Priority.High)]
+        [TestOwner(Owner.Ivan)]
+        public void OnlineSignUpFromSignOffCourse()
+        {
+            LoginWithRegularUser();
+            this.coursesPage.Navigate();
+            this.coursesPage.AssertSignedOffCourse();
+        }
+
+        [TestMethod]
+        [TestCategory("CourseSignUp")]
+        ////[TestId(101)]
+        [TestPriority(Priority.High)]
+        [TestOwner(Owner.Ivan)]
+        public void OnlineSignUpFromCoursesList()
+        {
+            this.RegRandUser();
+            this.mainPage.HoverCoursesNavigationDropdown();
+            this.mainPage.MyCourseClick();
+            this.coursesPage.OnlineSignUp();
+            this.coursesPage.AssertSignOffBtn();
+        }
+
+        [TestMethod]
+        [TestCategory("CourseSignUp")]
+        ////[TestId(101)]
+        [TestPriority(Priority.High)]
+        [TestOwner(Owner.Ivan)]
+        public void SignUpFromCoursesListWithoutLogIn()
+        {
+            this.mainPage.HoverCoursesNavigationDropdown();
+            this.mainPage.MyCourseClick();
+            this.coursesPage.AssertPleaseLogInBtnPresent();
+        }
+        
+        [TestMethod]
+        [TestCategory("CourseSignUp")]
+        ////[TestId(101)]
+        [TestPriority(Priority.High)]
+        [TestOwner(Owner.Ivan)]
+        public void LiveSignUpFromSignOffCourse()
+        {
+            LoginWithRegularUser();
+            this.coursesPage.Navigate();
+            this.coursesPage.AssertSignedOffCourse();
+        }
+
     }
 }

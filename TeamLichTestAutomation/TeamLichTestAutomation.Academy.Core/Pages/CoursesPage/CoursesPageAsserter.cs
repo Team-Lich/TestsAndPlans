@@ -33,6 +33,12 @@
             Assert.IsNotNull(link);
         }
 
+        public static void AssertSendHomeworkLinkNotPresent(this CoursesPage coursesPage)
+        {
+            var link = coursesPage.SendHomeworkLink;
+            Assert.IsNotNull(link);
+        }
+
         public static void AssertPresentationLinkPresent(this CoursesPage coursesPage)
         {
             var link = coursesPage.PresentationLink;
@@ -55,6 +61,13 @@
         {
             var btn = coursesPage.PleaseLogInBtn;
             Assert.IsNotNull(btn);
+        }
+
+        public static void AssertSignedOffCourse(this CoursesPage coursesPage)
+        {
+            var span = coursesPage.courseParticipationInfo;
+            var actualText = @"Вие сте се отписалиот участие в този курс.";
+            Assert.AreEqual(span.TextContent, actualText);
         }
     }
 }

@@ -5,9 +5,19 @@
 
     public partial class FriendsPage : BasePage
     {
+        private readonly string url = "http://stage.telerikacademy.com/Friends";
+
         public FriendsPage(Browser browser)
             : base(browser)
         {
+        }
+
+        public string Url
+        {
+            get
+            {
+                return this.url;
+            }
         }
 
         public void ClickFriendItem()
@@ -17,11 +27,14 @@
 
         public void ClickApproveFriendshipIcon()
         {
+            this.Browser.WaitForElement(2000, "class=approveFriendship");
             this.ApproveFriendshipIcon.Click();
+            this.Browser.Refresh();
         }
 
         public void ClickRemoveFriendshipIcon()
         {
+            this.Browser.WaitForElement(2000, "class=removeFriendship");
             this.RemoveFriendshipIcon.Click();
         }
 

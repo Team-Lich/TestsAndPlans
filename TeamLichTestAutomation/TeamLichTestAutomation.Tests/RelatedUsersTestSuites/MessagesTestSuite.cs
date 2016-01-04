@@ -6,6 +6,8 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     using TeamLichTestAutomation.Academy.Core.Models;
+    using TeamLichTestAutomation.Academy.Core.Pages.LoginPage;
+    using TeamLichTestAutomation.Academy.Core.Pages.MainPage;
     using TeamLichTestAutomation.Academy.Core.Pages.MessagesPage;
     using TeamLichTestAutomation.Academy.Core.Pages.UserPage;
 
@@ -18,9 +20,9 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
     [TestClass]
     public class MessagesTestSuite : BaseTest
     {
-        private readonly string messagesPageUrl = "http://stage.telerikacademy.com/Messages";
-
         private Browser browser;
+        private MainPage mainPage;
+        private LoginPage loginPage;
         private UserPage userPage;
         private MessagesPage messagesPage;
 
@@ -114,6 +116,12 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
             Manager.ActiveBrowser.ClearCache(BrowserCacheType.Cookies);
 
             this.browser = Manager.ActiveBrowser;
+            this.mainPage = new MainPage(this.browser);
+            this.loginPage = new LoginPage(this.browser);
+            this.userPage = new UserPage(this.browser);
+            this.messagesPage = new MessagesPage(this.browser);
+
+            mainPage.NavigateTo(loginPage.Url);
         }
 
         // Use TestCleanup to run code after each test has run
@@ -152,8 +160,8 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
         public void SendMessageButtonShouldOpenMessagesPage()
         {
             RelatedUsersUtilities.AddFriend(this.browser);
-            RelatedUsersUtilities.LoginUser(TelerikUser.Related1, this.browser).NavigateTo(TelerikUser.Related2.Url);
-            this.userPage = new UserPage(this.browser);
+            this.mainPage.NavigateTo(TelerikUser.Related2.Url);
+
             this.userPage.ClickSendMessageButtonActive();
             this.userPage.Browser.WaitUntilReady();
 
@@ -168,8 +176,7 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
         public void MessagesPageElementsShouldBeDisplayedCorrectly()
         {
             RelatedUsersUtilities.AddFriend(this.browser);
-            RelatedUsersUtilities.LoginUser(TelerikUser.Related1, this.browser).NavigateTo(this.messagesPageUrl);
-            this.messagesPage = new MessagesPage(this.browser);
+            this.mainPage.NavigateTo(messagesPage.Url);
 
             this.messagesPage.AssertMessagesHeadingIsVisible();
             this.messagesPage.AssertMessagePanelTitleIsVisible();
@@ -189,8 +196,7 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
         public void FriendItemsShouldBeDisplayedCorrectly()
         {
             RelatedUsersUtilities.AddFriend(this.browser);
-            RelatedUsersUtilities.LoginUser(TelerikUser.Related1, this.browser).NavigateTo(this.messagesPageUrl);
-            this.messagesPage = new MessagesPage(this.browser);
+            this.mainPage.NavigateTo(messagesPage.Url);
 
             this.messagesPage.AssertFriendAvatarIsVisible();
             this.messagesPage.AssertFriendNamesAreVisible();
@@ -205,8 +211,7 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
         public void SearchFieldShouldBeVisible()
         {
             RelatedUsersUtilities.AddFriend(this.browser);
-            RelatedUsersUtilities.LoginUser(TelerikUser.Related1, this.browser).NavigateTo(this.messagesPageUrl);
-            this.messagesPage = new MessagesPage(this.browser);
+            this.mainPage.NavigateTo(messagesPage.Url);
 
             this.messagesPage.AssertSearchFieldIsVisible();
         }

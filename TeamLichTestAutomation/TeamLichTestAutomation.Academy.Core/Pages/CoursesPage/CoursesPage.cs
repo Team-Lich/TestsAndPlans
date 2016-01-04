@@ -2,6 +2,7 @@
 {
     using ArtOfTest.WebAii.Core;
     using ArtOfTest.WebAii.Win32.Dialogs;
+    using System.Threading;
 
     public partial class CoursesPage : BasePage
     {
@@ -22,6 +23,7 @@
         {
             this.Browser.WaitForElement(3000, "id=SearchButton");
             this.CourseLiveApply.MouseClick();
+            Thread.Sleep(3000);
             this.Browser.Desktop.KeyBoard.KeyPress(System.Windows.Forms.Keys.Enter);
         }
 
@@ -29,6 +31,7 @@
         {
             this.Browser.WaitForElement(3000, "id=SearchButton");
             this.CourseOnlineApply.MouseClick();
+            Thread.Sleep(3000);
             this.Browser.Desktop.KeyBoard.KeyPress(System.Windows.Forms.Keys.Enter);
         }
 

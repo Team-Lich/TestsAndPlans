@@ -5,8 +5,19 @@
 
     public partial class LoginPage : BasePage
     {
-        public LoginPage(Browser browser) : base(browser)
+        private readonly string url = "http://stage.telerikacademy.com/Users/Auth/Login";
+
+        public LoginPage(Browser browser)
+            : base(browser)
         {
+        }
+
+        public string Url
+        {
+            get
+            {
+                return this.url;
+            }
         }
 
         public void LoginUser(TelerikUser user)

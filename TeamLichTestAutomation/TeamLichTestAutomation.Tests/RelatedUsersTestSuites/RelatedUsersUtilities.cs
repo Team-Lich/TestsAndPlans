@@ -13,8 +13,6 @@
     /// </summary>
     public static class RelatedUsersUtilities
     {
-        private static readonly string LoginPageUrl = "http://stage.telerikacademy.com/Users/Auth/Login";
-
         private static MainPage mainPage;
         private static LoginPage loginPage;
         private static UserPage userPage;
@@ -22,48 +20,48 @@
 
         public static void RemoveFriend(Browser browser)
         {
-            LoginUser(TelerikUser.Related1, browser);
+            loginPage = new LoginPage(browser);
+            loginPage.LoginUser(TelerikUser.Related1);
+
+            mainPage = new MainPage(browser);
             mainPage.NavigateTo(TelerikUser.Related2.Url);
 
             userPage = new UserPage(browser);
             if (userPage.RemoveFriendButton != null && userPage.RemoveFriendButton.IsVisible())
             {
-                userPage.RemoveFriendButton.Click();
+                userPage.ClickRemoveFriendButton();
             }
 
-            mainPage.LogoutButton.Click();
+            mainPage.ClickLogout();
+            mainPage.NavigateTo(loginPage.Url);
+            loginPage.LoginUser(TelerikUser.Related1);
         }
 
         public static void AddFriend(Browser browser)
         {
-            LoginUser(TelerikUser.Related1, browser);
+            loginPage = new LoginPage(browser);
+            loginPage.LoginUser(TelerikUser.Related1);
+
+            mainPage = new MainPage(browser);
             mainPage.NavigateTo(TelerikUser.Related2.Url);
 
             userPage = new UserPage(browser);
             if (userPage.AddFriendButton != null && userPage.AddFriendButton.IsVisible())
             {
-                userPage.AddFriendButton.Click();
-                mainPage.LogoutButton.Click();
+                userPage.ClickAddFriendButton();
+                mainPage.ClickLogout();
 
-                mainPage = LoginUser(TelerikUser.Related2, browser);
-                mainPage.NavigateTo(FriendsTestSuite.FriendsPageUrl);
+                mainPage.NavigateTo(loginPage.Url);
+                loginPage.LoginUser(TelerikUser.Related2);
 
                 friendsPage = new FriendsPage(browser);
+                mainPage.NavigateTo(friendsPage.Url);
                 friendsPage.ClickApproveFriendshipIcon();
             }
 
-            mainPage.LogoutButton.Click();
-        }
-
-        public static MainPage LoginUser(TelerikUser relatedUser, Browser browser)
-        {
-            mainPage = new MainPage(browser);
-            mainPage.NavigateTo(LoginPageUrl);
-
-            loginPage = new LoginPage(browser);
-            loginPage.LoginUser(relatedUser);
-
-            return mainPage;
+            mainPage.ClickLogout();
+            mainPage.NavigateTo(loginPage.Url);
+            loginPage.LoginUser(TelerikUser.Related1);
         }
     }
 }

@@ -106,5 +106,13 @@
                 return btn;
             }
         }
+
+        public HtmlSpan courseParticipationInfo
+        {
+            get
+            {
+                return this.Browser.Find.ByXPath<HtmlSpan>(@"//*[@id=""MainContent""]/div/div[3]/div[2]/div[5]/div/div/span");
+            }
+        }
     }
 }

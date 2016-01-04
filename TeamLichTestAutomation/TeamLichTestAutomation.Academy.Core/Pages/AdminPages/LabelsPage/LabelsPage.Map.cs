@@ -1,10 +1,20 @@
-﻿namespace TeamLichTestAutomation.Academy.Core.Pages.AdminPages.UniversitiesPage
+﻿namespace TeamLichTestAutomation.Academy.Core.Pages.AdminPages.LabelsPage
 {
     using ArtOfTest.WebAii.Controls.HtmlControls;
     using Telerik.TestingFramework.Controls.KendoUI;
 
     public partial class LabelsPage
     {
+        private HtmlAnchor AddButton
+        {
+        get
+            {
+            string expressionString = @"href=/Administration_Users/Labels/Read?DataGrid-mode=insert";
+            this.Browser.WaitForElement(5000, expressionString);
+            return this.Browser.Find.ByExpression<HtmlAnchor>(expressionString);
+            }
+        }
+
         private HtmlButton DeleteButton
             {
             get

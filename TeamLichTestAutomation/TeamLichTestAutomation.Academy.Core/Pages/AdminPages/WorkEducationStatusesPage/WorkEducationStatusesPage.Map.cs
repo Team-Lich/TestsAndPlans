@@ -1,10 +1,20 @@
-﻿namespace TeamLichTestAutomation.Academy.Core.Pages.AdminPages.UniversitiesPage
+﻿namespace TeamLichTestAutomation.Academy.Core.Pages.AdminPages.WorkEducationStatusesPage
 {
     using ArtOfTest.WebAii.Controls.HtmlControls;
     using Telerik.TestingFramework.Controls.KendoUI;
 
     public partial class WorkEducationStatusesPage
     {
+        private HtmlAnchor AddButton
+        {
+            get
+            {
+            string expressionString = @"href=/Administration_Users/WorkEducationStatuses/Read?DataGrid-mode=insert";
+                this.Browser.WaitForElement(5000, expressionString);
+                return this.Browser.Find.ByExpression<HtmlAnchor>(expressionString);
+            }
+        }
+
         private HtmlButton DeleteButton
             {
             get

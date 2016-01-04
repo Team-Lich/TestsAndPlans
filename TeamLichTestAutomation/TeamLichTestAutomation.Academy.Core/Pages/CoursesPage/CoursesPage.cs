@@ -1,6 +1,7 @@
 ﻿namespace TeamLichTestAutomation.Academy.Core.Pages.CoursesPage
 {
     using ArtOfTest.WebAii.Core;
+    using ArtOfTest.WebAii.Win32.Dialogs;
 
     public partial class CoursesPage : BasePage
     {
@@ -20,13 +21,22 @@
         public void LiveSignUp()
         {
             this.Browser.WaitForElement(3000, "id=SearchButton");
-            this.CourseLiveApply.Click();
+            this.CourseLiveApply.MouseClick();
+            this.Browser.Desktop.KeyBoard.KeyPress(System.Windows.Forms.Keys.Enter);
         }
 
         public void OnlineSignUp()
         {
             this.Browser.WaitForElement(3000, "id=SearchButton");
-            this.CourseOnlineApply.Click();
+            this.CourseOnlineApply.MouseClick();
+            this.Browser.Desktop.KeyBoard.KeyPress(System.Windows.Forms.Keys.Enter);
+        }
+
+        public void SendHomework()
+        {
+            this.SendHomeworkLink.Click();
+            this.ChooseFileToSend.Upload("../../../homeworkfile.zip", 10000);
+            this.SendHomeworkBtn.Click();
         }
     }
 }

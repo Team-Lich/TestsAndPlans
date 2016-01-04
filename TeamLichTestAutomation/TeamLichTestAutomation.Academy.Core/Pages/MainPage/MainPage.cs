@@ -74,5 +74,12 @@
             this.UserNavigationDropdown.MouseHover();
             this.EvalHomework.Click();
         }
+
+        public void HoverCoursesNavigationDropdown()
+        {
+            this.Browser.WaitForElement(5000, "href=/Courses/Courses/List");
+            var coursesNavigation = this.CoursesNavigationDropdown;
+            coursesNavigation.MouseHover();
+        }
     }
 }

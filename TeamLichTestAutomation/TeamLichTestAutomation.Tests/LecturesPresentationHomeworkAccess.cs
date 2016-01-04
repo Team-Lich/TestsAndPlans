@@ -3,14 +3,12 @@ namespace TeamLichTestAutomation.Tests
     using ArtOfTest.WebAii.Controls.HtmlControls;
     using ArtOfTest.WebAii.Core;
     using ArtOfTest.WebAii.TestTemplates;
-
     using Microsoft.VisualStudio.TestTools.UnitTesting;
-
     using TeamLichTestAutomation.Academy.Core.Models;
     using TeamLichTestAutomation.Academy.Core.Pages.CoursesPage;
     using TeamLichTestAutomation.Academy.Core.Pages.LoginPage;
     using TeamLichTestAutomation.Academy.Core.Pages.MainPage;
-
+    using TeamLichTestAutomation.Academy.Core.Pages.RegistrationPage;
     using TeamLichTestAutomation.Utilities;
     using TeamLichTestAutomation.Utilities.Attributes;
 
@@ -30,6 +28,15 @@ namespace TeamLichTestAutomation.Tests
             this.mainPage.Navigate().ClickLogin();
             TelerikUser user = TelerikUser.Regular;
             this.loginPage.LoginUser(user);
+        }
+
+        private void RegNewUser()
+        {
+            //TelerikUser user = TelerikUser.Regular;
+            this.mainPage = new MainPage(this.browser);
+            this.registrationPage = new RegistrationPage(this.browser);
+            this.mainPage.Navigate().ClickRegistration();
+            this.registrationPage.RegisterRandomUser();
         }
 
         #region [Setup / TearDown]
@@ -234,5 +241,46 @@ namespace TeamLichTestAutomation.Tests
 
             Assert.AreEqual(title, actualTitle);
         }
+
+        [TestMethod]
+        [TestCategory("LecturesPresentationsHomework")]
+        ////[TestId(101)]
+        [TestPriority(Priority.High)]
+        [TestOwner(Owner.Ivan)]
+        public void SendHomework()
+        {
+            this.RegNewUser();
+            this.coursesPage.Navigate();
+            this.coursesPage.LiveSignUp();
+            this.coursesPage.SendHomework();
+        }
+
+        [TestMethod]
+        [TestCategory("LecturesPresentationsHomework")]
+        ////[TestId(101)]
+        [TestPriority(Priority.High)]
+        [TestOwner(Owner.Ivan)]
+        public void DownloadLastHomeworkLinkPresent()
+        {
+            this.RegNewUser();
+            this.coursesPage.Navigate();
+            //this.coursesPage.LiveSignUp();
+            this.coursesPage.SendHomework();
+            this.coursesPage.AssertDownloadLastHwPresent();
+        }
+
+        [TestMethod]
+        [TestCategory("LecturesPresentationsHomework")]
+        ////[TestId(101)]
+        [TestPriority(Priority.High)]
+        [TestOwner(Owner.Ivan)]
+        public void HomeworkEvalFromCoursesPanel()
+        {
+            this.LoginWithRegularUser();
+            this.coursesPage.Navigate();
+            this.coursesPage.SendHomework();
+            this.coursesPage.AssertHomewrokEvalBtnPresent();
+        }
+        public RegistrationPage registrationPage { get; set; }
     }
 }

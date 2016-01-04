@@ -49,7 +49,9 @@
         {
             get
             {
-                return this.Browser.Find.ById<HtmlSpan>("SignUpLiveButton");
+                this.Browser.WaitForElement(5000, "id=SignUpLiveButton");
+                var btn = this.Browser.Find.ById<HtmlSpan>("SignUpLiveButton");
+                return btn;
             }
         }
 
@@ -59,6 +61,49 @@
             {
                 this.Browser.WaitForElement(5000, "id=SignUpOnlineButton");
                 return this.Browser.Find.ById<HtmlSpan>("SignUpOnlineButton");
+            }
+        }
+
+        private HtmlAnchor DownloadLastSendedHW
+        {
+            get
+            {
+                return this.Browser.Find.ByExpression<HtmlAnchor>("href=/Courses/Homework/Download/190873");
+            }
+        }
+
+        private HtmlInputFile ChooseFileToSend
+        {
+            get
+            {
+                this.Browser.WaitForElement(5000, "id=homeworkFile");
+                return this.Browser.Find.ById<HtmlInputFile>("homeworkFile");
+            }
+        }
+
+        private HtmlControl SendHomeworkBtn
+        {
+            get
+            {
+                this.Browser.WaitForElement(3000, "id=SendButton");
+                return this.Browser.Find.ById<HtmlControl>("SendButton");
+            }
+        }
+
+        public HtmlAnchor EvalHomeworkBtn
+        {
+            get
+            {
+                return this.Browser.Find.ByExpression<HtmlAnchor>("href=/Courses/HomeworkEvaluations/Evaluate/2223");
+            }
+        }
+
+        public HtmlAnchor PleaseLogInBtn
+        {
+            get
+            {
+                var btn = this.Browser.Find.ByExpression<HtmlAnchor>("href=/Users/Auth/Login?ReturnUrl=%2fCourses%2fCourses%2fList");
+                return btn;
             }
         }
     }

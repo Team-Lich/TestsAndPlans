@@ -38,5 +38,23 @@
             var link = coursesPage.PresentationLink;
             Assert.IsNotNull(link);
         }
+
+        public static void AssertDownloadLastHwPresent(this CoursesPage coursesPage)
+        {
+            var link = coursesPage.PresentationLink;
+            Assert.IsNotNull(link);
+        }
+
+        public static void AssertHomewrokEvalBtnPresent(this CoursesPage coursesPage)
+        {
+            var btn = coursesPage.EvalHomeworkBtn;
+            Assert.IsNotNull(btn);
+        }
+
+        public static void AssertPleaseLogInBtnPresent(this CoursesPage coursesPage)
+        {
+            var btn = coursesPage.PleaseLogInBtn;
+            Assert.IsNotNull(btn);
+        }
     }
 }

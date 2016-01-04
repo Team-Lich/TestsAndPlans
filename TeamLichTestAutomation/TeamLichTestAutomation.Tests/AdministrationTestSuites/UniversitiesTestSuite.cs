@@ -186,6 +186,15 @@ namespace TeamLichTestAutomation.Tests.AdministrationTestSuites
         [TestMethod]
         [TestCategory("AdministrationUniversities")]
         [TestCategory("PriorityMedium")]
+        [TestOwner(Owner.Dimitar)]
+        public void TestAdminUniversityExportAsExcelFunctionalityWorks()
+        {
+            this.uniPage.ExportAsExcel();
+        }
+
+        [TestMethod]
+        [TestCategory("AdministrationUniversities")]
+        [TestCategory("PriorityMedium")]
         [TestOwner(Owner.DechoDechev)]
         public void TestAdminUniversityRemoveFunctionalityWorks()
         {
@@ -235,6 +244,28 @@ namespace TeamLichTestAutomation.Tests.AdministrationTestSuites
             grid = this.uniPage.Browser.Find.ByExpression<KendoGrid>("data-role=grid");
             this.uniPage.AssertUniversityIsNotPresentInGrid(grid, "Progress University");
         }
+
+        [TestMethod]
+        [TestCategory("AdministrationUniversities")]
+        [TestCategory("PriorityMedium")]
+        [TestOwner(Owner.Dimitar)]
+        public void TestAdminUniversityDeleteWorks()
+        {
+        string newUniversityName = "Telerik University";
+        this.uniPage.AddUniversity(newUniversityName);
+        KendoGrid grid = this.uniPage.Browser.Find.ByExpression<KendoGrid>("data-role=grid");
+
+        this.browser.RefreshDomTree();
+        grid = this.uniPage.Browser.Find.ByExpression<KendoGrid>("data-role=grid");
+        this.uniPage.AssertUniversityIsPresentInGrid(grid, "Telerik University");
+        this.uniPage.DeleteRow(grid, "Telerik University", 1);
+
+        Thread.Sleep(1000);
+        this.browser.RefreshDomTree();
+        grid = this.uniPage.Browser.Find.ByExpression<KendoGrid>("data-role=grid");
+        this.uniPage.AssertUniversityIsNotPresentInGrid(grid, "Telerik University");
+        }
+
 
         [TestMethod]
         [TestCategory("AdministrationUniversities")]

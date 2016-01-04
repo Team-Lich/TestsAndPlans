@@ -3,18 +3,8 @@
     using ArtOfTest.WebAii.Controls.HtmlControls;
     using Telerik.TestingFramework.Controls.KendoUI;
 
-    public partial class UniversitiesPage
+    public partial class AvatarsPage
     {
-        private HtmlAnchor AddButton
-        {
-            get
-            {
-                string expressionString = @"href=/Administration_Users/Universities/Read?DataGrid-mode=insert";
-                this.Browser.WaitForElement(5000, expressionString);
-                return this.Browser.Find.ByExpression<HtmlAnchor>(expressionString);
-            }
-        }
-
         private HtmlButton DeleteButton
             {
             get
@@ -65,16 +55,6 @@
                 this.Browser.RefreshDomTree();
                 this.Browser.WaitForElement(5000, "data-field=Name", "data-role=columnsorter");
                 return this.Browser.Find.ByAttributes<HtmlTableCell>("data-field=Name");
-            }
-        }
-
-        private HtmlTableCell IdHeader
-        {
-            get
-            {
-                this.Browser.RefreshDomTree();
-                this.Browser.WaitForElement(5000, "data-field=UniversityId", "data-role=columnsorter");
-                return this.Browser.Find.ByAttributes<HtmlTableCell>("data-field=UniversityId");
             }
         }
 

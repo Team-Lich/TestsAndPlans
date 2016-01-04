@@ -11,12 +11,13 @@
             this.Priority = priority;
         }
 
-        public Priority Priority 
-        { 
+        public Priority Priority
+        {
             get
             {
                 return this.priority;
             }
+
             set
             {
                 this.priority = value;

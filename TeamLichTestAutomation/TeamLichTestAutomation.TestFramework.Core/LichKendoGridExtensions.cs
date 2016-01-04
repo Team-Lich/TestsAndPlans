@@ -1,9 +1,12 @@
 ﻿namespace TeamLichTestAutomation.TestFramework.Core
 {
+    using System.Collections.Generic;
     using System.Linq;
     using ArtOfTest.WebAii.Controls.HtmlControls;
+
+    using ArtOfTest.WebAii.Controls.HtmlControls;
     using ArtOfTest.WebAii.Core;
-    using System.Collections.Generic;
+
     using Telerik.TestingFramework.Controls.KendoUI;
 
     public static class LichKendoGridExtensions
@@ -41,13 +44,13 @@
 
         public static bool IsColumnSortDescending(this KendoGrid grid, int column)
         {
-            string[] findExpressions = 
-            { 
-                "data-index=" + column, 
+            string[] findExpressions =
+            {
+                "data-index=" + column,
                 "data-role=columnsorter"
             };
 
-            var targetColumnHeader =  grid.Find.ByExpression<HtmlTableCell>(findExpressions);
+            var targetColumnHeader = grid.Find.ByExpression<HtmlTableCell>(findExpressions);
             var sortAttribute = targetColumnHeader.Attributes.FirstOrDefault(a => a.Name == "aria-sort");
             bool isDescending = sortAttribute.Value == "descending";
 

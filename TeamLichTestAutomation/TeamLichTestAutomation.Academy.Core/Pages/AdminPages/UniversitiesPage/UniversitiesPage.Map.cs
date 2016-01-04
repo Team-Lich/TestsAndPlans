@@ -1,18 +1,33 @@
-﻿using ArtOfTest.WebAii.Controls.HtmlControls;
-using ArtOfTest.WebAii.ObjectModel;
-using Telerik.TestingFramework.Controls.KendoUI;
-
-namespace TeamLichTestAutomation.Academy.Core.Pages.AdminPages.UniversitiesPage
+﻿namespace TeamLichTestAutomation.Academy.Core.Pages.AdminPages.UniversitiesPage
 {
+    using ArtOfTest.WebAii.Controls.HtmlControls;
+    using Telerik.TestingFramework.Controls.KendoUI;
+
     public partial class UniversitiesPage
     {
         private HtmlAnchor AddButton
         {
-            get 
+            get
             {
                 string expressionString = @"href=/Administration_Users/Universities/Read?DataGrid-mode=insert";
                 this.Browser.WaitForElement(5000, expressionString);
                 return this.Browser.Find.ByExpression<HtmlAnchor>(expressionString);
+            }
+        }
+
+        private HtmlButton DeleteButton
+            {
+            get
+                {
+                return this.Browser.Find.ByExpression<HtmlButton>("class=~k-grid-delete");
+                }
+            }
+
+        private HtmlButton ExprotAsExcelButton
+        {
+            get
+            {
+                return this.Browser.Find.ByExpression<HtmlButton>("class=~k-grid-excel");
             }
         }
 
@@ -37,7 +52,7 @@ namespace TeamLichTestAutomation.Academy.Core.Pages.AdminPages.UniversitiesPage
 
         private HtmlAnchor BackToAdminButton
         {
-            get 
+            get
             {
                 return this.Browser.Find.ByExpression<HtmlAnchor>("href=/Administration/Navigation");
             }

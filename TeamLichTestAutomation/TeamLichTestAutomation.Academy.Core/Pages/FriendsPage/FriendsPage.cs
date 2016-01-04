@@ -1,13 +1,23 @@
 ﻿namespace TeamLichTestAutomation.Academy.Core.Pages.FriendsPage
 {
-    using ArtOfTest.WebAii.Core;
     using System.Threading;
+    using ArtOfTest.WebAii.Core;
 
     public partial class FriendsPage : BasePage
     {
+        private readonly string url = "http://stage.telerikacademy.com/Friends";
+
         public FriendsPage(Browser browser)
             : base(browser)
         {
+        }
+
+        public string Url
+        {
+            get
+            {
+                return this.url;
+            }
         }
 
         public void ClickFriendItem()
@@ -17,11 +27,14 @@
 
         public void ClickApproveFriendshipIcon()
         {
+            this.Browser.WaitForElement(2000, "class=approveFriendship");
             this.ApproveFriendshipIcon.Click();
+            this.Browser.Refresh();
         }
 
         public void ClickRemoveFriendshipIcon()
         {
+            this.Browser.WaitForElement(2000, "class=removeFriendship");
             this.RemoveFriendshipIcon.Click();
         }
 
@@ -44,7 +57,7 @@
             foreach (var friend in this.RemoveFriendshipIconCollection)
             {
                 friend.Click();
-                RemoveFriendshipConfirmYes.Click();
+                this.RemoveFriendshipConfirmYes.Click();
                 this.Browser.RefreshDomTree();
             }
         }

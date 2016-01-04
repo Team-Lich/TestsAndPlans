@@ -4,6 +4,69 @@
 
     public partial class RegistrationPage
     {
+        internal HtmlSpan UsernameErrorMessage
+        {
+            get
+            {
+                this.Browser.WaitForElement(5000, "id=Username-error");
+                return this.Browser.Find.ById<HtmlSpan>("Username-error");
+            }
+        }
+
+        internal HtmlSpan PasswordErrorMessage
+        {
+            get
+            {
+                this.Browser.WaitForElement(5000, "id=Password-error");
+                return this.Browser.Find.ById<HtmlSpan>("Password-error");
+            }
+        }
+
+        internal HtmlSpan PasswordAgainErrorMessage
+        {
+            get
+            {
+                this.Browser.WaitForElement(5000, "id=PasswordAgain-error");
+                return this.Browser.Find.ById<HtmlSpan>("PasswordAgain-error");
+            }
+        }
+
+        internal HtmlSpan FirstNameErrorMessage
+        {
+            get
+            {
+                this.Browser.WaitForElement(5000, "id=FirstName-error");
+                return this.Browser.Find.ById<HtmlSpan>("FirstName-error");
+            }
+        }
+
+        internal HtmlSpan LastNameErrorMessage
+        {
+            get
+            {
+                this.Browser.WaitForElement(5000, "id=LastName-error");
+                return this.Browser.Find.ById<HtmlSpan>("LastName-error");
+            }
+        }
+
+        internal HtmlSpan EmailErrorMessage
+        {
+            get
+            {
+                this.Browser.WaitForElement(5000, "id=Email-error");
+                return this.Browser.Find.ById<HtmlSpan>("Email-error");
+            }
+        }
+
+        internal HtmlDiv ConditionsErrorMessage
+        {
+            get
+            {
+                this.Browser.WaitForElement(5000, "class=validation-summary-errors");
+                return this.Browser.Find.ByAttributes<HtmlDiv>("class=validation-summary-errors");
+            }
+        }
+
         private HtmlInputText UsernameTextBox
         {
             get
@@ -73,69 +136,6 @@
             {
                 this.Browser.WaitForElement(5000, "value=Регистрация");
                 return this.Browser.Find.ByExpression<HtmlInputSubmit>("value=Регистрация");
-            }
-        }
-
-        internal HtmlSpan UsernameErrorMessage
-        {
-            get
-            {
-                this.Browser.WaitForElement(5000, "id=Username-error");
-                return this.Browser.Find.ById<HtmlSpan>("Username-error");
-            }
-        }
-
-        internal HtmlSpan PasswordErrorMessage
-        {
-            get
-            {
-                this.Browser.WaitForElement(5000, "id=Password-error");
-                return this.Browser.Find.ById<HtmlSpan>("Password-error");
-            }
-        }
-
-        internal HtmlSpan PasswordAgainErrorMessage
-        {
-            get
-            {
-                this.Browser.WaitForElement(5000, "id=PasswordAgain-error");
-                return this.Browser.Find.ById<HtmlSpan>("PasswordAgain-error");
-            }
-        }
-
-        internal HtmlSpan FirstNameErrorMessage
-        {
-            get
-            {
-                this.Browser.WaitForElement(5000, "id=FirstName-error");
-                return this.Browser.Find.ById<HtmlSpan>("FirstName-error");
-            }
-        }
-
-        internal HtmlSpan LastNameErrorMessage
-        {
-            get
-            {
-                this.Browser.WaitForElement(5000, "id=LastName-error");
-                return this.Browser.Find.ById<HtmlSpan>("LastName-error");
-            }
-        }
-      
-        internal HtmlSpan EmailErrorMessage
-        {
-            get
-            {
-                this.Browser.WaitForElement(5000, "id=Email-error");
-                return this.Browser.Find.ById<HtmlSpan>("Email-error");
-            }
-        }
-
-        internal HtmlDiv ConditionsErrorMessage
-        {
-            get
-            {
-                this.Browser.WaitForElement(5000, "class=validation-summary-errors");
-                return this.Browser.Find.ByAttributes<HtmlDiv>("class=validation-summary-errors");
             }
         }
     }

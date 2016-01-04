@@ -6,7 +6,7 @@
     {
         private HtmlInputText EmailTextbox
         {
-            get 
+            get
             {
                 return this.Browser.Find.ById<HtmlInputText>("email");
             }

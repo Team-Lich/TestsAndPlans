@@ -5,7 +5,7 @@
     public abstract class BasePage
     {
         private readonly Browser browser;
- 
+
         public BasePage(Browser browser)
         {
             this.browser = browser;
@@ -17,6 +17,6 @@
             {
                 return this.browser;
             }
-        }   
+        }
     }
 }

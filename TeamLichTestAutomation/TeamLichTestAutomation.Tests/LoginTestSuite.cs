@@ -25,6 +25,7 @@ namespace TeamLichTestAutomation.Tests
         #region [Setup / TearDown]
 
         private TestContext testContextInstance = null;
+
         /// <summary>
         /// Gets or sets the VS test context which provides
         /// information about and functionality for the
@@ -42,7 +43,6 @@ namespace TeamLichTestAutomation.Tests
                 testContextInstance = value;
             }
         }
-
 
         // Use ClassInitialize to run code before running the first test in the class
         [ClassInitialize()]
@@ -103,9 +103,9 @@ namespace TeamLichTestAutomation.Tests
             // This method should always exist in [TestInitialize()] method.
             SetTestMethod(this, (string)TestContext.Properties["TestName"]);
 
-            #endregion          
+            #endregion WebAii Initialization
 
-            //Manager.Settings.Web.RecycleBrowser = true;
+            // Manager.Settings.Web.RecycleBrowser = true;
 
             Manager.LaunchNewBrowser(BrowserType.FireFox);
             Manager.ActiveBrowser.ClearCache(BrowserCacheType.Cookies);
@@ -115,7 +115,7 @@ namespace TeamLichTestAutomation.Tests
             this.mainPage = new MainPage(this.browser);
             this.loginPage = new LoginPage(this.browser);
 
-            mainPage.Navigate().ClickLogin();
+            this.mainPage.Navigate().ClickLogin();
         }
 
         // Use TestCleanup to run code after each test has run
@@ -128,7 +128,7 @@ namespace TeamLichTestAutomation.Tests
             // after each test. This call is ignored if recycleBrowser is set
             this.CleanUp();
 
-            #endregion
+            #endregion WebAii CleanUp
         }
 
         // Use ClassCleanup to run code after all tests in a class have run
@@ -141,7 +141,7 @@ namespace TeamLichTestAutomation.Tests
             ShutDown();
         }
 
-        #endregion
+        #endregion [Setup / TearDown]
 
         [TestMethod]
         [TestCategory("Login")]
@@ -149,9 +149,9 @@ namespace TeamLichTestAutomation.Tests
         [TestOwner(Owner.DechoDechev)]
         public void TestLoginWithValidRegularUserCredentials()
         {
-            loginPage.LoginUser(TelerikUser.Regular);
+            this.loginPage.LoginUser(TelerikUser.Regular);
 
-            mainPage.AssertUserIsLoggedAsRegularUser();
+            this.mainPage.AssertUserIsLoggedAsRegularUser();
         }
 
         [TestMethod]
@@ -161,9 +161,9 @@ namespace TeamLichTestAutomation.Tests
         public void TestLoginWithEmptyFields()
         {
             TelerikUser user = new TelerikUser(string.Empty, string.Empty);
-            loginPage.LoginUser(user);
+            this.loginPage.LoginUser(user);
 
-            mainPage.AssertUserIsNotLogged();
+            this.mainPage.AssertUserIsNotLogged();
         }
 
         [TestMethod]
@@ -174,9 +174,9 @@ namespace TeamLichTestAutomation.Tests
         {
             TelerikUser user = TelerikUser.Regular;
             user.UserName = string.Empty;
-            loginPage.LoginUser(user);
+            this.loginPage.LoginUser(user);
 
-            mainPage.AssertUserIsNotLogged();
+            this.mainPage.AssertUserIsNotLogged();
         }
 
         [TestMethod]
@@ -187,9 +187,9 @@ namespace TeamLichTestAutomation.Tests
         {
             TelerikUser user = TelerikUser.Regular;
             user.Password = string.Empty;
-            loginPage.LoginUser(user);
+            this.loginPage.LoginUser(user);
 
-            mainPage.AssertUserIsNotLogged();
+            this.mainPage.AssertUserIsNotLogged();
         }
 
         [TestMethod]
@@ -199,9 +199,9 @@ namespace TeamLichTestAutomation.Tests
         public void TestLoginUserWithNullFields()
         {
             TelerikUser user = new TelerikUser(null, null);
-            loginPage.LoginUser(user);
+            this.loginPage.LoginUser(user);
 
-            mainPage.AssertUserIsNotLogged();
+            this.mainPage.AssertUserIsNotLogged();
         }
 
         [TestMethod]
@@ -212,9 +212,9 @@ namespace TeamLichTestAutomation.Tests
         {
             TelerikUser user = TelerikUser.Regular;
             user.UserName = null;
-            loginPage.LoginUser(user);
+            this.loginPage.LoginUser(user);
 
-            mainPage.AssertUserIsNotLogged();
+            this.mainPage.AssertUserIsNotLogged();
         }
 
         [TestMethod]
@@ -225,9 +225,9 @@ namespace TeamLichTestAutomation.Tests
         {
             TelerikUser user = TelerikUser.Regular;
             user.Password = null;
-            loginPage.LoginUser(user);
+            this.loginPage.LoginUser(user);
 
-            mainPage.AssertUserIsNotLogged();
+            this.mainPage.AssertUserIsNotLogged();
         }
 
         [TestMethod]
@@ -238,9 +238,9 @@ namespace TeamLichTestAutomation.Tests
         {
             TelerikUser user = TelerikUser.Admin;
             user.Password = null;
-            loginPage.LoginUser(user);
+            this.loginPage.LoginUser(user);
 
-            mainPage.AssertUserIsNotLogged();
+            this.mainPage.AssertUserIsNotLogged();
         }
 
         [TestMethod]
@@ -251,9 +251,9 @@ namespace TeamLichTestAutomation.Tests
         {
             TelerikUser user = TelerikUser.Admin;
             user.Password = string.Empty;
-            loginPage.LoginUser(user);
+            this.loginPage.LoginUser(user);
 
-            mainPage.AssertUserIsNotLogged();
+            this.mainPage.AssertUserIsNotLogged();
         }
 
         [TestMethod]
@@ -262,9 +262,9 @@ namespace TeamLichTestAutomation.Tests
         [TestOwner(Owner.DechoDechev)]
         public void TestLoginWithValidAdminUserCredentials()
         {
-            loginPage.LoginUser(TelerikUser.Admin);
+            this.loginPage.LoginUser(TelerikUser.Admin);
 
-            mainPage.AssertUserIsLoggedAsAdmin();
+            this.mainPage.AssertUserIsLoggedAsAdmin();
         }
 
         [TestMethod]
@@ -275,9 +275,9 @@ namespace TeamLichTestAutomation.Tests
         {
             TelerikUser testUser = TelerikUser.Admin;
             testUser.UserName = "WrongUser";
-            loginPage.LoginUser(testUser);
+            this.loginPage.LoginUser(testUser);
 
-            mainPage.AssertUserIsNotLogged();
+            this.mainPage.AssertUserIsNotLogged();
         }
 
         [TestMethod]
@@ -288,9 +288,9 @@ namespace TeamLichTestAutomation.Tests
         {
             TelerikUser testUser = TelerikUser.Admin;
             testUser.Password = "WrongPass";
-            loginPage.LoginUser(testUser);
+            this.loginPage.LoginUser(testUser);
 
-            mainPage.AssertUserIsNotLogged();
+            this.mainPage.AssertUserIsNotLogged();
         }
 
         [TestMethod]
@@ -301,9 +301,9 @@ namespace TeamLichTestAutomation.Tests
         {
             TelerikUser testUser = TelerikUser.Regular;
             testUser.UserName = "WrongUser";
-            loginPage.LoginUser(testUser);
+            this.loginPage.LoginUser(testUser);
 
-            mainPage.AssertUserIsNotLogged();
+            this.mainPage.AssertUserIsNotLogged();
         }
 
         [TestMethod]
@@ -314,9 +314,9 @@ namespace TeamLichTestAutomation.Tests
         {
             TelerikUser testUser = TelerikUser.Regular;
             testUser.Password = "WrongPass";
-            loginPage.LoginUser(testUser);
+            this.loginPage.LoginUser(testUser);
 
-            mainPage.AssertUserIsNotLogged();
+            this.mainPage.AssertUserIsNotLogged();
         }
 
         [TestMethod]
@@ -325,17 +325,17 @@ namespace TeamLichTestAutomation.Tests
         [TestOwner(Owner.DechoDechev)]
         public void TestLoginPersistenceRegularUserOnBrowserRestart()
         {
-            loginPage.LoginUser(TelerikUser.Regular);
+            this.loginPage.LoginUser(TelerikUser.Regular);
 
-            mainPage.AssertUserIsLoggedAsRegularUser();
+            this.mainPage.AssertUserIsLoggedAsRegularUser();
 
-            browser.Close();
+            this.browser.Close();
             Manager.LaunchNewBrowser(BrowserType.FireFox);
-            browser = Manager.ActiveBrowser;
-            mainPage = new MainPage(this.browser);
-            mainPage.Navigate();
+            this.browser = Manager.ActiveBrowser;
+            this.mainPage = new MainPage(this.browser);
+            this.mainPage.Navigate();
 
-            mainPage.AssertUserIsLoggedAsRegularUser();
+            this.mainPage.AssertUserIsLoggedAsRegularUser();
         }
 
         [TestMethod]
@@ -344,16 +344,16 @@ namespace TeamLichTestAutomation.Tests
         [TestOwner(Owner.DechoDechev)]
         public void TestLoginPersistenceAdminUserOnBrowserRestart()
         {
-            loginPage.LoginUser(TelerikUser.Admin);
-            mainPage.AssertUserIsLoggedAsAdmin();
+            this.loginPage.LoginUser(TelerikUser.Admin);
+            this.mainPage.AssertUserIsLoggedAsAdmin();
 
-            browser.Close();
+            this.browser.Close();
             Manager.LaunchNewBrowser(BrowserType.FireFox);
-            browser = Manager.ActiveBrowser;
-            mainPage = new MainPage(this.browser);
-            mainPage.Navigate();
+            this.browser = Manager.ActiveBrowser;
+            this.mainPage = new MainPage(this.browser);
+            this.mainPage.Navigate();
 
-            mainPage.AssertUserIsLoggedAsAdmin();
+            this.mainPage.AssertUserIsLoggedAsAdmin();
         }
 
         [TestMethod]
@@ -362,13 +362,13 @@ namespace TeamLichTestAutomation.Tests
         [TestOwner(Owner.DechoDechev)]
         public void TestLoginRegularUserIsNotPersistentOnCookieDeletion()
         {
-            loginPage.LoginUser(TelerikUser.Regular);
-            mainPage.AssertUserIsLoggedAsRegularUser();
+            this.loginPage.LoginUser(TelerikUser.Regular);
+            this.mainPage.AssertUserIsLoggedAsRegularUser();
 
-            browser.ClearCache(BrowserCacheType.Cookies);
-            browser.Refresh();
+            this.browser.ClearCache(BrowserCacheType.Cookies);
+            this.browser.Refresh();
 
-            mainPage.AssertUserIsNotLogged();
+            this.mainPage.AssertUserIsNotLogged();
         }
 
         [TestMethod]
@@ -377,13 +377,13 @@ namespace TeamLichTestAutomation.Tests
         [TestOwner(Owner.DechoDechev)]
         public void TestLoginAdminUserIsNotPersistentOnCookieDeletion()
         {
-            loginPage.LoginUser(TelerikUser.Admin);
-            mainPage.AssertUserIsLoggedAsAdmin();
+            this.loginPage.LoginUser(TelerikUser.Admin);
+            this.mainPage.AssertUserIsLoggedAsAdmin();
 
-            browser.ClearCache(BrowserCacheType.Cookies);
-            browser.Refresh();
+            this.browser.ClearCache(BrowserCacheType.Cookies);
+            this.browser.Refresh();
 
-            mainPage.AssertUserIsNotLogged();
+            this.mainPage.AssertUserIsNotLogged();
         }
 
         [TestMethod]
@@ -393,11 +393,11 @@ namespace TeamLichTestAutomation.Tests
         public void TestLoginUserFieldDoesNotAcceptForbiddenSymbols()
         {
             TelerikUser user = new TelerikUser(@"<script>window.alert();</script>", "123456");
-            loginPage.LoginUser(user);
+            this.loginPage.LoginUser(user);
 
             this.browser.RefreshDomTree();
 
-            loginPage.AssertIfErrorMessageForIllegalDataIsShown();
+            this.loginPage.AssertIfErrorMessageForIllegalDataIsShown();
         }
 
         [TestMethod]
@@ -407,11 +407,11 @@ namespace TeamLichTestAutomation.Tests
         public void TestLoginPasswordFieldDoesNotAcceptForbiddenSymbols()
         {
             TelerikUser user = new TelerikUser("TeamLichTestUser", @"<script>window.alert();</script>");
-            loginPage.LoginUser(user);
+            this.loginPage.LoginUser(user);
 
             this.browser.RefreshDomTree();
 
-            loginPage.AssertIfErrorMessageForIllegalDataIsShown();
+            this.loginPage.AssertIfErrorMessageForIllegalDataIsShown();
         }
     }
 }

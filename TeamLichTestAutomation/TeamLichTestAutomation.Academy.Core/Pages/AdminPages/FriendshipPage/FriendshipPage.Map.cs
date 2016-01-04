@@ -4,7 +4,7 @@
 
     public partial class FriendshipPage
     {
-        public HtmlAnchor AddFriendshipButton 
+        public HtmlAnchor AddFriendshipButton
         {
             get
             {

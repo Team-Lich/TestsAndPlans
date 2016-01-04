@@ -9,7 +9,7 @@
         public static string UsernameStartingInvalidSymbol = "@username";
         public static string UsernameEndingInvalidSymbol = "username&";
         public static string UsernameInvalidLengthDown = "user";
-        public static string UsernameInvalidLengthUp = new String('r', 33);
+        public static string UsernameInvalidLengthUp = new string('r', 33);
 
         public static string PasswordValid = "123456";
         public static string PasswordInvalidLength = "123";

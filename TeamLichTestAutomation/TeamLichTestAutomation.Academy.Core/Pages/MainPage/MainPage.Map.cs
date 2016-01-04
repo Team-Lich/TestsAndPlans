@@ -4,6 +4,15 @@
 
     public partial class MainPage : BasePage
     {
+        public HtmlAnchor LogoutButton
+        {
+            get
+            {
+                this.Browser.WaitForElement(5000, "id=ExitMI");
+                return this.Browser.Find.ById<HtmlAnchor>("ExitMI");
+            }
+        }
+
         internal HtmlAnchor LoginButton
         {
             get
@@ -24,15 +33,6 @@
             }
         }
 
-        public HtmlAnchor LogoutButton
-        {
-            get
-            {
-                this.Browser.WaitForElement(5000, "id=ExitMI");
-                return this.Browser.Find.ById<HtmlAnchor>("ExitMI");
-            }
-        }
-
         internal HtmlAnchor RegistrationButton
         {
             get
@@ -45,7 +45,7 @@
         internal bool AdminDropdownEnabled
         {
             get
-            {    
+            {
                 try
                 {
                     this.Browser.WaitForElement(5000, "title=~Админ");
@@ -91,7 +91,7 @@
         {
             get
             {
-                //this.Browser.WaitForElement(5000, "id=SearchButton");
+                //// this.Browser.WaitForElement(5000, "id=SearchButton");
                 return this.Browser.Find.ByExpression<HtmlSpan>("title=Моите курсове");
             }
         }
@@ -99,7 +99,7 @@
         internal HtmlAnchor MyCourse
         {
             get
-            {
+            {                                                                  
                 return this.Browser.Find.ByExpression<HtmlAnchor>("href=/Courses/Courses/Details/265");
             }
         }

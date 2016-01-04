@@ -1,12 +1,12 @@
 ﻿namespace TeamLichTestAutomation.Academy.Core.Pages.AdminPages.UniversitiesPage
 {
+    using System.Threading;
+    using System.Windows.Forms;
+
     using ArtOfTest.WebAii.Controls.HtmlControls;
     using ArtOfTest.WebAii.Core;
-    using System.Windows.Forms;
-    using System.Drawing;
-    using System.Threading;
-    using System.Web;
     using ArtOfTest.WebAii.Win32.Dialogs;
+
     using Telerik.TestingFramework.Controls.KendoUI;
 
     public partial class UniversitiesPage : BasePage
@@ -52,24 +52,29 @@
                     // I cant handle the confirm dialog on Chrome and there is some odd offset on firefox
                     // preventing me to click on the name field. Firefox problem can be resolved, i am not sure
                     // if i will be able to handle the dialog afterwards
-
                     deleteButton = row.Find.ByExpression<HtmlAnchor>("class=~k-grid-delete");
                     deleteButton.ScrollToVisible();
 
                     this.Browser.RefreshDomTree();
                     var deleteRectangle = deleteButton.GetRectangle();
-                    
+
                     var currentManager = Manager.Current;
-                   
+
                     AlertDialog alertDialog = new AlertDialog(this.Browser, DialogButton.OK);
                     currentManager.DialogMonitor.AddDialog(alertDialog);
 
                     currentManager.Desktop.Mouse.Click(MouseClickType.LeftClick, deleteRectangle);
-                    
+
                     this.Browser.Desktop.KeyBoard.KeyPress(Keys.Return);
                 }
             }
         }
+
+        public void ExportAsExcel()
+            {
+                this.Browser.RefreshDomTree();
+                this.ExprotAsExcelButton.Click();
+            }
 
         public void EditRow(KendoGrid grid, string value, string idOfEditField, string newValue, int searchColumn)
         {
@@ -95,16 +100,16 @@
 
                     var currentManager = Manager.Current;
 
-                    //currentManager.Desktop.Mouse.Move(rectangle.Left, rectangle.Top, rectangle.Right, rectangle.Top);
-                    //currentManager.Desktop.Mouse.Move(rectangle.Right, rectangle.Top, rectangle.Left, rectangle.Bottom);
-                    
+                    //// currentManager.Desktop.Mouse.Move(rectangle.Left, rectangle.Top, rectangle.Right, rectangle.Top);
+                    //// currentManager.Desktop.Mouse.Move(rectangle.Right, rectangle.Top, rectangle.Left, rectangle.Bottom);
+
                     currentManager.Desktop.Mouse.Click(MouseClickType.LeftClick, rectangle);
                     currentManager.Desktop.KeyBoard.KeyDown(Keys.ControlKey);
                     currentManager.Desktop.KeyBoard.KeyPress(Keys.A);
                     currentManager.Desktop.KeyBoard.KeyUp(Keys.ControlKey);
 
                     currentManager.Desktop.KeyBoard.TypeText(newValue, 50);
-                    //currentManager.Desktop.KeyBoard.KeyPress(Keys.Return);
+                    //// currentManager.Desktop.KeyBoard.KeyPress(Keys.Return);
 
                     Thread.Sleep(1000);
                     this.Browser.RefreshDomTree();
@@ -112,7 +117,7 @@
                     currentManager.Desktop.Mouse.Move(rectangle, updateButtonPosition);
 
                     currentManager.Desktop.Mouse.Click(MouseClickType.LeftClick, updateButtonPosition);
-                    //this.UpdateButton.Click();
+                    //// this.UpdateButton.Click();
                 }
             }
         }

@@ -6,6 +6,9 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     using TeamLichTestAutomation.Academy.Core.Models;
+    using TeamLichTestAutomation.Academy.Core.Pages.LoginPage;
+    using TeamLichTestAutomation.Academy.Core.Pages.MainPage;
+    using TeamLichTestAutomation.Academy.Core.Pages.MessagesPage;
     using TeamLichTestAutomation.Academy.Core.Pages.UserPage;
 
     using TeamLichTestAutomation.Utilities;
@@ -18,11 +21,15 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
     public class MessagesTestSuite : BaseTest
     {
         private Browser browser;
+        private MainPage mainPage;
+        private LoginPage loginPage;
         private UserPage userPage;
+        private MessagesPage messagesPage;
 
         #region [Setup / TearDown]
 
         private TestContext testContextInstance = null;
+
         /// <summary>
         ///Gets or sets the VS test context which provides
         ///information about and functionality for the
@@ -40,13 +47,11 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
             }
         }
 
-
         //Use ClassInitialize to run code before running the first test in the class
         [ClassInitialize()]
         public static void MyClassInitialize(TestContext testContext)
         {
         }
-
 
         // Use TestInitialize to run code before running each test
         [TestInitialize()]
@@ -101,24 +106,28 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
             // This method should always exist in [TestInitialize()] method.
             SetTestMethod(this, (string)TestContext.Properties["TestName"]);
 
-            #endregion
+            #endregion WebAii Initialization
 
             //
             // Place any additional initialization here
             //
 
-            Manager.LaunchNewBrowser(BrowserType.FireFox);
+            Manager.LaunchNewBrowser(BrowserType.Chrome);
             Manager.ActiveBrowser.ClearCache(BrowserCacheType.Cookies);
 
             this.browser = Manager.ActiveBrowser;
-            RelatedUsersUtilities.AddFriend(this.browser);
+            this.mainPage = new MainPage(this.browser);
+            this.loginPage = new LoginPage(this.browser);
+            this.userPage = new UserPage(this.browser);
+            this.messagesPage = new MessagesPage(this.browser);
+
+            mainPage.NavigateTo(loginPage.Url);
         }
 
         // Use TestCleanup to run code after each test has run
         [TestCleanup()]
         public void MyTestCleanup()
         {
-
             //
             // Place any additional cleanup here
             //
@@ -129,7 +138,7 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
             // after each test. This call is ignored if recycleBrowser is set
             this.CleanUp();
 
-            #endregion
+            #endregion WebAii CleanUp
         }
 
         //Use ClassCleanup to run code after all tests in a class have run
@@ -142,21 +151,69 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
             ShutDown();
         }
 
-        #endregion
+        #endregion [Setup / TearDown]
 
         [TestMethod]
         [TestCategory("Messages")]
         [TestPriority(Priority.High)]
         [TestOwner(Owner.Yane)]
-        public void TestSendMessageButtonActive()
+        public void SendMessageButtonShouldOpenMessagesPage()
         {
-            RelatedUsersUtilities.LoginUser(TelerikUser.Related1, this.browser).NavigateTo(TelerikUser.Related2.Url);
+            RelatedUsersUtilities.AddFriend(this.browser);
+            this.mainPage.NavigateTo(TelerikUser.Related2.Url);
 
-            userPage = new UserPage(this.browser);
-            userPage.ClickSendMessageButtonActive();
-            userPage.Browser.WaitUntilReady();
+            this.userPage.ClickSendMessageButtonActive();
+            this.userPage.Browser.WaitUntilReady();
 
-            userPage.AssertMessagesPageIsOpenedWhenSendMessageButtonIsClicked();
+            this.userPage.AssertMessagesPageIsOpenedWhenSendMessageButtonIsClicked();
+        }
+
+        [TestMethod]
+        [TestCategory("Messages")]
+        [TestId(118)]
+        [TestPriority(Priority.High)]
+        [TestOwner(Owner.Yane)]
+        public void MessagesPageElementsShouldBeDisplayedCorrectly()
+        {
+            RelatedUsersUtilities.AddFriend(this.browser);
+            this.mainPage.NavigateTo(messagesPage.Url);
+
+            this.messagesPage.AssertMessagesHeadingIsVisible();
+            this.messagesPage.AssertMessagePanelTitleIsVisible();
+            this.messagesPage.AssertInfoMessageIsVisible();
+            this.messagesPage.AssertMessageToSendTextAreaIsVisible();
+            this.messagesPage.AssertSubmitByEnterCheckboxIsNotVisible();
+            this.messagesPage.AssertSendButtonIsVisible();
+            this.messagesPage.AssertFriendsPanelTitleIsVisible();
+            this.messagesPage.AssertFriendItemIsVisible();
+        }
+
+        [TestMethod]
+        [TestCategory("Messages")]
+        [TestId(119)]
+        [TestPriority(Priority.High)]
+        [TestOwner(Owner.Yane)]
+        public void FriendItemsShouldBeDisplayedCorrectly()
+        {
+            RelatedUsersUtilities.AddFriend(this.browser);
+            this.mainPage.NavigateTo(messagesPage.Url);
+
+            this.messagesPage.AssertFriendAvatarIsVisible();
+            this.messagesPage.AssertFriendNamesAreVisible();
+            this.messagesPage.AssertFriendLastMessageBeginningIsVisible();
+        }
+
+        [TestMethod]
+        [TestCategory("Messages")]
+        [TestId(120)]
+        [TestPriority(Priority.High)]
+        [TestOwner(Owner.Yane)]
+        public void SearchFieldShouldBeVisible()
+        {
+            RelatedUsersUtilities.AddFriend(this.browser);
+            this.mainPage.NavigateTo(messagesPage.Url);
+
+            this.messagesPage.AssertSearchFieldIsVisible();
         }
     }
 }

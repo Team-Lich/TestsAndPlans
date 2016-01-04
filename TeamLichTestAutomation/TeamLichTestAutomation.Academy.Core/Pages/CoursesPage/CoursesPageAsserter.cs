@@ -1,6 +1,5 @@
 ﻿namespace TeamLichTestAutomation.Academy.Core.Pages.CoursesPage
 {
-    using System.Linq;
     using System.Threading;
     using ArtOfTest.Common.UnitTesting;
 
@@ -34,10 +33,41 @@
             Assert.IsNotNull(link);
         }
 
+        public static void AssertSendHomeworkLinkNotPresent(this CoursesPage coursesPage)
+        {
+            var link = coursesPage.SendHomeworkLink;
+            Assert.IsNotNull(link);
+        }
+
         public static void AssertPresentationLinkPresent(this CoursesPage coursesPage)
         {
             var link = coursesPage.PresentationLink;
             Assert.IsNotNull(link);
+        }
+
+        public static void AssertDownloadLastHwPresent(this CoursesPage coursesPage)
+        {
+            var link = coursesPage.PresentationLink;
+            Assert.IsNotNull(link);
+        }
+
+        public static void AssertHomewrokEvalBtnPresent(this CoursesPage coursesPage)
+        {
+            var btn = coursesPage.EvalHomeworkBtn;
+            Assert.IsNotNull(btn);
+        }
+
+        public static void AssertPleaseLogInBtnPresent(this CoursesPage coursesPage)
+        {
+            var btn = coursesPage.PleaseLogInBtn;
+            Assert.IsNotNull(btn);
+        }
+
+        public static void AssertSignedOffCourse(this CoursesPage coursesPage)
+        {
+            var span = coursesPage.courseParticipationInfo;
+            var actualText = @"Вие сте се отписалиот участие в този курс.";
+            Assert.AreEqual(span.TextContent, actualText);
         }
     }
 }

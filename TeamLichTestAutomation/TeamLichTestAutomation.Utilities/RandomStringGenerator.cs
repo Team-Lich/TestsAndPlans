@@ -14,11 +14,11 @@
 
         public string GetString(int length)
         {
-            StringBuilder stringBuilder = new StringBuilder();            
+            StringBuilder stringBuilder = new StringBuilder();
 
             for (int i = 0; i < length; i++)
             {
-                int randomSeed = generator.Next(97, 123);
+                int randomSeed = this.generator.Next(97, 123);
                 char currentChar = (char)randomSeed;
                 stringBuilder.Append(currentChar);
             }

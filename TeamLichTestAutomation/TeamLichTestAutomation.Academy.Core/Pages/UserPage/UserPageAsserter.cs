@@ -18,15 +18,5 @@
         {
             Assert.IsTrue(userPage.RemoveFriendButton.IsVisible());
         }
-
-        public static void AssertFriendIsAddedWhenAddFriendButtonIsClicked(this UserPage userPage)
-        {
-            Assert.IsTrue(userPage.RemoveFriendButton.IsVisible());
-        }
-
-        public static void AssertFriendIsRemovedWhenRemoveFriendButtonIsClicked(this UserPage userPage)
-        {
-            Assert.IsTrue(userPage.AddFriendButton.IsVisible());
-        }
     }
 }

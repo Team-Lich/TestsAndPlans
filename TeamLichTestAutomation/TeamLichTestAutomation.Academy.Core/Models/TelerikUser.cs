@@ -17,18 +17,6 @@
             this.Email = email;
         }
 
-        public string UserName { get; set; }
-
-        public string Password { get; set; }
-
-        public string FirstName { get; set; }
-
-        public string LastName { get; set; }
-
-        public string Email { get; set; }
-
-        public string Url { get; set; }
-
         public static TelerikUser Regular
         {
             get
@@ -68,5 +56,17 @@
                 return new TelerikUser("LichTestUser", "123456", "Първото", "Фамилията", "mailtest@test.com");
             }
         }
+
+        public string UserName { get; set; }
+
+        public string Password { get; set; }
+
+        public string FirstName { get; set; }
+
+        public string LastName { get; set; }
+
+        public string Email { get; set; }
+
+        public string Url { get; set; }
     }
 }

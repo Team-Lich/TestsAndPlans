@@ -4,7 +4,7 @@
 
     public partial class MainPage
     {
-        private string url = "http://stage.telerikacademy.com/";
+        private readonly string url = "http://stage.telerikacademy.com/";
 
         public MainPage(Browser browser)
             : base(browser)
@@ -14,19 +14,29 @@
         public MainPage Navigate()
         {
             this.Browser.NavigateTo(this.url);
+            this.Browser.WaitUntilReady();
             return this;
         }
 
         public MainPage NavigateTo(string url)
         {
             this.Browser.NavigateTo(url);
+            this.Browser.WaitUntilReady();
             return this;
+        }
+
+        public void ClickLogout()
+        {
+            var logoutButton = this.LogoutButton;
+            logoutButton.Click();
+            this.Browser.WaitUntilReady();
         }
 
         public void ClickLogin()
         {
             var loginButton = this.LoginButton;
             loginButton.Click();
+            this.Browser.WaitUntilReady();
         }
 
         public void ClickFacebookLogin()
@@ -39,6 +49,7 @@
         {
             var registrationButton = this.RegistrationButton;
             this.RegistrationButton.Click();
+            this.Browser.WaitUntilReady();
         }
 
         public void ClickCoursesNavigationDropdown()

@@ -7,6 +7,8 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
 
     using TeamLichTestAutomation.Academy.Core.Models;
     using TeamLichTestAutomation.Academy.Core.Pages.FriendsPage;
+    using TeamLichTestAutomation.Academy.Core.Pages.LoginPage;
+    using TeamLichTestAutomation.Academy.Core.Pages.MainPage;
     using TeamLichTestAutomation.Academy.Core.Pages.UserPage;
 
     using TeamLichTestAutomation.Utilities;
@@ -18,9 +20,9 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
     [TestClass]
     public class FriendsTestSuite : BaseTest
     {
-        public static readonly string FriendsPageUrl = "http://stage.telerikacademy.com/Friends";
-
         private Browser browser;
+        private MainPage mainPage;
+        private LoginPage loginPage;
         private UserPage userPage;
         private FriendsPage friendsPage;
 
@@ -114,6 +116,12 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
             Manager.ActiveBrowser.ClearCache(BrowserCacheType.Cookies);
 
             this.browser = Manager.ActiveBrowser;
+            this.mainPage = new MainPage(this.browser);
+            this.loginPage = new LoginPage(this.browser);
+            this.userPage = new UserPage(this.browser);
+            this.friendsPage = new FriendsPage(this.browser);
+
+            mainPage.NavigateTo(loginPage.Url);
         }
 
         // Use TestCleanup to run code after each test has run
@@ -147,30 +155,28 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
 
         [TestMethod]
         [TestCategory("Friends")]
-        [TestId(107)]
-        [TestPriority(Priority.High)]
-        [TestOwner(Owner.Yane)]
-        public void RemoveFriendButtonShoudBeVisible()
-        {
-            RelatedUsersUtilities.AddFriend(this.browser);
-            RelatedUsersUtilities.LoginUser(TelerikUser.Related1, this.browser).NavigateTo(TelerikUser.Related2.Url);
-            this.userPage = new UserPage(this.browser);
-
-            this.userPage.AssertRemoveFriendButtonIsVisible();
-        }
-
-        [TestMethod]
-        [TestCategory("Friends")]
         [TestId(106)]
         [TestPriority(Priority.High)]
         [TestOwner(Owner.Yane)]
         public void AddFriendButtonShoudBeVisible()
         {
             RelatedUsersUtilities.RemoveFriend(this.browser);
-            RelatedUsersUtilities.LoginUser(TelerikUser.Related1, this.browser).NavigateTo(TelerikUser.Related2.Url);
-            this.userPage = new UserPage(this.browser);
+            this.mainPage.NavigateTo(TelerikUser.Related2.Url);
 
             this.userPage.AssertAddFriendButtonIsVisible();
+        }
+
+        [TestMethod]
+        [TestCategory("Friends")]
+        [TestId(107)]
+        [TestPriority(Priority.High)]
+        [TestOwner(Owner.Yane)]
+        public void RemoveFriendButtonShoudBeVisible()
+        {
+            RelatedUsersUtilities.AddFriend(this.browser);
+            this.mainPage.NavigateTo(TelerikUser.Related2.Url);
+
+            this.userPage.AssertRemoveFriendButtonIsVisible();
         }
 
         [TestMethod]
@@ -178,15 +184,22 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
         [TestId(108)]
         [TestPriority(Priority.High)]
         [TestOwner(Owner.Yane)]
-        public void TestAddFriendButton()
+        public void AddFriendButtonShouldWorksCorrectly()
         {
             RelatedUsersUtilities.RemoveFriend(this.browser);
-            RelatedUsersUtilities.LoginUser(TelerikUser.Related1, this.browser).NavigateTo(TelerikUser.Related2.Url);
-            this.userPage = new UserPage(this.browser);
+            this.mainPage.NavigateTo(TelerikUser.Related2.Url);
             this.userPage.ClickAddFriendButton();
             this.userPage.Browser.WaitForElement(2000, "id=UnfriendButton");
 
-            this.userPage.AssertFriendIsAddedWhenAddFriendButtonIsClicked();
+            this.userPage.AssertRemoveFriendButtonIsVisible();
+
+            this.mainPage.LogoutButton.Click();
+            this.mainPage.NavigateTo(loginPage.Url);
+            this.loginPage.LoginUser(TelerikUser.Related2);
+            this.mainPage.NavigateTo(friendsPage.Url);
+            this.friendsPage.ClickApproveFriendshipIcon();
+
+            this.friendsPage.AssertFriendsListPanelBodyContainsFriend();
         }
 
         [TestMethod]
@@ -194,15 +207,22 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
         [TestId(109)]
         [TestPriority(Priority.High)]
         [TestOwner(Owner.Yane)]
-        public void TestRemoveFriendButton()
+        public void RemoveFriendButtonShouldWorksCorrectly()
         {
             RelatedUsersUtilities.AddFriend(this.browser);
-            RelatedUsersUtilities.LoginUser(TelerikUser.Related1, this.browser).NavigateTo(TelerikUser.Related2.Url);
-            this.userPage = new UserPage(this.browser);
+            this.mainPage.NavigateTo(TelerikUser.Related2.Url);
             this.userPage.ClickRemoveFriendButton();
             this.userPage.Browser.WaitForElement(2000, "id=AddFriendButton");
 
-            this.userPage.AssertFriendIsRemovedWhenRemoveFriendButtonIsClicked();
+            this.userPage.AssertAddFriendButtonIsVisible();
+
+            this.mainPage.LogoutButton.Click();
+            this.mainPage.NavigateTo(loginPage.Url);
+            this.loginPage.LoginUser(TelerikUser.Related2);
+            this.mainPage.NavigateTo(friendsPage.Url);
+            this.friendsPage.RemoveAllFriends();
+
+            this.friendsPage.AssertFriendIsRemovedFromFriendsListPanelBody();
         }
 
         [TestMethod]
@@ -212,8 +232,9 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
         [TestOwner(Owner.Yane)]
         public void FriendsListShouldContainNoFriends()
         {
-            RelatedUsersUtilities.LoginUser(TelerikUser.Related1, this.browser).NavigateTo(FriendsPageUrl);
-            this.friendsPage = new FriendsPage(this.browser);
+            this.loginPage.LoginUser(TelerikUser.Related1);
+            this.mainPage.NavigateTo(friendsPage.Url);
+
             this.friendsPage.RemoveAllFriends();
             this.friendsPage.Browser.Refresh();
 
@@ -228,8 +249,7 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
         public void FriendsListShouldContainFriends()
         {
             RelatedUsersUtilities.AddFriend(this.browser);
-            RelatedUsersUtilities.LoginUser(TelerikUser.Related1, this.browser).NavigateTo(FriendsPageUrl);
-            this.friendsPage = new FriendsPage(this.browser);
+            this.mainPage.NavigateTo(friendsPage.Url);
 
             this.friendsPage.AssertFriendsListPanelHasProperHeading();
             this.friendsPage.AssertFriendsListPanelBodyContainsFriend();
@@ -243,8 +263,8 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
         public void RemoveFriendConfirmationShouldBeVisible()
         {
             RelatedUsersUtilities.AddFriend(this.browser);
-            RelatedUsersUtilities.LoginUser(TelerikUser.Related1, this.browser).NavigateTo(FriendsPageUrl);
-            this.friendsPage = new FriendsPage(this.browser);
+            this.mainPage.NavigateTo(friendsPage.Url);
+
             this.friendsPage.ClickRemoveFriendshipIcon();
 
             this.friendsPage.AssertConfirmationIsVisible();
@@ -258,8 +278,8 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
         public void RemoveFriendAfterConfirmYes()
         {
             RelatedUsersUtilities.AddFriend(this.browser);
-            RelatedUsersUtilities.LoginUser(TelerikUser.Related1, this.browser).NavigateTo(FriendsPageUrl);
-            this.friendsPage = new FriendsPage(this.browser);
+            this.mainPage.NavigateTo(friendsPage.Url);
+
             this.friendsPage.ClickRemoveFriendshipIcon();
             this.friendsPage.ClickRemoveFriendshipConfirmYes();
 
@@ -274,8 +294,8 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
         public void KeepFriendAfterConfirmNo()
         {
             RelatedUsersUtilities.AddFriend(this.browser);
-            RelatedUsersUtilities.LoginUser(TelerikUser.Related1, this.browser).NavigateTo(FriendsPageUrl);
-            this.friendsPage = new FriendsPage(this.browser);
+            this.mainPage.NavigateTo(friendsPage.Url);
+
             this.friendsPage.ClickRemoveFriendshipIcon();
             this.friendsPage.ClickRemoveFriendshipConfirmNo();
 
@@ -287,11 +307,11 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
         [TestId(115)]
         [TestPriority(Priority.High)]
         [TestOwner(Owner.Yane)]
-        public void ClickOnFriendShouldOpenHisProfile()
+        public void ClickOnFriendItemShouldOpenHisProfile()
         {
             RelatedUsersUtilities.AddFriend(this.browser);
-            RelatedUsersUtilities.LoginUser(TelerikUser.Related1, this.browser).NavigateTo(FriendsPageUrl);
-            this.friendsPage = new FriendsPage(this.browser);
+            this.mainPage.NavigateTo(friendsPage.Url);
+
             this.friendsPage.ClickFriendItem();
             this.friendsPage.Browser.WaitUntilReady();
             this.friendsPage.Browser.RefreshDomTree();

@@ -1,4 +1,4 @@
-# TeamLich Review of TeamGriffin TestPlan
+﻿# TeamLich Review of TeamGriffin TestPlan
 
 
 <br>
@@ -45,6 +45,9 @@
 
 ***[ SCHEDULE ]***
 - Тасковете са прекалено подробно разбити и естимейшъна за тях е нереален.
+
+***[ REVISION HISTORY ]***
+- Точна и ясна иформация без излишни неща.
 
 <br>
 ## Pros

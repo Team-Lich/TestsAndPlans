@@ -54,7 +54,7 @@
 
 **[ Planning Risks and Contingencies ]**
 - *"Lack of personnel resources when testing is to begin"* - безсмислен риск. Teamwork-a e така направен и отборите така подбрани, че няма опасност за никой отбор да му липсва работна ръка при писането на тестовете.
-- Същата забележка се отнася и за: *"Lack of availability of required hardware, software, data or tools"*, "*Delays in training on the application and/or tools*" и "*Changes to the original requirements or designs*"
+- Същата забележка се отнася и за: *"Lack of availability of required hardware, software, data or tools"*, *"Delays in training on the application and/or tools"* и *"Changes to the original requirements or designs"*
 
 **[ References ]**
 <br>Празна секция, която не добавя стойсност към плана

@@ -1,8 +1,6 @@
-﻿namespace TeamLichTestAutomation.Academy.Core.Data
+﻿namespace TeamLichTestAutomation.Academy.Core.Pages.RegistrationPage
 {
-    using System;
-
-    public static class TelerikUserData
+    public static class RegistrationPageUserCredentials
     {
         public static string UsernameValid = "testUser";
         public static string UsernameInvalidSymbols = "user*nam&e";

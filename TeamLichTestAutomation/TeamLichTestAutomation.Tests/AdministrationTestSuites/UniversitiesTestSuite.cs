@@ -1,6 +1,7 @@
 namespace TeamLichTestAutomation.Tests.AdministrationTestSuites
 {
     using System.Threading;
+    using System.Windows.Forms;
 
     using ArtOfTest.WebAii.Core;
     using ArtOfTest.WebAii.TestTemplates;
@@ -190,6 +191,12 @@ namespace TeamLichTestAutomation.Tests.AdministrationTestSuites
         public void TestAdminUniversityExportAsExcelFunctionalityWorks()
         {
             this.uniPage.ExportAsExcel();
+            Thread.Sleep(4000);
+
+            Manager manager = Manager.Current;
+            manager.Desktop.KeyBoard.KeyDown(Keys.Alt);
+            manager.Desktop.KeyBoard.KeyPress(Keys.S);
+            manager.Desktop.KeyBoard.KeyUp(Keys.Alt);
         }
 
         [TestMethod]

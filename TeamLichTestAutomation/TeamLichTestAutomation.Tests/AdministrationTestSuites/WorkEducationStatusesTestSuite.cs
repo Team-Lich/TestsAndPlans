@@ -10,6 +10,7 @@
     using TeamLichTestAutomation.Academy.Core.Models;
     using TeamLichTestAutomation.Academy.Core.Pages.AdminPages.AdminDashboardPage;
     using TeamLichTestAutomation.Academy.Core.Pages.AdminPages.UniversitiesPage;
+    using TeamLichTestAutomation.Academy.Core.Pages.AdminPages.WorkEducationStatusesPage;
     using TeamLichTestAutomation.Academy.Core.Pages.LoginPage;
     using TeamLichTestAutomation.Academy.Core.Pages.MainPage;
 
@@ -171,14 +172,48 @@
 
 
         [TestMethod]
-        [TestCategory("AdministrationRoles")]
+        [TestCategory("AdministrationWorkEducationStatuse")]
         [TestCategory("PriorityLow")]
         [TestOwner(Owner.Dimitar)]
         public void TestAdminWorkEducationStatusesBackToAdministrationButtonWorks()
-            {
+        {
             this.workEducationStatusesPage.BackToAdmin();
             this.dashboardPage.AssertCurrentlyOnThePage();
-            }
+        }
 
+        [TestMethod]
+        [TestCategory("AdministrationWorkEducationStatuse")]
+        [TestCategory("PriorityHigh")]
+        [TestOwner(Owner.Dimitar)]
+        public void TestAdminWorkEducationStatusesAddFunctionalityWorks()
+        {
+            this.workEducationStatusesPage.AddStatus("Telerik Status");
+            KendoGrid grid = this.workEducationStatusesPage.Browser.Find.ByExpression<KendoGrid>("data-role=grid");
+            this.workEducationStatusesPage.AssertWorkEducationStatusIsPresentInGrid(grid, "Telerik Status");
+
+            grid = this.workEducationStatusesPage.Browser.Find.ByExpression<KendoGrid>("data-role=grid");
+            this.workEducationStatusesPage.DeleteRow(grid, "Telerik Status", 1);
+        }
+
+        [TestMethod]
+        [TestCategory("AdministrationWorkEducationStatuses")]
+        [TestCategory("PriorityMedium")]
+        [TestOwner(Owner.Dimitar)]
+        public void TestAdminWorkEducationStatusesDeleteWorks()
+        {
+            string newStatusName = "Telerik Status";
+            this.workEducationStatusesPage.AddStatus(newStatusName);
+            KendoGrid grid = this.workEducationStatusesPage.Browser.Find.ByExpression<KendoGrid>("data-role=grid");
+
+            this.browser.RefreshDomTree();
+            grid = this.workEducationStatusesPage.Browser.Find.ByExpression<KendoGrid>("data-role=grid");
+            //this.labelsPage.AssertLabelIsPresentInGrid(grid, "Telerik Status");
+            this.workEducationStatusesPage.DeleteRow(grid, "Telerik Status", 1);
+
+            Thread.Sleep(1000);
+            this.browser.RefreshDomTree();
+            grid = this.workEducationStatusesPage.Browser.Find.ByExpression<KendoGrid>("data-role=grid");
+            this.workEducationStatusesPage.AssertWorkEducationStatusIsNotPresentInGrid(grid, "Telerik Status");
         }
     }
+}

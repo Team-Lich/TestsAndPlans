@@ -10,6 +10,7 @@
     using TeamLichTestAutomation.Academy.Core.Models;
     using TeamLichTestAutomation.Academy.Core.Pages.AdminPages.AdminDashboardPage;
     using TeamLichTestAutomation.Academy.Core.Pages.AdminPages.UniversitiesPage;
+    using TeamLichTestAutomation.Academy.Core.Pages.AdminPages.LabelsPage;
     using TeamLichTestAutomation.Academy.Core.Pages.LoginPage;
     using TeamLichTestAutomation.Academy.Core.Pages.MainPage;
 
@@ -169,9 +170,43 @@
         // These tests work only on Internet Explorer.
         // I can not handle the confirmation dialog on deletion in Chrome and Firefox
 
+        [TestMethod]
+        [TestCategory("AdministrationLabels")]
+        [TestCategory("PriorityHigh")]
+        [TestOwner(Owner.Dimitar)]
+        public void TestAdminLabelsAddFunctionalityWorks()
+        {
+        this.labelsPage.AddLabel("Telerik Label");
+        KendoGrid grid = this.labelsPage.Browser.Find.ByExpression<KendoGrid>("data-role=grid");
+        this.labelsPage.AssertLabelIsPresentInGrid(grid, "Telerik Label");
+
+        grid = this.labelsPage.Browser.Find.ByExpression<KendoGrid>("data-role=grid");
+        this.labelsPage.DeleteRow(grid, "Telerik Label", 1);
+        }
 
         [TestMethod]
-        [TestCategory("AdministrationRoles")]
+        [TestCategory("AdministrationLabels")]
+        [TestCategory("PriorityMedium")]
+        [TestOwner(Owner.Dimitar)]
+        public void TestAdminLabelsDeleteWorks()
+        {
+            string newLabelsName = "Telerik Label";
+            this.labelsPage.AddLabel(newLabelsName);
+            KendoGrid grid = this.labelsPage.Browser.Find.ByExpression<KendoGrid>("data-role=grid");
+
+            this.browser.RefreshDomTree();
+            grid = this.labelsPage.Browser.Find.ByExpression<KendoGrid>("data-role=grid");
+            //this.labelsPage.AssertLabelIsPresentInGrid(grid, "Telerik Labels");
+            this.labelsPage.DeleteRow(grid, "Telerik Label", 1);
+
+            Thread.Sleep(1000);
+            this.browser.RefreshDomTree();
+            grid = this.labelsPage.Browser.Find.ByExpression<KendoGrid>("data-role=grid");
+            this.labelsPage.AssertLabelIsNotPresentInGrid(grid, "Telerik Label");
+        }
+
+        [TestMethod]
+        [TestCategory("AdministrationLabels")]
         [TestCategory("PriorityLow")]
         [TestOwner(Owner.Dimitar)]
         public void TestAdminLabelsBackToAdministrationButtonWorks()

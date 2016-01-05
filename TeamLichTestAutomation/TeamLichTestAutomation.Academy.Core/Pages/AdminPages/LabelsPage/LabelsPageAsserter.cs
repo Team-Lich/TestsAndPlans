@@ -1,4 +1,4 @@
-﻿namespace TeamLichTestAutomation.Academy.Core.Pages.AdminPages.UniversitiesPage
+﻿namespace TeamLichTestAutomation.Academy.Core.Pages.AdminPages.LabelsPage
 {
     using System.Linq;
     using ArtOfTest.Common.UnitTesting;
@@ -7,6 +7,18 @@
 
     public static class LabelsPageAsserter
     {
-        
+        public static void AssertLabelIsPresentInGrid(this LabelsPage labelsPage, KendoGrid grid, string labelName)
+        {
+            var isContained = grid.ContainsValueInColumn(labelName, 1);
+
+            Assert.IsTrue(isContained);
+        }
+
+        public static void AssertLabelIsNotPresentInGrid(this LabelsPage labelsPage, KendoGrid grid, string labelName)
+        {
+            var isContained = grid.ContainsValueInColumn(labelName, 1);
+
+            Assert.IsFalse(isContained);
+        }
     }
 }

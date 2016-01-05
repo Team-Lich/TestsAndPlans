@@ -2,6 +2,7 @@
 {
     using System.Collections.Generic;
     using System.Linq;
+    using ArtOfTest.WebAii.Controls.HtmlControls;
 
     using ArtOfTest.WebAii.Controls.HtmlControls;
     using ArtOfTest.WebAii.Core;
@@ -43,8 +44,6 @@
 
         public static bool IsColumnSortDescending(this KendoGrid grid, int column)
         {
-            bool result = false;
-
             string[] findExpressions =
             {
                 "data-index=" + column,
@@ -52,10 +51,10 @@
             };
 
             var targetColumnHeader = grid.Find.ByExpression<HtmlTableCell>(findExpressions);
-            var attribute = targetColumnHeader.Attributes.FirstOrDefault(a => a.Name == "aria-sort");
-            bool isDescending = attribute.Value == "descending";
+            var sortAttribute = targetColumnHeader.Attributes.FirstOrDefault(a => a.Name == "aria-sort");
+            bool isDescending = sortAttribute.Value == "descending";
 
-            return result;
+            return isDescending;
         }
     }
 }

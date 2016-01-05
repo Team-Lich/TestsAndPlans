@@ -1,4 +1,4 @@
-﻿# TeamLich Review of TeamGriffin TestPlan
+# TeamLich Review of TeamGriffin TestPlan
 
 
 <br>
@@ -22,9 +22,18 @@
 - *Performance testing* и *Load testing* не се извършват по описаните начини. Освен това *Load testing* е вид *Performance testing* и не би трябвало да е като отделна подточка след *Performance testing*.
 - *Regression testing* е под въпрос дали ще се извършва
 
+***[ ITEM PASS/FAIL CRITERIA > EXIT CRITERIA ]***
+- Споменава се level of bugs, не е ясно дали е приоритет или северити
+
 ***[ STAFFING AND TRAINING NEEDS ]***
 - Изключителна ненужна секция. ОчевАдно, "служителите" се предполага, че са обучени да използват изброения софтуер, защото именно тях изучаваме по време на обучението си като QA. Pointless filler paragraph...
 
+***[ REFFERENCES ]***
+- Празна секция, не виждам каква стойсност добавя към плана
+
+***[ INDEX ]***
+- Почти празна секция, ненужна като се вземе предвид обема на документа
+ 
 <br>
 ## Pros
 - ясен и стегнат текст без излишно разводняване

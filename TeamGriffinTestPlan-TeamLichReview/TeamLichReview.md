@@ -9,6 +9,10 @@
 - погрешни настойки на тестовата среда
 - сривове на базата данни
 
+***[ PLANNING RISKS AND CONTINGENCIES ]***
+- Lack of personnel resources when testing is to begin. - Безсмислен риск. Teamwork-a e така направен и отборите така подбрани, че няма опасност за никой отбор да му липсва "персонал" при писането на тестовете.
+- Същата забележка се отнася и за: "Lack of availability of required hardware, software, data or tools.", "Delays in training on the application and/or tools." и "Changes to the original requirements or designs.".
+
 
 ***[ APPROACH > TESTING LEVELS > COMPONENT/UNIT TESTING ]***
 <br>Секцията *COMPONENT/UNIT TESTING* може да бъде слята с *TESTING SUMMARY > OUT OF SCOPE*
@@ -18,14 +22,25 @@
 - *Performance testing* и *Load testing* не се извършват по описаните начини. Освен това *Load testing* е вид *Performance testing* и не би трябвало да е като отделна подточка след *Performance testing*.
 - *Regression testing* е под въпрос дали ще се извършва
 
+***[ STAFFING AND TRAINING NEEDS ]***
+- Изключителна ненужна секция. ОчевАдно, "служителите" се предполага, че са обучени да използват изброения софтуер, защото именно тях изучаваме по време на обучението си като QA. Pointless filler paragraph...
 
 <br>
 ## Pros
 - ясен и стегнат текст без излишно разводняване
 - добра структура на тестовия план
 - красиво форматиране на документа
-
+- Добре разпределена работа.
+- Лесен за ориентиране.
 
 <br>
-## Final Score
+## Cons
+- Ненужна информация за увеличаване на обема на тест плана.
+- Нереалистични/Неприложими за ситуацията рискове и очаквания.
+
+<br>
+## Final Score (Яне)
 5.7 / 6.0
+<br>
+## Final Score (Димитър)
+5/6

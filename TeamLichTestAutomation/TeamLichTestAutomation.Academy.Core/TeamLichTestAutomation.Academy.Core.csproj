@@ -51,8 +51,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\TelerikUserData.cs" />
     <Compile Include="Pages\MessagesPage\MessagesPageMessages.cs" />
-    <Compile Include="Pages\RegistrationPage\RegistrationPageUserCredentials.cs" />
     <Compile Include="Models\TelerikUser.cs" />
     <Compile Include="Pages\AdminPages\AdminDashboardPage\AdminDashboardPage.cs" />
     <Compile Include="Pages\AdminPages\AdminDashboardPage\AdminDashboardPage.Map.cs" />

@@ -24,22 +24,6 @@ namespace TeamLichTestAutomation.Tests
         private LoginPage loginPage;
         public RegistrationPage registrationPage;
 
-        private void LoginWithRegularUser()
-        {
-            this.mainPage.Navigate().ClickLogin();
-            TelerikUser user = TelerikUser.Regular;
-            this.loginPage.LoginUser(user);
-        }
-
-        private void RegNewUser()
-        {
-            //TelerikUser user = TelerikUser.Regular;
-            this.mainPage = new MainPage(this.browser);
-            this.registrationPage = new RegistrationPage(this.browser);
-            this.mainPage.Navigate().ClickRegistration();
-            this.registrationPage.RegisterRandomUser();
-        }
-
         #region [Setup / TearDown]
 
         private TestContext testContextInstance = null;
@@ -130,6 +114,7 @@ namespace TeamLichTestAutomation.Tests
             this.mainPage = new MainPage(this.browser);
             this.coursesPage = new CoursesPage(this.browser);
             this.loginPage = new LoginPage(this.browser);
+            this.registrationPage = new RegistrationPage(this.browser);
         }
 
         // Use TestCleanup to run code after each test has run
@@ -163,10 +148,10 @@ namespace TeamLichTestAutomation.Tests
 
         [TestMethod]
         [TestCategory("LecturesPresentationsHomework")]
-        ////[TestId(101)]
+        [TestId(230)]
         [TestPriority(Priority.High)]
         [TestOwner(Owner.Ivan)]
-        public void CoursesListAccessWithoutLogin()
+        public void LecturesPresentationHomework_CoursesListAccessWithoutLogin()
         {
             this.mainPage.Navigate().ClickCoursesNavigationDropdown();
             this.coursesPage.AssertCoursesFound();
@@ -174,26 +159,26 @@ namespace TeamLichTestAutomation.Tests
 
         [TestMethod]
         [TestCategory("LecturesPresentationsHomework")]
-        ////[TestId(101)]
+        [TestId(231)]
         [TestPriority(Priority.High)]
         [TestOwner(Owner.Ivan)]
-        public void CoursesListAccessWithLogin()
+        public void LecturesPresentationHomework_CoursesListAccessWithLogin()
         {
-            LoginWithRegularUser();
-
+            this.mainPage.Navigate().ClickLogin();
+            this.loginPage.LoginUser(TelerikUser.Regular);
             this.mainPage.Navigate().ClickCoursesNavigationDropdown();
             this.coursesPage.AssertCoursesFound();
         }
 
         [TestMethod]
         [TestCategory("LecturesPresentationsHomework")]
-        ////[TestId(101)]
+        [TestId(232)]
         [TestPriority(Priority.High)]
         [TestOwner(Owner.Ivan)]
-        public void CoursesAccessFromUserDropdown()
+        public void LecturesPresentationHomework_CoursesAccessFromUserDropdown()
         {
-            this.LoginWithRegularUser();
-
+            this.mainPage.Navigate().ClickLogin();
+            this.loginPage.LoginUser(TelerikUser.Regular);
             this.mainPage.HoverMyCoursesSpan();
             this.mainPage.MyCourseClick();
 
@@ -202,55 +187,54 @@ namespace TeamLichTestAutomation.Tests
 
         [TestMethod]
         [TestCategory("LecturesPresentationsHomework")]
-        ////[TestId(101)]
+        [TestId(233)]
         [TestPriority(Priority.High)]
         [TestOwner(Owner.Ivan)]
-        public void PressentationAccess()
+        public void LecturesPresentationHomework_PressentationAccess()
         {
-            this.LoginWithRegularUser();
+            this.mainPage.Navigate().ClickLogin();
+            this.loginPage.LoginUser(TelerikUser.Regular);
             this.coursesPage.Navigate();
-
             this.coursesPage.AssertPresentationLinkPresent();
         }
 
         [TestMethod]
         [TestCategory("LecturesPresentationsHomework")]
-        ////[TestId(101)]
+        [TestId(234)]
         [TestPriority(Priority.High)]
         [TestOwner(Owner.Ivan)]
-        public void HomeworkAccess()
+        public void LecturesPresentationHomework_HomeworkAccess()
         {
-            this.LoginWithRegularUser();
-
+            this.mainPage.Navigate().ClickLogin();
+            this.loginPage.LoginUser(TelerikUser.Regular);
             this.coursesPage.Navigate();
-
             this.coursesPage.AssertSendHomeworkLinkPresent();
         }
 
         [TestMethod]
         [TestCategory("LecturesPresentationsHomework")]
-        ////[TestId(101)]
+        [TestId(235)]
         [TestPriority(Priority.High)]
         [TestOwner(Owner.Ivan)]
-        public void HomeworkEvalAccess()
+        public void LecturesPresentationHomework_HomeworkEvalAccess()
         {
-            this.LoginWithRegularUser();
+            this.mainPage.Navigate().ClickLogin();
+            this.loginPage.LoginUser(TelerikUser.Regular);
             this.mainPage.EvalHomeworkClick();
-
             var actualTitle = this.browser.Find.ByExpression<HtmlControl>(@"class=sectionTitle").GetValue<string>("innerText");
             var title = "ќцен€ване на домашно";
-
             Assert.AreEqual(title, actualTitle);
         }
 
         [TestMethod]
         [TestCategory("LecturesPresentationsHomework")]
-        ////[TestId(101)]
+        [TestId(236)]
         [TestPriority(Priority.High)]
         [TestOwner(Owner.Ivan)]
-        public void SendHomework()
+        public void LecturesPresentationHomework_SendHomework()
         {
-            this.RegNewUser();
+            this.mainPage.Navigate().ClickRegistration();
+            this.registrationPage.RegisterRandomUser();
             this.coursesPage.Navigate();
             this.coursesPage.LiveSignUp();
             this.coursesPage.SendHomework();
@@ -258,26 +242,28 @@ namespace TeamLichTestAutomation.Tests
 
         [TestMethod]
         [TestCategory("LecturesPresentationsHomework")]
-        ////[TestId(101)]
+        [TestId(237)]
         [TestPriority(Priority.High)]
         [TestOwner(Owner.Ivan)]
-        public void DownloadLastHomeworkLinkPresent()
+        public void LecturesPresentationHomework_DownloadLastHomeworkLinkPresent()
         {
-            this.RegNewUser();
+            this.mainPage.Navigate().ClickRegistration();
+            this.registrationPage.RegisterRandomUser();
             this.coursesPage.Navigate();
-            //this.coursesPage.LiveSignUp();
+            this.coursesPage.LiveSignUp();
             this.coursesPage.SendHomework();
             this.coursesPage.AssertDownloadLastHwPresent();
         }
 
         [TestMethod]
         [TestCategory("LecturesPresentationsHomework")]
-        ////[TestId(101)]
+        [TestId(239)]
         [TestPriority(Priority.High)]
         [TestOwner(Owner.Ivan)]
-        public void HomeworkEvalFromCoursesPanel()
+        public void LecturesPresentationHomework_HomeworkEvalFromCoursesPanel()
         {
-            this.LoginWithRegularUser();
+            this.mainPage.Navigate().ClickLogin();
+            this.loginPage.LoginUser(TelerikUser.Regular);
             this.coursesPage.Navigate();
             this.coursesPage.SendHomework();
             this.coursesPage.AssertHomewrokEvalBtnPresent();
@@ -285,10 +271,10 @@ namespace TeamLichTestAutomation.Tests
 
         [TestMethod]
         [TestCategory("LecturesPresentationsHomework")]
-        ////[TestId(101)]
+        [TestId(240)]
         [TestPriority(Priority.High)]
         [TestOwner(Owner.Ivan)]
-        public void PresentationsAccessWithoutLogin()
+        public void LecturesPresentationHomework_PresentationsAccessWithoutLogin()
         {
             this.coursesPage.Navigate();
             this.coursesPage.AssertPresentationLinkPresent();
@@ -297,10 +283,10 @@ namespace TeamLichTestAutomation.Tests
 
         [TestMethod]
         [TestCategory("LecturesPresentationsHomework")]
-        ////[TestId(101)]
+        [TestId(241)]
         [TestPriority(Priority.High)]
         [TestOwner(Owner.Ivan)]
-        public void HomeworkAccessWithoutLogIn()
+        public void LecturesPresentationHomework_HomeworkAccessWithoutLogIn()
         {
             this.coursesPage.Navigate();
 
@@ -309,13 +295,13 @@ namespace TeamLichTestAutomation.Tests
 
         [TestMethod]
         [TestCategory("LecturesPresentationsHomework")]
-        ////[TestId(101)]
+        [TestId(242)]
         [TestPriority(Priority.High)]
         [TestOwner(Owner.Ivan)]
-        public void CoursesAccessWihtouLogIn()
+        public void LecturesPresentationHomework_CoursesAccessWihtoutLogIn()
         {
             this.coursesPage.Navigate();
-
+            this.coursesPage.AssertTestCourse2Title();
         }
     }
 }

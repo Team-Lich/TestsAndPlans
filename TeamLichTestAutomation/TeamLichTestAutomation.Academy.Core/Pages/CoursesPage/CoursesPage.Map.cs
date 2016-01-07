@@ -114,5 +114,13 @@
                 return this.Browser.Find.ByXPath<HtmlSpan>(@"//*[@id=""MainContent""]/div/div[3]/div[2]/div[5]/div/div/span");
             }
         }
+
+        public HtmlControl TestCourse2Title
+        {
+            get
+            {
+                return this.Browser.Find.ById<HtmlControl>("panel-title");
+            }
+        }
     }
 }

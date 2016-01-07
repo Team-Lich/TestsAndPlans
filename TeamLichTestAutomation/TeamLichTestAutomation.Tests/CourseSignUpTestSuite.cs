@@ -23,20 +23,6 @@ namespace TeamLichTestAutomation.Tests
         private CoursesPage coursesPage;
         private LoginPage loginPage;
 
-        private void RegRandUser()
-        {
-            mainPage.Navigate().ClickRegistration();
-            this.registrationPage = new RegistrationPage(this.browser);
-            registrationPage.RegisterRandomUser();
-        }
-
-        private void LoginWithRegularUser()
-        {
-            this.mainPage.Navigate().ClickLogin();
-            TelerikUser user = TelerikUser.Regular;
-            this.loginPage.LoginUser(user);
-        }
-
         #region [Setup / TearDown]
 
         private TestContext testContextInstance = null;
@@ -129,6 +115,7 @@ namespace TeamLichTestAutomation.Tests
             this.mainPage = new MainPage(this.browser);
             this.coursesPage = new CoursesPage(this.browser);
             this.loginPage = new LoginPage(this.browser);
+            this.registrationPage = new RegistrationPage(this.browser);
         }
 
         // Use TestCleanup to run code after each test has run
@@ -162,38 +149,40 @@ namespace TeamLichTestAutomation.Tests
 
         [TestMethod]
         [TestCategory("CourseSignUp")]
-        ////[TestId(101)]
+        [TestId(221)]
         [TestPriority(Priority.High)]
         [TestOwner(Owner.Ivan)]
-        public void LiveSignUp()
+        public void CourseSignUp_LiveSignUp()
         {
-            RegRandUser();
-            mainPage.NavigateTo("http://stage.telerikacademy.com/Courses/Courses/Details/265");
-            coursesPage.LiveSignUp();
+            this.mainPage.Navigate().ClickRegistration();
+            this.registrationPage.RegisterRandomUser();
+            this.mainPage.NavigateTo("http://stage.telerikacademy.com/Courses/Courses/Details/265");
+            this.coursesPage.LiveSignUp();
 
-            coursesPage.AssertSignOffBtn();
+            this.coursesPage.AssertSignOffBtn();
         }
 
         [TestMethod]
         [TestCategory("CourseSignUp")]
-        ////[TestId(101)]
+        [TestId(222)]
         [TestPriority(Priority.High)]
         [TestOwner(Owner.Ivan)]
-        public void OnlineSignUp()
+        public void CourseSignUp_OnlineSignUp()
         {
-            RegRandUser();
-            mainPage.NavigateTo("http://stage.telerikacademy.com/Courses/Courses/Details/265");
-            coursesPage.OnlineSignUp();
+            this.mainPage.Navigate().ClickRegistration();
+            this.registrationPage.RegisterRandomUser();
+            this.mainPage.NavigateTo("http://stage.telerikacademy.com/Courses/Courses/Details/265");
+            this.coursesPage.OnlineSignUp();
 
-            coursesPage.AssertSignOffBtn();
+            this.coursesPage.AssertSignOffBtn();
         }
 
         [TestMethod]
         [TestCategory("CourseSignUp")]
-        ////[TestId(101)]
+        [TestId(223)]
         [TestPriority(Priority.High)]
         [TestOwner(Owner.Ivan)]
-        public void SignUpWithoutLogIn()
+        public void CourseSignUp_SignUpWithoutLogIn()
         {
             this.mainPage.NavigateTo("http://stage.telerikacademy.com/Courses/Courses/Details/265");
             this.coursesPage.AssertPleaseLogInBtnPresent();
@@ -201,12 +190,13 @@ namespace TeamLichTestAutomation.Tests
 
         [TestMethod]
         [TestCategory("CourseSignUp")]
-        ////[TestId(101)]
+        [TestId(224)]
         [TestPriority(Priority.High)]
         [TestOwner(Owner.Ivan)]
-        public void LiveSignUpFromCoursesList()
+        public void CourseSignUp_LiveSignUpFromCoursesList()
         {
-            this.RegRandUser();
+            this.mainPage.Navigate().ClickRegistration();
+            this.registrationPage.RegisterRandomUser();
             this.mainPage.HoverCoursesNavigationDropdown();
             this.mainPage.MyCourseClick();
             this.coursesPage.LiveSignUp();
@@ -215,24 +205,26 @@ namespace TeamLichTestAutomation.Tests
 
         [TestMethod]
         [TestCategory("CourseSignUp")]
-        ////[TestId(101)]
+        [TestId(225)]
         [TestPriority(Priority.High)]
         [TestOwner(Owner.Ivan)]
-        public void OnlineSignUpFromSignOffCourse()
+        public void CourseSignUp_OnlineSignUpFromSignOffCourse()
         {
-            LoginWithRegularUser();
+            this.mainPage.Navigate().ClickLogin();
+            this.loginPage.LoginUser(TelerikUser.Regular);
             this.coursesPage.Navigate();
             this.coursesPage.AssertSignedOffCourse();
         }
 
         [TestMethod]
         [TestCategory("CourseSignUp")]
-        ////[TestId(101)]
+        [TestId(226)]
         [TestPriority(Priority.High)]
         [TestOwner(Owner.Ivan)]
-        public void OnlineSignUpFromCoursesList()
+        public void CourseSignUp_OnlineSignUpFromCoursesList()
         {
-            this.RegRandUser();
+            this.mainPage.Navigate().ClickRegistration();
+            this.registrationPage.RegisterRandomUser();
             this.mainPage.HoverCoursesNavigationDropdown();
             this.mainPage.MyCourseClick();
             this.coursesPage.OnlineSignUp();
@@ -241,10 +233,10 @@ namespace TeamLichTestAutomation.Tests
 
         [TestMethod]
         [TestCategory("CourseSignUp")]
-        ////[TestId(101)]
+        [TestId(227)]
         [TestPriority(Priority.High)]
         [TestOwner(Owner.Ivan)]
-        public void SignUpFromCoursesListWithoutLogIn()
+        public void CourseSignUp_SignUpFromCoursesListWithoutLogIn()
         {
             this.mainPage.HoverCoursesNavigationDropdown();
             this.mainPage.MyCourseClick();
@@ -253,12 +245,13 @@ namespace TeamLichTestAutomation.Tests
         
         [TestMethod]
         [TestCategory("CourseSignUp")]
-        ////[TestId(101)]
+        [TestId(228)]
         [TestPriority(Priority.High)]
         [TestOwner(Owner.Ivan)]
-        public void LiveSignUpFromSignOffCourse()
+        public void CourseSignUp_LiveSignUpFromSignOffCourse()
         {
-            LoginWithRegularUser();
+            this.mainPage.Navigate().ClickLogin();
+            this.loginPage.LoginUser(TelerikUser.Regular);
             this.coursesPage.Navigate();
             this.coursesPage.AssertSignedOffCourse();
         }

@@ -69,5 +69,12 @@
             var actualText = @"Вие сте се отписалиот участие в този курс.";
             Assert.AreEqual(span.TextContent, actualText);
         }
+
+        public static void AssertTestCourse2Title(this CoursesPage coursesPage)
+        {
+            var title = coursesPage.TestCourse2Title.GetValue<string>("innerText"); ;
+            var actualText = @"Курс ""Тестови курс 2""";
+            Assert.AreEqual(title, actualText);
+        }
     }
 }

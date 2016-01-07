@@ -2,13 +2,11 @@ namespace TeamLichTestAutomation.Tests
 {
     using ArtOfTest.WebAii.Core;
     using ArtOfTest.WebAii.TestTemplates;
-
     using Microsoft.VisualStudio.TestTools.UnitTesting;
-
+    using TeamLichTestAutomation.Academy.Core.Data;
     using TeamLichTestAutomation.Academy.Core.Models;
     using TeamLichTestAutomation.Academy.Core.Pages.MainPage;
     using TeamLichTestAutomation.Academy.Core.Pages.RegistrationPage;
-
     using TeamLichTestAutomation.Utilities;
     using TeamLichTestAutomation.Utilities.Attributes;
 
@@ -147,12 +145,8 @@ namespace TeamLichTestAutomation.Tests
         [TestOwner(Owner.Ilvie)]
         public void TestRegistrationWithUsernameEmpty()
         {
-            TelerikUser user = new TelerikUser(
-                string.Empty,
-                RegistrationPageUserCredentials.PasswordValid,
-                RegistrationPageUserCredentials.FirstNameValid,
-                RegistrationPageUserCredentials.LastNameValid,
-                RegistrationPageUserCredentials.EmailValid);
+            TelerikUser user = TelerikUser.ValidUser;
+            user.UserName = string.Empty;
 
             this.registrationPage.RegisterTelerikUser(user);
 
@@ -166,12 +160,8 @@ namespace TeamLichTestAutomation.Tests
         [TestOwner(Owner.Ilvie)]
         public void TestRegistrationWithUsernameInvalid()
         {
-            TelerikUser user = new TelerikUser(
-                RegistrationPageUserCredentials.UsernameInvalidSymbols,
-                RegistrationPageUserCredentials.PasswordValid,
-                RegistrationPageUserCredentials.FirstNameValid,
-                RegistrationPageUserCredentials.LastNameValid,
-                RegistrationPageUserCredentials.EmailValid);
+            TelerikUser user = TelerikUser.ValidUser;
+            user.UserName = TelerikUserData.UsernameInvalidSymbols;
 
             this.registrationPage.RegisterTelerikUser(user);
 
@@ -185,12 +175,8 @@ namespace TeamLichTestAutomation.Tests
         [TestOwner(Owner.Ilvie)]
         public void TestRegistrationWithUsernameLengthLessThanMinimumAllowed()
         {
-            TelerikUser user = new TelerikUser(
-                RegistrationPageUserCredentials.UsernameInvalidLengthDown,
-                RegistrationPageUserCredentials.PasswordValid,
-                RegistrationPageUserCredentials.FirstNameValid,
-                RegistrationPageUserCredentials.LastNameValid,
-                RegistrationPageUserCredentials.EmailValid);
+            TelerikUser user = TelerikUser.ValidUser;
+            user.UserName = TelerikUserData.UsernameInvalidLengthDown;
 
             this.registrationPage.RegisterTelerikUser(user);
 
@@ -204,12 +190,8 @@ namespace TeamLichTestAutomation.Tests
         [TestOwner(Owner.Ilvie)]
         public void TestRegistrationWithUsernameLengthGreaterThanMaximumAllowed()
         {
-            TelerikUser user = new TelerikUser(
-                RegistrationPageUserCredentials.UsernameInvalidLengthUp,
-                RegistrationPageUserCredentials.PasswordValid,
-                RegistrationPageUserCredentials.FirstNameValid,
-                RegistrationPageUserCredentials.LastNameValid,
-                RegistrationPageUserCredentials.EmailValid);
+            TelerikUser user = TelerikUser.ValidUser;
+            user.UserName = TelerikUserData.UsernameInvalidLengthUp;
 
             this.registrationPage.RegisterTelerikUser(user);
 
@@ -223,12 +205,8 @@ namespace TeamLichTestAutomation.Tests
         [TestOwner(Owner.Ilvie)]
         public void TestRegistratioWithUsernameStartingWithNonAlphabetSymbol()
         {
-            TelerikUser user = new TelerikUser(
-                RegistrationPageUserCredentials.UsernameStartingInvalidSymbol,
-                RegistrationPageUserCredentials.PasswordValid,
-                RegistrationPageUserCredentials.FirstNameValid,
-                RegistrationPageUserCredentials.LastNameValid,
-                RegistrationPageUserCredentials.EmailValid);
+            TelerikUser user = TelerikUser.ValidUser;
+            user.UserName = TelerikUserData.UsernameStartingInvalidSymbol;
 
             this.registrationPage.RegisterTelerikUser(user);
 
@@ -242,12 +220,8 @@ namespace TeamLichTestAutomation.Tests
         [TestOwner(Owner.Ilvie)]
         public void TestRegistratioWithUsernameEndingWithNonAlphabetSymbol()
         {
-            TelerikUser user = new TelerikUser(
-                RegistrationPageUserCredentials.UsernameEndingInvalidSymbol,
-                RegistrationPageUserCredentials.PasswordValid,
-                RegistrationPageUserCredentials.FirstNameValid,
-                RegistrationPageUserCredentials.LastNameValid,
-                RegistrationPageUserCredentials.EmailValid);
+            TelerikUser user = TelerikUser.ValidUser;
+            user.UserName = TelerikUserData.UsernameEndingInvalidSymbol;
 
             this.registrationPage.RegisterTelerikUser(user);
 
@@ -261,12 +235,8 @@ namespace TeamLichTestAutomation.Tests
         [TestOwner(Owner.Ilvie)]
         public void TestRegistrationWithPasswordEmpty()
         {
-            TelerikUser user = new TelerikUser(
-                RegistrationPageUserCredentials.UsernameValid,
-                string.Empty,
-                RegistrationPageUserCredentials.FirstNameValid,
-                RegistrationPageUserCredentials.LastNameValid,
-                RegistrationPageUserCredentials.EmailValid);
+            TelerikUser user = TelerikUser.ValidUser;
+            user.Password = string.Empty;
 
             this.registrationPage.RegisterTelerikUser(user);
 
@@ -280,12 +250,8 @@ namespace TeamLichTestAutomation.Tests
         [TestOwner(Owner.Ilvie)]
         public void TestRegistrationWithPasswordLengthLessThanMinimumAllowed()
         {
-            TelerikUser user = new TelerikUser(
-                RegistrationPageUserCredentials.UsernameValid,
-                RegistrationPageUserCredentials.PasswordInvalidLength,
-                RegistrationPageUserCredentials.FirstNameValid,
-                RegistrationPageUserCredentials.LastNameValid,
-                RegistrationPageUserCredentials.EmailValid);
+            TelerikUser user = TelerikUser.ValidUser;
+            user.Password = TelerikUserData.PasswordInvalidLength;
 
             this.registrationPage.RegisterTelerikUser(user);
 
@@ -300,13 +266,13 @@ namespace TeamLichTestAutomation.Tests
         public void TestRegistrationWithPasswordAgainDifferent()
         {
             TelerikUser user = new TelerikUser(
-                RegistrationPageUserCredentials.UsernameValid,
-                RegistrationPageUserCredentials.PasswordValid,
-                RegistrationPageUserCredentials.FirstNameValid,
-                RegistrationPageUserCredentials.LastNameValid,
-                RegistrationPageUserCredentials.EmailValid);
+                TelerikUserData.UsernameValid,
+                TelerikUserData.PasswordValid,
+                TelerikUserData.FirstNameValid,
+                TelerikUserData.LastNameValid,
+                TelerikUserData.EmailValid);
 
-            this.registrationPage.RegisterTelerikUser(user, RegistrationPageUserCredentials.PasswordAgainValid);
+            this.registrationPage.RegisterTelerikUser(user, TelerikUserData.PasswordAgainValid);
 
             this.registrationPage.AssertErrorMessageIsDisplayedWhenEnterDifferentPasswordInPasswordAgainField();
         }
@@ -319,11 +285,11 @@ namespace TeamLichTestAutomation.Tests
         public void TestRegistrationWithPasswordAgainEmpty()
         {
             TelerikUser user = new TelerikUser(
-                RegistrationPageUserCredentials.UsernameValid,
-                RegistrationPageUserCredentials.PasswordValid,
-                RegistrationPageUserCredentials.FirstNameValid,
-                RegistrationPageUserCredentials.LastNameValid,
-                RegistrationPageUserCredentials.EmailValid);
+                TelerikUserData.UsernameValid,
+                TelerikUserData.PasswordValid,
+                TelerikUserData.FirstNameValid,
+                TelerikUserData.LastNameValid,
+                TelerikUserData.EmailValid);
 
             this.registrationPage.RegisterTelerikUser(user, string.Empty);
 
@@ -337,12 +303,8 @@ namespace TeamLichTestAutomation.Tests
         [TestOwner(Owner.Ilvie)]
         public void TestRegistrationWithFirstNameEmptyField()
         {
-            TelerikUser user = new TelerikUser(
-                RegistrationPageUserCredentials.UsernameValid,
-                RegistrationPageUserCredentials.PasswordValid,
-                string.Empty,
-                RegistrationPageUserCredentials.LastNameValid,
-                RegistrationPageUserCredentials.EmailValid);
+            TelerikUser user = TelerikUser.ValidUser;
+            user.FirstName = string.Empty;
 
             this.registrationPage.RegisterTelerikUser(user);
 
@@ -356,12 +318,8 @@ namespace TeamLichTestAutomation.Tests
         [TestOwner(Owner.Ilvie)]
         public void TestRegistrationWithFirstNameContainingNonCyrillicAlphabetSymbols()
         {
-            TelerikUser user = new TelerikUser(
-                RegistrationPageUserCredentials.UsernameValid,
-                RegistrationPageUserCredentials.PasswordValid,
-                RegistrationPageUserCredentials.FirstNameNonCyrillicSymbols,
-                RegistrationPageUserCredentials.LastNameValid,
-                RegistrationPageUserCredentials.EmailValid);
+            TelerikUser user = TelerikUser.ValidUser;
+            user.FirstName = TelerikUserData.FirstNameNonCyrillicSymbols;
 
             this.registrationPage.RegisterTelerikUser(user);
 
@@ -375,12 +333,8 @@ namespace TeamLichTestAutomation.Tests
         [TestOwner(Owner.Ilvie)]
         public void TestRegistrationWithFirstNameStartingWithInvalidSymbols()
         {
-            TelerikUser user = new TelerikUser(
-                RegistrationPageUserCredentials.UsernameValid,
-                RegistrationPageUserCredentials.PasswordValid,
-                RegistrationPageUserCredentials.FirstNameInvalidBoundarySymbols,
-                RegistrationPageUserCredentials.LastNameValid,
-                RegistrationPageUserCredentials.EmailValid);
+            TelerikUser user = TelerikUser.ValidUser;
+            user.FirstName = TelerikUserData.FirstNameInvalidBoundarySymbols;
 
             this.registrationPage.RegisterTelerikUser(user);
 
@@ -394,12 +348,8 @@ namespace TeamLichTestAutomation.Tests
         [TestOwner(Owner.Ilvie)]
         public void TestRegistrationWithFirstNameLengthLessThanMinimumAllowed()
         {
-            TelerikUser user = new TelerikUser(
-                RegistrationPageUserCredentials.UsernameValid,
-                RegistrationPageUserCredentials.PasswordValid,
-                RegistrationPageUserCredentials.FirstNameInvalidLength,
-                RegistrationPageUserCredentials.LastNameValid,
-                RegistrationPageUserCredentials.EmailValid);
+            TelerikUser user = TelerikUser.ValidUser;
+            user.FirstName = TelerikUserData.FirstNameInvalidLength;
 
             this.registrationPage.RegisterTelerikUser(user);
 
@@ -413,12 +363,8 @@ namespace TeamLichTestAutomation.Tests
         [TestOwner(Owner.Ilvie)]
         public void TestRegistrationWithLastNameEmptyField()
         {
-            TelerikUser user = new TelerikUser(
-                RegistrationPageUserCredentials.UsernameValid,
-                RegistrationPageUserCredentials.PasswordValid,
-                RegistrationPageUserCredentials.FirstNameValid,
-                string.Empty,
-                RegistrationPageUserCredentials.EmailValid);
+            TelerikUser user = TelerikUser.ValidUser;
+            user.LastName = string.Empty;
 
             this.registrationPage.RegisterTelerikUser(user);
 
@@ -432,12 +378,8 @@ namespace TeamLichTestAutomation.Tests
         [TestOwner(Owner.Ilvie)]
         public void TestRegistrationWithLastNameLengthLessThanMinimumAllowed()
         {
-            TelerikUser user = new TelerikUser(
-                RegistrationPageUserCredentials.UsernameValid,
-                RegistrationPageUserCredentials.PasswordValid,
-                RegistrationPageUserCredentials.FirstNameValid,
-                RegistrationPageUserCredentials.LastNameInvalidLength,
-                RegistrationPageUserCredentials.EmailValid);
+            TelerikUser user = TelerikUser.ValidUser;
+            user.LastName = TelerikUserData.LastNameInvalidLength;
 
             this.registrationPage.RegisterTelerikUser(user);
 
@@ -451,12 +393,8 @@ namespace TeamLichTestAutomation.Tests
         [TestOwner(Owner.Ilvie)]
         public void TestRegistrationWithLastNameContainingNonCyrillicAlphabetSymbols()
         {
-            TelerikUser user = new TelerikUser(
-                RegistrationPageUserCredentials.UsernameValid,
-                RegistrationPageUserCredentials.PasswordValid,
-                RegistrationPageUserCredentials.FirstNameValid,
-                RegistrationPageUserCredentials.LastNameInvalidSymbols,
-                RegistrationPageUserCredentials.EmailValid);
+            TelerikUser user = TelerikUser.ValidUser;
+            user.LastName = TelerikUserData.LastNameInvalidSymbols;
 
             this.registrationPage.RegisterTelerikUser(user);
 
@@ -470,12 +408,8 @@ namespace TeamLichTestAutomation.Tests
         [TestOwner(Owner.Ilvie)]
         public void TestRegistrationWithEmailAddressEmpty()
         {
-            TelerikUser user = new TelerikUser(
-                RegistrationPageUserCredentials.UsernameValid,
-                RegistrationPageUserCredentials.PasswordValid,
-                RegistrationPageUserCredentials.FirstNameValid,
-                RegistrationPageUserCredentials.LastNameValid,
-                string.Empty);
+            TelerikUser user = TelerikUser.ValidUser;
+            user.Email = string.Empty;
 
             this.registrationPage.RegisterTelerikUser(user);
 
@@ -489,12 +423,8 @@ namespace TeamLichTestAutomation.Tests
         [TestOwner(Owner.Ilvie)]
         public void TestRegistrationWithEmailAddressNotContainingAtSymbol()
         {
-            TelerikUser user = new TelerikUser(
-                RegistrationPageUserCredentials.UsernameValid,
-                RegistrationPageUserCredentials.PasswordValid,
-                RegistrationPageUserCredentials.FirstNameValid,
-                RegistrationPageUserCredentials.LastNameValid,
-                RegistrationPageUserCredentials.EmailMissingAtSymbol);
+            TelerikUser user = TelerikUser.ValidUser;
+            user.Email = TelerikUserData.EmailMissingAtSymbol;
 
             this.registrationPage.RegisterTelerikUser(user);
 
@@ -508,12 +438,8 @@ namespace TeamLichTestAutomation.Tests
         [TestOwner(Owner.Ilvie)]
         public void TestRegistrationWithEmailAddressNotContainPointSymbol()
         {
-            TelerikUser user = new TelerikUser(
-                RegistrationPageUserCredentials.UsernameValid,
-                RegistrationPageUserCredentials.PasswordValid,
-                RegistrationPageUserCredentials.FirstNameValid,
-                RegistrationPageUserCredentials.LastNameValid,
-                RegistrationPageUserCredentials.EmailMissingPointSymbol);
+            TelerikUser user = TelerikUser.ValidUser;
+            user.Email = TelerikUserData.EmailMissingPointSymbol;
 
             this.registrationPage.RegisterTelerikUser(user);
 
@@ -527,12 +453,7 @@ namespace TeamLichTestAutomation.Tests
         [TestOwner(Owner.Ilvie)]
         public void TestRegistrationWithTermsAndConditionsCheckboxUnchecked()
         {
-            TelerikUser user = new TelerikUser(
-                RegistrationPageUserCredentials.UsernameValid,
-                RegistrationPageUserCredentials.PasswordValid,
-                RegistrationPageUserCredentials.FirstNameValid,
-                RegistrationPageUserCredentials.LastNameValid,
-                RegistrationPageUserCredentials.EmailValid);
+            TelerikUser user = TelerikUser.ValidUser;
 
             this.registrationPage.RegisterTelerikUserWithUncheckedCheckbox(user);
 

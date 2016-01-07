@@ -171,8 +171,9 @@ namespace TeamLichTestAutomation.Tests.AdministrationTestSuites
         // I can not handle the confirmation dialog on deletion in Chrome and Firefox
 
         [TestMethod]
+        [TestId(100)]
         [TestCategory("AdministrationUniversities")]
-        [TestCategory("PriorityHigh")]
+        [TestPriority(Priority.High)]
         [TestOwner(Owner.DechoDechev)]
         public void TestAdminUniversityAddFunctionalityWorks()
         {
@@ -200,8 +201,9 @@ namespace TeamLichTestAutomation.Tests.AdministrationTestSuites
         }
 
         [TestMethod]
+        [TestId(84)]
         [TestCategory("AdministrationUniversities")]
-        [TestCategory("PriorityMedium")]
+        [TestPriority(Priority.Medium)]
         [TestOwner(Owner.DechoDechev)]
         public void TestAdminUniversityRemoveFunctionalityWorks()
         {
@@ -221,8 +223,9 @@ namespace TeamLichTestAutomation.Tests.AdministrationTestSuites
         }
 
         [TestMethod]
+        [TestId(81)]
         [TestCategory("AdministrationUniversities")]
-        [TestCategory("PriorityLow")]
+        [TestPriority(Priority.Low)]
         [TestOwner(Owner.DechoDechev)]
         public void TestAdminUniversityBackToAdministrationButtonWorks()
         {
@@ -231,8 +234,9 @@ namespace TeamLichTestAutomation.Tests.AdministrationTestSuites
         }
 
         [TestMethod]
+        [TestId(88)]
         [TestCategory("AdministrationUniversities")]
-        [TestCategory("PriorityMedium")]
+        [TestPriority(Priority.Medium)]
         [TestOwner(Owner.DechoDechev)]
         public void TestAdminUniversityEditNameWorks()
         {
@@ -275,8 +279,9 @@ namespace TeamLichTestAutomation.Tests.AdministrationTestSuites
 
 
         [TestMethod]
+        [TestId(253)]
         [TestCategory("AdministrationUniversities")]
-        [TestCategory("PriorityLow")]
+        [TestPriority(Priority.Low)]
         [TestOwner(Owner.DechoDechev)]
         public void TestSortByNameInUniversityGridWorks()
         {
@@ -325,8 +330,9 @@ namespace TeamLichTestAutomation.Tests.AdministrationTestSuites
         }
 
         [TestMethod]
+        [TestId(254)]
         [TestCategory("AdministrationUniversities")]
-        [TestCategory("PriorityLow")]
+        [TestPriority(Priority.Low)]
         [TestOwner(Owner.DechoDechev)]
         public void TestSortByIdInUniversityGridWorks()
         {
@@ -357,8 +363,7 @@ namespace TeamLichTestAutomation.Tests.AdministrationTestSuites
         }
 
         [TestMethod]
-        [TestCategory("AdministrationUniversities")]
-        [TestCategory("PriorityLow")]
+        [TestCategory("FrameworkTest")]
         [TestOwner(Owner.DechoDechev)]
         public void Test()
         {

@@ -144,6 +144,7 @@ namespace TeamLichTestAutomation.Tests
         #endregion [Setup / TearDown]
 
         [TestMethod]
+        [TestId(1)]
         [TestCategory("Login")]
         [TestCategory("PriorityHigh")]
         [TestOwner(Owner.DechoDechev)]
@@ -155,6 +156,7 @@ namespace TeamLichTestAutomation.Tests
         }
 
         [TestMethod]
+        [TestId(238)]
         [TestCategory("Login")]
         [TestCategory("PriorityHigh")]
         [TestOwner(Owner.DechoDechev)]
@@ -167,6 +169,7 @@ namespace TeamLichTestAutomation.Tests
         }
 
         [TestMethod]
+        [TestId(243)]
         [TestCategory("Login")]
         [TestCategory("PriorityHigh")]
         [TestOwner(Owner.DechoDechev)]
@@ -180,6 +183,7 @@ namespace TeamLichTestAutomation.Tests
         }
 
         [TestMethod]
+        [TestId(244)]
         [TestCategory("Login")]
         [TestCategory("PriorityHigh")]
         [TestOwner(Owner.DechoDechev)]
@@ -193,6 +197,7 @@ namespace TeamLichTestAutomation.Tests
         }
 
         [TestMethod]
+        [TestId(245)]
         [TestCategory("Login")]
         [TestCategory("PriorityHigh")]
         [TestOwner(Owner.DechoDechev)]
@@ -205,6 +210,7 @@ namespace TeamLichTestAutomation.Tests
         }
 
         [TestMethod]
+        [TestId(246)]
         [TestCategory("Login")]
         [TestCategory("PriorityHigh")]
         [TestOwner(Owner.DechoDechev)]
@@ -257,6 +263,7 @@ namespace TeamLichTestAutomation.Tests
         }
 
         [TestMethod]
+        [TestId(7)]
         [TestCategory("Login")]
         [TestCategory("PriorityHigh")]
         [TestOwner(Owner.DechoDechev)]
@@ -268,6 +275,7 @@ namespace TeamLichTestAutomation.Tests
         }
 
         [TestMethod]
+        [TestId(30)]
         [TestCategory("Login")]
         [TestCategory("PriorityHigh")]
         [TestOwner(Owner.DechoDechev)]
@@ -281,6 +289,7 @@ namespace TeamLichTestAutomation.Tests
         }
 
         [TestMethod]
+        [TestId(29)]
         [TestCategory("Login")]
         [TestCategory("PriorityHigh")]
         [TestOwner(Owner.DechoDechev)]
@@ -294,6 +303,7 @@ namespace TeamLichTestAutomation.Tests
         }
 
         [TestMethod]
+        [TestId(28)]
         [TestCategory("Login")]
         [TestCategory("PriorityHigh")]
         [TestOwner(Owner.DechoDechev)]
@@ -307,6 +317,7 @@ namespace TeamLichTestAutomation.Tests
         }
 
         [TestMethod]
+        [TestId(2)]
         [TestCategory("Login")]
         [TestCategory("PriorityHigh")]
         [TestOwner(Owner.DechoDechev)]
@@ -320,6 +331,7 @@ namespace TeamLichTestAutomation.Tests
         }
 
         [TestMethod]
+        [TestId(37)]
         [TestCategory("Login")]
         [TestCategory("PriorityMedium")]
         [TestOwner(Owner.DechoDechev)]
@@ -357,6 +369,7 @@ namespace TeamLichTestAutomation.Tests
         }
 
         [TestMethod]
+        [TestId(41)]
         [TestCategory("Login")]
         [TestCategory("PriorityHigh")]
         [TestOwner(Owner.DechoDechev)]
@@ -372,6 +385,7 @@ namespace TeamLichTestAutomation.Tests
         }
 
         [TestMethod]
+        [TestId(42)]
         [TestCategory("Login")]
         [TestCategory("PriorityHigh")]
         [TestOwner(Owner.DechoDechev)]

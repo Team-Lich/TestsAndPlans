@@ -12,6 +12,7 @@
         public void ClickSendMessageButtonActive()
         {
             this.SendMessageButtonActive.Click();
+            this.Browser.WaitUntilReady();
         }
 
         public void ClickSendMessageButtonInactive()

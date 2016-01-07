@@ -163,9 +163,23 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
             this.mainPage.NavigateTo(TelerikUser.Related2.Url);
 
             this.userPage.ClickSendMessageButtonActive();
-            this.userPage.Browser.WaitUntilReady();
 
-            this.userPage.AssertMessagesPageIsOpenedWhenSendMessageButtonIsClicked();
+            this.userPage.AssertMessagesPageIsActive();
+        }
+
+        [TestMethod]
+        [TestCategory("Messages")]
+        [TestPriority(Priority.High)]
+        [TestOwner(Owner.Yane)]
+        public void SendMessageButtonShouldBeInactive()
+        {
+            RelatedUsersUtilities.RemoveFriend(this.browser);
+            this.mainPage.NavigateTo(TelerikUser.Related2.Url);
+
+            this.userPage.AssertMessageButtonButtonIsInactive();
+
+            this.userPage.ClickSendMessageButtonInactive();
+            this.userPage.AssertProperUserProfilePageIsActive(TelerikUser.Related2.UserName);
         }
 
         [TestMethod]
@@ -218,7 +232,27 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
 
         [TestMethod]
         [TestCategory("Messages")]
-        //[TestId(120)]
+        [TestId(125)]
+        [TestPriority(Priority.High)]
+        [TestOwner(Owner.Yane)]
+        public void MessageContainerShouldContainsProperData()
+        {
+            RelatedUsersUtilities.AddFriend(this.browser);
+            this.mainPage.NavigateTo(messagesPage.Url);
+            this.messagesPage.ClickFriendItem();
+
+            this.messagesPage.Browser.ScrollBy(0, 400);
+            this.messagesPage.UncheckSubmitByEnterCheckbox();
+            this.messagesPage.EnterValidMessageUppercaseLatinAlphabet();
+            this.messagesPage.ClickSendButton();
+            this.messagesPage.HoverLastMessageWrapper();
+
+            this.messagesPage.AssertLastMessageContainerContainsProperData(MessagesPageMessages.UppercaseLatinAlphabet);
+        }
+
+        [TestMethod]
+        [TestCategory("Messages")]
+        [TestId(126)]
         [TestPriority(Priority.High)]
         [TestOwner(Owner.Yane)]
         public void SendValidMessage()
@@ -226,6 +260,7 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
             RelatedUsersUtilities.AddFriend(this.browser);
             this.mainPage.NavigateTo(messagesPage.Url);
             this.messagesPage.ClickFriendItem();
+            this.messagesPage.UncheckSubmitByEnterCheckbox();
 
             this.messagesPage.EnterValidMessageLowercaseLatinAlphabet();
             this.messagesPage.ClickSendButton();
@@ -270,31 +305,59 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
 
         [TestMethod]
         [TestCategory("Messages")]
-        //[TestId(120)]
+        [TestId(127)]
         [TestPriority(Priority.High)]
         [TestOwner(Owner.Yane)]
-        public void SendInvalidMessage()
+        public void SendValidMessageWhenCheckboxIsUncheckedAndEnterIsPressed()
         {
             RelatedUsersUtilities.AddFriend(this.browser);
             this.mainPage.NavigateTo(messagesPage.Url);
             this.messagesPage.ClickFriendItem();
 
-            this.messagesPage.EnterInvalidMessageSpacebarChar();
+            this.messagesPage.UncheckSubmitByEnterCheckbox();
+            this.messagesPage.Browser.ScrollBy(0, 400);
+            this.messagesPage.EnterValidMessageLowercaseLatinAlphabet();
+            this.messagesPage.PressEnter();
+            this.messagesPage.EnterValidMessageLowercaseCyrilicAlphabet();
             this.messagesPage.ClickSendButton();
 
-            this.messagesPage.AssertMessageIsNotSent(MessagesPageMessages.SpacebarChar);
+            this.messagesPage.AssertMessageIsSentAndLineBreakIsDisplayedCorrectly(
+                MessagesPageMessages.LowercaseLatinAlphabet,
+                MessagesPageMessages.LowercaseCyrilicAlphabet);
         }
 
         [TestMethod]
         [TestCategory("Messages")]
-        //[TestId(120)]
+        [TestId(128)]
         [TestPriority(Priority.High)]
         [TestOwner(Owner.Yane)]
-        public void SendEmptyMessage()
+        public void SendValidMessageWhenCheckboxIsCheckedAndEnterIsPressed()
         {
             RelatedUsersUtilities.AddFriend(this.browser);
             this.mainPage.NavigateTo(messagesPage.Url);
             this.messagesPage.ClickFriendItem();
+
+            this.messagesPage.CheckSubmitByEnterCheckbox();
+            this.messagesPage.EnterValidMessageLowercaseLatinAlphabet();
+            this.messagesPage.PressEnter();
+
+            this.messagesPage.AssertMessageIsSent(MessagesPageMessages.LowercaseLatinAlphabet);
+        }
+
+        [TestMethod]
+        [TestCategory("Messages")]
+        [TestId(129)]
+        [TestPriority(Priority.High)]
+        [TestOwner(Owner.Yane)]
+        public void TryToSendEmptyMessage()
+        {
+            RelatedUsersUtilities.AddFriend(this.browser);
+            this.mainPage.NavigateTo(messagesPage.Url);
+            this.messagesPage.ClickFriendItem();
+            this.messagesPage.UncheckSubmitByEnterCheckbox();
+            this.messagesPage.ClickSendButton();
+
+            this.messagesPage.AssertMessageIsNotSent(MessagesPageMessages.SpacebarChar);
 
             this.messagesPage.EnterInvalidMessageSpacebarChar();
             this.messagesPage.ClickSendButton();

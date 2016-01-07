@@ -4,6 +4,7 @@
     using System.Linq;
 
     using ArtOfTest.WebAii.Controls.HtmlControls;
+    using ArtOfTest.WebAii.ObjectModel;
     using Models;
 
     public partial class MessagesPage
@@ -40,11 +41,19 @@
             }
         }
 
-        public HtmlDiv SubmitByEnterCheckbox
+        public HtmlDiv SubmitByEnterCheckboxWrapper
         {
             get
             {
                 return this.Browser.Find.ById<HtmlDiv>("submitByEnter");
+            }
+        }
+
+        public HtmlInputCheckBox SubmitByEnterCheckbox
+        {
+            get
+            {
+                return SubmitByEnterCheckboxWrapper.Find.ById<HtmlInputCheckBox>("useEnterKey");
             }
         }
 
@@ -96,7 +105,7 @@
             }
         }
 
-        public HtmlImage FriendAvatar
+        public HtmlImage FriendAvatarInFriendItem
         {
             get
             {
@@ -128,14 +137,44 @@
             }
         }
 
-        public HtmlControl LastMessageWrapper
+        public HtmlDiv LastMessageContainer
         {
             get
             {
-                this.Browser.WaitForElement(2000, "class=message");
-                return this.Browser
-                    .Find.AllByAttributes<HtmlDiv>("class=message").LastOrDefault()
-                    .Find.AllByTagName<HtmlControl>("p").LastOrDefault();
+                this.Browser.WaitForElement(2000, "class=~messageContainer", "class=~fromMe");
+                return this.Browser.Find.AllByAttributes<HtmlDiv>("class=~messageContainer", "class=~fromMe").LastOrDefault();
+            }
+        }
+
+        public HtmlControl LastMessageContainerLastParagraph
+        {
+            get
+            {
+                return this.LastMessageContainer.Find.AllByTagName<HtmlControl>("p").LastOrDefault();
+            }
+        }
+
+        public HtmlImage UserAvatarInMessageContainer
+        {
+            get
+            {
+                return this.LastMessageContainer.Find.ByAttributes<HtmlImage>("class=img-thumbnail");
+            }
+        }
+
+        public HtmlSpan MessageSentTime
+        {
+            get
+            {
+                return this.LastMessageContainerLastParagraph.Find.AllByTagName<HtmlSpan>("span").FirstOrDefault();
+            }
+        }
+
+        public Element Arrow
+        {
+            get
+            {
+                return this.LastMessageContainer.Find.ByAttributes<HtmlDiv>("class=message").ChildNodes.LastOrDefault();
             }
         }
     }

@@ -316,7 +316,7 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
             this.friendsPage.Browser.WaitUntilReady();
             this.friendsPage.Browser.RefreshDomTree();
 
-            this.friendsPage.AssertCorrespondingProfilePageIsOpened();
+            this.friendsPage.AssertProperUserProfilePageIsActive(TelerikUser.Related2.UserName);
         }
     }
 }

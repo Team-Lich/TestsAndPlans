@@ -68,5 +68,15 @@
         {
             Assert.IsTrue(messagesPage.FriendLastMessageTime.IsVisible());
         }
+
+        public static void AssertMessageIsSent(this MessagesPage messagePage, string text)
+        {
+            Assert.IsTrue(messagePage.LastMessageWrapper.BaseElement.TextContent.Equals(text));
+        }
+
+        public static void AssertMessageIsNotSent(this MessagesPage messagePage, string text)
+        {
+            Assert.IsFalse(messagePage.LastMessageWrapper.BaseElement.TextContent.Equals(text));
+        }
     }
 }

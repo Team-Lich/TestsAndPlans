@@ -215,5 +215,91 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
 
             this.messagesPage.AssertSearchFieldIsVisible();
         }
+
+        [TestMethod]
+        [TestCategory("Messages")]
+        //[TestId(120)]
+        [TestPriority(Priority.High)]
+        [TestOwner(Owner.Yane)]
+        public void SendValidMessage()
+        {
+            RelatedUsersUtilities.AddFriend(this.browser);
+            this.mainPage.NavigateTo(messagesPage.Url);
+            this.messagesPage.ClickFriendItem();
+
+            this.messagesPage.EnterValidMessageLowercaseLatinAlphabet();
+            this.messagesPage.ClickSendButton();
+            this.messagesPage.AssertMessageIsSent(MessagesPageMessages.LowercaseLatinAlphabet);
+
+            this.messagesPage.EnterValidMessageUppercaseLatinAlphabet();
+            this.messagesPage.ClickSendButton();
+            this.messagesPage.AssertMessageIsSent(MessagesPageMessages.UppercaseLatinAlphabet);
+
+            this.messagesPage.EnterValidMessageLowercaseCyrilicAlphabet();
+            this.messagesPage.ClickSendButton();
+            this.messagesPage.AssertMessageIsSent(MessagesPageMessages.LowercaseCyrilicAlphabet);
+
+            this.messagesPage.EnterValidMessageUppercaseCyrilicAlphabet();
+            this.messagesPage.ClickSendButton();
+            this.messagesPage.AssertMessageIsSent(MessagesPageMessages.UppercaseCyrilicAlphabet);
+
+            this.messagesPage.EnterValidMessageDigits();
+            this.messagesPage.ClickSendButton();
+            this.messagesPage.AssertMessageIsSent(MessagesPageMessages.Digits);
+
+            this.messagesPage.EnterValidMessageSpecialChars();
+            this.messagesPage.ClickSendButton();
+            this.messagesPage.AssertMessageIsSent(MessagesPageMessages.SpecialChars);
+
+            this.messagesPage.EnterValidMessageSingleLatinChar();
+            this.messagesPage.ClickSendButton();
+            this.messagesPage.AssertMessageIsSent(MessagesPageMessages.LatinChar);
+
+            this.messagesPage.EnterValidMessageSingleCyrilicChar();
+            this.messagesPage.ClickSendButton();
+            this.messagesPage.AssertMessageIsSent(MessagesPageMessages.CyrilicChar);
+
+            this.messagesPage.EnterValidMessageSingleDigit();
+            this.messagesPage.ClickSendButton();
+            this.messagesPage.AssertMessageIsSent(MessagesPageMessages.Digit);
+
+            this.messagesPage.EnterValidMessageSingleSpecialChar();
+            this.messagesPage.ClickSendButton();
+            this.messagesPage.AssertMessageIsSent(MessagesPageMessages.SpecialChar);
+        }
+
+        [TestMethod]
+        [TestCategory("Messages")]
+        //[TestId(120)]
+        [TestPriority(Priority.High)]
+        [TestOwner(Owner.Yane)]
+        public void SendInvalidMessage()
+        {
+            RelatedUsersUtilities.AddFriend(this.browser);
+            this.mainPage.NavigateTo(messagesPage.Url);
+            this.messagesPage.ClickFriendItem();
+
+            this.messagesPage.EnterInvalidMessageSpacebarChar();
+            this.messagesPage.ClickSendButton();
+
+            this.messagesPage.AssertMessageIsNotSent(MessagesPageMessages.SpacebarChar);
+        }
+
+        [TestMethod]
+        [TestCategory("Messages")]
+        //[TestId(120)]
+        [TestPriority(Priority.High)]
+        [TestOwner(Owner.Yane)]
+        public void SendEmptyMessage()
+        {
+            RelatedUsersUtilities.AddFriend(this.browser);
+            this.mainPage.NavigateTo(messagesPage.Url);
+            this.messagesPage.ClickFriendItem();
+
+            this.messagesPage.EnterInvalidMessageSpacebarChar();
+            this.messagesPage.ClickSendButton();
+
+            this.messagesPage.AssertMessageIsNotSent(MessagesPageMessages.SpacebarChar);
+        }
     }
 }

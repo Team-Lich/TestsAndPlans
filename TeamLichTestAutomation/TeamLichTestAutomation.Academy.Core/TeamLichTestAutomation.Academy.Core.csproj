@@ -51,8 +51,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Data\TelerikUserData.cs" />
-    <Compile Include="Facades\TelerikAcademyFacade.cs" />
+    <Compile Include="Pages\MessagesPage\MessagesPageMessages.cs" />
+    <Compile Include="Pages\RegistrationPage\RegistrationPageUserCredentials.cs" />
     <Compile Include="Models\TelerikUser.cs" />
     <Compile Include="Pages\AdminPages\AdminDashboardPage\AdminDashboardPage.cs" />
     <Compile Include="Pages\AdminPages\AdminDashboardPage\AdminDashboardPage.Map.cs" />
@@ -126,6 +126,7 @@
       <Name>TeamLichTestAutomation.Utilities</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

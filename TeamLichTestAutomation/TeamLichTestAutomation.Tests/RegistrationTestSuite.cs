@@ -5,7 +5,6 @@ namespace TeamLichTestAutomation.Tests
 
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-    using TeamLichTestAutomation.Academy.Core.Data;
     using TeamLichTestAutomation.Academy.Core.Models;
     using TeamLichTestAutomation.Academy.Core.Pages.MainPage;
     using TeamLichTestAutomation.Academy.Core.Pages.RegistrationPage;

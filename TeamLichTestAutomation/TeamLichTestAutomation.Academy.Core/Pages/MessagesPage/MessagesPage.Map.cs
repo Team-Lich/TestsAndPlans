@@ -1,6 +1,8 @@
 ﻿namespace TeamLichTestAutomation.Academy.Core.Pages.MessagesPage
 {
     using System.Collections.Generic;
+    using System.Linq;
+
     using ArtOfTest.WebAii.Controls.HtmlControls;
     using Models;
 
@@ -123,6 +125,17 @@
             get
             {
                 return this.FriendItem.Find.ByExpression<HtmlSpan>("class=~friendTime");
+            }
+        }
+
+        public HtmlControl LastMessageWrapper
+        {
+            get
+            {
+                this.Browser.WaitForElement(2000, "class=message");
+                return this.Browser
+                    .Find.AllByAttributes<HtmlDiv>("class=message").LastOrDefault()
+                    .Find.AllByTagName<HtmlControl>("p").LastOrDefault();
             }
         }
     }

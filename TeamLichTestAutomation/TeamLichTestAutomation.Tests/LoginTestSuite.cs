@@ -146,7 +146,7 @@ namespace TeamLichTestAutomation.Tests
         [TestMethod]
         [TestId(1)]
         [TestCategory("Login")]
-        [TestCategory("PriorityHigh")]
+        [TestCategory(Priority.High)]
         [TestOwner(Owner.DechoDechev)]
         public void TestLoginWithValidRegularUserCredentials()
         {
@@ -158,7 +158,7 @@ namespace TeamLichTestAutomation.Tests
         [TestMethod]
         [TestId(238)]
         [TestCategory("Login")]
-        [TestCategory("PriorityHigh")]
+        [TestCategory(Priority.High)]
         [TestOwner(Owner.DechoDechev)]
         public void TestLoginWithEmptyFields()
         {
@@ -171,7 +171,7 @@ namespace TeamLichTestAutomation.Tests
         [TestMethod]
         [TestId(243)]
         [TestCategory("Login")]
-        [TestCategory("PriorityHigh")]
+        [TestCategory(Priority.High)]
         [TestOwner(Owner.DechoDechev)]
         public void TestLoginWithEmptyUserField()
         {
@@ -185,7 +185,7 @@ namespace TeamLichTestAutomation.Tests
         [TestMethod]
         [TestId(244)]
         [TestCategory("Login")]
-        [TestCategory("PriorityHigh")]
+        [TestCategory(Priority.High)]
         [TestOwner(Owner.DechoDechev)]
         public void TestLoginRegularUserWithEmptyPasswordField()
         {
@@ -199,7 +199,7 @@ namespace TeamLichTestAutomation.Tests
         [TestMethod]
         [TestId(245)]
         [TestCategory("Login")]
-        [TestCategory("PriorityHigh")]
+        [TestCategory(Priority.High)]
         [TestOwner(Owner.DechoDechev)]
         public void TestLoginUserWithNullFields()
         {
@@ -212,7 +212,7 @@ namespace TeamLichTestAutomation.Tests
         [TestMethod]
         [TestId(246)]
         [TestCategory("Login")]
-        [TestCategory("PriorityHigh")]
+        [TestCategory(Priority.High)]
         [TestOwner(Owner.DechoDechev)]
         public void TestLoginUserWithNullUserField()
         {
@@ -224,8 +224,9 @@ namespace TeamLichTestAutomation.Tests
         }
 
         [TestMethod]
+        [TestId(247)]
         [TestCategory("Login")]
-        [TestCategory("PriorityHigh")]
+        [TestCategory(Priority.High)]
         [TestOwner(Owner.DechoDechev)]
         public void TestLoginRegularUserWithNullPasswordField()
         {
@@ -237,8 +238,9 @@ namespace TeamLichTestAutomation.Tests
         }
 
         [TestMethod]
+        [TestId(248)]
         [TestCategory("Login")]
-        [TestCategory("PriorityHigh")]
+        [TestCategory(Priority.High)]
         [TestOwner(Owner.DechoDechev)]
         public void TestLoginAdminUserWithNullPasswordField()
         {
@@ -250,8 +252,9 @@ namespace TeamLichTestAutomation.Tests
         }
 
         [TestMethod]
+        [TestId(249)]
         [TestCategory("Login")]
-        [TestCategory("PriorityHigh")]
+        [TestCategory(Priority.High)]
         [TestOwner(Owner.DechoDechev)]
         public void TestLoginAdminUserWithEmptyPasswordField()
         {
@@ -265,7 +268,7 @@ namespace TeamLichTestAutomation.Tests
         [TestMethod]
         [TestId(7)]
         [TestCategory("Login")]
-        [TestCategory("PriorityHigh")]
+        [TestCategory(Priority.High)]
         [TestOwner(Owner.DechoDechev)]
         public void TestLoginWithValidAdminUserCredentials()
         {
@@ -277,7 +280,7 @@ namespace TeamLichTestAutomation.Tests
         [TestMethod]
         [TestId(30)]
         [TestCategory("Login")]
-        [TestCategory("PriorityHigh")]
+        [TestCategory(Priority.High)]
         [TestOwner(Owner.DechoDechev)]
         public void TestLoginWithInvalidAdminUsername()
         {
@@ -291,7 +294,7 @@ namespace TeamLichTestAutomation.Tests
         [TestMethod]
         [TestId(29)]
         [TestCategory("Login")]
-        [TestCategory("PriorityHigh")]
+        [TestCategory(Priority.High)]
         [TestOwner(Owner.DechoDechev)]
         public void TestLoginWithInvalidAdminPassword()
         {
@@ -305,7 +308,7 @@ namespace TeamLichTestAutomation.Tests
         [TestMethod]
         [TestId(28)]
         [TestCategory("Login")]
-        [TestCategory("PriorityHigh")]
+        [TestCategory(Priority.High)]
         [TestOwner(Owner.DechoDechev)]
         public void TestLoginWithInvalidRegularUserUsername()
         {
@@ -319,7 +322,7 @@ namespace TeamLichTestAutomation.Tests
         [TestMethod]
         [TestId(2)]
         [TestCategory("Login")]
-        [TestCategory("PriorityHigh")]
+        [TestCategory(Priority.High)]
         [TestOwner(Owner.DechoDechev)]
         public void TestLoginWithInvalidRegularUserPassword()
         {
@@ -333,7 +336,7 @@ namespace TeamLichTestAutomation.Tests
         [TestMethod]
         [TestId(37)]
         [TestCategory("Login")]
-        [TestCategory("PriorityMedium")]
+        [TestCategory(Priority.Medium)]
         [TestOwner(Owner.DechoDechev)]
         public void TestLoginPersistenceRegularUserOnBrowserRestart()
         {
@@ -351,8 +354,9 @@ namespace TeamLichTestAutomation.Tests
         }
 
         [TestMethod]
+        [TestId(250)]
         [TestCategory("Login")]
-        [TestCategory("PriorityMedium")]
+        [TestCategory(Priority.Medium)]
         [TestOwner(Owner.DechoDechev)]
         public void TestLoginPersistenceAdminUserOnBrowserRestart()
         {
@@ -371,7 +375,7 @@ namespace TeamLichTestAutomation.Tests
         [TestMethod]
         [TestId(41)]
         [TestCategory("Login")]
-        [TestCategory("PriorityHigh")]
+        [TestCategory(Priority.High)]
         [TestOwner(Owner.DechoDechev)]
         public void TestLoginRegularUserIsNotPersistentOnCookieDeletion()
         {
@@ -387,7 +391,7 @@ namespace TeamLichTestAutomation.Tests
         [TestMethod]
         [TestId(42)]
         [TestCategory("Login")]
-        [TestCategory("PriorityHigh")]
+        [TestCategory(Priority.High)]
         [TestOwner(Owner.DechoDechev)]
         public void TestLoginAdminUserIsNotPersistentOnCookieDeletion()
         {
@@ -401,8 +405,9 @@ namespace TeamLichTestAutomation.Tests
         }
 
         [TestMethod]
+        [TestId(251)]
         [TestCategory("Login")]
-        [TestCategory("PriorityHigh")]
+        [TestCategory(Priority.High)]
         [TestOwner(Owner.DechoDechev)]
         public void TestLoginUserFieldDoesNotAcceptForbiddenSymbols()
         {
@@ -415,8 +420,9 @@ namespace TeamLichTestAutomation.Tests
         }
 
         [TestMethod]
+        [TestId(252)]
         [TestCategory("Login")]
-        [TestCategory("PriorityHigh")]
+        [TestCategory(Priority.High)]
         [TestOwner(Owner.DechoDechev)]
         public void TestLoginPasswordFieldDoesNotAcceptForbiddenSymbols()
         {

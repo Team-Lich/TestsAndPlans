@@ -1,5 +1,7 @@
 ﻿namespace TeamLichTestAutomation.Academy.Core.Models
 {
+    using TeamLichTestAutomation.Academy.Core.Data;
+
     public class TelerikUser
     {
         public TelerikUser(string userName, string password)
@@ -56,6 +58,20 @@
                 return new TelerikUser("LichTestUser", "123456", "Първото", "Фамилията", "mailtest@test.com");
             }
         }
+
+        public static TelerikUser ValidUser
+        {
+            get
+            {
+                return new TelerikUser(
+                TelerikUserData.UsernameValid,
+                TelerikUserData.PasswordValid,
+                TelerikUserData.FirstNameValid,
+                TelerikUserData.LastNameValid,
+                TelerikUserData.EmailValid);
+            }
+        }
+
 
         public string UserName { get; set; }
 

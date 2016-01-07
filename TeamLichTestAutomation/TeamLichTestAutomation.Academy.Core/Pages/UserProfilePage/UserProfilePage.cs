@@ -1,10 +1,10 @@
-﻿namespace TeamLichTestAutomation.Academy.Core.Pages.UserPage
+﻿namespace TeamLichTestAutomation.Academy.Core.Pages.UserProfilePage
 {
     using ArtOfTest.WebAii.Core;
 
-    public partial class UserPage : BasePage
+    public partial class UserProfilePage : BasePage
     {
-        public UserPage(Browser browser)
+        public UserProfilePage(Browser browser)
             : base(browser)
         {
         }

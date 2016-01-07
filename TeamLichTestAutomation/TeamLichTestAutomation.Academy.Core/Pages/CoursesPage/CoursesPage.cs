@@ -1,8 +1,7 @@
 ﻿namespace TeamLichTestAutomation.Academy.Core.Pages.CoursesPage
 {
-    using ArtOfTest.WebAii.Core;
-    using ArtOfTest.WebAii.Win32.Dialogs;
     using System.Threading;
+    using ArtOfTest.WebAii.Core;
 
     public partial class CoursesPage : BasePage
     {

@@ -5,23 +5,31 @@
 
     public partial class WorkEducationStatusesPage
     {
+        internal KendoGrid KendoTable
+        {
+            get
+            {
+                return this.Browser.Find.ById<KendoGrid>("DataGrid");
+            }
+        }
+
         private HtmlAnchor AddButton
         {
             get
             {
-            string expressionString = @"href=/Administration_Users/WorkEducationStatuses/Read?DataGrid-mode=insert";
+                string expressionString = @"href=/Administration_Users/WorkEducationStatuses/Read?DataGrid-mode=insert";
                 this.Browser.WaitForElement(5000, expressionString);
                 return this.Browser.Find.ByExpression<HtmlAnchor>(expressionString);
             }
         }
 
         private HtmlButton DeleteButton
-            {
+        {
             get
-                {
+            {
                 return this.Browser.Find.ByExpression<HtmlButton>("class=~k-grid-delete");
-                }
             }
+        }
 
         private HtmlButton ExprotAsExcelButton
         {
@@ -65,14 +73,6 @@
                 this.Browser.RefreshDomTree();
                 this.Browser.WaitForElement(5000, "data-field=Name", "data-role=columnsorter");
                 return this.Browser.Find.ByAttributes<HtmlTableCell>("data-field=Name");
-            }
-        }
-
-        internal KendoGrid KendoTable
-        {
-            get
-            {
-                return this.Browser.Find.ById<KendoGrid>("DataGrid");
             }
         }
     }

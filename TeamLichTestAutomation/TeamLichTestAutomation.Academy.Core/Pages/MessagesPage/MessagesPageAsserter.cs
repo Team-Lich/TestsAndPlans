@@ -1,11 +1,11 @@
 ﻿namespace TeamLichTestAutomation.Academy.Core.Pages.MessagesPage
 {
     using ArtOfTest.Common.UnitTesting;
-    using TeamLichTestAutomation.Academy.Core.Pages.UserPage;
+    using TeamLichTestAutomation.Academy.Core.Pages.UserProfilePage;
 
     public static class MessagesPageAsserter
     {
-        public static void AssertMessagesPageIsActive(this UserPage userPage)
+        public static void AssertMessagesPageIsActive(this UserProfilePage userPage)
         {
             Assert.AreEqual(userPage.Browser.PageTitle, "Съобщения - Телерик Академия - Студентска система");
         }

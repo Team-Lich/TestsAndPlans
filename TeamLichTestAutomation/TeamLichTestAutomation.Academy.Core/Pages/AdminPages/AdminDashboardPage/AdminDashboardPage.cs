@@ -52,12 +52,12 @@
         {
             this.AvatarsButton.Click();
         }
-        
+
         public void ClickLabelsButton()
         {
             this.LabelsButton.Click();
         }
-        
+
         public void ClickComplexSearchButton()
         {
             this.ComplexSearchButton.Click();

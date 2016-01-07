@@ -6,7 +6,7 @@
     using TeamLichTestAutomation.Academy.Core.Pages.FriendsPage;
     using TeamLichTestAutomation.Academy.Core.Pages.LoginPage;
     using TeamLichTestAutomation.Academy.Core.Pages.MainPage;
-    using TeamLichTestAutomation.Academy.Core.Pages.UserPage;
+    using TeamLichTestAutomation.Academy.Core.Pages.UserProfilePage;
 
     /// <summary>
     /// Summary description for RelatedUsersUtilities
@@ -15,7 +15,7 @@
     {
         private static MainPage mainPage;
         private static LoginPage loginPage;
-        private static UserPage userPage;
+        private static UserProfilePage userPage;
         private static FriendsPage friendsPage;
 
         public static void RemoveFriend(Browser browser)
@@ -26,7 +26,7 @@
             mainPage = new MainPage(browser);
             mainPage.NavigateTo(TelerikUser.Related2.Url);
 
-            userPage = new UserPage(browser);
+            userPage = new UserProfilePage(browser);
             if (userPage.RemoveFriendButton != null && userPage.RemoveFriendButton.IsVisible())
             {
                 userPage.ClickRemoveFriendButton();
@@ -45,7 +45,7 @@
             mainPage = new MainPage(browser);
             mainPage.NavigateTo(TelerikUser.Related2.Url);
 
-            userPage = new UserPage(browser);
+            userPage = new UserProfilePage(browser);
             if (userPage.AddFriendButton != null && userPage.AddFriendButton.IsVisible())
             {
                 userPage.ClickAddFriendButton();

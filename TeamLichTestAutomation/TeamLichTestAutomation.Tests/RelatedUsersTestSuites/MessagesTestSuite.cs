@@ -9,7 +9,7 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
     using TeamLichTestAutomation.Academy.Core.Pages.LoginPage;
     using TeamLichTestAutomation.Academy.Core.Pages.MainPage;
     using TeamLichTestAutomation.Academy.Core.Pages.MessagesPage;
-    using TeamLichTestAutomation.Academy.Core.Pages.UserPage;
+    using TeamLichTestAutomation.Academy.Core.Pages.UserProfilePage;
 
     using TeamLichTestAutomation.Utilities;
     using TeamLichTestAutomation.Utilities.Attributes;
@@ -23,7 +23,7 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
         private Browser browser;
         private MainPage mainPage;
         private LoginPage loginPage;
-        private UserPage userPage;
+        private UserProfilePage userPage;
         private MessagesPage messagesPage;
 
         #region [Setup / TearDown]
@@ -31,23 +31,24 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
         private TestContext testContextInstance = null;
 
         /// <summary>
-        ///Gets or sets the VS test context which provides
-        ///information about and functionality for the
-        ///current test run.
-        ///</summary>
+        /// Gets or sets the VS test context which provides
+        /// information about and functionality for the
+        /// current test run.
+        /// </summary>
         public TestContext TestContext
         {
             get
             {
-                return testContextInstance;
+                return this.testContextInstance;
             }
+
             set
             {
-                testContextInstance = value;
+                this.testContextInstance = value;
             }
         }
 
-        //Use ClassInitialize to run code before running the first test in the class
+        // Use ClassInitialize to run code before running the first test in the class
         [ClassInitialize()]
         public static void MyClassInitialize(TestContext testContext)
         {
@@ -79,7 +80,7 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
             // location for this test.
 
             // Pass in 'true' to recycle the browser between test methods
-            Initialize(true, this.TestContext.TestLogsDir, new TestContextWriteLine(this.TestContext.WriteLine));
+            this.Initialize(true, this.TestContext.TestLogsDir, new TestContextWriteLine(this.TestContext.WriteLine));
 
             // If you need to override any other settings coming from the
             // config section you can comment the 'Initialize' line above and instead
@@ -104,13 +105,9 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
             // Set the current test method. This is needed for WebAii to discover
             // its custom TestAttributes set on methods and classes.
             // This method should always exist in [TestInitialize()] method.
-            SetTestMethod(this, (string)TestContext.Properties["TestName"]);
+            this.SetTestMethod(this, (string)TestContext.Properties["TestName"]);
 
             #endregion WebAii Initialization
-
-            //
-            // Place any additional initialization here
-            //
 
             Manager.LaunchNewBrowser(BrowserType.Chrome);
             Manager.ActiveBrowser.ClearCache(BrowserCacheType.Cookies);
@@ -118,19 +115,17 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
             this.browser = Manager.ActiveBrowser;
             this.mainPage = new MainPage(this.browser);
             this.loginPage = new LoginPage(this.browser);
-            this.userPage = new UserPage(this.browser);
+            this.userPage = new UserProfilePage(this.browser);
             this.messagesPage = new MessagesPage(this.browser);
 
-            mainPage.NavigateTo(loginPage.Url);
+            this.mainPage.NavigateTo(this.loginPage.Url);
         }
 
         // Use TestCleanup to run code after each test has run
         [TestCleanup()]
         public void MyTestCleanup()
         {
-            //
-            // Place any additional cleanup here
-            //
+            //// Place any additional cleanup here
 
             #region WebAii CleanUp
 
@@ -141,14 +136,14 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
             #endregion WebAii CleanUp
         }
 
-        //Use ClassCleanup to run code after all tests in a class have run
+        // Use ClassCleanup to run code after all tests in a class have run
         [ClassCleanup()]
         public static void MyClassCleanup()
         {
             // This will shut down all browsers if
             // recycleBrowser is turned on. Else
             // will do nothing.
-            ShutDown();
+            BaseTest.ShutDown();
         }
 
         #endregion [Setup / TearDown]
@@ -190,7 +185,7 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
         public void MessagesPageElementsShouldBeDisplayedCorrectly()
         {
             RelatedUsersUtilities.AddFriend(this.browser);
-            this.mainPage.NavigateTo(messagesPage.Url);
+            this.mainPage.NavigateTo(this.messagesPage.Url);
 
             this.messagesPage.AssertMessagesHeadingIsVisible();
             this.messagesPage.AssertMessagePanelTitleIsVisible();
@@ -210,7 +205,7 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
         public void FriendItemsShouldBeDisplayedCorrectly()
         {
             RelatedUsersUtilities.AddFriend(this.browser);
-            this.mainPage.NavigateTo(messagesPage.Url);
+            this.mainPage.NavigateTo(this.messagesPage.Url);
 
             this.messagesPage.AssertFriendAvatarIsVisible();
             this.messagesPage.AssertFriendNamesAreVisible();
@@ -225,7 +220,7 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
         public void SearchFieldShouldBeVisible()
         {
             RelatedUsersUtilities.AddFriend(this.browser);
-            this.mainPage.NavigateTo(messagesPage.Url);
+            this.mainPage.NavigateTo(this.messagesPage.Url);
 
             this.messagesPage.AssertSearchFieldIsVisible();
         }
@@ -238,7 +233,7 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
         public void MessageContainerShouldContainsProperData()
         {
             RelatedUsersUtilities.AddFriend(this.browser);
-            this.mainPage.NavigateTo(messagesPage.Url);
+            this.mainPage.NavigateTo(this.messagesPage.Url);
             this.messagesPage.ClickFriendItem();
 
             this.messagesPage.Browser.ScrollBy(0, 400);
@@ -258,7 +253,7 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
         public void SendValidMessage()
         {
             RelatedUsersUtilities.AddFriend(this.browser);
-            this.mainPage.NavigateTo(messagesPage.Url);
+            this.mainPage.NavigateTo(this.messagesPage.Url);
             this.messagesPage.ClickFriendItem();
             this.messagesPage.UncheckSubmitByEnterCheckbox();
 
@@ -311,7 +306,7 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
         public void SendValidMessageWhenCheckboxIsUncheckedAndEnterIsPressed()
         {
             RelatedUsersUtilities.AddFriend(this.browser);
-            this.mainPage.NavigateTo(messagesPage.Url);
+            this.mainPage.NavigateTo(this.messagesPage.Url);
             this.messagesPage.ClickFriendItem();
 
             this.messagesPage.UncheckSubmitByEnterCheckbox();
@@ -334,7 +329,7 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
         public void SendValidMessageWhenCheckboxIsCheckedAndEnterIsPressed()
         {
             RelatedUsersUtilities.AddFriend(this.browser);
-            this.mainPage.NavigateTo(messagesPage.Url);
+            this.mainPage.NavigateTo(this.messagesPage.Url);
             this.messagesPage.ClickFriendItem();
 
             this.messagesPage.CheckSubmitByEnterCheckbox();
@@ -352,7 +347,7 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
         public void TryToSendEmptyMessage()
         {
             RelatedUsersUtilities.AddFriend(this.browser);
-            this.mainPage.NavigateTo(messagesPage.Url);
+            this.mainPage.NavigateTo(this.messagesPage.Url);
             this.messagesPage.ClickFriendItem();
             this.messagesPage.UncheckSubmitByEnterCheckbox();
             this.messagesPage.ClickSendButton();

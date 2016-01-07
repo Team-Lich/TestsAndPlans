@@ -5,7 +5,8 @@
 
     using ArtOfTest.WebAii.Controls.HtmlControls;
     using ArtOfTest.WebAii.ObjectModel;
-    using Models;
+
+    using TeamLichTestAutomation.Academy.Core.Models;
 
     public partial class MessagesPage
     {
@@ -53,7 +54,7 @@
         {
             get
             {
-                return SubmitByEnterCheckboxWrapper.Find.ById<HtmlInputCheckBox>("useEnterKey");
+                return this.SubmitByEnterCheckboxWrapper.Find.ById<HtmlInputCheckBox>("useEnterKey");
             }
         }
 

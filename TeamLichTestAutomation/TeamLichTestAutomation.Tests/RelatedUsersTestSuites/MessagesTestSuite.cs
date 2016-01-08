@@ -255,6 +255,7 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
             RelatedUsersUtilities.AddFriend(this.browser);
             this.mainPage.NavigateTo(this.messagesPage.Url);
             this.messagesPage.ClickFriendItem();
+            this.messagesPage.Browser.ScrollBy(0, 400);
             this.messagesPage.UncheckSubmitByEnterCheckbox();
 
             this.messagesPage.EnterValidMessageLowercaseLatinAlphabet();
@@ -309,8 +310,8 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
             this.mainPage.NavigateTo(this.messagesPage.Url);
             this.messagesPage.ClickFriendItem();
 
-            this.messagesPage.UncheckSubmitByEnterCheckbox();
             this.messagesPage.Browser.ScrollBy(0, 400);
+            this.messagesPage.UncheckSubmitByEnterCheckbox();
             this.messagesPage.EnterValidMessageLowercaseLatinAlphabet();
             this.messagesPage.PressEnter();
             this.messagesPage.EnterValidMessageLowercaseCyrilicAlphabet();

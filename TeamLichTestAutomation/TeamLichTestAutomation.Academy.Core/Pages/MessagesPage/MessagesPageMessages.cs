@@ -1,6 +1,6 @@
 ﻿namespace TeamLichTestAutomation.Academy.Core.Pages.MessagesPage
 {
-    public class MessagesPageMessages
+    public static class MessagesPageMessages
     {
         public static readonly string LowercaseLatinAlphabet = "abcdefghijklmnopqrstuvwxyz";
         public static readonly string UppercaseLatinAlphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";

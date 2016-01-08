@@ -115,7 +115,7 @@ namespace TeamLichTestAutomation.Tests.AdministrationTestSuites
 
             #endregion WebAii Initialization
 
-            Manager.LaunchNewBrowser(BrowserType.InternetExplorer);
+            Manager.LaunchNewBrowser(BrowserType.InternetExplorer, true);
             this.browser = Manager.ActiveBrowser;
             this.browser.ClearCache(BrowserCacheType.Cookies);
             this.browser.Window.Maximize();
@@ -175,7 +175,7 @@ namespace TeamLichTestAutomation.Tests.AdministrationTestSuites
         [TestCategory("AdministrationUniversities")]
         [TestPriority(Priority.High)]
         [TestOwner(Owner.DechoDechev)]
-        public void TestAdminUniversityAddFunctionalityWorks()
+        public void AdminUniversityAddFunctionality()
         {
             this.uniPage.AddUniversity("Telerik University");
             KendoGrid grid = this.uniPage.Browser.Find.ByExpression<KendoGrid>("data-role=grid");
@@ -189,7 +189,7 @@ namespace TeamLichTestAutomation.Tests.AdministrationTestSuites
         [TestCategory("AdministrationUniversities")]
         [TestCategory("PriorityMedium")]
         [TestOwner(Owner.Dimitar)]
-        public void TestAdminUniversityExportAsExcelFunctionalityWorks()
+        public void AdminUniversityExportAsExcelFunctionality()
         {
             this.uniPage.ExportAsExcel();
             Thread.Sleep(4000);
@@ -205,7 +205,7 @@ namespace TeamLichTestAutomation.Tests.AdministrationTestSuites
         [TestCategory("AdministrationUniversities")]
         [TestPriority(Priority.Medium)]
         [TestOwner(Owner.DechoDechev)]
-        public void TestAdminUniversityRemoveFunctionalityWorks()
+        public void AdminUniversityRemoveFunctionality()
         {
             KendoGrid grid = this.uniPage.Browser.Find.ByExpression<KendoGrid>("data-role=grid");
             this.uniPage.AddUniversity("Telerik University");
@@ -227,7 +227,7 @@ namespace TeamLichTestAutomation.Tests.AdministrationTestSuites
         [TestCategory("AdministrationUniversities")]
         [TestPriority(Priority.Low)]
         [TestOwner(Owner.DechoDechev)]
-        public void TestAdminUniversityBackToAdministrationButtonWorks()
+        public void AdminUniversityBackToAdministrationButton()
         {
             this.uniPage.BackToAdmin();
             this.dashboardPage.AssertCurrentlyOnThePage();
@@ -238,13 +238,14 @@ namespace TeamLichTestAutomation.Tests.AdministrationTestSuites
         [TestCategory("AdministrationUniversities")]
         [TestPriority(Priority.Medium)]
         [TestOwner(Owner.DechoDechev)]
-        public void TestAdminUniversityEditNameWorks()
+        public void AdminUniversityEditName()
         {
             string newUniversityName = "Telerik University";
             this.uniPage.AddUniversity(newUniversityName);
             KendoGrid grid = this.uniPage.Browser.Find.ByExpression<KendoGrid>("data-role=grid");
             this.uniPage.EditRow(grid, newUniversityName, "Name", "Progress University", 1);
 
+            Thread.Sleep(2000);
             this.browser.RefreshDomTree();
             grid = this.uniPage.Browser.Find.ByExpression<KendoGrid>("data-role=grid");
             this.uniPage.AssertUniversityIsPresentInGrid(grid, "Progress University");
@@ -260,7 +261,7 @@ namespace TeamLichTestAutomation.Tests.AdministrationTestSuites
         [TestCategory("AdministrationUniversities")]
         [TestCategory("PriorityMedium")]
         [TestOwner(Owner.Dimitar)]
-        public void TestAdminUniversityDeleteWorks()
+        public void AdminUniversityDeleteRow()
         {
         string newUniversityName = "Telerik University";
         this.uniPage.AddUniversity(newUniversityName);
@@ -283,7 +284,7 @@ namespace TeamLichTestAutomation.Tests.AdministrationTestSuites
         [TestCategory("AdministrationUniversities")]
         [TestPriority(Priority.Low)]
         [TestOwner(Owner.DechoDechev)]
-        public void TestSortByNameInUniversityGridWorks()
+        public void AdminUniversitySortByNameInGrid()
         {
             KendoGrid grid = this.uniPage.Browser.Find.ByExpression<KendoGrid>("data-role=grid");
 
@@ -334,7 +335,7 @@ namespace TeamLichTestAutomation.Tests.AdministrationTestSuites
         [TestCategory("AdministrationUniversities")]
         [TestPriority(Priority.Low)]
         [TestOwner(Owner.DechoDechev)]
-        public void TestSortByIdInUniversityGridWorks()
+        public void AdminUniversitySortByIdInGrid()
         {
             KendoGrid grid = this.uniPage.Browser.Find.ByExpression<KendoGrid>("data-role=grid");
 

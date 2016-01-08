@@ -23,20 +23,20 @@
 
         public void AddLabel(string labelName)
         {
-        this.Browser.RefreshDomTree();
-        this.AddButton.Click();
+            this.Browser.RefreshDomTree();
+            this.AddButton.Click();
 
-        var currentManager = Manager.Current;
+            var currentManager = Manager.Current;
 
-        var nameBox = this.NameTextbox.GetRectangle();
+            var nameBox = this.NameTextbox.GetRectangle();
 
-        currentManager.Desktop.Mouse.Click(MouseClickType.LeftDoubleClick, nameBox);
-        currentManager.Desktop.KeyBoard.TypeText(labelName, 50);
+            currentManager.Desktop.Mouse.Click(MouseClickType.LeftDoubleClick, nameBox);
+            currentManager.Desktop.KeyBoard.TypeText(labelName, 50);
 
-        currentManager.Desktop.Mouse.Click(MouseClickType.LeftClick, nameBox.Right + 10, nameBox.Top + 10);
+            currentManager.Desktop.Mouse.Click(MouseClickType.LeftClick, nameBox.Right + 10, nameBox.Top + 10);
 
-        this.UpdateButton.Click();
-        Thread.Sleep(1000);
+            this.UpdateButton.Click();
+            Thread.Sleep(1000);
         }
 
         public void DeleteRow(KendoGrid grid, string value, int searchColumn)
@@ -48,21 +48,21 @@
             {
                 if (row[searchColumn].InnerText == value)
                 {
-                // It works only on Internet Explorer on my machine
-                deleteButton = row.Find.ByExpression<HtmlAnchor>("class=~k-grid-delete");
-                deleteButton.ScrollToVisible();
+                    // It works only on Internet Explorer on my machine
+                    deleteButton = row.Find.ByExpression<HtmlAnchor>("class=~k-grid-delete");
+                    deleteButton.ScrollToVisible();
 
-                this.Browser.RefreshDomTree();
-                var deleteRectangle = deleteButton.GetRectangle();
+                    this.Browser.RefreshDomTree();
+                    var deleteRectangle = deleteButton.GetRectangle();
 
-                var currentManager = Manager.Current;
+                    var currentManager = Manager.Current;
 
-                AlertDialog alertDialog = new AlertDialog(this.Browser, DialogButton.OK);
-                currentManager.DialogMonitor.AddDialog(alertDialog);
+                    AlertDialog alertDialog = new AlertDialog(this.Browser, DialogButton.OK);
+                    currentManager.DialogMonitor.AddDialog(alertDialog);
 
-                currentManager.Desktop.Mouse.Click(MouseClickType.LeftClick, deleteRectangle);
+                    currentManager.Desktop.Mouse.Click(MouseClickType.LeftClick, deleteRectangle);
 
-                this.Browser.Desktop.KeyBoard.KeyPress(Keys.Return);
+                    this.Browser.Desktop.KeyBoard.KeyPress(Keys.Return);
                 }
             }
         }

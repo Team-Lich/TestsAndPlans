@@ -32,7 +32,7 @@
 
         public void EnterValidMessageLowercaseCyrilicAlphabet()
         {
-            this.MessageToSendTextArea.Text = MessagesPageMessages.LowercaseCyrilicAlphabet;
+            this.MessageToSendTextArea.Text += MessagesPageMessages.LowercaseCyrilicAlphabet;
         }
 
         public void EnterValidMessageUppercaseCyrilicAlphabet()
@@ -78,6 +78,27 @@
         public void ClickFriendItem()
         {
             this.FriendItem.MouseClick();
+        }
+
+        public void CheckSubmitByEnterCheckbox()
+        {
+            this.SubmitByEnterCheckbox.Check(true, true);
+        }
+
+        public void UncheckSubmitByEnterCheckbox()
+        {
+            this.SubmitByEnterCheckbox.Check(false, true);
+        }
+
+        public void PressEnter()
+        {
+            this.MessageToSendTextArea.MouseClick();
+            this.Browser.Desktop.KeyBoard.KeyPress(System.Windows.Forms.Keys.Enter);
+        }
+
+        public void HoverLastMessageWrapper()
+        {
+            this.LastMessageContainerLastParagraph.MouseHover();
         }
 
         public void ClickSendButton()

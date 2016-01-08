@@ -2,6 +2,7 @@
 {
     using System;
     using ArtOfTest.WebAii.Core;
+
     using TeamLichTestAutomation.Academy.Core.Models;
     using TeamLichTestAutomation.Utilities;
 
@@ -22,7 +23,6 @@
             this.FirstNameTextBox.Text = "ТестИме";
             this.LastNameTextBox.Text = "ТестФамилия";
             this.EmailTextBox.Text = generator.GetString(8) + "@test.com";
-            //this.TermAndConditionsCheckBox.Checked = true;
             this.TermAndConditionsCheckBox.MouseClick(MouseClickType.LeftClick);
             this.SubmitButton.Click();
         }

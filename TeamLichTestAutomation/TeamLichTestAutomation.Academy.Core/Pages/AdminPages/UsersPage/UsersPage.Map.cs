@@ -5,13 +5,21 @@
 
     public partial class UsersPage
     {
-        private HtmlButton DeleteButton
-            {
+        internal KendoGrid KendoTable
+        {
             get
-                {
-                return this.Browser.Find.ByExpression<HtmlButton>("class=~k-grid-delete");
-                }
+            {
+                return this.Browser.Find.ById<KendoGrid>("DataGrid");
             }
+        }
+
+        private HtmlButton DeleteButton
+        {
+            get
+            {
+                return this.Browser.Find.ByExpression<HtmlButton>("class=~k-grid-delete");
+            }
+        }
 
         private HtmlButton ExprotAsExcelButton
         {
@@ -55,14 +63,6 @@
                 this.Browser.RefreshDomTree();
                 this.Browser.WaitForElement(5000, "data-field=Name", "data-role=columnsorter");
                 return this.Browser.Find.ByAttributes<HtmlTableCell>("data-field=Name");
-            }
-        }
-
-        internal KendoGrid KendoTable
-        {
-            get
-            {
-                return this.Browser.Find.ById<KendoGrid>("DataGrid");
             }
         }
     }

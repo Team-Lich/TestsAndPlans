@@ -8,7 +8,7 @@
 
     using Telerik.TestingFramework.Controls.KendoUI;
 
-    public static class LichKendoGridExtensions
+    public static class KendoGridExtensions
     {
         public static bool ContainsValueInColumn(this KendoGrid grid, string value, int searchColumn)
         {

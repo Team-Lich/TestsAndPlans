@@ -6,65 +6,65 @@
     {
         private HtmlAnchor AttendanceLogsButton
         {
-        get
+            get
             {
-            return this.Browser.Find.ByExpression<HtmlAnchor>("href=/Administration_Users/AttendanceLogs");
+                return this.Browser.Find.ByExpression<HtmlAnchor>("href=/Administration_Users/AttendanceLogs");
             }
         }
 
         private HtmlAnchor AvatarsButton
         {
-        get
+            get
             {
-            return this.Browser.Find.ByExpression<HtmlAnchor>("href=/Administration_Users/UsersAvatars");
+                return this.Browser.Find.ByExpression<HtmlAnchor>("href=/Administration_Users/UsersAvatars");
             }
         }
 
         private HtmlAnchor ComplexSearchButton
         {
-        get
+            get
             {
-            return this.Browser.Find.ByExpression<HtmlAnchor>("href=/Administration_Users/ComplexSearch");
+                return this.Browser.Find.ByExpression<HtmlAnchor>("href=/Administration_Users/ComplexSearch");
             }
         }
 
         private HtmlAnchor CommentsButton
         {
-        get
+            get
             {
-            return this.Browser.Find.ByExpression<HtmlAnchor>("href=/Administration_Users/Comments");
+                return this.Browser.Find.ByExpression<HtmlAnchor>("href=/Administration_Users/Comments");
             }
         }
 
         private HtmlAnchor FilteredExportToExcelButton
         {
-        get
+            get
             {
-            return this.Browser.Find.ByExpression<HtmlAnchor>("href=/Administration_Users/FilteredExportToExcel");
+                return this.Browser.Find.ByExpression<HtmlAnchor>("href=/Administration_Users/FilteredExportToExcel");
             }
         }
 
         private HtmlAnchor FriendshipButton
         {
-        get
+            get
             {
-            return this.Browser.Find.ByExpression<HtmlAnchor>("href=/Administration_Users/Friendship");
+                return this.Browser.Find.ByExpression<HtmlAnchor>("href=/Administration_Users/Friendship");
             }
         }
 
         private HtmlAnchor LabelsButton
         {
-        get
+            get
             {
-            return this.Browser.Find.ByExpression<HtmlAnchor>("href=/Administration_Users/Labels");
+                return this.Browser.Find.ByExpression<HtmlAnchor>("href=/Administration_Users/Labels");
             }
         }
 
         private HtmlAnchor ProvincesButton
         {
-        get
+            get
             {
-            return this.Browser.Find.ByExpression<HtmlAnchor>("href=/Administration_Users/Provinces");
+                return this.Browser.Find.ByExpression<HtmlAnchor>("href=/Administration_Users/Provinces");
             }
         }
 
@@ -77,12 +77,12 @@
         }
 
         private HtmlAnchor UniversitiesButton
-            {
+        {
             get
-                {
+            {
                 return this.Browser.Find.ByExpression<HtmlAnchor>("href=/Administration_Users/Universities");
-                }
             }
+        }
 
         private HtmlAnchor UsersButton
         {
@@ -93,11 +93,11 @@
         }
 
         private HtmlAnchor WorkEducationStatusesButton
-            {
+        {
             get
-                {
+            {
                 return this.Browser.Find.ByExpression<HtmlAnchor>("href=/Administration_Users/WorkEducationStatuses");
-                }
             }
+        }
     }
 }

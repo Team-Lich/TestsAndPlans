@@ -9,7 +9,7 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
     using TeamLichTestAutomation.Academy.Core.Pages.FriendsPage;
     using TeamLichTestAutomation.Academy.Core.Pages.LoginPage;
     using TeamLichTestAutomation.Academy.Core.Pages.MainPage;
-    using TeamLichTestAutomation.Academy.Core.Pages.UserPage;
+    using TeamLichTestAutomation.Academy.Core.Pages.UserProfilePage;
 
     using TeamLichTestAutomation.Utilities;
     using TeamLichTestAutomation.Utilities.Attributes;
@@ -23,7 +23,7 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
         private Browser browser;
         private MainPage mainPage;
         private LoginPage loginPage;
-        private UserPage userPage;
+        private UserProfilePage userPage;
         private FriendsPage friendsPage;
 
         #region [Setup / TearDown]
@@ -31,30 +31,31 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
         private TestContext testContextInstance = null;
 
         /// <summary>
-        ///Gets or sets the VS test context which provides
-        ///information about and functionality for the
-        ///current test run.
-        ///</summary>
+        /// Gets or sets the VS test context which provides
+        /// information about and functionality for the
+        /// current test run.
+        /// </summary>
         public TestContext TestContext
         {
             get
             {
-                return testContextInstance;
+                return this.testContextInstance;
             }
+
             set
             {
-                testContextInstance = value;
+                this.testContextInstance = value;
             }
         }
 
-        //Use ClassInitialize to run code before running the first test in the class
-        [ClassInitialize()]
+        // Use ClassInitialize to run code before running the first test in the class
+        [ClassInitialize]
         public static void MyClassInitialize(TestContext testContext)
         {
         }
 
         // Use TestInitialize to run code before running each test
-        [TestInitialize()]
+        [TestInitialize]
         public void MyTestInitialize()
         {
             #region WebAii Initialization
@@ -79,7 +80,7 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
             // location for this test.
 
             // Pass in 'true' to recycle the browser between test methods
-            Initialize(true, this.TestContext.TestLogsDir, new TestContextWriteLine(this.TestContext.WriteLine));
+            this.Initialize(true, this.TestContext.TestLogsDir, new TestContextWriteLine(this.TestContext.WriteLine));
 
             // If you need to override any other settings coming from the
             // config section you can comment the 'Initialize' line above and instead
@@ -104,13 +105,9 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
             // Set the current test method. This is needed for WebAii to discover
             // its custom TestAttributes set on methods and classes.
             // This method should always exist in [TestInitialize()] method.
-            SetTestMethod(this, (string)TestContext.Properties["TestName"]);
+            this.SetTestMethod(this, (string)TestContext.Properties["TestName"]);
 
             #endregion WebAii Initialization
-
-            //
-            // Place any additional initialization here
-            //
 
             Manager.LaunchNewBrowser(BrowserType.Chrome);
             Manager.ActiveBrowser.ClearCache(BrowserCacheType.Cookies);
@@ -118,19 +115,17 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
             this.browser = Manager.ActiveBrowser;
             this.mainPage = new MainPage(this.browser);
             this.loginPage = new LoginPage(this.browser);
-            this.userPage = new UserPage(this.browser);
+            this.userPage = new UserProfilePage(this.browser);
             this.friendsPage = new FriendsPage(this.browser);
 
-            mainPage.NavigateTo(loginPage.Url);
+            this.mainPage.NavigateTo(this.loginPage.Url);
         }
 
         // Use TestCleanup to run code after each test has run
-        [TestCleanup()]
+        [TestCleanup]
         public void MyTestCleanup()
         {
-            //
-            // Place any additional cleanup here
-            //
+            //// Place any additional cleanup here
 
             #region WebAii CleanUp
 
@@ -141,14 +136,14 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
             #endregion WebAii CleanUp
         }
 
-        //Use ClassCleanup to run code after all tests in a class have run
-        [ClassCleanup()]
+        // Use ClassCleanup to run code after all tests in a class have run
+        [ClassCleanup]
         public static void MyClassCleanup()
         {
             // This will shut down all browsers if
             // recycleBrowser is turned on. Else
             // will do nothing.
-            ShutDown();
+            BaseTest.ShutDown();
         }
 
         #endregion [Setup / TearDown]
@@ -194,9 +189,9 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
             this.userPage.AssertRemoveFriendButtonIsVisible();
 
             this.mainPage.LogoutButton.Click();
-            this.mainPage.NavigateTo(loginPage.Url);
+            this.mainPage.NavigateTo(this.loginPage.Url);
             this.loginPage.LoginUser(TelerikUser.Related2);
-            this.mainPage.NavigateTo(friendsPage.Url);
+            this.mainPage.NavigateTo(this.friendsPage.Url);
             this.friendsPage.ClickApproveFriendshipIcon();
 
             this.friendsPage.AssertFriendsListPanelBodyContainsFriend();
@@ -217,9 +212,9 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
             this.userPage.AssertAddFriendButtonIsVisible();
 
             this.mainPage.LogoutButton.Click();
-            this.mainPage.NavigateTo(loginPage.Url);
+            this.mainPage.NavigateTo(this.loginPage.Url);
             this.loginPage.LoginUser(TelerikUser.Related2);
-            this.mainPage.NavigateTo(friendsPage.Url);
+            this.mainPage.NavigateTo(this.friendsPage.Url);
             this.friendsPage.RemoveAllFriends();
 
             this.friendsPage.AssertFriendIsRemovedFromFriendsListPanelBody();
@@ -233,7 +228,7 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
         public void FriendsListShouldContainNoFriends()
         {
             this.loginPage.LoginUser(TelerikUser.Related1);
-            this.mainPage.NavigateTo(friendsPage.Url);
+            this.mainPage.NavigateTo(this.friendsPage.Url);
 
             this.friendsPage.RemoveAllFriends();
             this.friendsPage.Browser.Refresh();
@@ -249,7 +244,7 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
         public void FriendsListShouldContainFriends()
         {
             RelatedUsersUtilities.AddFriend(this.browser);
-            this.mainPage.NavigateTo(friendsPage.Url);
+            this.mainPage.NavigateTo(this.friendsPage.Url);
 
             this.friendsPage.AssertFriendsListPanelHasProperHeading();
             this.friendsPage.AssertFriendsListPanelBodyContainsFriend();
@@ -263,7 +258,7 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
         public void RemoveFriendConfirmationShouldBeVisible()
         {
             RelatedUsersUtilities.AddFriend(this.browser);
-            this.mainPage.NavigateTo(friendsPage.Url);
+            this.mainPage.NavigateTo(this.friendsPage.Url);
 
             this.friendsPage.ClickRemoveFriendshipIcon();
 
@@ -278,7 +273,7 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
         public void RemoveFriendAfterConfirmYes()
         {
             RelatedUsersUtilities.AddFriend(this.browser);
-            this.mainPage.NavigateTo(friendsPage.Url);
+            this.mainPage.NavigateTo(this.friendsPage.Url);
 
             this.friendsPage.ClickRemoveFriendshipIcon();
             this.friendsPage.ClickRemoveFriendshipConfirmYes();
@@ -294,7 +289,7 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
         public void KeepFriendAfterConfirmNo()
         {
             RelatedUsersUtilities.AddFriend(this.browser);
-            this.mainPage.NavigateTo(friendsPage.Url);
+            this.mainPage.NavigateTo(this.friendsPage.Url);
 
             this.friendsPage.ClickRemoveFriendshipIcon();
             this.friendsPage.ClickRemoveFriendshipConfirmNo();
@@ -310,13 +305,13 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
         public void ClickOnFriendItemShouldOpenHisProfile()
         {
             RelatedUsersUtilities.AddFriend(this.browser);
-            this.mainPage.NavigateTo(friendsPage.Url);
+            this.mainPage.NavigateTo(this.friendsPage.Url);
 
             this.friendsPage.ClickFriendItem();
             this.friendsPage.Browser.WaitUntilReady();
             this.friendsPage.Browser.RefreshDomTree();
 
-            this.friendsPage.AssertCorrespondingProfilePageIsOpened();
+            this.friendsPage.AssertProperUserProfilePageIsActive(TelerikUser.Related2.UserName);
         }
     }
 }

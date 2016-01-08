@@ -1,6 +1,5 @@
 ﻿namespace TeamLichTestAutomation.Academy.Core.Pages.AdminPages.WorkEducationStatusesPage
 {
-    using System.Linq;
     using ArtOfTest.Common.UnitTesting;
     using TeamLichTestAutomation.TestFramework.Core;
     using Telerik.TestingFramework.Controls.KendoUI;
@@ -19,6 +18,6 @@
             var isContained = grid.ContainsValueInColumn(statusName, 1);
 
             Assert.IsFalse(isContained);
-        }        
+        }
     }
 }

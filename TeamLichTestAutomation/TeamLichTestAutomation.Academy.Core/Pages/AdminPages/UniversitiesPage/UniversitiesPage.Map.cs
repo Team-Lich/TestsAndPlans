@@ -5,6 +5,14 @@
 
     public partial class UniversitiesPage
     {
+        internal KendoGrid KendoTable
+        {
+            get
+            {
+                return this.Browser.Find.ById<KendoGrid>("DataGrid");
+            }
+        }
+
         private HtmlAnchor AddButton
         {
             get
@@ -16,12 +24,12 @@
         }
 
         private HtmlButton DeleteButton
-            {
+        {
             get
-                {
+            {
                 return this.Browser.Find.ByExpression<HtmlButton>("class=~k-grid-delete");
-                }
             }
+        }
 
         private HtmlButton ExprotAsExcelButton
         {
@@ -75,14 +83,6 @@
                 this.Browser.RefreshDomTree();
                 this.Browser.WaitForElement(5000, "data-field=UniversityId", "data-role=columnsorter");
                 return this.Browser.Find.ByAttributes<HtmlTableCell>("data-field=UniversityId");
-            }
-        }
-
-        internal KendoGrid KendoTable
-        {
-            get
-            {
-                return this.Browser.Find.ById<KendoGrid>("DataGrid");
             }
         }
     }

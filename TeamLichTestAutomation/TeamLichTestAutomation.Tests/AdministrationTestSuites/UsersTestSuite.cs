@@ -1,7 +1,5 @@
 ﻿namespace TeamLichTestAutomation.Tests.AdministrationTestSuites
-    {
-    using System.Threading;
-
+{
     using ArtOfTest.WebAii.Core;
     using ArtOfTest.WebAii.TestTemplates;
 
@@ -13,19 +11,15 @@
     using TeamLichTestAutomation.Academy.Core.Pages.LoginPage;
     using TeamLichTestAutomation.Academy.Core.Pages.MainPage;
 
-    using TeamLichTestAutomation.TestFramework.Core;
-
     using TeamLichTestAutomation.Utilities;
     using TeamLichTestAutomation.Utilities.Attributes;
-
-    using Telerik.TestingFramework.Controls.KendoUI;
 
     /// <summary>
     /// Summary description for UniversitiesTestSuite
     /// </summary>
     [TestClass]
     public class UsersTestSuite : BaseTest
-        {
+    {
         private Browser browser;
         private MainPage mainPage;
         private LoginPage loginPage;
@@ -37,32 +31,33 @@
         private TestContext testContextInstance = null;
 
         /// <summary>
-        ///Gets or sets the VS test context which provides
-        ///information about and functionality for the
-        ///current test run.
-        ///</summary>
+        /// Gets or sets the VS test context which provides
+        /// information about and functionality for the
+        /// current test run.
+        /// </summary>
         public TestContext TestContext
-            {
+        {
             get
-                {
-                return testContextInstance;
-                }
-            set
-                {
-                testContextInstance = value;
-                }
+            {
+                return this.testContextInstance;
             }
 
-        //Use ClassInitialize to run code before running the first test in the class
-        [ClassInitialize()]
-        public static void MyClassInitialize(TestContext testContext)
+            set
             {
+                this.testContextInstance = value;
             }
+        }
+
+        // Use ClassInitialize to run code before running the first test in the class
+        [ClassInitialize]
+        public static void MyClassInitialize(TestContext testContext)
+        {
+        }
 
         // Use TestInitialize to run code before running each test
-        [TestInitialize()]
+        [TestInitialize]
         public void MyTestInitialize()
-            {
+        {
             #region WebAii Initialization
 
             // Initializes WebAii manager to be used by the test case.
@@ -85,7 +80,7 @@
             // location for this test.
 
             // Pass in 'true' to recycle the browser between test methods
-            Initialize(true, this.TestContext.TestLogsDir, new TestContextWriteLine(this.TestContext.WriteLine));
+            this.Initialize(true, this.TestContext.TestLogsDir, new TestContextWriteLine(this.TestContext.WriteLine));
 
             // If you need to override any other settings coming from the
             // config section you can comment the 'Initialize' line above and instead
@@ -110,7 +105,7 @@
             // Set the current test method. This is needed for WebAii to discover
             // its custom TestAttributes set on methods and classes.
             // This method should always exist in [TestInitialize()] method.
-            SetTestMethod(this, (string)TestContext.Properties["TestName"]);
+            this.SetTestMethod(this, (string)TestContext.Properties["TestName"]);
 
             #endregion WebAii Initialization
 
@@ -131,19 +126,13 @@
             this.dashboardPage.ClickUsersButton();
 
             this.usersPage = new UsersPage(this.browser);
-
-            //
-            // Place any additional initialization here
-            //
-            }
+        }
 
         // Use TestCleanup to run code after each test has run
-        [TestCleanup()]
+        [TestCleanup]
         public void MyTestCleanup()
-            {
-            //
-            // Place any additional cleanup here
-            //
+        {
+            //// Place any additional cleanup here
 
             #region WebAii CleanUp
 
@@ -152,33 +141,30 @@
             this.CleanUp();
 
             #endregion WebAii CleanUp
-            }
+        }
 
-        //Use ClassCleanup to run code after all tests in a class have run
-        [ClassCleanup()]
+        // Use ClassCleanup to run code after all tests in a class have run
+        [ClassCleanup]
         public static void MyClassCleanup()
-            {
+        {
             // This will shut down all browsers if
             // recycleBrowser is turned on. Else
             // will do nothing.
-            ShutDown();
-            }
+            BaseTest.ShutDown();
+        }
 
         #endregion [Setup / TearDown]
 
         // These tests work only on Internet Explorer.
         // I can not handle the confirmation dialog on deletion in Chrome and Firefox
-
-
         [TestMethod]
         [TestCategory("AdministrationRoles")]
         [TestCategory("PriorityLow")]
         [TestOwner(Owner.Dimitar)]
         public void TestAdminUsersBackToAdministrationButtonWorks()
-            {
+        {
             this.usersPage.BackToAdmin();
             this.dashboardPage.AssertCurrentlyOnThePage();
-            }
-
         }
     }
+}

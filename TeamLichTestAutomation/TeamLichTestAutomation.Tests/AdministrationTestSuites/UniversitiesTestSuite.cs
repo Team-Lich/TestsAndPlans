@@ -168,12 +168,7 @@ namespace TeamLichTestAutomation.Tests.AdministrationTestSuites
         [TestMethod]
         [TestId(100)]
         [TestCategory("AdministrationUniversities")]
-<<<<<<< HEAD
         [TestCategory("PriorityHigh")]
-        [TestId(100)]
-=======
-        [TestPriority(Priority.High)]
->>>>>>> origin/master
         [TestOwner(Owner.DechoDechev)]
         public void AdminUniversityAddFunctionality()
         {
@@ -224,14 +219,9 @@ namespace TeamLichTestAutomation.Tests.AdministrationTestSuites
         }
 
         [TestMethod]
-        [TestId(81)]
         [TestCategory("AdministrationUniversities")]
-<<<<<<< HEAD
         [TestCategory("PriorityLow")]
         [TestId(269)]
-=======
-        [TestPriority(Priority.Low)]
->>>>>>> origin/master
         [TestOwner(Owner.DechoDechev)]
         public void AdminUniversityBackToAdministrationButton()
         {
@@ -242,12 +232,7 @@ namespace TeamLichTestAutomation.Tests.AdministrationTestSuites
         [TestMethod]
         [TestId(88)]
         [TestCategory("AdministrationUniversities")]
-<<<<<<< HEAD
         [TestCategory("PriorityMedium")]
-        [TestId(88)]
-=======
-        [TestPriority(Priority.Medium)]
->>>>>>> origin/master
         [TestOwner(Owner.DechoDechev)]
         public void AdminUniversityEditName()
         {

@@ -1,9 +1,15 @@
 ﻿namespace TeamLichTestAutomation.Academy.Core.Pages.MessagesPage
 {
     using ArtOfTest.Common.UnitTesting;
+    using TeamLichTestAutomation.Academy.Core.Pages.UserProfilePage;
 
     public static class MessagesPageAsserter
     {
+        public static void AssertMessagesPageIsActive(this UserProfilePage userPage)
+        {
+            Assert.AreEqual(userPage.Browser.PageTitle, "Съобщения - Телерик Академия - Студентска система");
+        }
+
         public static void AssertMessagesHeadingIsVisible(this MessagesPage messagesPage)
         {
             Assert.IsTrue(messagesPage.MessagesHeading.IsVisible());
@@ -26,7 +32,7 @@
 
         public static void AssertSubmitByEnterCheckboxIsNotVisible(this MessagesPage messagesPage)
         {
-            Assert.IsFalse(messagesPage.SubmitByEnterCheckbox.IsVisible());
+            Assert.IsFalse(messagesPage.SubmitByEnterCheckboxWrapper.IsVisible());
         }
 
         public static void AssertSendButtonIsVisible(this MessagesPage messagesPage)
@@ -51,7 +57,7 @@
 
         public static void AssertFriendAvatarIsVisible(this MessagesPage messagesPage)
         {
-            Assert.IsTrue(messagesPage.FriendAvatar.IsVisible());
+            Assert.IsTrue(messagesPage.FriendAvatarInFriendItem.IsVisible());
         }
 
         public static void AssertFriendNamesAreVisible(this MessagesPage messagesPage)
@@ -67,6 +73,34 @@
         public static void AssertFriendLastMessageTimeIsVisible(this MessagesPage messagesPage)
         {
             Assert.IsTrue(messagesPage.FriendLastMessageTime.IsVisible());
+        }
+
+        public static void AssertMessageIsSent(this MessagesPage messagesPage, string text)
+        {
+            Assert.IsTrue(messagesPage.LastMessageContainerLastParagraph.BaseElement.TextContent.Equals(text));
+        }
+
+        public static void AssertMessageIsNotSent(this MessagesPage messagesPage, string text)
+        {
+            Assert.IsFalse(messagesPage.LastMessageContainerLastParagraph.BaseElement.TextContent.Equals(text));
+        }
+
+        public static void AssertMessageIsSentAndLineBreakIsDisplayedCorrectly(this MessagesPage messagePage, string firstLine, string secondLine)
+        {
+            var lastMessageWrapper = messagePage.LastMessageContainerLastParagraph.BaseElement;
+            bool isFirstLineCorrect = lastMessageWrapper.ChildNodes[1].TextContent.Equals(firstLine);
+            bool isBreakLineCorrect = lastMessageWrapper.ChildNodes[2].Content.Equals("<br>");
+            bool isSecondLineCorrect = lastMessageWrapper.ChildNodes[3].TextContent.Equals(secondLine);
+
+            Assert.IsTrue(isFirstLineCorrect && isBreakLineCorrect && isSecondLineCorrect);
+        }
+
+        public static void AssertLastMessageContainerContainsProperData(this MessagesPage messagesPage, string text)
+        {
+            Assert.IsTrue(messagesPage.UserAvatarInMessageContainer.IsLoaded());
+            Assert.IsTrue(messagesPage.LastMessageContainerLastParagraph.BaseElement.TextContent.Equals(text));
+            Assert.IsTrue(messagesPage.MessageSentTime.IsVisible());
+            Assert.IsTrue(messagesPage.Arrow != null);
         }
     }
 }

@@ -30,28 +30,28 @@ namespace TeamLichTestAutomation.Tests
         /// Gets or sets the VS test context which provides
         /// information about and functionality for the
         /// current test run.
-        ///</summary>
-        ///
+        /// </summary>
         public TestContext TestContext
         {
             get
             {
-                return testContextInstance;
+                return this.testContextInstance;
             }
+
             set
             {
-                testContextInstance = value;
+                this.testContextInstance = value;
             }
         }
 
         // Use ClassInitialize to run code before running the first test in the class
-        [ClassInitialize()]
+        [ClassInitialize]
         public static void MyClassInitialize(TestContext testContext)
         {
         }
 
         // Use TestInitialize to run code before running each test
-        [TestInitialize()]
+        [TestInitialize]
         public void MyTestInitialize()
         {
             #region WebAii Initialization
@@ -76,7 +76,7 @@ namespace TeamLichTestAutomation.Tests
             // location for this test.
 
             // Pass in 'true' to recycle the browser between test methods
-            Initialize(true, this.TestContext.TestLogsDir, new TestContextWriteLine(this.TestContext.WriteLine));
+            this.Initialize(true, this.TestContext.TestLogsDir, new TestContextWriteLine(this.TestContext.WriteLine));
 
             // If you need to override any other settings coming from the
             // config section you can comment the 'Initialize' line above and instead
@@ -101,11 +101,9 @@ namespace TeamLichTestAutomation.Tests
             // Set the current test method. This is needed for WebAii to discover
             // its custom TestAttributes set on methods and classes.
             // This method should always exist in [TestInitialize()] method.
-            SetTestMethod(this, (string)TestContext.Properties["TestName"]);
+            this.SetTestMethod(this, (string)TestContext.Properties["TestName"]);
 
             #endregion WebAii Initialization
-
-            // Manager.Settings.Web.RecycleBrowser = true;
 
             Manager.LaunchNewBrowser(BrowserType.FireFox);
             Manager.ActiveBrowser.ClearCache(BrowserCacheType.Cookies);
@@ -119,7 +117,7 @@ namespace TeamLichTestAutomation.Tests
         }
 
         // Use TestCleanup to run code after each test has run
-        [TestCleanup()]
+        [TestCleanup]
         public void MyTestCleanup()
         {
             #region WebAii CleanUp
@@ -132,22 +130,23 @@ namespace TeamLichTestAutomation.Tests
         }
 
         // Use ClassCleanup to run code after all tests in a class have run
-        [ClassCleanup()]
+        [ClassCleanup]
         public static void MyClassCleanup()
         {
             // This will shut down all browsers if
             // recycleBrowser is turned on. Else
             // will do nothing.
-            ShutDown();
+            BaseTest.ShutDown();
         }
 
         #endregion [Setup / TearDown]
 
         [TestMethod]
+        [TestId(1)]
         [TestCategory("Login")]
-        [TestCategory("PriorityHigh")]
+        [TestPriority(Priority.High)]
         [TestOwner(Owner.DechoDechev)]
-        public void TestLoginWithValidRegularUserCredentials()
+        public void LoginWithValidRegularUserCredentials()
         {
             this.loginPage.LoginUser(TelerikUser.Regular);
 
@@ -155,10 +154,11 @@ namespace TeamLichTestAutomation.Tests
         }
 
         [TestMethod]
+        [TestId(238)]
         [TestCategory("Login")]
-        [TestCategory("PriorityHigh")]
+        [TestPriority(Priority.High)]
         [TestOwner(Owner.DechoDechev)]
-        public void TestLoginWithEmptyFields()
+        public void LoginWithEmptyFields()
         {
             TelerikUser user = new TelerikUser(string.Empty, string.Empty);
             this.loginPage.LoginUser(user);
@@ -167,10 +167,11 @@ namespace TeamLichTestAutomation.Tests
         }
 
         [TestMethod]
+        [TestId(243)]
         [TestCategory("Login")]
-        [TestCategory("PriorityHigh")]
+        [TestPriority(Priority.High)]
         [TestOwner(Owner.DechoDechev)]
-        public void TestLoginWithEmptyUserField()
+        public void LoginWithEmptyUserField()
         {
             TelerikUser user = TelerikUser.Regular;
             user.UserName = string.Empty;
@@ -180,10 +181,11 @@ namespace TeamLichTestAutomation.Tests
         }
 
         [TestMethod]
+        [TestId(244)]
         [TestCategory("Login")]
-        [TestCategory("PriorityHigh")]
+        [TestPriority(Priority.High)]
         [TestOwner(Owner.DechoDechev)]
-        public void TestLoginRegularUserWithEmptyPasswordField()
+        public void LoginRegularUserWithEmptyPasswordField()
         {
             TelerikUser user = TelerikUser.Regular;
             user.Password = string.Empty;
@@ -193,10 +195,11 @@ namespace TeamLichTestAutomation.Tests
         }
 
         [TestMethod]
+        [TestId(245)]
         [TestCategory("Login")]
-        [TestCategory("PriorityHigh")]
+        [TestPriority(Priority.High)]
         [TestOwner(Owner.DechoDechev)]
-        public void TestLoginUserWithNullFields()
+        public void LoginUserWithNullFields()
         {
             TelerikUser user = new TelerikUser(null, null);
             this.loginPage.LoginUser(user);
@@ -205,10 +208,11 @@ namespace TeamLichTestAutomation.Tests
         }
 
         [TestMethod]
+        [TestId(246)]
         [TestCategory("Login")]
-        [TestCategory("PriorityHigh")]
+        [TestPriority(Priority.High)]
         [TestOwner(Owner.DechoDechev)]
-        public void TestLoginUserWithNullUserField()
+        public void LoginUserWithNullUserField()
         {
             TelerikUser user = TelerikUser.Regular;
             user.UserName = null;
@@ -218,10 +222,11 @@ namespace TeamLichTestAutomation.Tests
         }
 
         [TestMethod]
+        [TestId(247)]
         [TestCategory("Login")]
-        [TestCategory("PriorityHigh")]
+        [TestPriority(Priority.High)]
         [TestOwner(Owner.DechoDechev)]
-        public void TestLoginRegularUserWithNullPasswordField()
+        public void LoginRegularUserWithNullPasswordField()
         {
             TelerikUser user = TelerikUser.Regular;
             user.Password = null;
@@ -231,10 +236,11 @@ namespace TeamLichTestAutomation.Tests
         }
 
         [TestMethod]
+        [TestId(248)]
         [TestCategory("Login")]
-        [TestCategory("PriorityHigh")]
+        [TestPriority(Priority.High)]
         [TestOwner(Owner.DechoDechev)]
-        public void TestLoginAdminUserWithNullPasswordField()
+        public void LoginAdminUserWithNullPasswordField()
         {
             TelerikUser user = TelerikUser.Admin;
             user.Password = null;
@@ -244,10 +250,11 @@ namespace TeamLichTestAutomation.Tests
         }
 
         [TestMethod]
+        [TestId(249)]
         [TestCategory("Login")]
-        [TestCategory("PriorityHigh")]
+        [TestPriority(Priority.High)]
         [TestOwner(Owner.DechoDechev)]
-        public void TestLoginAdminUserWithEmptyPasswordField()
+        public void LoginAdminUserWithEmptyPasswordField()
         {
             TelerikUser user = TelerikUser.Admin;
             user.Password = string.Empty;
@@ -257,10 +264,11 @@ namespace TeamLichTestAutomation.Tests
         }
 
         [TestMethod]
+        [TestId(7)]
         [TestCategory("Login")]
-        [TestCategory("PriorityHigh")]
+        [TestPriority(Priority.High)]
         [TestOwner(Owner.DechoDechev)]
-        public void TestLoginWithValidAdminUserCredentials()
+        public void LoginWithValidAdminUserCredentials()
         {
             this.loginPage.LoginUser(TelerikUser.Admin);
 
@@ -268,10 +276,11 @@ namespace TeamLichTestAutomation.Tests
         }
 
         [TestMethod]
+        [TestId(30)]
         [TestCategory("Login")]
-        [TestCategory("PriorityHigh")]
+        [TestPriority(Priority.High)]
         [TestOwner(Owner.DechoDechev)]
-        public void TestLoginWithInvalidAdminUsername()
+        public void LoginWithInvalidAdminUsername()
         {
             TelerikUser testUser = TelerikUser.Admin;
             testUser.UserName = "WrongUser";
@@ -281,10 +290,11 @@ namespace TeamLichTestAutomation.Tests
         }
 
         [TestMethod]
+        [TestId(29)]
         [TestCategory("Login")]
-        [TestCategory("PriorityHigh")]
+        [TestPriority(Priority.High)]
         [TestOwner(Owner.DechoDechev)]
-        public void TestLoginWithInvalidAdminPassword()
+        public void LoginWithInvalidAdminPassword()
         {
             TelerikUser testUser = TelerikUser.Admin;
             testUser.Password = "WrongPass";
@@ -294,10 +304,11 @@ namespace TeamLichTestAutomation.Tests
         }
 
         [TestMethod]
+        [TestId(28)]
         [TestCategory("Login")]
-        [TestCategory("PriorityHigh")]
+        [TestPriority(Priority.High)]
         [TestOwner(Owner.DechoDechev)]
-        public void TestLoginWithInvalidRegularUserUsername()
+        public void LoginWithInvalidRegularUserUsername()
         {
             TelerikUser testUser = TelerikUser.Regular;
             testUser.UserName = "WrongUser";
@@ -307,10 +318,11 @@ namespace TeamLichTestAutomation.Tests
         }
 
         [TestMethod]
+        [TestId(2)]
         [TestCategory("Login")]
-        [TestCategory("PriorityHigh")]
+        [TestPriority(Priority.High)]
         [TestOwner(Owner.DechoDechev)]
-        public void TestLoginWithInvalidRegularUserPassword()
+        public void LoginWithInvalidRegularUserPassword()
         {
             TelerikUser testUser = TelerikUser.Regular;
             testUser.Password = "WrongPass";
@@ -320,10 +332,11 @@ namespace TeamLichTestAutomation.Tests
         }
 
         [TestMethod]
+        [TestId(37)]
         [TestCategory("Login")]
-        [TestCategory("PriorityMedium")]
+        [TestPriority(Priority.Medium)]
         [TestOwner(Owner.DechoDechev)]
-        public void TestLoginPersistenceRegularUserOnBrowserRestart()
+        public void LoginPersistenceRegularUserOnBrowserRestart()
         {
             this.loginPage.LoginUser(TelerikUser.Regular);
 
@@ -339,10 +352,11 @@ namespace TeamLichTestAutomation.Tests
         }
 
         [TestMethod]
+        [TestId(250)]
         [TestCategory("Login")]
-        [TestCategory("PriorityMedium")]
+        [TestPriority(Priority.Medium)]
         [TestOwner(Owner.DechoDechev)]
-        public void TestLoginPersistenceAdminUserOnBrowserRestart()
+        public void LoginPersistenceAdminUserOnBrowserRestart()
         {
             this.loginPage.LoginUser(TelerikUser.Admin);
             this.mainPage.AssertUserIsLoggedAsAdmin();
@@ -357,10 +371,11 @@ namespace TeamLichTestAutomation.Tests
         }
 
         [TestMethod]
+        [TestId(41)]
         [TestCategory("Login")]
-        [TestCategory("PriorityHigh")]
+        [TestPriority(Priority.High)]
         [TestOwner(Owner.DechoDechev)]
-        public void TestLoginRegularUserIsNotPersistentOnCookieDeletion()
+        public void LoginRegularUserIsNotPersistentOnCookieDeletion()
         {
             this.loginPage.LoginUser(TelerikUser.Regular);
             this.mainPage.AssertUserIsLoggedAsRegularUser();
@@ -372,10 +387,11 @@ namespace TeamLichTestAutomation.Tests
         }
 
         [TestMethod]
+        [TestId(42)]
         [TestCategory("Login")]
-        [TestCategory("PriorityHigh")]
+        [TestPriority(Priority.High)]
         [TestOwner(Owner.DechoDechev)]
-        public void TestLoginAdminUserIsNotPersistentOnCookieDeletion()
+        public void LoginAdminUserIsNotPersistentOnCookieDeletion()
         {
             this.loginPage.LoginUser(TelerikUser.Admin);
             this.mainPage.AssertUserIsLoggedAsAdmin();
@@ -387,10 +403,11 @@ namespace TeamLichTestAutomation.Tests
         }
 
         [TestMethod]
+        [TestId(251)]
         [TestCategory("Login")]
-        [TestCategory("PriorityHigh")]
+        [TestPriority(Priority.High)]
         [TestOwner(Owner.DechoDechev)]
-        public void TestLoginUserFieldDoesNotAcceptForbiddenSymbols()
+        public void LoginUserFieldDoesNotAcceptForbiddenSymbols()
         {
             TelerikUser user = new TelerikUser(@"<script>window.alert();</script>", "123456");
             this.loginPage.LoginUser(user);
@@ -401,10 +418,11 @@ namespace TeamLichTestAutomation.Tests
         }
 
         [TestMethod]
+        [TestId(252)]
         [TestCategory("Login")]
-        [TestCategory("PriorityHigh")]
+        [TestPriority(Priority.High)]
         [TestOwner(Owner.DechoDechev)]
-        public void TestLoginPasswordFieldDoesNotAcceptForbiddenSymbols()
+        public void LoginPasswordFieldDoesNotAcceptForbiddenSymbols()
         {
             TelerikUser user = new TelerikUser("TeamLichTestUser", @"<script>window.alert();</script>");
             this.loginPage.LoginUser(user);

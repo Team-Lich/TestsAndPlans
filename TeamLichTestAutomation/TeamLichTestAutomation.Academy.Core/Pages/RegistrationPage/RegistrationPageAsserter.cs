@@ -1,6 +1,7 @@
 ﻿namespace TeamLichTestAutomation.Academy.Core.Pages.RegistrationPage
 {
     using ArtOfTest.Common.UnitTesting;
+    using TeamLichTestAutomation.Academy.Core.Pages.RegistrationPage.RegistrationPageConstants;
 
     public static class RegistrationPageAsserter
     {

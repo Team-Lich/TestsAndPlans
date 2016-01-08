@@ -19,7 +19,7 @@
             {
                 this.Browser.WaitUntilReady();
                 this.Browser.RefreshDomTree();
-                this.Browser.WaitForElement(5000, "id=EntranceButton");
+                this.Browser.WaitForElement(10000, "id=EntranceButton");
                 return this.Browser.Find.ById<HtmlAnchor>("EntranceButton");
             }
         }
@@ -99,7 +99,7 @@
         internal HtmlAnchor MyCourse
         {
             get
-            {                                                                  
+            {
                 return this.Browser.Find.ByExpression<HtmlAnchor>("href=/Courses/Courses/Details/265");
             }
         }

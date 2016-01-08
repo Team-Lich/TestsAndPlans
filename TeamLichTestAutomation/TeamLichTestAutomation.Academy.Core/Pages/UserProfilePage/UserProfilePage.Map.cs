@@ -1,8 +1,8 @@
-namespace TeamLichTestAutomation.Academy.Core.Pages.UserPage
+namespace TeamLichTestAutomation.Academy.Core.Pages.UserProfilePage
 {
     using ArtOfTest.WebAii.Controls.HtmlControls;
 
-    public partial class UserPage
+    public partial class UserProfilePage
     {
         public HtmlSpan SendMessageButtonInactive
         {

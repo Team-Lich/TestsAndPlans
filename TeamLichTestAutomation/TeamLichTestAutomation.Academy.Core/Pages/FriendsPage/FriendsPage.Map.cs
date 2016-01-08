@@ -1,8 +1,9 @@
 ﻿namespace TeamLichTestAutomation.Academy.Core.Pages.FriendsPage
 {
     using System.Collections.Generic;
+
     using ArtOfTest.WebAii.Controls.HtmlControls;
-    using Models;
+    using TeamLichTestAutomation.Academy.Core.Models;
 
     public partial class FriendsPage
     {

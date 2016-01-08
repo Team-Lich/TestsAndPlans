@@ -1,6 +1,7 @@
 namespace TeamLichTestAutomation.Tests.AdministrationTestSuites
 {
     using System.Threading;
+    using System.Windows.Forms;
 
     using ArtOfTest.WebAii.Core;
     using ArtOfTest.WebAii.TestTemplates;
@@ -37,30 +38,31 @@ namespace TeamLichTestAutomation.Tests.AdministrationTestSuites
         private TestContext testContextInstance = null;
 
         /// <summary>
-        ///Gets or sets the VS test context which provides
-        ///information about and functionality for the
-        ///current test run.
-        ///</summary>
+        /// Gets or sets the VS test context which provides
+        /// information about and functionality for the
+        /// current test run.
+        /// </summary>
         public TestContext TestContext
         {
             get
             {
-                return testContextInstance;
+                return this.testContextInstance;
             }
+
             set
             {
-                testContextInstance = value;
+                this.testContextInstance = value;
             }
         }
 
-        //Use ClassInitialize to run code before running the first test in the class
-        [ClassInitialize()]
+        // Use ClassInitialize to run code before running the first test in the class
+        [ClassInitialize]
         public static void MyClassInitialize(TestContext testContext)
         {
         }
 
         // Use TestInitialize to run code before running each test
-        [TestInitialize()]
+        [TestInitialize]
         public void MyTestInitialize()
         {
             #region WebAii Initialization
@@ -85,7 +87,7 @@ namespace TeamLichTestAutomation.Tests.AdministrationTestSuites
             // location for this test.
 
             // Pass in 'true' to recycle the browser between test methods
-            Initialize(true, this.TestContext.TestLogsDir, new TestContextWriteLine(this.TestContext.WriteLine));
+            this.Initialize(true, this.TestContext.TestLogsDir, new TestContextWriteLine(this.TestContext.WriteLine));
 
             // If you need to override any other settings coming from the
             // config section you can comment the 'Initialize' line above and instead
@@ -110,11 +112,11 @@ namespace TeamLichTestAutomation.Tests.AdministrationTestSuites
             // Set the current test method. This is needed for WebAii to discover
             // its custom TestAttributes set on methods and classes.
             // This method should always exist in [TestInitialize()] method.
-            SetTestMethod(this, (string)TestContext.Properties["TestName"]);
+            this.SetTestMethod(this, (string)TestContext.Properties["TestName"]);
 
             #endregion WebAii Initialization
 
-            Manager.LaunchNewBrowser(BrowserType.InternetExplorer);
+            Manager.LaunchNewBrowser(BrowserType.InternetExplorer, true);
             this.browser = Manager.ActiveBrowser;
             this.browser.ClearCache(BrowserCacheType.Cookies);
             this.browser.Window.Maximize();
@@ -131,19 +133,13 @@ namespace TeamLichTestAutomation.Tests.AdministrationTestSuites
             this.dashboardPage.ClickUniversitiesButton();
 
             this.uniPage = new UniversitiesPage(this.browser);
-
-            //
-            // Place any additional initialization here
-            //
         }
 
         // Use TestCleanup to run code after each test has run
-        [TestCleanup()]
+        [TestCleanup]
         public void MyTestCleanup()
         {
-            //
-            // Place any additional cleanup here
-            //
+            //// Place any additional cleanup here
 
             #region WebAii CleanUp
 
@@ -154,27 +150,32 @@ namespace TeamLichTestAutomation.Tests.AdministrationTestSuites
             #endregion WebAii CleanUp
         }
 
-        //Use ClassCleanup to run code after all tests in a class have run
-        [ClassCleanup()]
+        // Use ClassCleanup to run code after all tests in a class have run
+        [ClassCleanup]
         public static void MyClassCleanup()
         {
             // This will shut down all browsers if
             // recycleBrowser is turned on. Else
             // will do nothing.
-            ShutDown();
+            BaseTest.ShutDown();
         }
 
         #endregion [Setup / TearDown]
 
-        // These tests work only on Internet Explorer.
-        // I can not handle the confirmation dialog on deletion in Chrome and Firefox
+        //// These tests work only on Internet Explorer.
+        //// I can not handle the confirmation dialog on deletion in Chrome and Firefox
 
         [TestMethod]
+        [TestId(100)]
         [TestCategory("AdministrationUniversities")]
+<<<<<<< HEAD
         [TestCategory("PriorityHigh")]
         [TestId(100)]
+=======
+        [TestPriority(Priority.High)]
+>>>>>>> origin/master
         [TestOwner(Owner.DechoDechev)]
-        public void TestAdminUniversityAddFunctionalityWorks()
+        public void AdminUniversityAddFunctionality()
         {
             this.uniPage.AddUniversity("Telerik University");
             KendoGrid grid = this.uniPage.Browser.Find.ByExpression<KendoGrid>("data-role=grid");
@@ -189,16 +190,23 @@ namespace TeamLichTestAutomation.Tests.AdministrationTestSuites
         [TestCategory("PriorityMedium")]
         [TestId(89)]
         [TestOwner(Owner.Dimitar)]
-        public void TestAdminUniversityExportAsExcelFunctionalityWorks()
+        public void AdminUniversityExportAsExcelFunctionality()
         {
             this.uniPage.ExportAsExcel();
+            Thread.Sleep(4000);
+
+            Manager manager = Manager.Current;
+            manager.Desktop.KeyBoard.KeyDown(Keys.Alt);
+            manager.Desktop.KeyBoard.KeyPress(Keys.S);
+            manager.Desktop.KeyBoard.KeyUp(Keys.Alt);
         }
 
         [TestMethod]
+        [TestId(84)]
         [TestCategory("AdministrationUniversities")]
-        [TestCategory("PriorityMedium")]
+        [TestPriority(Priority.Medium)]
         [TestOwner(Owner.DechoDechev)]
-        public void TestAdminUniversityRemoveFunctionalityWorks()
+        public void AdminUniversityRemoveFunctionality()
         {
             KendoGrid grid = this.uniPage.Browser.Find.ByExpression<KendoGrid>("data-role=grid");
             this.uniPage.AddUniversity("Telerik University");
@@ -216,28 +224,39 @@ namespace TeamLichTestAutomation.Tests.AdministrationTestSuites
         }
 
         [TestMethod]
+        [TestId(81)]
         [TestCategory("AdministrationUniversities")]
+<<<<<<< HEAD
         [TestCategory("PriorityLow")]
         [TestId(269)]
+=======
+        [TestPriority(Priority.Low)]
+>>>>>>> origin/master
         [TestOwner(Owner.DechoDechev)]
-        public void TestAdminUniversityBackToAdministrationButtonWorks()
+        public void AdminUniversityBackToAdministrationButton()
         {
             this.uniPage.BackToAdmin();
             this.dashboardPage.AssertCurrentlyOnThePage();
         }
 
         [TestMethod]
+        [TestId(88)]
         [TestCategory("AdministrationUniversities")]
+<<<<<<< HEAD
         [TestCategory("PriorityMedium")]
         [TestId(88)]
+=======
+        [TestPriority(Priority.Medium)]
+>>>>>>> origin/master
         [TestOwner(Owner.DechoDechev)]
-        public void TestAdminUniversityEditNameWorks()
+        public void AdminUniversityEditName()
         {
             string newUniversityName = "Telerik University";
             this.uniPage.AddUniversity(newUniversityName);
             KendoGrid grid = this.uniPage.Browser.Find.ByExpression<KendoGrid>("data-role=grid");
             this.uniPage.EditRow(grid, newUniversityName, "Name", "Progress University", 1);
 
+            Thread.Sleep(2000);
             this.browser.RefreshDomTree();
             grid = this.uniPage.Browser.Find.ByExpression<KendoGrid>("data-role=grid");
             this.uniPage.AssertUniversityIsPresentInGrid(grid, "Progress University");
@@ -254,29 +273,29 @@ namespace TeamLichTestAutomation.Tests.AdministrationTestSuites
         [TestCategory("PriorityMedium")]
         [TestId(268)]
         [TestOwner(Owner.Dimitar)]
-        public void TestAdminUniversityDeleteWorks()
+        public void AdminUniversityDeleteRow()
         {
-        string newUniversityName = "Telerik University";
-        this.uniPage.AddUniversity(newUniversityName);
-        KendoGrid grid = this.uniPage.Browser.Find.ByExpression<KendoGrid>("data-role=grid");
+            string newUniversityName = "Telerik University";
+            this.uniPage.AddUniversity(newUniversityName);
+            KendoGrid grid = this.uniPage.Browser.Find.ByExpression<KendoGrid>("data-role=grid");
 
-        this.browser.RefreshDomTree();
-        grid = this.uniPage.Browser.Find.ByExpression<KendoGrid>("data-role=grid");
-        this.uniPage.AssertUniversityIsPresentInGrid(grid, "Telerik University");
-        this.uniPage.DeleteRow(grid, "Telerik University", 1);
+            this.browser.RefreshDomTree();
+            grid = this.uniPage.Browser.Find.ByExpression<KendoGrid>("data-role=grid");
+            this.uniPage.AssertUniversityIsPresentInGrid(grid, "Telerik University");
+            this.uniPage.DeleteRow(grid, "Telerik University", 1);
 
-        Thread.Sleep(1000);
-        this.browser.RefreshDomTree();
-        grid = this.uniPage.Browser.Find.ByExpression<KendoGrid>("data-role=grid");
-        this.uniPage.AssertUniversityIsNotPresentInGrid(grid, "Telerik University");
+            Thread.Sleep(1000);
+            this.browser.RefreshDomTree();
+            grid = this.uniPage.Browser.Find.ByExpression<KendoGrid>("data-role=grid");
+            this.uniPage.AssertUniversityIsNotPresentInGrid(grid, "Telerik University");
         }
 
-
         [TestMethod]
+        [TestId(253)]
         [TestCategory("AdministrationUniversities")]
-        [TestCategory("PriorityLow")]
+        [TestPriority(Priority.Low)]
         [TestOwner(Owner.DechoDechev)]
-        public void TestSortByNameInUniversityGridWorks()
+        public void AdminUniversitySortByNameInGrid()
         {
             KendoGrid grid = this.uniPage.Browser.Find.ByExpression<KendoGrid>("data-role=grid");
 
@@ -323,10 +342,11 @@ namespace TeamLichTestAutomation.Tests.AdministrationTestSuites
         }
 
         [TestMethod]
+        [TestId(254)]
         [TestCategory("AdministrationUniversities")]
-        [TestCategory("PriorityLow")]
+        [TestPriority(Priority.Low)]
         [TestOwner(Owner.DechoDechev)]
-        public void TestSortByIdInUniversityGridWorks()
+        public void AdminUniversitySortByIdInGrid()
         {
             KendoGrid grid = this.uniPage.Browser.Find.ByExpression<KendoGrid>("data-role=grid");
 
@@ -355,8 +375,7 @@ namespace TeamLichTestAutomation.Tests.AdministrationTestSuites
         }
 
         [TestMethod]
-        [TestCategory("AdministrationUniversities")]
-        [TestCategory("PriorityLow")]
+        [TestCategory("FrameworkTest")]
         [TestOwner(Owner.DechoDechev)]
         public void Test()
         {

@@ -7,9 +7,9 @@
     {
         public static void AssertSignOffBtn(this CoursesPage coursesPage)
         {
-            var s = coursesPage.SignOff;
+            var signOffButton = coursesPage.SignOff;
             Thread.Sleep(2000);
-            var signOffButtonExists = s.IsVisible();
+            var signOffButtonExists = signOffButton.IsVisible();
 
             Assert.IsTrue(signOffButtonExists);
         }
@@ -65,9 +65,16 @@
 
         public static void AssertSignedOffCourse(this CoursesPage coursesPage)
         {
-            var span = coursesPage.courseParticipationInfo;
+            var span = coursesPage.CourseParticipationInfo;
             var actualText = @"Вие сте се отписалиот участие в този курс.";
             Assert.AreEqual(span.TextContent, actualText);
+        }
+
+        public static void AssertTestCourse2Title(this CoursesPage coursesPage)
+        {
+            var title = coursesPage.TestCourse2Title.GetValue<string>("innerText");
+            var actualText = @"Курс ""Тестови курс 2""";
+            Assert.AreEqual(title, actualText);
         }
     }
 }

@@ -8,7 +8,7 @@
 
     using Telerik.TestingFramework.Controls.KendoUI;
 
-    public static class LichKendoGridExtensions
+    public static class KendoGridExtensions
     {
         public static bool ContainsValueInColumn(this KendoGrid grid, string value, int searchColumn)
         {
@@ -43,8 +43,6 @@
 
         public static bool IsColumnSortDescending(this KendoGrid grid, int column)
         {
-            bool result = false;
-
             string[] findExpressions =
             {
                 "data-index=" + column,
@@ -52,10 +50,10 @@
             };
 
             var targetColumnHeader = grid.Find.ByExpression<HtmlTableCell>(findExpressions);
-            var attribute = targetColumnHeader.Attributes.FirstOrDefault(a => a.Name == "aria-sort");
-            bool isDescending = attribute.Value == "descending";
+            var sortAttribute = targetColumnHeader.Attributes.FirstOrDefault(a => a.Name == "aria-sort");
+            bool isDescending = sortAttribute.Value == "descending";
 
-            return result;
+            return isDescending;
         }
     }
 }

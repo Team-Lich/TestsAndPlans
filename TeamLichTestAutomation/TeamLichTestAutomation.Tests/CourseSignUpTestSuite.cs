@@ -23,49 +23,36 @@ namespace TeamLichTestAutomation.Tests
         private CoursesPage coursesPage;
         private LoginPage loginPage;
 
-        private void RegRandUser()
-        {
-            mainPage.Navigate().ClickRegistration();
-            this.registrationPage = new RegistrationPage(this.browser);
-            registrationPage.RegisterRandomUser();
-        }
-
-        private void LoginWithRegularUser()
-        {
-            this.mainPage.Navigate().ClickLogin();
-            TelerikUser user = TelerikUser.Regular;
-            this.loginPage.LoginUser(user);
-        }
-
         #region [Setup / TearDown]
 
         private TestContext testContextInstance = null;
 
         /// <summary>
-        ///Gets or sets the VS test context which provides
-        ///information about and functionality for the
-        ///current test run.
-        ///</summary>
+        /// Gets or sets the VS test context which provides
+        /// information about and functionality for the
+        /// current test run.
+        /// </summary>
         public TestContext TestContext
         {
             get
             {
-                return testContextInstance;
+                return this.testContextInstance;
             }
+
             set
             {
-                testContextInstance = value;
+                this.testContextInstance = value;
             }
         }
 
-        //Use ClassInitialize to run code before running the first test in the class
-        [ClassInitialize()]
+        // Use ClassInitialize to run code before running the first test in the class
+        [ClassInitialize]
         public static void MyClassInitialize(TestContext testContext)
         {
         }
 
         // Use TestInitialize to run code before running each test
-        [TestInitialize()]
+        [TestInitialize]
         public void MyTestInitialize()
         {
             #region WebAii Initialization
@@ -90,7 +77,7 @@ namespace TeamLichTestAutomation.Tests
             // location for this test.
 
             // Pass in 'true' to recycle the browser between test methods
-            Initialize(true, this.TestContext.TestLogsDir, new TestContextWriteLine(this.TestContext.WriteLine));
+            this.Initialize(true, this.TestContext.TestLogsDir, new TestContextWriteLine(this.TestContext.WriteLine));
 
             // If you need to override any other settings coming from the
             // config section you can comment the 'Initialize' line above and instead
@@ -115,11 +102,9 @@ namespace TeamLichTestAutomation.Tests
             // Set the current test method. This is needed for WebAii to discover
             // its custom TestAttributes set on methods and classes.
             // This method should always exist in [TestInitialize()] method.
-            SetTestMethod(this, (string)TestContext.Properties["TestName"]);
+            this.SetTestMethod(this, (string)TestContext.Properties["TestName"]);
 
             #endregion WebAii Initialization
-
-            // Test Recycle is true
 
             Manager.LaunchNewBrowser(BrowserType.Chrome);
             Manager.ActiveBrowser.ClearCache(BrowserCacheType.Cookies);
@@ -129,15 +114,14 @@ namespace TeamLichTestAutomation.Tests
             this.mainPage = new MainPage(this.browser);
             this.coursesPage = new CoursesPage(this.browser);
             this.loginPage = new LoginPage(this.browser);
+            this.registrationPage = new RegistrationPage(this.browser);
         }
 
         // Use TestCleanup to run code after each test has run
-        [TestCleanup()]
+        [TestCleanup]
         public void MyTestCleanup()
         {
-            //
-            // Place any additional cleanup here
-            //
+            //// Place any additional cleanup here
 
             #region WebAii CleanUp
 
@@ -148,52 +132,54 @@ namespace TeamLichTestAutomation.Tests
             #endregion WebAii CleanUp
         }
 
-        //Use ClassCleanup to run code after all tests in a class have run
-        [ClassCleanup()]
+        // Use ClassCleanup to run code after all tests in a class have run
+        [ClassCleanup]
         public static void MyClassCleanup()
         {
             // This will shut down all browsers if
             // recycleBrowser is turned on. Else
             // will do nothing.
-            ShutDown();
+            BaseTest.ShutDown();
         }
 
         #endregion [Setup / TearDown]
 
         [TestMethod]
         [TestCategory("CourseSignUp")]
-        ////[TestId(101)]
+        [TestId(221)]
         [TestPriority(Priority.High)]
         [TestOwner(Owner.Ivan)]
-        public void LiveSignUp()
+        public void CourseSignUp_LiveSignUp()
         {
-            RegRandUser();
-            mainPage.NavigateTo("http://stage.telerikacademy.com/Courses/Courses/Details/265");
-            coursesPage.LiveSignUp();
+            this.mainPage.Navigate().ClickRegistration();
+            this.registrationPage.RegisterRandomUser();
+            this.mainPage.NavigateTo("http://stage.telerikacademy.com/Courses/Courses/Details/265");
+            this.coursesPage.LiveSignUp();
 
-            coursesPage.AssertSignOffBtn();
+            this.coursesPage.AssertSignOffBtn();
         }
 
         [TestMethod]
         [TestCategory("CourseSignUp")]
-        ////[TestId(101)]
+        [TestId(222)]
         [TestPriority(Priority.High)]
         [TestOwner(Owner.Ivan)]
-        public void OnlineSignUp()
+        public void CourseSignUp_OnlineSignUp()
         {
-            RegRandUser();
-            mainPage.NavigateTo("http://stage.telerikacademy.com/Courses/Courses/Details/265");
-            coursesPage.OnlineSignUp();
+            this.mainPage.Navigate().ClickRegistration();
+            this.registrationPage.RegisterRandomUser();
+            this.mainPage.NavigateTo("http://stage.telerikacademy.com/Courses/Courses/Details/265");
+            this.coursesPage.OnlineSignUp();
 
-            coursesPage.AssertSignOffBtn();
+            this.coursesPage.AssertSignOffBtn();
         }
 
         [TestMethod]
         [TestCategory("CourseSignUp")]
-        ////[TestId(101)]
+        [TestId(223)]
         [TestPriority(Priority.High)]
         [TestOwner(Owner.Ivan)]
-        public void SignUpWithoutLogIn()
+        public void CourseSignUp_SignUpWithoutLogIn()
         {
             this.mainPage.NavigateTo("http://stage.telerikacademy.com/Courses/Courses/Details/265");
             this.coursesPage.AssertPleaseLogInBtnPresent();
@@ -201,12 +187,13 @@ namespace TeamLichTestAutomation.Tests
 
         [TestMethod]
         [TestCategory("CourseSignUp")]
-        ////[TestId(101)]
+        [TestId(224)]
         [TestPriority(Priority.High)]
         [TestOwner(Owner.Ivan)]
-        public void LiveSignUpFromCoursesList()
+        public void CourseSignUp_LiveSignUpFromCoursesList()
         {
-            this.RegRandUser();
+            this.mainPage.Navigate().ClickRegistration();
+            this.registrationPage.RegisterRandomUser();
             this.mainPage.HoverCoursesNavigationDropdown();
             this.mainPage.MyCourseClick();
             this.coursesPage.LiveSignUp();
@@ -215,24 +202,26 @@ namespace TeamLichTestAutomation.Tests
 
         [TestMethod]
         [TestCategory("CourseSignUp")]
-        ////[TestId(101)]
+        [TestId(225)]
         [TestPriority(Priority.High)]
         [TestOwner(Owner.Ivan)]
-        public void OnlineSignUpFromSignOffCourse()
+        public void CourseSignUp_OnlineSignUpFromSignOffCourse()
         {
-            LoginWithRegularUser();
+            this.mainPage.Navigate().ClickLogin();
+            this.loginPage.LoginUser(TelerikUser.Regular);
             this.coursesPage.Navigate();
             this.coursesPage.AssertSignedOffCourse();
         }
 
         [TestMethod]
         [TestCategory("CourseSignUp")]
-        ////[TestId(101)]
+        [TestId(226)]
         [TestPriority(Priority.High)]
         [TestOwner(Owner.Ivan)]
-        public void OnlineSignUpFromCoursesList()
+        public void CourseSignUp_OnlineSignUpFromCoursesList()
         {
-            this.RegRandUser();
+            this.mainPage.Navigate().ClickRegistration();
+            this.registrationPage.RegisterRandomUser();
             this.mainPage.HoverCoursesNavigationDropdown();
             this.mainPage.MyCourseClick();
             this.coursesPage.OnlineSignUp();
@@ -241,27 +230,27 @@ namespace TeamLichTestAutomation.Tests
 
         [TestMethod]
         [TestCategory("CourseSignUp")]
-        ////[TestId(101)]
+        [TestId(227)]
         [TestPriority(Priority.High)]
         [TestOwner(Owner.Ivan)]
-        public void SignUpFromCoursesListWithoutLogIn()
+        public void CourseSignUp_SignUpFromCoursesListWithoutLogIn()
         {
             this.mainPage.HoverCoursesNavigationDropdown();
             this.mainPage.MyCourseClick();
             this.coursesPage.AssertPleaseLogInBtnPresent();
         }
-        
+
         [TestMethod]
         [TestCategory("CourseSignUp")]
-        ////[TestId(101)]
+        [TestId(228)]
         [TestPriority(Priority.High)]
         [TestOwner(Owner.Ivan)]
-        public void LiveSignUpFromSignOffCourse()
+        public void CourseSignUp_LiveSignUpFromSignOffCourse()
         {
-            LoginWithRegularUser();
+            this.mainPage.Navigate().ClickLogin();
+            this.loginPage.LoginUser(TelerikUser.Regular);
             this.coursesPage.Navigate();
             this.coursesPage.AssertSignedOffCourse();
         }
-
     }
 }

@@ -1,12 +1,8 @@
 ﻿namespace TeamLichTestAutomation.Academy.Core.Pages.AdminPages.RolesPage
 {
-    using System.Linq;
-    using ArtOfTest.Common.UnitTesting;
-    using TeamLichTestAutomation.TestFramework.Core;
-    using Telerik.TestingFramework.Controls.KendoUI;
-
     public static class RolesPageAsserter
     {
+<<<<<<< HEAD
         public static void AssertRoleIsPresentInGrid(this RolesPage rolePage, KendoGrid grid, string roleName)
         {
             var isContained = grid.ContainsValueInColumn(roleName, 1);
@@ -41,5 +37,7 @@
                 Assert.AreEqual(expected, actual);
                 }
             }
+=======
+>>>>>>> origin/master
     }
 }

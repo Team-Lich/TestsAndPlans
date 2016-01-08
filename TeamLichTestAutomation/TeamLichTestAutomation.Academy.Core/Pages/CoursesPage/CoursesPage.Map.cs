@@ -4,7 +4,7 @@
 
     public partial class CoursesPage
     {
-        public HtmlSpan SignOff
+        internal HtmlSpan SignOff
         {
             get
             {
@@ -13,7 +13,7 @@
             }
         }
 
-        public HtmlControl Title
+        internal HtmlControl Title
         {
             get
             {
@@ -21,7 +21,7 @@
             }
         }
 
-        public HtmlControl FirstCourse
+        internal HtmlControl FirstCourse
         {
             get
             {
@@ -29,7 +29,7 @@
             }
         }
 
-        public HtmlAnchor PresentationLink
+        internal HtmlAnchor PresentationLink
         {
             get
             {
@@ -37,11 +37,44 @@
             }
         }
 
-        public HtmlAnchor SendHomeworkLink
+        internal HtmlAnchor SendHomeworkLink
         {
             get
             {
                 return this.Browser.Find.ByExpression<HtmlAnchor>("href=http://www.bgcoder.com/Contests/0");
+            }
+        }
+
+        internal HtmlAnchor EvalHomeworkBtn
+        {
+            get
+            {
+                return this.Browser.Find.ByExpression<HtmlAnchor>("href=/Courses/HomeworkEvaluations/Evaluate/2223");
+            }
+        }
+
+        internal HtmlAnchor PleaseLogInBtn
+        {
+            get
+            {
+                var btn = this.Browser.Find.ByExpression<HtmlAnchor>("href=/Users/Auth/Login?ReturnUrl=%2fCourses%2fCourses%2fList");
+                return btn;
+            }
+        }
+
+        internal HtmlSpan CourseParticipationInfo
+        {
+            get
+            {
+                return this.Browser.Find.ByXPath<HtmlSpan>(@"//*[@id=""MainContent""]/div/div[3]/div[2]/div[5]/div/div/span");
+            }
+        }
+
+        internal HtmlControl TestCourse2Title
+        {
+            get
+            {
+                return this.Browser.Find.ById<HtmlControl>("panel-title");
             }
         }
 
@@ -87,31 +120,6 @@
             {
                 this.Browser.WaitForElement(3000, "id=SendButton");
                 return this.Browser.Find.ById<HtmlControl>("SendButton");
-            }
-        }
-
-        public HtmlAnchor EvalHomeworkBtn
-        {
-            get
-            {
-                return this.Browser.Find.ByExpression<HtmlAnchor>("href=/Courses/HomeworkEvaluations/Evaluate/2223");
-            }
-        }
-
-        public HtmlAnchor PleaseLogInBtn
-        {
-            get
-            {
-                var btn = this.Browser.Find.ByExpression<HtmlAnchor>("href=/Users/Auth/Login?ReturnUrl=%2fCourses%2fCourses%2fList");
-                return btn;
-            }
-        }
-
-        public HtmlSpan courseParticipationInfo
-        {
-            get
-            {
-                return this.Browser.Find.ByXPath<HtmlSpan>(@"//*[@id=""MainContent""]/div/div[3]/div[2]/div[5]/div/div/span");
             }
         }
     }

@@ -52,7 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Data\TelerikUserData.cs" />
-    <Compile Include="Facades\TelerikAcademyFacade.cs" />
+    <Compile Include="Pages\MessagesPage\MessagesPageMessages.cs" />
     <Compile Include="Models\TelerikUser.cs" />
     <Compile Include="Pages\AdminPages\AdminDashboardPage\AdminDashboardPage.cs" />
     <Compile Include="Pages\AdminPages\AdminDashboardPage\AdminDashboardPage.Map.cs" />
@@ -107,10 +107,10 @@
     <Compile Include="Pages\RegistrationPage\RegistrationPageAsserter.cs" />
     <Compile Include="Pages\RegistrationPage\RegistrationPage.cs" />
     <Compile Include="Pages\RegistrationPage\RegistrationPage.Map.cs" />
-    <Compile Include="Pages\RegistrationPage\RegistrationPageErrorMessages.cs" />
-    <Compile Include="Pages\UserPage\UserPage.cs" />
-    <Compile Include="Pages\UserPage\UserPage.Map.cs" />
-    <Compile Include="Pages\UserPage\UserPageAsserter.cs" />
+    <Compile Include="Pages\RegistrationPage\RegistrationPageConstants\RegistrationPageErrorMessages.cs" />
+    <Compile Include="Pages\UserProfilePage\UserProfilePage.cs" />
+    <Compile Include="Pages\UserProfilePage\UserProfilePage.Map.cs" />
+    <Compile Include="Pages\UserProfilePage\UserProfilePageAsserter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -126,6 +126,7 @@
       <Name>TeamLichTestAutomation.Utilities</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

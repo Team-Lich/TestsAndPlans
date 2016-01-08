@@ -5,21 +5,13 @@
 
     public partial class RolesPage
     {
-        internal KendoGrid KendoTable
-        {
-            get
-            {
-                return this.Browser.Find.ById<KendoGrid>("DataGrid");
-            }
-        }
-
         private HtmlButton DeleteButton
-        {
-            get
             {
+            get
+                {
                 return this.Browser.Find.ByExpression<HtmlButton>("class=~k-grid-delete");
+                }
             }
-        }
 
         private HtmlAnchor AddButton
             {
@@ -75,7 +67,6 @@
                 return this.Browser.Find.ByAttributes<HtmlTableCell>("data-field=Name");
             }
         }
-<<<<<<< HEAD
 
         private HtmlTableCell IdHeader
             {
@@ -94,7 +85,5 @@
                 return this.Browser.Find.ById<KendoGrid>("DataGrid");
             }
         }
-=======
->>>>>>> origin/master
     }
 }

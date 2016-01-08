@@ -172,6 +172,7 @@ namespace TeamLichTestAutomation.Tests.AdministrationTestSuites
         [TestMethod]
         [TestCategory("AdministrationUniversities")]
         [TestCategory("PriorityHigh")]
+        [TestId(100)]
         [TestOwner(Owner.DechoDechev)]
         public void TestAdminUniversityAddFunctionalityWorks()
         {
@@ -186,6 +187,7 @@ namespace TeamLichTestAutomation.Tests.AdministrationTestSuites
         [TestMethod]
         [TestCategory("AdministrationUniversities")]
         [TestCategory("PriorityMedium")]
+        [TestId(89)]
         [TestOwner(Owner.Dimitar)]
         public void TestAdminUniversityExportAsExcelFunctionalityWorks()
         {
@@ -216,6 +218,7 @@ namespace TeamLichTestAutomation.Tests.AdministrationTestSuites
         [TestMethod]
         [TestCategory("AdministrationUniversities")]
         [TestCategory("PriorityLow")]
+        [TestId(269)]
         [TestOwner(Owner.DechoDechev)]
         public void TestAdminUniversityBackToAdministrationButtonWorks()
         {
@@ -226,6 +229,7 @@ namespace TeamLichTestAutomation.Tests.AdministrationTestSuites
         [TestMethod]
         [TestCategory("AdministrationUniversities")]
         [TestCategory("PriorityMedium")]
+        [TestId(88)]
         [TestOwner(Owner.DechoDechev)]
         public void TestAdminUniversityEditNameWorks()
         {
@@ -248,6 +252,7 @@ namespace TeamLichTestAutomation.Tests.AdministrationTestSuites
         [TestMethod]
         [TestCategory("AdministrationUniversities")]
         [TestCategory("PriorityMedium")]
+        [TestId(268)]
         [TestOwner(Owner.Dimitar)]
         public void TestAdminUniversityDeleteWorks()
         {

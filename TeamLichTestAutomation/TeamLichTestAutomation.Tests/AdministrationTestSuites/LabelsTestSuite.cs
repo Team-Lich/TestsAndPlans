@@ -173,6 +173,7 @@
         [TestMethod]
         [TestCategory("AdministrationLabels")]
         [TestCategory("PriorityHigh")]
+        [TestId(191)]
         [TestOwner(Owner.Dimitar)]
         public void TestAdminLabelsAddFunctionalityWorks()
         {
@@ -187,6 +188,7 @@
         [TestMethod]
         [TestCategory("AdministrationLabels")]
         [TestCategory("PriorityMedium")]
+        [TestId(193)]
         [TestOwner(Owner.Dimitar)]
         public void TestAdminLabelsDeleteWorks()
         {
@@ -208,6 +210,7 @@
         [TestMethod]
         [TestCategory("AdministrationLabels")]
         [TestCategory("PriorityLow")]
+        [TestId(258)]
         [TestOwner(Owner.Dimitar)]
         public void TestAdminLabelsBackToAdministrationButtonWorks()
             {

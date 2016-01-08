@@ -19,6 +19,7 @@
     using TeamLichTestAutomation.Utilities.Attributes;
 
     using Telerik.TestingFramework.Controls.KendoUI;
+    using TeamLichTestAutomation.Academy.Core.Pages.AdminPages.RolesPage;
 
     /// <summary>
     /// Summary description for UniversitiesTestSuite
@@ -173,11 +174,166 @@
         [TestMethod]
         [TestCategory("AdministrationRoles")]
         [TestCategory("PriorityLow")]
+        [TestId(260)]
         [TestOwner(Owner.Dimitar)]
         public void TestAdminRolesBackToAdministrationButtonWorks()
-            {
+        {
             this.rolesPage.BackToAdmin();
             this.dashboardPage.AssertCurrentlyOnThePage();
+        }
+
+        [TestMethod]
+        [TestCategory("AdministrationRoles")]
+        [TestCategory("PriorityHigh")]
+        [TestId(267)]
+        [TestOwner(Owner.Dimitar)]
+        public void TestAdminRolesAddFunctionalityWorks()
+            {
+            this.rolesPage.AddRole("Telerik Role");
+            KendoGrid grid = this.rolesPage.Browser.Find.ByExpression<KendoGrid>("data-role=grid");
+            this.rolesPage.AssertRoleIsPresentInGrid(grid, "Telerik Role");
+
+            grid = this.rolesPage.Browser.Find.ByExpression<KendoGrid>("data-role=grid");
+            this.rolesPage.DeleteRow(grid, "Telerik Role", 1);
+            }
+
+        [TestMethod]
+        [TestCategory("AdministrationRoles")]
+        [TestCategory("PriorityMedium")]
+        [TestId(265)]
+        [TestOwner(Owner.Dimitar)]
+        public void TestAdminRolesExportAsExcelFunctionalityWorks()
+            {
+                this.rolesPage.ExportAsExcel();
+            }
+
+        [TestMethod]
+        [TestCategory("AdministrationRoles")]
+        [TestCategory("PriorityMedium")]
+        [TestId(266)]
+        [TestOwner(Owner.Dimitar)]
+        public void TestAdminUniversityEditNameWorks()
+            {
+            string newRoleName = "Telerik Role";
+            this.rolesPage.AddRole(newRoleName);
+            KendoGrid grid = this.rolesPage.Browser.Find.ByExpression<KendoGrid>("data-role=grid");
+            this.rolesPage.EditRow(grid, newRoleName, "Name", "Progress Role", 1);
+
+            this.browser.RefreshDomTree();
+            grid = this.rolesPage.Browser.Find.ByExpression<KendoGrid>("data-role=grid");
+            this.rolesPage.AssertRoleIsPresentInGrid(grid, "Progress Role");
+            this.rolesPage.DeleteRow(grid, "Progress University", 1);
+
+            Thread.Sleep(1000);
+            this.browser.RefreshDomTree();
+            grid = this.rolesPage.Browser.Find.ByExpression<KendoGrid>("data-role=grid");
+            this.rolesPage.AssertRoleIsNotPresentInGrid(grid, "Progress Role");
+            }
+
+        [TestMethod]
+        [TestCategory("AdministrationRoles")]
+        [TestCategory("PriorityMedium")]
+        [TestId(263)]
+        [TestOwner(Owner.Dimitar)]
+        public void TestAdminRoleDeleteWorks()
+            {
+            string newRoleName = "Telerik Role";
+            this.rolesPage.AddRole(newRoleName);
+            KendoGrid grid = this.rolesPage.Browser.Find.ByExpression<KendoGrid>("data-role=grid");
+
+            this.browser.RefreshDomTree();
+            grid = this.rolesPage.Browser.Find.ByExpression<KendoGrid>("data-role=grid");
+            this.rolesPage.AssertRoleIsPresentInGrid(grid, "Telerik Role");
+            this.rolesPage.DeleteRow(grid, "Telerik Role", 1);
+
+            Thread.Sleep(1000);
+            this.browser.RefreshDomTree();
+            grid = this.rolesPage.Browser.Find.ByExpression<KendoGrid>("data-role=grid");
+            this.rolesPage.AssertRoleIsNotPresentInGrid(grid, "Telerik Role");
+            }
+
+        [TestMethod]
+        [TestCategory("AdministrationRoles")]
+        [TestCategory("PriorityLow")]
+        [TestId(271)]
+        [TestOwner(Owner.Dimitar)]
+        public void TestSortByNameInRolesGridWorks()
+            {
+            KendoGrid grid = this.rolesPage.Browser.Find.ByExpression<KendoGrid>("data-role=grid");
+
+            this.rolesPage.AddRole("Àãðàðåí Óíèâåðñèòåò");
+            this.rolesPage.AddRole("Ñðåäåí Óíèâåðñèòåò");
+            this.rolesPage.AddRole("ßìáîëñêè óíèâåðñèòåò");
+
+            grid = this.rolesPage.Browser.Find.ByExpression<KendoGrid>("data-role=grid");
+
+            var initialRolesOrder = grid.ValuesInColumn(1);
+
+            this.rolesPage.SortByName(grid);
+
+            var manager = Manager.ActiveBrowser;
+            Thread.Sleep(2000);
+            manager.RefreshDomTree();
+            grid = this.rolesPage.Browser.Find.ByExpression<KendoGrid>("data-role=grid");
+
+            var sortedRolesOrder = grid.ValuesInColumn(1);
+
+            this.rolesPage.AssertColumnIsSorted(initialRolesOrder, sortedRolesOrder, true);
+
+            this.rolesPage.SortByName(grid);
+
+            Thread.Sleep(2000);
+            manager.RefreshDomTree();
+            grid = this.rolesPage.Browser.Find.ByExpression<KendoGrid>("data-role=grid");
+
+            sortedRolesOrder = grid.ValuesInColumn(1);
+
+            this.rolesPage.AssertColumnIsSorted(initialRolesOrder, sortedRolesOrder, false);
+
+            grid = this.rolesPage.Browser.Find.ByExpression<KendoGrid>("data-role=grid");
+            this.rolesPage.DeleteRow(grid, "Àãðàðåí Óíèâåðñèòåò", 1);
+            Thread.Sleep(1000);
+
+            manager.RefreshDomTree();
+            grid = this.rolesPage.Browser.Find.ByExpression<KendoGrid>("data-role=grid");
+            this.rolesPage.DeleteRow(grid, "Ñðåäåí Óíèâåðñèòåò", 1);
+
+            manager.RefreshDomTree();
+            grid = this.rolesPage.Browser.Find.ByExpression<KendoGrid>("data-role=grid");
+            this.rolesPage.DeleteRow(grid, "ßìáîëñêè óíèâåðñèòåò", 1);
+            }
+
+        [TestMethod]
+        [TestCategory("AdministrationUniversities")]
+        [TestCategory("PriorityLow")]
+        [TestId(270)]
+        [TestOwner(Owner.Dimitar)]
+        public void TestSortByIdInRolesGridWorks()
+            {
+            KendoGrid grid = this.rolesPage.Browser.Find.ByExpression<KendoGrid>("data-role=grid");
+
+            var initialRolesOrder = grid.ValuesInColumn(0);
+
+            this.rolesPage.SortById(grid);
+
+            var manager = Manager.ActiveBrowser;
+            Thread.Sleep(2000);
+            manager.RefreshDomTree();
+            grid = this.rolesPage.Browser.Find.ByExpression<KendoGrid>("data-role=grid");
+
+            var sortedRolesOrder = grid.ValuesInColumn(0);
+
+            this.rolesPage.AssertColumnIsSorted(initialRolesOrder, sortedRolesOrder, false);
+
+            this.rolesPage.SortById(grid);
+
+            Thread.Sleep(2000);
+            manager.RefreshDomTree();
+            grid = this.rolesPage.Browser.Find.ByExpression<KendoGrid>("data-role=grid");
+
+            sortedRolesOrder = grid.ValuesInColumn(0);
+
+            this.rolesPage.AssertColumnIsSorted(initialRolesOrder, sortedRolesOrder, true);
             }
 
         }

@@ -1,4 +1,4 @@
-﻿namespace TeamLichTestAutomation.Academy.Core.Pages.AdminPages.UniversitiesPage
+﻿namespace TeamLichTestAutomation.Academy.Core.Pages.AdminPages.RolesPage
 {
     using ArtOfTest.WebAii.Controls.HtmlControls;
     using Telerik.TestingFramework.Controls.KendoUI;
@@ -10,6 +10,16 @@
             get
                 {
                 return this.Browser.Find.ByExpression<HtmlButton>("class=~k-grid-delete");
+                }
+            }
+
+        private HtmlAnchor AddButton
+            {
+            get
+                {
+                string expressionString = @"href=/Administration_Users/Universities/Read?DataGrid-mode=insert";
+                this.Browser.WaitForElement(5000, expressionString);
+                return this.Browser.Find.ByExpression<HtmlAnchor>(expressionString);
                 }
             }
 
@@ -57,6 +67,16 @@
                 return this.Browser.Find.ByAttributes<HtmlTableCell>("data-field=Name");
             }
         }
+
+        private HtmlTableCell IdHeader
+            {
+            get
+                {
+                this.Browser.RefreshDomTree();
+                this.Browser.WaitForElement(5000, "data-field=UniversityId", "data-role=columnsorter");
+                return this.Browser.Find.ByAttributes<HtmlTableCell>("data-field=UniversityId");
+                }
+            }
 
         internal KendoGrid KendoTable
         {

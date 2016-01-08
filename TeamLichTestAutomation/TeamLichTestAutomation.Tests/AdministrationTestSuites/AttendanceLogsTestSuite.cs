@@ -173,6 +173,7 @@
         [TestMethod]
         [TestCategory("AdministrationRoles")]
         [TestCategory("PriorityLow")]
+        [TestId(255)]
         [TestOwner(Owner.Dimitar)]
         public void TestAdminAttendanceLogsBackToAdministrationButtonWorks()
             {

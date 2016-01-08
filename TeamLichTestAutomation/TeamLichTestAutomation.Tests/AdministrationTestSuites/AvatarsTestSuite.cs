@@ -173,6 +173,7 @@
         [TestMethod]
         [TestCategory("AdministrationRoles")]
         [TestCategory("PriorityLow")]
+        [TestId(256)]
         [TestOwner(Owner.Dimitar)]
         public void TestAdminAvatarsBackToAdministrationButtonWorks()
             {

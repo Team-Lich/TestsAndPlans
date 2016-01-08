@@ -174,6 +174,7 @@
         [TestMethod]
         [TestCategory("AdministrationWorkEducationStatuse")]
         [TestCategory("PriorityLow")]
+        [TestId(262)]
         [TestOwner(Owner.Dimitar)]
         public void TestAdminWorkEducationStatusesBackToAdministrationButtonWorks()
         {
@@ -184,6 +185,7 @@
         [TestMethod]
         [TestCategory("AdministrationWorkEducationStatuse")]
         [TestCategory("PriorityHigh")]
+        [TestId(157)]
         [TestOwner(Owner.Dimitar)]
         public void TestAdminWorkEducationStatusesAddFunctionalityWorks()
         {
@@ -198,6 +200,7 @@
         [TestMethod]
         [TestCategory("AdministrationWorkEducationStatuses")]
         [TestCategory("PriorityMedium")]
+        [TestId(156)]
         [TestOwner(Owner.Dimitar)]
         public void TestAdminWorkEducationStatusesDeleteWorks()
         {

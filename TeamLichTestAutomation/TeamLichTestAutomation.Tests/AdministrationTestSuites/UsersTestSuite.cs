@@ -171,8 +171,9 @@
 
 
         [TestMethod]
-        [TestCategory("AdministrationRoles")]
+        [TestCategory("AdministrationUsers")]
         [TestCategory("PriorityLow")]
+        [TestId(261)]
         [TestOwner(Owner.Dimitar)]
         public void TestAdminUsersBackToAdministrationButtonWorks()
             {

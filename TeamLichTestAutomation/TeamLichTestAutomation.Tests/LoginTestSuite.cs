@@ -45,13 +45,13 @@ namespace TeamLichTestAutomation.Tests
         }
 
         // Use ClassInitialize to run code before running the first test in the class
-        [ClassInitialize()]
+        [ClassInitialize]
         public static void MyClassInitialize(TestContext testContext)
         {
         }
 
         // Use TestInitialize to run code before running each test
-        [TestInitialize()]
+        [TestInitialize]
         public void MyTestInitialize()
         {
             #region WebAii Initialization
@@ -117,7 +117,7 @@ namespace TeamLichTestAutomation.Tests
         }
 
         // Use TestCleanup to run code after each test has run
-        [TestCleanup()]
+        [TestCleanup]
         public void MyTestCleanup()
         {
             #region WebAii CleanUp
@@ -130,7 +130,7 @@ namespace TeamLichTestAutomation.Tests
         }
 
         // Use ClassCleanup to run code after all tests in a class have run
-        [ClassCleanup()]
+        [ClassCleanup]
         public static void MyClassCleanup()
         {
             // This will shut down all browsers if

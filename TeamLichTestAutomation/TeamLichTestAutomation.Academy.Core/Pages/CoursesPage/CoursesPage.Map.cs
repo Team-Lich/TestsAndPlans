@@ -9,7 +9,8 @@
             get
             {
                 this.Browser.WaitForElement(5000, "onclick=~confirmQuitCourse");
-                return this.Browser.Find.ByExpression<HtmlSpan>("onclick=~confirmQuitCourse");
+                var signOffBtn = this.Browser.Find.ByExpression<HtmlSpan>("onclick=~confirmQuitCourse");
+                return signOffBtn;
             }
         }
 

@@ -1,7 +1,8 @@
 ﻿namespace TeamLichTestAutomation.Academy.Core.Pages.CoursesPage
 {
-    using System.Threading;
     using ArtOfTest.WebAii.Core;
+    using System.Threading;
+    using ArtOfTest.WebAii.Win32.Dialogs;
 
     public partial class CoursesPage : BasePage
     {
@@ -20,18 +21,30 @@
 
         public void LiveSignUp()
         {
-            this.Browser.WaitForElement(3000, "id=SearchButton");
-            this.CourseLiveApply.MouseClick();
-            Thread.Sleep(3000);
-            this.Browser.Desktop.KeyBoard.KeyPress(System.Windows.Forms.Keys.Enter);
+            var dialog = new ConfirmDialog(this.Browser, DialogButton.OK);
+            Manager.Current.DialogMonitor.AddDialog(dialog);
+            Manager.Current.DialogMonitor.Start();
+
+            this.Browser.WaitForElement(3000, "id=SignUpLiveButton");
+            this.CourseLiveApply.MouseClick(MouseClickType.LeftClick);
+
+            dialog.WaitUntilHandled();
+
+            //this.Browser.Desktop.KeyBoard.KeyPress(System.Windows.Forms.Keys.Enter);
         }
 
         public void OnlineSignUp()
         {
-            this.Browser.WaitForElement(3000, "id=SearchButton");
+            var dialog = new ConfirmDialog(this.Browser, DialogButton.OK);
+            Manager.Current.DialogMonitor.AddDialog(dialog);
+            Manager.Current.DialogMonitor.Start();
+
+            this.Browser.WaitForElement(3000, "id=SignUpOnlineButton");
             this.CourseOnlineApply.MouseClick();
-            Thread.Sleep(3000);
-            this.Browser.Desktop.KeyBoard.KeyPress(System.Windows.Forms.Keys.Enter);
+            //Thread.Sleep(3000);
+            //this.Browser.Desktop.KeyBoard.KeyPress(System.Windows.Forms.Keys.Enter);
+
+            dialog.WaitUntilHandled();
         }
 
         public void SendHomework()

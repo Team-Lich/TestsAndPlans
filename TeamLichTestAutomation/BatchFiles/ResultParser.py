@@ -31,9 +31,12 @@ for result in results:
 	
 	if testOutcome == "Passed":
 		ft = Font(color='00237700')
-		ws["A{0}".format(currentRow)].font = ft
-		ws["B{0}".format(currentRow)].font = ft
-		ws["C{0}".format(currentRow)].font = ft
+	else:
+		ft = Font(color='00D50000')
+		
+	ws["A{0}".format(currentRow)].font = ft
+	ws["B{0}".format(currentRow)].font = ft
+	ws["C{0}".format(currentRow)].font = ft
 	
 	currentRow += 1
 	

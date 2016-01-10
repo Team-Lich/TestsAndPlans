@@ -304,7 +304,7 @@
             }
 
         [TestMethod]
-        [TestCategory("AdministrationUniversities")]
+        [TestCategory("AdministrationRoles")]
         [TestCategory("PriorityLow")]
         [TestId(270)]
         [TestOwner(Owner.Dimitar)]

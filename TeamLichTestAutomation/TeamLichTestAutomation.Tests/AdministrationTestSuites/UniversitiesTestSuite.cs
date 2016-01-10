@@ -177,7 +177,7 @@ namespace TeamLichTestAutomation.Tests.AdministrationTestSuites
             this.uniPage.AssertUniversityIsPresentInGrid(grid, "Telerik University");
 
             grid = this.uniPage.Browser.Find.ByExpression<KendoGrid>("data-role=grid");
-            this.uniPage.DeleteRow(grid, "Telerik University", 1);
+            this.uniPage.DeleteRow("Telerik University", 1);
         }
 
         [TestMethod]
@@ -203,19 +203,13 @@ namespace TeamLichTestAutomation.Tests.AdministrationTestSuites
         [TestOwner(Owner.DechoDechev)]
         public void AdminUniversityRemoveFunctionality()
         {
-            KendoGrid grid = this.uniPage.Browser.Find.ByExpression<KendoGrid>("data-role=grid");
             this.uniPage.AddUniversity("Telerik University");
-            this.browser.RefreshDomTree();
-            grid = this.uniPage.Browser.Find.ByExpression<KendoGrid>("data-role=grid");
-            this.uniPage.AssertUniversityIsPresentInGrid(grid, "Telerik University");
+            this.uniPage.AssertUniversityIsPresentInGrid(this.uniPage.KendoTable, "Telerik University");
 
-            grid = this.uniPage.Browser.Find.ByExpression<KendoGrid>("data-role=grid");
-            this.uniPage.DeleteRow(grid, "Telerik University", 1);
+            this.uniPage.DeleteRow("Telerik University", 1);
 
             Thread.Sleep(1000);
-            this.uniPage.Browser.RefreshDomTree();
-            grid = this.uniPage.Browser.Find.ByExpression<KendoGrid>("data-role=grid");
-            this.uniPage.AssertUniversityIsNotPresentInGrid(grid, "Telerik University");
+            this.uniPage.AssertUniversityIsNotPresentInGrid(this.uniPage.KendoTable, "Telerik University");
         }
 
         [TestMethod]
@@ -239,13 +233,13 @@ namespace TeamLichTestAutomation.Tests.AdministrationTestSuites
             string newUniversityName = "Telerik University";
             this.uniPage.AddUniversity(newUniversityName);
             KendoGrid grid = this.uniPage.Browser.Find.ByExpression<KendoGrid>("data-role=grid");
-            this.uniPage.EditRow(grid, newUniversityName, "Name", "Progress University", 1);
+            this.uniPage.EditRow(newUniversityName, "Name", "Progress University", 1);
 
             Thread.Sleep(2000);
             this.browser.RefreshDomTree();
             grid = this.uniPage.Browser.Find.ByExpression<KendoGrid>("data-role=grid");
             this.uniPage.AssertUniversityIsPresentInGrid(grid, "Progress University");
-            this.uniPage.DeleteRow(grid, "Progress University", 1);
+            this.uniPage.DeleteRow("Progress University", 1);
 
             Thread.Sleep(1000);
             this.browser.RefreshDomTree();
@@ -267,7 +261,7 @@ namespace TeamLichTestAutomation.Tests.AdministrationTestSuites
             this.browser.RefreshDomTree();
             grid = this.uniPage.Browser.Find.ByExpression<KendoGrid>("data-role=grid");
             this.uniPage.AssertUniversityIsPresentInGrid(grid, "Telerik University");
-            this.uniPage.DeleteRow(grid, "Telerik University", 1);
+            this.uniPage.DeleteRow("Telerik University", 1);
 
             Thread.Sleep(1000);
             this.browser.RefreshDomTree();
@@ -282,48 +276,27 @@ namespace TeamLichTestAutomation.Tests.AdministrationTestSuites
         [TestOwner(Owner.DechoDechev)]
         public void AdminUniversitySortByNameInGrid()
         {
-            KendoGrid grid = this.uniPage.Browser.Find.ByExpression<KendoGrid>("data-role=grid");
-
             this.uniPage.AddUniversity("Аграрен Университет");
             this.uniPage.AddUniversity("Среден Университет");
             this.uniPage.AddUniversity("Ямболски университет");
 
-            grid = this.uniPage.Browser.Find.ByExpression<KendoGrid>("data-role=grid");
-
-            var initialUniversityOrder = grid.ValuesInColumn(1);
-
-            this.uniPage.SortByName(grid);
-
-            var manager = Manager.ActiveBrowser;
-            Thread.Sleep(2000);
-            manager.RefreshDomTree();
-            grid = this.uniPage.Browser.Find.ByExpression<KendoGrid>("data-role=grid");
-
-            var sortedUniversityOrder = grid.ValuesInColumn(1);
-
+            var initialUniversityOrder = this.uniPage.KendoTable.ValuesInColumn(1);
+            
+            this.uniPage.SortByName();
+            Thread.Sleep(1000);
+            var sortedUniversityOrder = this.uniPage.KendoTable.ValuesInColumn(1);
             this.uniPage.AssertColumnIsSorted(initialUniversityOrder, sortedUniversityOrder, true);
 
-            this.uniPage.SortByName(grid);
-
-            Thread.Sleep(2000);
-            manager.RefreshDomTree();
-            grid = this.uniPage.Browser.Find.ByExpression<KendoGrid>("data-role=grid");
-
-            sortedUniversityOrder = grid.ValuesInColumn(1);
-
+            this.uniPage.SortByName();
+            Thread.Sleep(1000);
+            sortedUniversityOrder = this.uniPage.KendoTable.ValuesInColumn(1);
             this.uniPage.AssertColumnIsSorted(initialUniversityOrder, sortedUniversityOrder, false);
 
-            grid = this.uniPage.Browser.Find.ByExpression<KendoGrid>("data-role=grid");
-            this.uniPage.DeleteRow(grid, "Аграрен Университет", 1);
+            this.uniPage.DeleteRow("Аграрен Университет", 1);
             Thread.Sleep(1000);
-
-            manager.RefreshDomTree();
-            grid = this.uniPage.Browser.Find.ByExpression<KendoGrid>("data-role=grid");
-            this.uniPage.DeleteRow(grid, "Среден Университет", 1);
-
-            manager.RefreshDomTree();
-            grid = this.uniPage.Browser.Find.ByExpression<KendoGrid>("data-role=grid");
-            this.uniPage.DeleteRow(grid, "Ямболски университет", 1);
+            this.uniPage.DeleteRow("Среден Университет", 1);
+            Thread.Sleep(1000);
+            this.uniPage.DeleteRow("Ямболски университет", 1);
         }
 
         [TestMethod]
@@ -337,7 +310,7 @@ namespace TeamLichTestAutomation.Tests.AdministrationTestSuites
 
             var initialUniversityOrder = grid.ValuesInColumn(0);
 
-            this.uniPage.SortById(grid);
+            this.uniPage.SortById();
 
             var manager = Manager.ActiveBrowser;
             Thread.Sleep(2000);
@@ -348,7 +321,7 @@ namespace TeamLichTestAutomation.Tests.AdministrationTestSuites
 
             this.uniPage.AssertColumnIsSorted(initialUniversityOrder, sortedUniversityOrder, false);
 
-            this.uniPage.SortById(grid);
+            this.uniPage.SortById();
 
             Thread.Sleep(2000);
             manager.RefreshDomTree();
@@ -366,7 +339,7 @@ namespace TeamLichTestAutomation.Tests.AdministrationTestSuites
         {
             KendoGrid grid = this.uniPage.Browser.Find.ByExpression<KendoGrid>("data-role=grid");
 
-            this.uniPage.SortByName(grid);
+            this.uniPage.SortByName();
             Thread.Sleep(1000);
             Manager manager = Manager.Current;
             manager.ActiveBrowser.RefreshDomTree();
@@ -374,7 +347,7 @@ namespace TeamLichTestAutomation.Tests.AdministrationTestSuites
 
             grid.IsColumnSortDescending(1);
 
-            this.uniPage.SortByName(grid);
+            this.uniPage.SortByName();
             Thread.Sleep(1000);
             manager.ActiveBrowser.RefreshDomTree();
             grid = this.uniPage.Browser.Find.ByExpression<KendoGrid>("data-role=grid");

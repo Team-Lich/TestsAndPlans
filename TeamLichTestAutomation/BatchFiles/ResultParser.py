@@ -19,7 +19,6 @@ ws.title = "TestResults"
 currentRow = 1
 
 for result in results:
-	
 	lineFormat = "Test {0} ran for {1}. Result: {2}"
 	testName = result["testName"]
 	testDuration = result["duration"]

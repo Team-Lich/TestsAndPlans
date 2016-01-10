@@ -39,9 +39,9 @@
             Thread.Sleep(1000);
         }
 
-        public void DeleteRow(KendoGrid grid, string value, int searchColumn)
+        public void DeleteRow(string value, int searchColumn)
         {
-            var rows = grid.DataItems;
+            var rows = this.KendoTable.DataItems;
             HtmlAnchor deleteButton = null;
 
             foreach (var row in rows)
@@ -76,9 +76,9 @@
             this.ExprotAsExcelButton.Click();
         }
 
-        public void EditRow(KendoGrid grid, string value, string idOfEditField, string newValue, int searchColumn)
+        public void EditRow(string value, string idOfEditField, string newValue, int searchColumn)
         {
-            var rows = grid.DataItems;
+            var rows = this.KendoTable.DataItems;
             HtmlAnchor editButton = null;
 
             foreach (var row in rows)
@@ -100,16 +100,12 @@
 
                     var currentManager = Manager.Current;
 
-                    //// currentManager.Desktop.Mouse.Move(rectangle.Left, rectangle.Top, rectangle.Right, rectangle.Top);
-                    //// currentManager.Desktop.Mouse.Move(rectangle.Right, rectangle.Top, rectangle.Left, rectangle.Bottom);
-
                     currentManager.Desktop.Mouse.Click(MouseClickType.LeftClick, rectangle);
                     currentManager.Desktop.KeyBoard.KeyDown(Keys.ControlKey);
                     currentManager.Desktop.KeyBoard.KeyPress(Keys.A);
                     currentManager.Desktop.KeyBoard.KeyUp(Keys.ControlKey);
 
                     currentManager.Desktop.KeyBoard.TypeText(newValue, 50);
-                    //// currentManager.Desktop.KeyBoard.KeyPress(Keys.Return);
 
                     Thread.Sleep(1000);
                     this.Browser.RefreshDomTree();
@@ -117,17 +113,16 @@
                     currentManager.Desktop.Mouse.Move(rectangle, updateButtonPosition);
 
                     currentManager.Desktop.Mouse.Click(MouseClickType.LeftClick, updateButtonPosition);
-                    //// this.UpdateButton.Click();
                 }
             }
         }
 
-        public void SortByName(KendoGrid grid)
+        public void SortByName()
         {
             this.NameHeader.Click();
         }
 
-        public void SortById(KendoGrid grid)
+        public void SortById()
         {
             this.IdHeader.Click();
         }

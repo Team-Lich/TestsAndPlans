@@ -5,11 +5,13 @@
 
     public partial class UniversitiesPage
     {
-        internal KendoGrid KendoTable
+        public KendoGrid KendoTable
         {
             get
             {
-                return this.Browser.Find.ById<KendoGrid>("DataGrid");
+                this.Browser.RefreshDomTree();
+                this.Browser.WaitForElement(10000, "data-role=grid");
+                return this.Browser.Find.ByExpression<KendoGrid>("data-role=grid");
             }
         }
 

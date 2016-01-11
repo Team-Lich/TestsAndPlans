@@ -1,8 +1,8 @@
 ﻿namespace TeamLichTestAutomation.Academy.Core.Pages.AdminPages.UniversitiesPage
 {
+    using System;
     using System.Threading;
     using System.Windows.Forms;
-
     using ArtOfTest.WebAii.Controls.HtmlControls;
     using ArtOfTest.WebAii.Core;
     using ArtOfTest.WebAii.Win32.Dialogs;
@@ -72,8 +72,30 @@
 
         public void ExportAsExcel()
         {
-            this.Browser.RefreshDomTree();
-            this.ExprotAsExcelButton.Click();
+            Manager manager = Manager.Current;
+            this.Browser.RefreshDomTree();            
+
+            manager.Desktop.Mouse.Click(MouseClickType.LeftClick, this.ExportAsExcelButton.GetRectangle());
+            Thread.Sleep(4000);
+
+            switch (this.Browser.BrowserType)
+            {
+                case BrowserType.Chrome:
+                    {
+                        manager.Desktop.KeyBoard.KeyPress(Keys.Enter);
+                        break;
+                    }
+                default:
+                    {
+                        this.Browser.Desktop.KeyBoard.KeyDown(Keys.Alt);
+                        this.Browser.Desktop.KeyBoard.KeyPress(Keys.S);
+                        this.Browser.Desktop.KeyBoard.KeyUp(Keys.Alt);
+                        break;
+                    }
+            }
+
+            // Waiting for download to finish
+            Thread.Sleep(5000);
         }
 
         public void EditRow(string value, string idOfEditField, string newValue, int searchColumn)

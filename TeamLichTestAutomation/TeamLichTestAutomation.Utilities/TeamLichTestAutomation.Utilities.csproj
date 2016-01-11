@@ -46,6 +46,7 @@
     <Compile Include="Attributes\TestIdAttribute.cs" />
     <Compile Include="Attributes\TestOwnerAttribute.cs" />
     <Compile Include="Attributes\TestPriorityAttribute.cs" />
+    <Compile Include="FileSystemHelper.cs" />
     <Compile Include="Owner.cs" />
     <Compile Include="Priority.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

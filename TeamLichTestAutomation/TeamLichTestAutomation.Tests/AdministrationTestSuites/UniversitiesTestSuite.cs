@@ -1,5 +1,6 @@
 namespace TeamLichTestAutomation.Tests.AdministrationTestSuites
 {
+    using System;
     using System.Threading;
     using System.Windows.Forms;
 
@@ -20,6 +21,7 @@ namespace TeamLichTestAutomation.Tests.AdministrationTestSuites
     using TeamLichTestAutomation.Utilities.Attributes;
 
     using Telerik.TestingFramework.Controls.KendoUI;
+    using System.IO;
 
     /// <summary>
     /// Summary description for UniversitiesTestSuite
@@ -116,7 +118,7 @@ namespace TeamLichTestAutomation.Tests.AdministrationTestSuites
 
             #endregion WebAii Initialization
 
-            Manager.LaunchNewBrowser(BrowserType.InternetExplorer, true);
+            Manager.LaunchNewBrowser(BrowserType.Chrome, true);
             this.browser = Manager.ActiveBrowser;
             this.browser.ClearCache(BrowserCacheType.Cookies);
             this.browser.Window.Maximize();
@@ -312,6 +314,11 @@ namespace TeamLichTestAutomation.Tests.AdministrationTestSuites
         public void Test()
         {
             KendoGrid grid = this.uniPage.Browser.Find.ByExpression<KendoGrid>("data-role=grid");
+
+            bool present = FileSystemHelper.FilePresentInUserDownloadsDirectory("Universities_Export_2016-01-11_10-49(1)");
+            bool present1 = FileSystemHelper.FilePresentInUserDownloadsDirectory("Universities_Export_2016-01-11_10-49(2)");
+
+            string date = FileSystemHelper.GetExpectedFileName("Universities");
 
             this.uniPage.SortByName();
             Thread.Sleep(1000);

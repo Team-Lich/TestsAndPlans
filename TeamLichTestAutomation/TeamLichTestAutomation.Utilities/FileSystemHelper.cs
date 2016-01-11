@@ -3,6 +3,7 @@
     using System;
     using System.IO;
     using System.Linq;
+    using System.Threading;
 
     public class FileSystemHelper
     {
@@ -11,6 +12,9 @@
             bool result = false;
 
             string userDirectoryPath = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\Downloads";
+
+            // Wait for downloads to finish
+            Thread.Sleep(5000);
             var files = Directory.GetFiles(userDirectoryPath);
 
             foreach (string filePath in files)

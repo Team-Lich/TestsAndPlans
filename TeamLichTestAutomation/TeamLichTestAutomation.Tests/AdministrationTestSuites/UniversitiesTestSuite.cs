@@ -118,7 +118,7 @@ namespace TeamLichTestAutomation.Tests.AdministrationTestSuites
 
             #endregion WebAii Initialization
 
-            Manager.LaunchNewBrowser(BrowserType.Chrome, true);
+            Manager.LaunchNewBrowser(BrowserType.InternetExplorer, true);
             this.browser = Manager.ActiveBrowser;
             this.browser.ClearCache(BrowserCacheType.Cookies);
             this.browser.Window.Maximize();
@@ -188,12 +188,10 @@ namespace TeamLichTestAutomation.Tests.AdministrationTestSuites
         public void AdminUniversityExportAsExcelFunctionality()
         {
             this.uniPage.ExportAsExcel();
-            Thread.Sleep(4000);
 
-            Manager manager = Manager.Current;
-            manager.Desktop.KeyBoard.KeyDown(Keys.Alt);
-            manager.Desktop.KeyBoard.KeyPress(Keys.S);
-            manager.Desktop.KeyBoard.KeyUp(Keys.Alt);
+            string ex = FileSystemHelper.GetExpectedFileName("Universities");
+            bool fileExists = FileSystemHelper.FilePresentInUserDownloadsDirectory(ex, "xlsx");
+            Assert.IsTrue(fileExists);
         }
 
         [TestMethod]
@@ -315,10 +313,12 @@ namespace TeamLichTestAutomation.Tests.AdministrationTestSuites
         {
             KendoGrid grid = this.uniPage.Browser.Find.ByExpression<KendoGrid>("data-role=grid");
 
-            bool present = FileSystemHelper.FilePresentInUserDownloadsDirectory("Universities_Export_2016-01-11_10-49(1)");
-            bool present1 = FileSystemHelper.FilePresentInUserDownloadsDirectory("Universities_Export_2016-01-11_10-49(2)");
+            string expectedFileName = FileSystemHelper.GetExpectedFileName("Universities");
+            bool res = FileSystemHelper.FilePresentInUserDownloadsDirectory(expectedFileName, "pdf");
 
-            string date = FileSystemHelper.GetExpectedFileName("Universities");
+            //bool present = FileSystemHelper.FilePresentInUserDownloadsDirectory("Universities_Export_2016-01-11_10-49(1)");
+            //bool present1 = FileSystemHelper.FilePresentInUserDownloadsDirectory("Universities_Export_2016-01-11_10-49(2)");
+
 
             this.uniPage.SortByName();
             Thread.Sleep(1000);

@@ -311,29 +311,30 @@ namespace TeamLichTestAutomation.Tests.AdministrationTestSuites
         [Owner("Decho")]
         public void Test()
         {
-            KendoGrid grid = this.uniPage.Browser.Find.ByExpression<KendoGrid>("data-role=grid");
+            //Assert.AreEqual(1, 2);
+            //KendoGrid grid = this.uniPage.Browser.Find.ByExpression<KendoGrid>("data-role=grid");
 
-            string expectedFileName = FileSystemHelper.GetExpectedFileName("Universities");
-            bool res = FileSystemHelper.FilePresentInUserDownloadsDirectory(expectedFileName, "pdf");
+            //string expectedFileName = FileSystemHelper.GetExpectedFileName("Universities");
+            //bool res = FileSystemHelper.FilePresentInUserDownloadsDirectory(expectedFileName, "pdf");
 
             //bool present = FileSystemHelper.FilePresentInUserDownloadsDirectory("Universities_Export_2016-01-11_10-49(1)");
             //bool present1 = FileSystemHelper.FilePresentInUserDownloadsDirectory("Universities_Export_2016-01-11_10-49(2)");
 
 
-            this.uniPage.SortByName();
-            Thread.Sleep(1000);
-            Manager manager = Manager.Current;
-            manager.ActiveBrowser.RefreshDomTree();
-            grid = this.uniPage.Browser.Find.ByExpression<KendoGrid>("data-role=grid");
-
-            grid.IsColumnSortDescending(1);
-
-            this.uniPage.SortByName();
-            Thread.Sleep(1000);
-            manager.ActiveBrowser.RefreshDomTree();
-            grid = this.uniPage.Browser.Find.ByExpression<KendoGrid>("data-role=grid");
-
-            grid.IsColumnSortDescending(1);
+            //this.uniPage.SortByName();
+            //Thread.Sleep(1000);
+            //Manager manager = Manager.Current;
+            //manager.ActiveBrowser.RefreshDomTree();
+            //grid = this.uniPage.Browser.Find.ByExpression<KendoGrid>("data-role=grid");
+            //
+            //grid.IsColumnSortDescending(1);
+            //
+            //this.uniPage.SortByName();
+            //Thread.Sleep(1000);
+            //manager.ActiveBrowser.RefreshDomTree();
+            //grid = this.uniPage.Browser.Find.ByExpression<KendoGrid>("data-role=grid");
+            //
+            //grid.IsColumnSortDescending(1);
         }
     }
 }

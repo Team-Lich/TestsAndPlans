@@ -1,9 +1,13 @@
 import untangle
+import sys
 from openpyxl import Workbook
 from openpyxl.styles import colors
 from openpyxl.styles import Font, Color
 
-doc = untangle.parse("results.trx")
+sourceFile = sys.argv[1]
+timestamp = sys.argv[2]
+
+doc = untangle.parse(sourceFile + ".trx")
 
 total = doc.TestRun.ResultSummary.Counters["total"]
 passed = doc.TestRun.ResultSummary.Counters["passed"]
@@ -41,4 +45,4 @@ for result in results:
 	
 	print(lineFormat.format(testName, testDuration, testOutcome))
 	
-wb.save('testResults.xlsx')
+wb.save(sourceFile + ".xlsx")

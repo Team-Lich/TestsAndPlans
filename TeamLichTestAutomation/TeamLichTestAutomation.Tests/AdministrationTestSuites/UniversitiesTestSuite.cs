@@ -19,6 +19,7 @@ namespace TeamLichTestAutomation.Tests.AdministrationTestSuites
     using TeamLichTestAutomation.Utilities.Attributes;
 
     using Telerik.TestingFramework.Controls.KendoUI;
+    using System;
 
     /// <summary>
     /// Summary description for UniversitiesTestSuite
@@ -116,7 +117,7 @@ namespace TeamLichTestAutomation.Tests.AdministrationTestSuites
 
             #endregion WebAii Initialization
 
-            Manager.LaunchNewBrowser(BrowserType.InternetExplorer, true);
+            Manager.LaunchNewBrowser(BrowserType.Chrome, true);
             this.browser = Manager.ActiveBrowser;
             this.browser.ClearCache(BrowserCacheType.Cookies);
             this.browser.Window.Maximize();
@@ -185,8 +186,11 @@ namespace TeamLichTestAutomation.Tests.AdministrationTestSuites
         {
             this.uniPage.ExportAsExcel();
 
-            string ex = FileSystemHelper.GetExpectedFileName("Universities");
-            bool fileExists = FileSystemHelper.FilePresentInUserDownloadsDirectory(ex, "xlsx");
+            DateTime dateTime = DateTime.Now;
+            string dateString = dateTime.ToString("yyyy-MM-dd_hh-mm");
+            string fileName = "Universities_Export_" + dateString;
+            string ex = FileSystemHelper.GetExpectedFileName(fileName);
+            bool fileExists = FileSystemHelper.FilePresentInUserDownloadsDirectory(fileName, "xlsx");
             Assert.IsTrue(fileExists);
         }
 

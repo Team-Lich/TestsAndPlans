@@ -2,15 +2,13 @@
 {
     using ArtOfTest.WebAii.Core;
     using ArtOfTest.WebAii.TestTemplates;
-
     using Microsoft.VisualStudio.TestTools.UnitTesting;
-
+    using System;
     using TeamLichTestAutomation.Academy.Core.Models;
     using TeamLichTestAutomation.Academy.Core.Pages.AdminPages.AdminDashboardPage;
     using TeamLichTestAutomation.Academy.Core.Pages.AdminPages.UniversitiesPage;
     using TeamLichTestAutomation.Academy.Core.Pages.LoginPage;
     using TeamLichTestAutomation.Academy.Core.Pages.MainPage;
-
     using TeamLichTestAutomation.Utilities;
     using TeamLichTestAutomation.Utilities.Attributes;
 
@@ -158,7 +156,7 @@
         // These tests work only on Internet Explorer.
         // I can not handle the confirmation dialog on deletion in Chrome and Firefox
         [TestMethod]
-        [TestCategory("AdministrationRoles")]
+        [TestCategory("AdministrationAvatars")]
         [Priority(4)]
         [TestId(256)]
         [Owner("Dimitar")]
@@ -166,6 +164,22 @@
         {
             this.avatarsPage.BackToAdmin();
             this.dashboardPage.AssertCurrentlyOnThePage();
+        }
+
+        [TestMethod]
+        [TestCategory("AdministrationAvatars")]
+        [Priority(4)]
+        [TestId(301)]
+        [Owner("Dimitar")]
+        public void TestAdminAvatarsExportAsExcelFunctionallity()
+        {
+            this.avatarsPage.ExportAsExcel();
+
+            //fix date format
+
+            string ex = FileSystemHelper.GetExpectedFileName("Avatars_Export_");
+            bool fileExists = FileSystemHelper.FilePresentInUserDownloadsDirectory(ex, "xlsx");
+            Assert.IsTrue(fileExists);
         }
     }
 }

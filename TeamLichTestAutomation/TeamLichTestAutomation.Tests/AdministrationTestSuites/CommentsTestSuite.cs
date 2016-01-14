@@ -158,7 +158,7 @@
         // These tests work only on Internet Explorer.
         // I can not handle the confirmation dialog on deletion in Chrome and Firefox
         [TestMethod]
-        [TestCategory("AdministrationRoles")]
+        [TestCategory("AdministrationComments")]
         [Priority(4)]
         [TestId(257)]
         [Owner("Dimitar")]
@@ -166,6 +166,22 @@
         {
             this.commentsPage.BackToAdmin();
             this.dashboardPage.AssertCurrentlyOnThePage();
+        }
+
+        [TestMethod]
+        [TestCategory("AdministrationComments")]
+        [Priority(4)]
+        [TestId(302)]
+        [Owner("Dimitar")]
+        public void TestAdminCommentsExportAsExcelFunctionallity()
+        {
+            this.commentsPage.ExportAsExcel();
+
+            //fix date format
+
+            string ex = FileSystemHelper.GetExpectedFileName("Comments_Export_");
+            bool fileExists = FileSystemHelper.FilePresentInUserDownloadsDirectory(ex, "xlsx");
+            Assert.IsTrue(fileExists);
         }
     }
 }

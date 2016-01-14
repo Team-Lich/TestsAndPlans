@@ -2,15 +2,17 @@
 {
     using ArtOfTest.WebAii.Core;
     using ArtOfTest.WebAii.TestTemplates;
-
+    using ArtOfTest.WebAii.Win32.Dialogs;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
-
+    using System;
+    using System.IO;
+    using System.Threading;
+    using System.Windows.Forms;
     using TeamLichTestAutomation.Academy.Core.Models;
     using TeamLichTestAutomation.Academy.Core.Pages.AdminPages.AdminDashboardPage;
     using TeamLichTestAutomation.Academy.Core.Pages.AdminPages.UniversitiesPage;
     using TeamLichTestAutomation.Academy.Core.Pages.LoginPage;
     using TeamLichTestAutomation.Academy.Core.Pages.MainPage;
-
     using TeamLichTestAutomation.Utilities;
     using TeamLichTestAutomation.Utilities.Attributes;
 
@@ -109,7 +111,7 @@
 
             #endregion WebAii Initialization
 
-            Manager.LaunchNewBrowser(BrowserType.InternetExplorer);
+            Manager.LaunchNewBrowser(BrowserType.Chrome);
             this.browser = Manager.ActiveBrowser;
             this.browser.ClearCache(BrowserCacheType.Cookies);
             this.browser.Window.Maximize();
@@ -166,6 +168,40 @@
         {
             this.provincesPage.BackToAdmin();
             this.dashboardPage.AssertCurrentlyOnThePage();
+        }
+
+        [TestMethod]
+        [TestCategory("AdministrationProvinces")]
+        [Priority(4)]
+        [TestId(303)]
+        [Owner("Dimitar")]
+        public void TestAdminProvincesExportAsExcelFunctionallity()
+        {
+            DateTime dateTime = DateTime.Now;
+            string filePath = Path.GetTempPath() + "Roles_Export_" + dateTime.ToString("yyyy-MM-dd_hh-mm") + ".xlsx";
+
+            SaveAsDialog saveAsDialog = SaveAsDialog.CreateSaveAsDialog(
+                this.browser, DialogButton.SAVE, filePath, Manager.Desktop);
+            Manager.DialogMonitor.AddDialog(saveAsDialog);
+
+            this.provincesPage.ExportAsExcel();
+
+            mainPage.LogoutButton.Focus();
+            Manager.Desktop.KeyBoard.KeyDown(Keys.Shift);
+            for (int i = 0; i < 9; i++)
+                {
+                Manager.Desktop.KeyBoard.KeyPress(Keys.Tab);
+                }
+
+            Manager.Desktop.KeyBoard.KeyUp(Keys.Shift);
+            Manager.Desktop.KeyBoard.KeyPress(Keys.Down);
+            Manager.Desktop.KeyBoard.KeyPress(Keys.Down);
+            Manager.Desktop.KeyBoard.KeyPress(Keys.Enter);
+            saveAsDialog.WaitUntilHandled(10000);
+            Thread.Sleep(2000);
+
+            Assert.IsTrue(File.Exists(filePath));
+            File.Delete(filePath);
         }
     }
 }

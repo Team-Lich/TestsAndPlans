@@ -220,7 +220,6 @@
             Manager.Desktop.KeyBoard.KeyPress(Keys.Down);
             Manager.Desktop.KeyBoard.KeyPress(Keys.Down);
             Manager.Desktop.KeyBoard.KeyPress(Keys.Enter);
-            Thread.Sleep(5000);
             saveAsDialog.WaitUntilHandled(10000);
             Thread.Sleep(2000);
 

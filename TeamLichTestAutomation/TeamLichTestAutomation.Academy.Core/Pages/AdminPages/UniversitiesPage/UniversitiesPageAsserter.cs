@@ -21,17 +21,17 @@
             Assert.IsFalse(isContained);
         }
 
-        public static void AssertColumnIsSorted(this UniversitiesPage uniPage, string[] initialOrder, string[] sortedOrder, bool descending = true)
+        public static void AssertColumnIsSorted(this UniversitiesPage uniPage, string[] sortedOrder, bool descending = true)
         {
             string[] computedSort;
 
             if (descending)
             {
-                computedSort = initialOrder.OrderBy(s => s).ToArray();
+                computedSort = sortedOrder.OrderBy(s => int.Parse(s)).ToArray();
             }
             else
             {
-                computedSort = initialOrder.OrderByDescending(s => s).ToArray();
+                computedSort = sortedOrder.OrderByDescending(s => int.Parse(s)).ToArray();
             }
 
             for (int i = 0; i < computedSort.Length; i++)

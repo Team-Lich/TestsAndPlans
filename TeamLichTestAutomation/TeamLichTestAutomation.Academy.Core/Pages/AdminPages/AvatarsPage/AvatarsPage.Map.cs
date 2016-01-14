@@ -21,11 +21,11 @@
             }
         }
 
-        private HtmlButton ExprotAsExcelButton
+        private HtmlButton ExportAsExcelButton
         {
             get
             {
-                return this.Browser.Find.ByExpression<HtmlButton>("class=~k-grid-excel");
+                return this.Browser.Find.ById<HtmlButton>("export");
             }
         }
 

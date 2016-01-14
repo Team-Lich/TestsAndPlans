@@ -6,22 +6,22 @@
     public partial class RolesPage
     {
         private HtmlButton DeleteButton
-            {
+        {
             get
-                {
+            {
                 return this.Browser.Find.ByExpression<HtmlButton>("class=~k-grid-delete");
-                }
             }
+        }
 
         private HtmlAnchor AddButton
-            {
+        {
             get
-                {
-                string expressionString = @"href=/Administration_Users/Universities/Read?DataGrid-mode=insert";
+            {
+                string expressionString = "href=?/Read?DataGrid-mode=insert";
                 this.Browser.WaitForElement(5000, expressionString);
                 return this.Browser.Find.ByExpression<HtmlAnchor>(expressionString);
-                }
             }
+        }
 
         private HtmlButton ExprotAsExcelButton
         {
@@ -46,6 +46,7 @@
         {
             get
             {
+                this.Browser.RefreshDomTree();
                 return this.Browser.Find.ByExpression<HtmlAnchor>("class=~k-grid-update");
             }
         }
@@ -69,14 +70,14 @@
         }
 
         private HtmlTableCell IdHeader
-            {
+        {
             get
-                {
+            {
                 this.Browser.RefreshDomTree();
                 this.Browser.WaitForElement(5000, "data-field=UniversityId", "data-role=columnsorter");
                 return this.Browser.Find.ByAttributes<HtmlTableCell>("data-field=UniversityId");
-                }
             }
+        }
 
         internal KendoGrid KendoTable
         {

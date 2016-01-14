@@ -1,9 +1,13 @@
 ﻿namespace TeamLichTestAutomation.Tests.AdministrationTestSuites
-    {
+{
+    using System;
+    using System.IO;
     using System.Threading;
+    using System.Windows.Forms;
 
     using ArtOfTest.WebAii.Core;
     using ArtOfTest.WebAii.TestTemplates;
+    using ArtOfTest.WebAii.Win32.Dialogs;
 
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -26,7 +30,7 @@
     /// </summary>
     [TestClass]
     public class RolesTestSuite : BaseTest
-        {
+    {
         private Browser browser;
         private MainPage mainPage;
         private LoginPage loginPage;
@@ -43,27 +47,27 @@
         ///current test run.
         ///</summary>
         public TestContext TestContext
-            {
+        {
             get
-                {
+            {
                 return testContextInstance;
-                }
-            set
-                {
-                testContextInstance = value;
-                }
             }
+            set
+            {
+                testContextInstance = value;
+            }
+        }
 
         //Use ClassInitialize to run code before running the first test in the class
         [ClassInitialize()]
         public static void MyClassInitialize(TestContext testContext)
-            {
-            }
+        {
+        }
 
         // Use TestInitialize to run code before running each test
         [TestInitialize()]
         public void MyTestInitialize()
-            {
+        {
             #region WebAii Initialization
 
             // Initializes WebAii manager to be used by the test case.
@@ -86,27 +90,26 @@
             // location for this test.
 
             // Pass in 'true' to recycle the browser between test methods
-            Initialize(true, this.TestContext.TestLogsDir, new TestContextWriteLine(this.TestContext.WriteLine));
+            // Initialize(true, this.TestContext.TestLogsDir, new TestContextWriteLine(this.TestContext.WriteLine));
 
             // If you need to override any other settings coming from the
             // config section you can comment the 'Initialize' line above and instead
             // use the following:
 
-            /*
-
             // This will get a new Settings object. If a configuration
             // section exists, then settings from that section will be
             // loaded
 
-            Settings settings = GetSettings();
-
             // Override the settings you want. For example:
-            settings.Web.DefaultBrowser = BrowserType.FireFox;
+            // settings.Web.DefaultBrowser = BrowserType.FireFox;
+
+            Settings settings = GetSettings();
+            settings.Web.RecycleBrowser = true;
+            settings.AnnotateExecution = true;
+            settings.AnnotationMode = AnnotationMode.All;
 
             // Now call Initialize again with your updated settings object
             Initialize(settings, new TestContextWriteLine(this.TestContext.WriteLine));
-
-            */
 
             // Set the current test method. This is needed for WebAii to discover
             // its custom TestAttributes set on methods and classes.
@@ -121,27 +124,19 @@
             this.browser.Window.Maximize();
 
             this.mainPage = new MainPage(this.browser);
-            this.mainPage.Navigate().ClickLogin();
-
             this.loginPage = new LoginPage(this.browser);
-            this.loginPage.LoginUser(TelerikUser.Admin);
-
-            this.mainPage.ClickAdminNavigationDropdown();
-
             this.dashboardPage = new AdminDashboardPage(this.browser);
-            this.dashboardPage.ClickRolesButton();
-
             this.rolesPage = new RolesPage(this.browser);
 
-            //
-            // Place any additional initialization here
-            //
-            }
+            this.mainPage.NavigateTo(loginPage.Url);
+            this.loginPage.LoginUser(TelerikUser.Admin);
+            this.mainPage.NavigateTo(rolesPage.Url);
+        }
 
         // Use TestCleanup to run code after each test has run
         [TestCleanup()]
         public void MyTestCleanup()
-            {
+        {
             //
             // Place any additional cleanup here
             //
@@ -153,30 +148,28 @@
             this.CleanUp();
 
             #endregion WebAii CleanUp
-            }
+        }
 
         //Use ClassCleanup to run code after all tests in a class have run
         [ClassCleanup()]
         public static void MyClassCleanup()
-            {
+        {
             // This will shut down all browsers if
             // recycleBrowser is turned on. Else
             // will do nothing.
-            ShutDown();
-            }
+            BaseTest.ShutDown();
+        }
 
         #endregion [Setup / TearDown]
 
-        // These tests work only on Internet Explorer.
-        // I can not handle the confirmation dialog on deletion in Chrome and Firefox
-
+        //// These tests work only on Internet Explorer.
 
         [TestMethod]
         [TestCategory("AdministrationRoles")]
         [TestCategory("PriorityLow")]
         [TestId(260)]
         [TestOwner(Owner.Dimitar)]
-        public void TestAdminRolesBackToAdministrationButtonWorks()
+        public void AdminRolesBackToAdministrationButton()
         {
             this.rolesPage.BackToAdmin();
             this.dashboardPage.AssertCurrentlyOnThePage();
@@ -187,83 +180,107 @@
         [TestCategory("PriorityHigh")]
         [TestId(267)]
         [TestOwner(Owner.Dimitar)]
-        public void TestAdminRolesAddFunctionalityWorks()
-            {
-            this.rolesPage.AddRole("Telerik Role");
+        public void AdminRolesAddRole()
+        {
+            RandomStringGenerator generator = new RandomStringGenerator();
+            string roleName = "LichInitRole-" + generator.GetString(7);
+
+            this.rolesPage.AddRole(roleName);
             KendoGrid grid = this.rolesPage.Browser.Find.ByExpression<KendoGrid>("data-role=grid");
-            this.rolesPage.AssertRoleIsPresentInGrid(grid, "Telerik Role");
+            this.rolesPage.AssertRoleIsPresentInGrid(grid, roleName);
 
             grid = this.rolesPage.Browser.Find.ByExpression<KendoGrid>("data-role=grid");
-            this.rolesPage.DeleteRow(grid, "Telerik Role", 1);
-            }
+            this.rolesPage.DeleteRow(grid, roleName, 2);
+        }
 
         [TestMethod]
         [TestCategory("AdministrationRoles")]
         [TestCategory("PriorityMedium")]
         [TestId(265)]
         [TestOwner(Owner.Dimitar)]
-        public void TestAdminRolesExportAsExcelFunctionalityWorks()
+        public void AdminRolesExportAsExcel()
+        {
+            DateTime dateTime = DateTime.Now;
+            string filePath = Path.GetTempPath() + "Roles_Export_" + dateTime.ToString("yyyy-MM-dd_hh-mm") + ".xlsx";
+
+            SaveAsDialog saveAsDialog = SaveAsDialog.CreateSaveAsDialog(
+                this.browser, DialogButton.SAVE, filePath, Manager.Desktop);
+            Manager.DialogMonitor.AddDialog(saveAsDialog);
+
+            this.rolesPage.ExportAsExcel();
+
+            mainPage.LogoutButton.Focus();
+            Manager.Desktop.KeyBoard.KeyDown(Keys.Shift);
+            for (int i = 0; i < 9; i++)
             {
-                this.rolesPage.ExportAsExcel();
+                Manager.Desktop.KeyBoard.KeyPress(Keys.Tab);
             }
+
+            Manager.Desktop.KeyBoard.KeyUp(Keys.Shift);
+            Manager.Desktop.KeyBoard.KeyPress(Keys.Down);
+            Manager.Desktop.KeyBoard.KeyPress(Keys.Down);
+            Manager.Desktop.KeyBoard.KeyPress(Keys.Enter);
+            Thread.Sleep(5000);
+            saveAsDialog.WaitUntilHandled(10000);
+            Thread.Sleep(2000);
+
+            Assert.IsTrue(File.Exists(filePath));
+            File.Delete(filePath);
+        }
 
         [TestMethod]
         [TestCategory("AdministrationRoles")]
         [TestCategory("PriorityMedium")]
         [TestId(266)]
         [TestOwner(Owner.Dimitar)]
-        public void TestAdminUniversityEditNameWorks()
-            {
-            string newRoleName = "Telerik Role";
-            this.rolesPage.AddRole(newRoleName);
+        public void AdminRolesEditRole()
+        {
+            RandomStringGenerator generator = new RandomStringGenerator();
+            string initialRoleName = "LichInitRole-" + generator.GetString(7);
+            this.rolesPage.AddRole(initialRoleName);
+
+            string newRoleName = "LichRenamed-" + generator.GetString(8);
             KendoGrid grid = this.rolesPage.Browser.Find.ByExpression<KendoGrid>("data-role=grid");
-            this.rolesPage.EditRow(grid, newRoleName, "Name", "Progress Role", 1);
+            this.rolesPage.EditRow(grid, initialRoleName, "Name", newRoleName, 2);
 
-            this.browser.RefreshDomTree();
             grid = this.rolesPage.Browser.Find.ByExpression<KendoGrid>("data-role=grid");
-            this.rolesPage.AssertRoleIsPresentInGrid(grid, "Progress Role");
-            this.rolesPage.DeleteRow(grid, "Progress University", 1);
-
-            Thread.Sleep(1000);
-            this.browser.RefreshDomTree();
-            grid = this.rolesPage.Browser.Find.ByExpression<KendoGrid>("data-role=grid");
-            this.rolesPage.AssertRoleIsNotPresentInGrid(grid, "Progress Role");
-            }
+            this.rolesPage.AssertRoleIsNotPresentInGrid(grid, initialRoleName);
+            this.rolesPage.AssertRoleIsPresentInGrid(grid, newRoleName);
+            this.rolesPage.DeleteRow(grid, newRoleName, 2);
+        }
 
         [TestMethod]
         [TestCategory("AdministrationRoles")]
         [TestCategory("PriorityMedium")]
         [TestId(263)]
         [TestOwner(Owner.Dimitar)]
-        public void TestAdminRoleDeleteWorks()
-            {
-            string newRoleName = "Telerik Role";
-            this.rolesPage.AddRole(newRoleName);
-            KendoGrid grid = this.rolesPage.Browser.Find.ByExpression<KendoGrid>("data-role=grid");
+        public void AdminRolesDeleteRole()
+        {
+            RandomStringGenerator generator = new RandomStringGenerator();
+            string roleName = "LichInitRole-" + generator.GetString(7);
+            this.rolesPage.AddRole(roleName);
 
-            this.browser.RefreshDomTree();
-            grid = this.rolesPage.Browser.Find.ByExpression<KendoGrid>("data-role=grid");
-            this.rolesPage.AssertRoleIsPresentInGrid(grid, "Telerik Role");
-            this.rolesPage.DeleteRow(grid, "Telerik Role", 1);
+            KendoGrid grid = this.rolesPage.Browser.Find.ByExpression<KendoGrid>("data-role=grid");
+            this.rolesPage.DeleteRow(grid, roleName, 2);
 
             Thread.Sleep(1000);
             this.browser.RefreshDomTree();
             grid = this.rolesPage.Browser.Find.ByExpression<KendoGrid>("data-role=grid");
-            this.rolesPage.AssertRoleIsNotPresentInGrid(grid, "Telerik Role");
-            }
+            this.rolesPage.AssertRoleIsNotPresentInGrid(grid, roleName);
+        }
 
         [TestMethod]
         [TestCategory("AdministrationRoles")]
         [TestCategory("PriorityLow")]
         [TestId(271)]
         [TestOwner(Owner.Dimitar)]
-        public void TestSortByNameInRolesGridWorks()
-            {
+        public void AdminRolesSortByName()
+        {
             KendoGrid grid = this.rolesPage.Browser.Find.ByExpression<KendoGrid>("data-role=grid");
 
-            this.rolesPage.AddRole("Àãðàðåí Óíèâåðñèòåò");
-            this.rolesPage.AddRole("Ñðåäåí Óíèâåðñèòåò");
-            this.rolesPage.AddRole("ßìáîëñêè óíèâåðñèòåò");
+            this.rolesPage.AddRole("Роля-1");
+            this.rolesPage.AddRole("Роля-2");
+            this.rolesPage.AddRole("Роля-3");
 
             grid = this.rolesPage.Browser.Find.ByExpression<KendoGrid>("data-role=grid");
 
@@ -291,25 +308,25 @@
             this.rolesPage.AssertColumnIsSorted(initialRolesOrder, sortedRolesOrder, false);
 
             grid = this.rolesPage.Browser.Find.ByExpression<KendoGrid>("data-role=grid");
-            this.rolesPage.DeleteRow(grid, "Àãðàðåí Óíèâåðñèòåò", 1);
+            this.rolesPage.DeleteRow(grid, "Роля-1", 2);
             Thread.Sleep(1000);
 
             manager.RefreshDomTree();
             grid = this.rolesPage.Browser.Find.ByExpression<KendoGrid>("data-role=grid");
-            this.rolesPage.DeleteRow(grid, "Ñðåäåí Óíèâåðñèòåò", 1);
+            this.rolesPage.DeleteRow(grid, "Роля-2", 2);
 
             manager.RefreshDomTree();
             grid = this.rolesPage.Browser.Find.ByExpression<KendoGrid>("data-role=grid");
-            this.rolesPage.DeleteRow(grid, "ßìáîëñêè óíèâåðñèòåò", 1);
-            }
+            this.rolesPage.DeleteRow(grid, "Роля-3", 2);
+        }
 
         [TestMethod]
         [TestCategory("AdministrationRoles")]
         [TestCategory("PriorityLow")]
         [TestId(270)]
         [TestOwner(Owner.Dimitar)]
-        public void TestSortByIdInRolesGridWorks()
-            {
+        public void AdminRolesSortById()
+        {
             KendoGrid grid = this.rolesPage.Browser.Find.ByExpression<KendoGrid>("data-role=grid");
 
             var initialRolesOrder = grid.ValuesInColumn(0);
@@ -334,7 +351,6 @@
             sortedRolesOrder = grid.ValuesInColumn(0);
 
             this.rolesPage.AssertColumnIsSorted(initialRolesOrder, sortedRolesOrder, true);
-            }
-
         }
     }
+}

@@ -1,8 +1,6 @@
 namespace TeamLichTestAutomation.Tests.AdministrationTestSuites
 {
-    using System;
     using System.Threading;
-    using System.Windows.Forms;
 
     using ArtOfTest.WebAii.Core;
     using ArtOfTest.WebAii.TestTemplates;
@@ -21,7 +19,6 @@ namespace TeamLichTestAutomation.Tests.AdministrationTestSuites
     using TeamLichTestAutomation.Utilities.Attributes;
 
     using Telerik.TestingFramework.Controls.KendoUI;
-    using System.IO;
 
     /// <summary>
     /// Summary description for UniversitiesTestSuite
@@ -30,6 +27,8 @@ namespace TeamLichTestAutomation.Tests.AdministrationTestSuites
     public class UniversitiesTestSuite : BaseTest
     {
         private Browser browser;
+        private RandomStringGenerator generator;
+
         private MainPage mainPage;
         private LoginPage loginPage;
         private AdminDashboardPage dashboardPage;
@@ -89,27 +88,26 @@ namespace TeamLichTestAutomation.Tests.AdministrationTestSuites
             // location for this test.
 
             // Pass in 'true' to recycle the browser between test methods
-            this.Initialize(true, this.TestContext.TestLogsDir, new TestContextWriteLine(this.TestContext.WriteLine));
+            // this.Initialize(true, this.TestContext.TestLogsDir, new TestContextWriteLine(this.TestContext.WriteLine));
 
             // If you need to override any other settings coming from the
             // config section you can comment the 'Initialize' line above and instead
             // use the following:
-
-            /*
 
             // This will get a new Settings object. If a configuration
             // section exists, then settings from that section will be
             // loaded
 
             Settings settings = GetSettings();
+            settings.Web.RecycleBrowser = true;
+            settings.AnnotateExecution = true;
+            settings.AnnotationMode = AnnotationMode.All;
 
             // Override the settings you want. For example:
-            settings.Web.DefaultBrowser = BrowserType.FireFox;
+            // settings.Web.DefaultBrowser = BrowserType.FireFox;
 
             // Now call Initialize again with your updated settings object
             Initialize(settings, new TestContextWriteLine(this.TestContext.WriteLine));
-
-            */
 
             // Set the current test method. This is needed for WebAii to discover
             // its custom TestAttributes set on methods and classes.
@@ -124,17 +122,15 @@ namespace TeamLichTestAutomation.Tests.AdministrationTestSuites
             this.browser.Window.Maximize();
 
             this.mainPage = new MainPage(this.browser);
-            this.mainPage.Navigate().ClickLogin();
+            this.generator = new RandomStringGenerator();
 
             this.loginPage = new LoginPage(this.browser);
-            this.loginPage.LoginUser(TelerikUser.Admin);
-
-            this.mainPage.ClickAdminNavigationDropdown();
-
             this.dashboardPage = new AdminDashboardPage(this.browser);
-            this.dashboardPage.ClickUniversitiesButton();
-
             this.uniPage = new UniversitiesPage(this.browser);
+
+            this.mainPage.NavigateTo(loginPage.Url);
+            this.loginPage.LoginUser(TelerikUser.Admin);
+            this.mainPage.NavigateTo(uniPage.Url);
         }
 
         // Use TestCleanup to run code after each test has run
@@ -174,10 +170,11 @@ namespace TeamLichTestAutomation.Tests.AdministrationTestSuites
         [Owner("Decho")]
         public void AdminUniversityAddFunctionality()
         {
-            this.uniPage.AddUniversity("Telerik University");
-            this.uniPage.AssertUniversityIsPresentInGrid(this.uniPage.KendoTable, "Telerik University");
+            string uniName = "LichInitUni-" + this.generator.GetString(8);
+            this.uniPage.AddUniversity(uniName);
+            this.uniPage.AssertUniversityIsPresentInGrid(this.uniPage.KendoTable, uniName);
 
-            this.uniPage.DeleteRow("Telerik University", 1);
+            this.uniPage.DeleteRow(uniName, 1);
         }
 
         [TestMethod]
@@ -201,13 +198,14 @@ namespace TeamLichTestAutomation.Tests.AdministrationTestSuites
         [Owner("Decho")]
         public void AdminUniversityRemoveFunctionality()
         {
-            this.uniPage.AddUniversity("Telerik University");
-            this.uniPage.AssertUniversityIsPresentInGrid(this.uniPage.KendoTable, "Telerik University");
+            string uniName = "LichInitUni-" + this.generator.GetString(8);
+            this.uniPage.AddUniversity(uniName);
 
-            this.uniPage.DeleteRow("Telerik University", 1);
+            this.uniPage.AssertUniversityIsPresentInGrid(this.uniPage.KendoTable, uniName);
 
+            this.uniPage.DeleteRow(uniName, 1);
             Thread.Sleep(1000);
-            this.uniPage.AssertUniversityIsNotPresentInGrid(this.uniPage.KendoTable, "Telerik University");
+            this.uniPage.AssertUniversityIsNotPresentInGrid(this.uniPage.KendoTable, uniName);
         }
 
         [TestMethod]
@@ -228,14 +226,17 @@ namespace TeamLichTestAutomation.Tests.AdministrationTestSuites
         [Owner("Decho")]
         public void AdminUniversityEditName()
         {
-            string newUniversityName = "Telerik University";
-            this.uniPage.AddUniversity(newUniversityName);
-            this.uniPage.EditRow(newUniversityName, "Name", "Progress University", 1);
+            RandomStringGenerator generator = new RandomStringGenerator();
+            string initialUniversityName = "LichInitUni-" + generator.GetString(8);
+            this.uniPage.AddUniversity(initialUniversityName);
 
-            this.uniPage.AssertUniversityIsPresentInGrid(this.uniPage.KendoTable, "Progress University");
+            string newUniversityName = "LichRenamed-" + generator.GetString(8);
+            this.uniPage.EditRow(initialUniversityName, "Name", newUniversityName, 1);
 
-            this.uniPage.DeleteRow("Progress University", 1);
-            this.uniPage.AssertUniversityIsNotPresentInGrid(this.uniPage.KendoTable, "Progress University");
+            this.uniPage.AssertUniversityIsPresentInGrid(this.uniPage.KendoTable, newUniversityName);
+
+            this.uniPage.DeleteRow(newUniversityName, 1);
+            this.uniPage.AssertUniversityIsNotPresentInGrid(this.uniPage.KendoTable, newUniversityName);
         }
 
         [TestMethod]
@@ -245,13 +246,13 @@ namespace TeamLichTestAutomation.Tests.AdministrationTestSuites
         [Owner("Dimitar")]
         public void AdminUniversityDeleteRow()
         {
-            string newUniversityName = "Telerik University";
-            this.uniPage.AddUniversity(newUniversityName);
+            string uniName = "LichInitUni-" + generator.GetString(8);
+            this.uniPage.AddUniversity(uniName);
 
-            this.uniPage.AssertUniversityIsPresentInGrid(this.uniPage.KendoTable, "Telerik University");
+            this.uniPage.AssertUniversityIsPresentInGrid(this.uniPage.KendoTable, uniName);
 
-            this.uniPage.DeleteRow("Telerik University", 1);
-            this.uniPage.AssertUniversityIsNotPresentInGrid(this.uniPage.KendoTable, "Telerik University");
+            this.uniPage.DeleteRow(uniName, 1);
+            this.uniPage.AssertUniversityIsNotPresentInGrid(this.uniPage.KendoTable, uniName);
         }
 
         [TestMethod]
@@ -264,18 +265,16 @@ namespace TeamLichTestAutomation.Tests.AdministrationTestSuites
             this.uniPage.AddUniversity("Аграрен Университет");
             this.uniPage.AddUniversity("Среден Университет");
             this.uniPage.AddUniversity("Ямболски университет");
-
-            var initialUniversityOrder = this.uniPage.KendoTable.ValuesInColumn(1);
-            
+           
             this.uniPage.SortByName();
             Thread.Sleep(1000);
             var sortedUniversityOrder = this.uniPage.KendoTable.ValuesInColumn(1);
-            this.uniPage.AssertColumnIsSorted(initialUniversityOrder, sortedUniversityOrder, true);
+            this.uniPage.AssertColumnIsSorted(sortedUniversityOrder, true);
 
             this.uniPage.SortByName();
             Thread.Sleep(1000);
             sortedUniversityOrder = this.uniPage.KendoTable.ValuesInColumn(1);
-            this.uniPage.AssertColumnIsSorted(initialUniversityOrder, sortedUniversityOrder, false);
+            this.uniPage.AssertColumnIsSorted(sortedUniversityOrder, false);
 
             this.uniPage.DeleteRow("Аграрен Университет", 1);
             Thread.Sleep(1000);
@@ -291,19 +290,17 @@ namespace TeamLichTestAutomation.Tests.AdministrationTestSuites
         [Owner("Decho")]
         public void AdminUniversitySortByIdInGrid()
         {
-            var initialUniversityOrder = this.uniPage.KendoTable.ValuesInColumn(0);
-
             this.uniPage.SortById();
             Thread.Sleep(2000);
             var sortedUniversityOrder = this.uniPage.KendoTable.ValuesInColumn(0);
 
-            this.uniPage.AssertColumnIsSorted(initialUniversityOrder, sortedUniversityOrder, false);
+            this.uniPage.AssertColumnIsSorted(sortedUniversityOrder, false);
 
             this.uniPage.SortById();
             Thread.Sleep(2000);
             sortedUniversityOrder = this.uniPage.KendoTable.ValuesInColumn(0);
 
-            this.uniPage.AssertColumnIsSorted(initialUniversityOrder, sortedUniversityOrder, true);
+            this.uniPage.AssertColumnIsSorted(sortedUniversityOrder, true);
         }
 
         [TestMethod]
@@ -318,7 +315,6 @@ namespace TeamLichTestAutomation.Tests.AdministrationTestSuites
 
             //bool present = FileSystemHelper.FilePresentInUserDownloadsDirectory("Universities_Export_2016-01-11_10-49(1)");
             //bool present1 = FileSystemHelper.FilePresentInUserDownloadsDirectory("Universities_Export_2016-01-11_10-49(2)");
-
 
             this.uniPage.SortByName();
             Thread.Sleep(1000);

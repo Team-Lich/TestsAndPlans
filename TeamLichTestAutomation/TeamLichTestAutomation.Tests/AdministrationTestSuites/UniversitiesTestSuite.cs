@@ -161,7 +161,6 @@ namespace TeamLichTestAutomation.Tests.AdministrationTestSuites
         #endregion [Setup / TearDown]
 
         //// These tests work only on Internet Explorer.
-        //// I can not handle the confirmation dialog on deletion in Chrome and Firefox
 
         [TestMethod]
         [TestId(100)]
@@ -226,7 +225,6 @@ namespace TeamLichTestAutomation.Tests.AdministrationTestSuites
         [Owner("Decho")]
         public void AdminUniversityEditName()
         {
-            RandomStringGenerator generator = new RandomStringGenerator();
             string initialUniversityName = "LichInitUni-" + generator.GetString(8);
             this.uniPage.AddUniversity(initialUniversityName);
 

@@ -31,10 +31,10 @@ Set logtimestamp=_
 set FILENAME=database_dump_%logtimestamp%.sql
 
 
-set SUITENAME=%1
-SET TESTSFILE=C:\Users\Decho\Desktop\TestPlan\TeamLichTestAutomation\TeamLichTestAutomation.Tests\bin\Debug\TeamLichTestAutomation.Tests.dll
-SET RESULTFILE=C:\Users\Decho\Desktop\TestPlan\TeamLichTestAutomation\BatchFiles\%SUITENAME%TestSuite_%logtimestamp%.trx
+set MINPRIORITY=%1
+::SET TESTSFILE=C:\Users\Decho\Desktop\TestPlan\TeamLichTestAutomation\TeamLichTestAutomation.Tests\bin\Debug\TeamLichTestAutomation.Tests.dll
+SET TESTSFILE=%~dp0TeamLichTestAutomation.Tests\bin\Debug\TeamLichTestAutomation.Tests.dll
+SET RESULTFILE=%~dp0Results\TestSuitePriority%MINPRIORITY%_%logtimestamp%.trx
 
-del C:\Users\Decho\Desktop\TestPlan\TeamLichTestAutomation\BatchFiles\Results.trx
-MSTest.exe /testcontainer:%TESTSFILE% /category:%1 /resultsfile:%RESULTFILE%
-python ResultParser.py C:\Users\Decho\Desktop\TestPlan\TeamLichTestAutomation\BatchFiles\%SUITENAME%TestSuite_%logtimestamp% %logtimestamp%
+MSTest.exe /testcontainer:%TESTSFILE% /maxpriority:%1 /resultsfile:%RESULTFILE%
+python ResultParser.py %~dp0Results\TestSuitePriority%MINPRIORITY%_%logtimestamp% %logtimestamp%

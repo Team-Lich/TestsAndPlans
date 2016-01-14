@@ -142,8 +142,8 @@ namespace TeamLichTestAutomation.Tests
         [TestMethod]
         [TestCategory("Registration")]
         [TestId(48)]
-        [TestPriority(Priority.High)]
-        [TestOwner(Owner.Ilvie)]
+        [Priority(2)]
+        [Owner("Ilvie")]
         public void TestRegistrationWithUsernameEmpty()
         {
             TelerikUser user = TelerikUser.ValidUser;
@@ -157,8 +157,8 @@ namespace TeamLichTestAutomation.Tests
         [TestMethod]
         [TestCategory("Registration")]
         [TestId(51)]
-        [TestPriority(Priority.High)]
-        [TestOwner(Owner.Ilvie)]
+        [Priority(2)]
+        [Owner("Ilvie")]
         public void TestRegistrationWithUsernameInvalid()
         {
             TelerikUser user = TelerikUser.ValidUser;
@@ -172,8 +172,8 @@ namespace TeamLichTestAutomation.Tests
         [TestMethod]
         [TestCategory("Registration")]
         [TestId(49)]
-        [TestPriority(Priority.High)]
-        [TestOwner(Owner.Ilvie)]
+        [Priority(2)]
+        [Owner("Ilvie")]
         public void TestRegistrationWithUsernameLengthLessThanMinimumAllowed()
         {
             TelerikUser user = TelerikUser.ValidUser;
@@ -187,8 +187,8 @@ namespace TeamLichTestAutomation.Tests
         [TestMethod]
         [TestCategory("Registration")]
         [TestId(50)]
-        [TestPriority(Priority.High)]
-        [TestOwner(Owner.Ilvie)]
+        [Priority(2)]
+        [Owner("Ilvie")]
         public void TestRegistrationWithUsernameLengthGreaterThanMaximumAllowed()
         {
             TelerikUser user = TelerikUser.ValidUser;
@@ -202,8 +202,8 @@ namespace TeamLichTestAutomation.Tests
         [TestMethod]
         [TestCategory("Registration")]
         [TestId(52)]
-        [TestPriority(Priority.High)]
-        [TestOwner(Owner.Ilvie)]
+        [Priority(2)]
+        [Owner("Ilvie")]
         public void TestRegistratioWithUsernameStartingWithNonAlphabetSymbol()
         {
             TelerikUser user = TelerikUser.ValidUser;
@@ -217,8 +217,8 @@ namespace TeamLichTestAutomation.Tests
         [TestMethod]
         [TestCategory("Registration")]
         [TestId(52)]
-        [TestPriority(Priority.High)]
-        [TestOwner(Owner.Ilvie)]
+        [Priority(2)]
+        [Owner("Ilvie")]
         public void TestRegistratioWithUsernameEndingWithNonAlphabetSymbol()
         {
             TelerikUser user = TelerikUser.ValidUser;
@@ -232,8 +232,8 @@ namespace TeamLichTestAutomation.Tests
         [TestMethod]
         [TestCategory("Registration")]
         [TestId(218)]
-        [TestPriority(Priority.High)]
-        [TestOwner(Owner.Ilvie)]
+        [Priority(2)]
+        [Owner("Ilvie")]
         public void TestRegistrationWithPasswordEmpty()
         {
             TelerikUser user = TelerikUser.ValidUser;
@@ -247,8 +247,8 @@ namespace TeamLichTestAutomation.Tests
         [TestMethod]
         [TestCategory("Registration")]
         [TestId(57)]
-        [TestPriority(Priority.High)]
-        [TestOwner(Owner.Ilvie)]
+        [Priority(2)]
+        [Owner("Ilvie")]
         public void TestRegistrationWithPasswordLengthLessThanMinimumAllowed()
         {
             TelerikUser user = TelerikUser.ValidUser;
@@ -262,8 +262,8 @@ namespace TeamLichTestAutomation.Tests
         [TestMethod]
         [TestCategory("Registration")]
         [TestId(56)]
-        [TestPriority(Priority.High)]
-        [TestOwner(Owner.Ilvie)]
+        [Priority(2)]
+        [Owner("Ilvie")]
         public void TestRegistrationWithPasswordAgainDifferent()
         {
             TelerikUser user = new TelerikUser(
@@ -281,8 +281,8 @@ namespace TeamLichTestAutomation.Tests
         [TestMethod]
         [TestCategory("Registration")]
         [TestId(55)]
-        [TestPriority(Priority.High)]
-        [TestOwner(Owner.Ilvie)]
+        [Priority(2)]
+        [Owner("Ilvie")]
         public void TestRegistrationWithPasswordAgainEmpty()
         {
             TelerikUser user = new TelerikUser(
@@ -300,8 +300,8 @@ namespace TeamLichTestAutomation.Tests
         [TestMethod]
         [TestCategory("Registration")]
         [TestId(64)]
-        [TestPriority(Priority.High)]
-        [TestOwner(Owner.Ilvie)]
+        [Priority(2)]
+        [Owner("Ilvie")]
         public void TestRegistrationWithFirstNameEmptyField()
         {
             TelerikUser user = TelerikUser.ValidUser;
@@ -315,8 +315,8 @@ namespace TeamLichTestAutomation.Tests
         [TestMethod]
         [TestCategory("Registration")]
         [TestId(59)]
-        [TestPriority(Priority.High)]
-        [TestOwner(Owner.Ilvie)]
+        [Priority(2)]
+        [Owner("Ilvie")]
         public void TestRegistrationWithFirstNameContainingNonCyrillicAlphabetSymbols()
         {
             TelerikUser user = TelerikUser.ValidUser;
@@ -330,8 +330,8 @@ namespace TeamLichTestAutomation.Tests
         [TestMethod]
         [TestCategory("Registration")]
         [TestId(61)]
-        [TestPriority(Priority.High)]
-        [TestOwner(Owner.Ilvie)]
+        [Priority(2)]
+        [Owner("Ilvie")]
         public void TestRegistrationWithFirstNameStartingWithInvalidSymbols()
         {
             TelerikUser user = TelerikUser.ValidUser;
@@ -345,8 +345,8 @@ namespace TeamLichTestAutomation.Tests
         [TestMethod]
         [TestCategory("Registration")]
         [TestId(63)]
-        [TestPriority(Priority.High)]
-        [TestOwner(Owner.Ilvie)]
+        [Priority(2)]
+        [Owner("Ilvie")]
         public void TestRegistrationWithFirstNameLengthLessThanMinimumAllowed()
         {
             TelerikUser user = TelerikUser.ValidUser;
@@ -360,8 +360,8 @@ namespace TeamLichTestAutomation.Tests
         [TestMethod]
         [TestCategory("Registration")]
         [TestId(64)]
-        [TestPriority(Priority.High)]
-        [TestOwner(Owner.Ilvie)]
+        [Priority(2)]
+        [Owner("Ilvie")]
         public void TestRegistrationWithLastNameEmptyField()
         {
             TelerikUser user = TelerikUser.ValidUser;
@@ -375,8 +375,8 @@ namespace TeamLichTestAutomation.Tests
         [TestMethod]
         [TestCategory("Registration")]
         [TestId(68)]
-        [TestPriority(Priority.High)]
-        [TestOwner(Owner.Ilvie)]
+        [Priority(2)]
+        [Owner("Ilvie")]
         public void TestRegistrationWithLastNameLengthLessThanMinimumAllowed()
         {
             TelerikUser user = TelerikUser.ValidUser;
@@ -390,8 +390,8 @@ namespace TeamLichTestAutomation.Tests
         [TestMethod]
         [TestCategory("Registration")]
         [TestId(65)]
-        [TestPriority(Priority.High)]
-        [TestOwner(Owner.Ilvie)]
+        [Priority(2)]
+        [Owner("Ilvie")]
         public void TestRegistrationWithLastNameContainingNonCyrillicAlphabetSymbols()
         {
             TelerikUser user = TelerikUser.ValidUser;
@@ -405,8 +405,8 @@ namespace TeamLichTestAutomation.Tests
         [TestMethod]
         [TestCategory("Registration")]
         [TestId(69)]
-        [TestPriority(Priority.High)]
-        [TestOwner(Owner.Ilvie)]
+        [Priority(2)]
+        [Owner("Ilvie")]
         public void TestRegistrationWithEmailAddressEmpty()
         {
             TelerikUser user = TelerikUser.ValidUser;
@@ -420,8 +420,8 @@ namespace TeamLichTestAutomation.Tests
         [TestMethod]
         [TestCategory("Registration")]
         [TestId(71)]
-        [TestPriority(Priority.High)]
-        [TestOwner(Owner.Ilvie)]
+        [Priority(2)]
+        [Owner("Ilvie")]
         public void TestRegistrationWithEmailAddressNotContainingAtSymbol()
         {
             TelerikUser user = TelerikUser.ValidUser;
@@ -435,8 +435,8 @@ namespace TeamLichTestAutomation.Tests
         [TestMethod]
         [TestCategory("Registration")]
         [TestId(70)]
-        [TestPriority(Priority.High)]
-        [TestOwner(Owner.Ilvie)]
+        [Priority(2)]
+        [Owner("Ilvie")]
         public void TestRegistrationWithEmailAddressNotContainPointSymbol()
         {
             TelerikUser user = TelerikUser.ValidUser;
@@ -450,8 +450,8 @@ namespace TeamLichTestAutomation.Tests
         [TestMethod]
         [TestCategory("Registration")]
         [TestId(73)]
-        [TestPriority(Priority.High)]
-        [TestOwner(Owner.Ilvie)]
+        [Priority(2)]
+        [Owner("Ilvie")]
         public void TestRegistrationWithTermsAndConditionsCheckboxUnchecked()
         {
             TelerikUser user = TelerikUser.ValidUser;

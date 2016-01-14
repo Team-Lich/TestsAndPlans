@@ -164,9 +164,9 @@
 
         [TestMethod]
         [TestCategory("AdministrationLabels")]
-        [TestCategory("PriorityHigh")]
+        [Priority(2)]
         [TestId(191)]
-        [TestOwner(Owner.Dimitar)]
+        [Owner("Dimitar")]
         public void TestAdminLabelsAddFunctionalityWorks()
         {
             this.labelsPage.AddLabel("Telerik Label");
@@ -179,9 +179,9 @@
 
         [TestMethod]
         [TestCategory("AdministrationLabels")]
-        [TestCategory("PriorityMedium")]
+        [Priority(3)]
         [TestId(193)]
-        [TestOwner(Owner.Dimitar)]
+        [Owner("Dimitar")]
         public void TestAdminLabelsDeleteWorks()
         {
             string newLabelsName = "Telerik Label";
@@ -200,9 +200,9 @@
 
         [TestMethod]
         [TestCategory("AdministrationLabels")]
-        [TestCategory("PriorityLow")]
+        [Priority(4)]
         [TestId(258)]
-        [TestOwner(Owner.Dimitar)]
+        [Owner("Dimitar")]
         public void TestAdminLabelsBackToAdministrationButtonWorks()
         {
             this.labelsPage.BackToAdmin();

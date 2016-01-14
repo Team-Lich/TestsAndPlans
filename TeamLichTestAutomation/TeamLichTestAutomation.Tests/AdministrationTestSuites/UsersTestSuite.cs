@@ -159,9 +159,9 @@
         // I can not handle the confirmation dialog on deletion in Chrome and Firefox
         [TestMethod]
         [TestCategory("AdministrationUsers")]
-        [TestCategory("PriorityLow")]
+        [Priority(4)]
         [TestId(261)]
-        [TestOwner(Owner.Dimitar)]
+        [Owner("Dimitar")]
         public void TestAdminUsersBackToAdministrationButtonWorks()
         {
             this.usersPage.BackToAdmin();

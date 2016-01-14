@@ -170,8 +170,8 @@ namespace TeamLichTestAutomation.Tests.AdministrationTestSuites
         [TestMethod]
         [TestId(100)]
         [TestCategory("AdministrationUniversities")]
-        [TestCategory("PriorityHigh")]
-        [TestOwner(Owner.DechoDechev)]
+        [Priority(2)]
+        [Owner("Decho")]
         public void AdminUniversityAddFunctionality()
         {
             this.uniPage.AddUniversity("Telerik University");
@@ -182,9 +182,9 @@ namespace TeamLichTestAutomation.Tests.AdministrationTestSuites
 
         [TestMethod]
         [TestCategory("AdministrationUniversities")]
-        [TestCategory("PriorityMedium")]
+        [Priority(3)]
         [TestId(89)]
-        [TestOwner(Owner.Dimitar)]
+        [Owner("Dimitar")]
         public void AdminUniversityExportAsExcelFunctionality()
         {
             this.uniPage.ExportAsExcel();
@@ -197,8 +197,8 @@ namespace TeamLichTestAutomation.Tests.AdministrationTestSuites
         [TestMethod]
         [TestId(84)]
         [TestCategory("AdministrationUniversities")]
-        [TestPriority(Priority.Medium)]
-        [TestOwner(Owner.DechoDechev)]
+        [Priority(3)]
+        [Owner("Decho")]
         public void AdminUniversityRemoveFunctionality()
         {
             this.uniPage.AddUniversity("Telerik University");
@@ -212,9 +212,9 @@ namespace TeamLichTestAutomation.Tests.AdministrationTestSuites
 
         [TestMethod]
         [TestCategory("AdministrationUniversities")]
-        [TestCategory("PriorityLow")]
+        [Priority(4)]
         [TestId(269)]
-        [TestOwner(Owner.DechoDechev)]
+        [Owner("Decho")]
         public void AdminUniversityBackToAdministrationButton()
         {
             this.uniPage.BackToAdmin();
@@ -224,8 +224,8 @@ namespace TeamLichTestAutomation.Tests.AdministrationTestSuites
         [TestMethod]
         [TestId(88)]
         [TestCategory("AdministrationUniversities")]
-        [TestCategory("PriorityMedium")]
-        [TestOwner(Owner.DechoDechev)]
+        [Priority(3)]
+        [Owner("Decho")]
         public void AdminUniversityEditName()
         {
             string newUniversityName = "Telerik University";
@@ -240,9 +240,9 @@ namespace TeamLichTestAutomation.Tests.AdministrationTestSuites
 
         [TestMethod]
         [TestCategory("AdministrationUniversities")]
-        [TestCategory("PriorityMedium")]
+        [Priority(3)]
         [TestId(268)]
-        [TestOwner(Owner.Dimitar)]
+        [Owner("Dimitar")]
         public void AdminUniversityDeleteRow()
         {
             string newUniversityName = "Telerik University";
@@ -257,8 +257,8 @@ namespace TeamLichTestAutomation.Tests.AdministrationTestSuites
         [TestMethod]
         [TestId(253)]
         [TestCategory("AdministrationUniversities")]
-        [TestPriority(Priority.Low)]
-        [TestOwner(Owner.DechoDechev)]
+        [Priority(4)]
+        [Owner("Decho")]
         public void AdminUniversitySortByNameInGrid()
         {
             this.uniPage.AddUniversity("Аграрен Университет");
@@ -287,8 +287,8 @@ namespace TeamLichTestAutomation.Tests.AdministrationTestSuites
         [TestMethod]
         [TestId(254)]
         [TestCategory("AdministrationUniversities")]
-        [TestPriority(Priority.Low)]
-        [TestOwner(Owner.DechoDechev)]
+        [Priority(4)]
+        [Owner("Decho")]
         public void AdminUniversitySortByIdInGrid()
         {
             var initialUniversityOrder = this.uniPage.KendoTable.ValuesInColumn(0);
@@ -308,7 +308,7 @@ namespace TeamLichTestAutomation.Tests.AdministrationTestSuites
 
         [TestMethod]
         [TestCategory("FrameworkTest")]
-        [TestOwner(Owner.DechoDechev)]
+        [Owner("Decho")]
         public void Test()
         {
             KendoGrid grid = this.uniPage.Browser.Find.ByExpression<KendoGrid>("data-role=grid");

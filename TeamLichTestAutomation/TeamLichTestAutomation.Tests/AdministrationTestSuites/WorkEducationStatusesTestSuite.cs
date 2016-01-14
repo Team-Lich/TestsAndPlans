@@ -164,9 +164,9 @@
 
         [TestMethod]
         [TestCategory("AdministrationWorkEducationStatuse")]
-        [TestCategory("PriorityLow")]
+        [Priority(4)]
         [TestId(262)]
-        [TestOwner(Owner.Dimitar)]
+        [Owner("Dimitar")]
         public void TestAdminWorkEducationStatusesBackToAdministrationButtonWorks()
         {
             this.workEducationStatusesPage.BackToAdmin();
@@ -175,9 +175,9 @@
 
         [TestMethod]
         [TestCategory("AdministrationWorkEducationStatuse")]
-        [TestCategory("PriorityHigh")]
+        [Priority(2)]
         [TestId(157)]
-        [TestOwner(Owner.Dimitar)]
+        [Owner("Dimitar")]
         public void TestAdminWorkEducationStatusesAddFunctionalityWorks()
         {
             this.workEducationStatusesPage.AddStatus("Telerik Status");
@@ -190,9 +190,9 @@
 
         [TestMethod]
         [TestCategory("AdministrationWorkEducationStatuses")]
-        [TestCategory("PriorityMedium")]
+        [Priority(3)]
         [TestId(156)]
-        [TestOwner(Owner.Dimitar)]
+        [Owner("Dimitar")]
         public void TestAdminWorkEducationStatusesDeleteWorks()
         {
             string newStatusName = "Telerik Status";

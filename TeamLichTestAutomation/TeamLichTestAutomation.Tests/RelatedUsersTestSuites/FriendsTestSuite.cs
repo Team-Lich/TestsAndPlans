@@ -151,8 +151,8 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
         [TestMethod]
         [TestCategory("Friends")]
         [TestId(106)]
-        [TestPriority(Priority.High)]
-        [TestOwner(Owner.Yane)]
+        [Priority(2)]
+        [Owner("Yane")]
         public void AddFriendButtonShoudBeVisible()
         {
             RelatedUsersUtilities.RemoveFriend(this.browser);
@@ -164,8 +164,8 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
         [TestMethod]
         [TestCategory("Friends")]
         [TestId(107)]
-        [TestPriority(Priority.High)]
-        [TestOwner(Owner.Yane)]
+        [Priority(2)]
+        [Owner("Yane")]
         public void RemoveFriendButtonShoudBeVisible()
         {
             RelatedUsersUtilities.AddFriend(this.browser);
@@ -177,8 +177,8 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
         [TestMethod]
         [TestCategory("Friends")]
         [TestId(108)]
-        [TestPriority(Priority.High)]
-        [TestOwner(Owner.Yane)]
+        [Priority(2)]
+        [Owner("Yane")]
         public void AddFriendButtonShouldWorksCorrectly()
         {
             RelatedUsersUtilities.RemoveFriend(this.browser);
@@ -200,8 +200,8 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
         [TestMethod]
         [TestCategory("Friends")]
         [TestId(109)]
-        [TestPriority(Priority.High)]
-        [TestOwner(Owner.Yane)]
+        [Priority(2)]
+        [Owner("Yane")]
         public void RemoveFriendButtonShouldWorksCorrectly()
         {
             RelatedUsersUtilities.AddFriend(this.browser);
@@ -223,8 +223,8 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
         [TestMethod]
         [TestCategory("Friends")]
         [TestId(110)]
-        [TestPriority(Priority.High)]
-        [TestOwner(Owner.Yane)]
+        [Priority(2)]
+        [Owner("Yane")]
         public void FriendsListShouldContainNoFriends()
         {
             this.loginPage.LoginUser(TelerikUser.Related1);
@@ -239,8 +239,8 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
         [TestMethod]
         [TestCategory("Friends")]
         [TestId(111)]
-        [TestPriority(Priority.High)]
-        [TestOwner(Owner.Yane)]
+        [Priority(2)]
+        [Owner("Yane")]
         public void FriendsListShouldContainFriends()
         {
             RelatedUsersUtilities.AddFriend(this.browser);
@@ -253,8 +253,8 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
         [TestMethod]
         [TestCategory("Friends")]
         [TestId(112)]
-        [TestPriority(Priority.High)]
-        [TestOwner(Owner.Yane)]
+        [Priority(2)]
+        [Owner("Yane")]
         public void RemoveFriendConfirmationShouldBeVisible()
         {
             RelatedUsersUtilities.AddFriend(this.browser);
@@ -268,8 +268,8 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
         [TestMethod]
         [TestCategory("Friends")]
         [TestId(113)]
-        [TestPriority(Priority.High)]
-        [TestOwner(Owner.Yane)]
+        [Priority(2)]
+        [Owner("Yane")]
         public void RemoveFriendAfterConfirmYes()
         {
             RelatedUsersUtilities.AddFriend(this.browser);
@@ -284,8 +284,8 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
         [TestMethod]
         [TestCategory("Friends")]
         [TestId(114)]
-        [TestPriority(Priority.High)]
-        [TestOwner(Owner.Yane)]
+        [Priority(2)]
+        [Owner("Yane")]
         public void KeepFriendAfterConfirmNo()
         {
             RelatedUsersUtilities.AddFriend(this.browser);
@@ -300,8 +300,8 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
         [TestMethod]
         [TestCategory("Friends")]
         [TestId(115)]
-        [TestPriority(Priority.High)]
-        [TestOwner(Owner.Yane)]
+        [Priority(2)]
+        [Owner("Yane")]
         public void ClickOnFriendItemShouldOpenHisProfile()
         {
             RelatedUsersUtilities.AddFriend(this.browser);

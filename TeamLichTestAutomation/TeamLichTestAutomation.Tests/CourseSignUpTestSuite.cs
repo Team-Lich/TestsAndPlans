@@ -147,8 +147,8 @@ namespace TeamLichTestAutomation.Tests
         [TestMethod]
         [TestCategory("CourseSignUp")]
         [TestId(221)]
-        [TestPriority(Priority.High)]
-        [TestOwner(Owner.Ivan)]
+        [Priority(2)]
+        [Owner("Ivan")]
         public void CourseSignUp_LiveSignUp()
         {
             this.mainPage.Navigate().ClickRegistration();
@@ -162,8 +162,8 @@ namespace TeamLichTestAutomation.Tests
         [TestMethod]
         [TestCategory("CourseSignUp")]
         [TestId(222)]
-        [TestPriority(Priority.High)]
-        [TestOwner(Owner.Ivan)]
+        [Priority(2)]
+        [Owner("Ivan")]
         public void CourseSignUp_OnlineSignUp()
         {
             this.mainPage.Navigate().ClickRegistration();
@@ -177,8 +177,8 @@ namespace TeamLichTestAutomation.Tests
         [TestMethod]
         [TestCategory("CourseSignUp")]
         [TestId(223)]
-        [TestPriority(Priority.High)]
-        [TestOwner(Owner.Ivan)]
+        [Priority(2)]
+        [Owner("Ivan")]
         public void CourseSignUp_SignUpWithoutLogIn()
         {
             this.mainPage.NavigateTo("http://stage.telerikacademy.com/Courses/Courses/Details/265");
@@ -188,8 +188,8 @@ namespace TeamLichTestAutomation.Tests
         [TestMethod]
         [TestCategory("CourseSignUp")]
         [TestId(224)]
-        [TestPriority(Priority.High)]
-        [TestOwner(Owner.Ivan)]
+        [Priority(2)]
+        [Owner("Ivan")]
         public void CourseSignUp_LiveSignUpFromCoursesList()
         {
             this.mainPage.Navigate().ClickRegistration();
@@ -203,8 +203,8 @@ namespace TeamLichTestAutomation.Tests
         [TestMethod]
         [TestCategory("CourseSignUp")]
         [TestId(225)]
-        [TestPriority(Priority.High)]
-        [TestOwner(Owner.Ivan)]
+        [Priority(2)]
+        [Owner("Ivan")]
         public void CourseSignUp_OnlineSignUpFromSignOffCourse()
         {
             this.mainPage.Navigate().ClickLogin();
@@ -216,8 +216,8 @@ namespace TeamLichTestAutomation.Tests
         [TestMethod]
         [TestCategory("CourseSignUp")]
         [TestId(226)]
-        [TestPriority(Priority.High)]
-        [TestOwner(Owner.Ivan)]
+        [Priority(2)]
+        [Owner("Ivan")]
         public void CourseSignUp_OnlineSignUpFromCoursesList()
         {
             this.mainPage.Navigate().ClickRegistration();
@@ -231,8 +231,8 @@ namespace TeamLichTestAutomation.Tests
         [TestMethod]
         [TestCategory("CourseSignUp")]
         [TestId(227)]
-        [TestPriority(Priority.High)]
-        [TestOwner(Owner.Ivan)]
+        [Priority(2)]
+        [Owner("Ivan")]
         public void CourseSignUp_SignUpFromCoursesListWithoutLogIn()
         {
             this.mainPage.HoverCoursesNavigationDropdown();
@@ -243,8 +243,8 @@ namespace TeamLichTestAutomation.Tests
         [TestMethod]
         [TestCategory("CourseSignUp")]
         [TestId(228)]
-        [TestPriority(Priority.High)]
-        [TestOwner(Owner.Ivan)]
+        [Priority(2)]
+        [Owner("Ivan")]
         public void CourseSignUp_LiveSignUpFromSignOffCourse()
         {
             this.mainPage.Navigate().ClickLogin();

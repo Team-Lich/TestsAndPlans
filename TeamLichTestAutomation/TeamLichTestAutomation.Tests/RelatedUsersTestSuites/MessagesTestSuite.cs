@@ -150,8 +150,8 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
 
         [TestMethod]
         [TestCategory("Messages")]
-        [TestPriority(Priority.High)]
-        [TestOwner(Owner.Yane)]
+        [Priority(2)]
+        [Owner("Yane")]
         public void SendMessageButtonShouldOpenMessagesPage()
         {
             RelatedUsersUtilities.AddFriend(this.browser);
@@ -164,8 +164,8 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
 
         [TestMethod]
         [TestCategory("Messages")]
-        [TestPriority(Priority.High)]
-        [TestOwner(Owner.Yane)]
+        [Priority(2)]
+        [Owner("Yane")]
         public void SendMessageButtonShouldBeInactive()
         {
             RelatedUsersUtilities.RemoveFriend(this.browser);
@@ -180,8 +180,8 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
         [TestMethod]
         [TestCategory("Messages")]
         [TestId(118)]
-        [TestPriority(Priority.High)]
-        [TestOwner(Owner.Yane)]
+        [Priority(2)]
+        [Owner("Yane")]
         public void MessagesPageElementsShouldBeDisplayedCorrectly()
         {
             RelatedUsersUtilities.AddFriend(this.browser);
@@ -200,8 +200,8 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
         [TestMethod]
         [TestCategory("Messages")]
         [TestId(119)]
-        [TestPriority(Priority.High)]
-        [TestOwner(Owner.Yane)]
+        [Priority(2)]
+        [Owner("Yane")]
         public void FriendItemsShouldBeDisplayedCorrectly()
         {
             RelatedUsersUtilities.AddFriend(this.browser);
@@ -215,8 +215,8 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
         [TestMethod]
         [TestCategory("Messages")]
         [TestId(120)]
-        [TestPriority(Priority.High)]
-        [TestOwner(Owner.Yane)]
+        [Priority(2)]
+        [Owner("Yane")]
         public void SearchFieldShouldBeVisible()
         {
             RelatedUsersUtilities.AddFriend(this.browser);
@@ -228,8 +228,8 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
         [TestMethod]
         [TestCategory("Messages")]
         [TestId(125)]
-        [TestPriority(Priority.High)]
-        [TestOwner(Owner.Yane)]
+        [Priority(2)]
+        [Owner("Yane")]
         public void MessageContainerShouldContainsProperData()
         {
             RelatedUsersUtilities.AddFriend(this.browser);
@@ -248,8 +248,8 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
         [TestMethod]
         [TestCategory("Messages")]
         [TestId(126)]
-        [TestPriority(Priority.High)]
-        [TestOwner(Owner.Yane)]
+        [Priority(2)]
+        [Owner("Yane")]
         public void SendValidMessage()
         {
             RelatedUsersUtilities.AddFriend(this.browser);
@@ -302,8 +302,8 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
         [TestMethod]
         [TestCategory("Messages")]
         [TestId(127)]
-        [TestPriority(Priority.High)]
-        [TestOwner(Owner.Yane)]
+        [Priority(2)]
+        [Owner("Yane")]
         public void SendValidMessageWhenCheckboxIsUncheckedAndEnterIsPressed()
         {
             RelatedUsersUtilities.AddFriend(this.browser);
@@ -325,8 +325,8 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
         [TestMethod]
         [TestCategory("Messages")]
         [TestId(128)]
-        [TestPriority(Priority.High)]
-        [TestOwner(Owner.Yane)]
+        [Priority(2)]
+        [Owner("Yane")]
         public void SendValidMessageWhenCheckboxIsCheckedAndEnterIsPressed()
         {
             RelatedUsersUtilities.AddFriend(this.browser);
@@ -343,8 +343,8 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
         [TestMethod]
         [TestCategory("Messages")]
         [TestId(129)]
-        [TestPriority(Priority.High)]
-        [TestOwner(Owner.Yane)]
+        [Priority(2)]
+        [Owner("Yane")]
         public void TryToSendEmptyMessage()
         {
             RelatedUsersUtilities.AddFriend(this.browser);

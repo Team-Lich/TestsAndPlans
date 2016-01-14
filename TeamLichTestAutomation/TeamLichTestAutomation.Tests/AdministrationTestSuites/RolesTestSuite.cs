@@ -166,9 +166,9 @@
 
         [TestMethod]
         [TestCategory("AdministrationRoles")]
-        [TestCategory("PriorityLow")]
+        [Priority(4)]
         [TestId(260)]
-        [TestOwner(Owner.Dimitar)]
+        [Owner("Dimitar")]
         public void AdminRolesBackToAdministrationButton()
         {
             this.rolesPage.BackToAdmin();
@@ -177,9 +177,9 @@
 
         [TestMethod]
         [TestCategory("AdministrationRoles")]
-        [TestCategory("PriorityHigh")]
+        [Priority(2)]
         [TestId(267)]
-        [TestOwner(Owner.Dimitar)]
+        [Owner("Dimitar")]
         public void AdminRolesAddRole()
         {
             RandomStringGenerator generator = new RandomStringGenerator();
@@ -195,9 +195,9 @@
 
         [TestMethod]
         [TestCategory("AdministrationRoles")]
-        [TestCategory("PriorityMedium")]
+        [Priority(3)]
         [TestId(265)]
-        [TestOwner(Owner.Dimitar)]
+        [Owner("Dimitar")]
         public void AdminRolesExportAsExcel()
         {
             DateTime dateTime = DateTime.Now;
@@ -230,9 +230,9 @@
 
         [TestMethod]
         [TestCategory("AdministrationRoles")]
-        [TestCategory("PriorityMedium")]
+        [Priority(3)]
         [TestId(266)]
-        [TestOwner(Owner.Dimitar)]
+        [Owner("Dimitar")]
         public void AdminRolesEditRole()
         {
             RandomStringGenerator generator = new RandomStringGenerator();
@@ -251,9 +251,9 @@
 
         [TestMethod]
         [TestCategory("AdministrationRoles")]
-        [TestCategory("PriorityMedium")]
+        [Priority(3)]
         [TestId(263)]
-        [TestOwner(Owner.Dimitar)]
+        [Owner("Dimitar")]
         public void AdminRolesDeleteRole()
         {
             RandomStringGenerator generator = new RandomStringGenerator();
@@ -271,9 +271,9 @@
 
         [TestMethod]
         [TestCategory("AdministrationRoles")]
-        [TestCategory("PriorityLow")]
+        [Priority(4)]
         [TestId(271)]
-        [TestOwner(Owner.Dimitar)]
+        [Owner("Dimitar")]
         public void AdminRolesSortByName()
         {
             KendoGrid grid = this.rolesPage.Browser.Find.ByExpression<KendoGrid>("data-role=grid");
@@ -322,9 +322,9 @@
 
         [TestMethod]
         [TestCategory("AdministrationRoles")]
-        [TestCategory("PriorityLow")]
+        [Priority(4)]
         [TestId(270)]
-        [TestOwner(Owner.Dimitar)]
+        [Owner("Dimitar")]
         public void AdminRolesSortById()
         {
             KendoGrid grid = this.rolesPage.Browser.Find.ByExpression<KendoGrid>("data-role=grid");

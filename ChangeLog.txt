@@ -1,0 +1,8 @@
+V 0.8.10
+	15.01.16
+	
+	* Added batch file RunTestSuite.bat used to run test suite by attribute name
+	* Added batch file RunTestPriority.bat used to run tests with minimum priority specified by attribute
+	* Added a python script ResultParser.py used by the batch files to parse the *.trx files produced by MSTest
+	* Refactored tests in UniversityTestSuite and the corresponding pages, page maps and asserters
+	* Added tests that check for existence of files on disk

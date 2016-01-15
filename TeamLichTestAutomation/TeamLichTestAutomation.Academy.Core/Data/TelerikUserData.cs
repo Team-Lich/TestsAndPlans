@@ -24,6 +24,7 @@
         public static readonly string LastNameValid = "Фамилия";
         public static readonly string LastNameInvalidLength = "Ф";
         public static readonly string LastNameInvalidSymbols = "Lastname";
+        public static readonly string LastNameInvalidBoundarySymbols = "%Фамилия&";
 
         public static readonly string EmailValid = "testemail@mail.com";
         public static readonly string EmailMissingAtSymbol = "testmail.com";

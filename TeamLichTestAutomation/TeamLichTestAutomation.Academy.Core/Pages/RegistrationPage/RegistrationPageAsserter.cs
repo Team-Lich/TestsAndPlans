@@ -82,6 +82,13 @@
                 .Contains(RegistrationPageErrorMessages.FirstNameInvalidBoundarySymbols));
         }
 
+        public static void AssertErrorMessageIsDisplayedWhenLastNameStartsWithInvalidSymbol(this RegistrationPage registrationPage)
+        {
+            Assert.IsTrue(
+                registrationPage.LastNameErrorMessage.InnerText
+                .Contains(RegistrationPageErrorMessages.LastNameInvalidBoundarySymbols));
+        }
+
         public static void AssertErrorMessageIsDisplayedWhenCheckboxIsUnchecked(this RegistrationPage registrationPage)
         {
             Assert.AreEqual(
@@ -101,6 +108,13 @@
             Assert.AreEqual(
                 RegistrationPageErrorMessages.PasswordInvalidLength,
                 registrationPage.PasswordErrorMessage.InnerText);
+        }
+
+        public static void AssertNoErrorMessageIsDisplayedWhenLengthOfPasswordIsAllowedBoundary(this RegistrationPage registrationPage)
+        {
+            Assert.IsFalse(
+                registrationPage.ValidationSummaryErrors.InnerText
+                .Contains(RegistrationPageErrorMessages.PasswordInvalidLength));
         }
 
         public static void AssertErrorMessageIsDisplayedWhenPasswordAgainFieldIsEmpty(this RegistrationPage registrationPage)

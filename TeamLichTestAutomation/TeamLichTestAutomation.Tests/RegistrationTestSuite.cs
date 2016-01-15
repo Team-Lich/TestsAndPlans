@@ -292,6 +292,21 @@ namespace TeamLichTestAutomation.Tests
 
         [TestMethod]
         [TestCategory("Registration")]
+        [TestId(57)]
+        [Priority(2)]
+        [Owner("Ilvie")]
+        public void TestRegistrationWithPasswordLengthAtAllowedBoundary()
+        {
+            TelerikUser user = TelerikUser.ValidUser;
+            user.Password = TelerikUserData.PasswordValidBoundary;
+
+            this.registrationPage.RegisterTelerikUser(user);
+
+            this.registrationPage.AssertNoErrorMessageIsDisplayedWhenLengthOfPasswordIsAllowedBoundary();
+        }
+
+        [TestMethod]
+        [TestCategory("Registration")]
         [TestId(56)]
         [Priority(2)]
         [Owner("Ilvie")]
@@ -431,6 +446,21 @@ namespace TeamLichTestAutomation.Tests
             this.registrationPage.RegisterTelerikUser(user);
 
             this.registrationPage.AssertErrorMessageIsDisplayedWhenLastNameContainNonCyrillicAlphabetSymbol();
+        }
+
+        [TestMethod]
+        [TestCategory("Registration")]
+        [TestId(61)]
+        [Priority(2)]
+        [Owner("Ilvie")]
+        public void TestRegistrationWithLastNameStartingWithInvalidSymbols()
+        {
+            TelerikUser user = TelerikUser.ValidUser;
+            user.FirstName = TelerikUserData.LastNameInvalidBoundarySymbols;
+
+            this.registrationPage.RegisterTelerikUser(user);
+
+            this.registrationPage.AssertErrorMessageIsDisplayedWhenLastNameStartsWithInvalidSymbol();
         }
 
         [TestMethod]

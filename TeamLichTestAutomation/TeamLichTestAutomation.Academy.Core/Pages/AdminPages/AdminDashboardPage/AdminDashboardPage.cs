@@ -58,6 +58,11 @@
             this.LabelsButton.Click();
         }
 
+        public void ClickStatisticsButton()
+        {
+            this.StatisticsButton.Click();
+        }
+
         public void ClickComplexSearchButton()
         {
             this.ComplexSearchButton.Click();

@@ -18,6 +18,7 @@ namespace TeamLichTestAutomation.Tests
     [TestClass]
     public class LoginTestSuite : BaseTest
     {
+        BrowserType browserType;
         private Browser browser;
         private MainPage mainPage;
         private LoginPage loginPage;
@@ -105,7 +106,8 @@ namespace TeamLichTestAutomation.Tests
 
             #endregion WebAii Initialization
 
-            Manager.LaunchNewBrowser(BrowserType.FireFox);
+            this.browserType = BrowserType.InternetExplorer;
+            Manager.LaunchNewBrowser(this.browserType);
             Manager.ActiveBrowser.ClearCache(BrowserCacheType.Cookies);
 
             this.browser = Manager.ActiveBrowser;
@@ -343,7 +345,7 @@ namespace TeamLichTestAutomation.Tests
             this.mainPage.AssertUserIsLoggedAsRegularUser();
 
             this.browser.Close();
-            Manager.LaunchNewBrowser(BrowserType.FireFox);
+            Manager.LaunchNewBrowser(this.browserType);
             this.browser = Manager.ActiveBrowser;
             this.mainPage = new MainPage(this.browser);
             this.mainPage.Navigate();
@@ -362,7 +364,7 @@ namespace TeamLichTestAutomation.Tests
             this.mainPage.AssertUserIsLoggedAsAdmin();
 
             this.browser.Close();
-            Manager.LaunchNewBrowser(BrowserType.FireFox);
+            Manager.LaunchNewBrowser(this.browserType);
             this.browser = Manager.ActiveBrowser;
             this.mainPage = new MainPage(this.browser);
             this.mainPage.Navigate();

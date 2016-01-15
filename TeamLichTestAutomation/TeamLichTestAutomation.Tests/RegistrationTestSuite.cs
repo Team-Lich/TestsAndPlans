@@ -3,6 +3,7 @@ namespace TeamLichTestAutomation.Tests
     using ArtOfTest.WebAii.Core;
     using ArtOfTest.WebAii.TestTemplates;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
+
     using TeamLichTestAutomation.Academy.Core.Data;
     using TeamLichTestAutomation.Academy.Core.Models;
     using TeamLichTestAutomation.Academy.Core.Pages.MainPage;
@@ -103,7 +104,7 @@ namespace TeamLichTestAutomation.Tests
 
             #endregion WebAii Initialization
 
-            Manager.LaunchNewBrowser(BrowserType.InternetExplorer);
+            Manager.LaunchNewBrowser(BrowserType.Chrome);
             Manager.ActiveBrowser.ClearCache(BrowserCacheType.Cookies);
 
             this.browser = Manager.ActiveBrowser;
@@ -181,7 +182,37 @@ namespace TeamLichTestAutomation.Tests
 
             this.registrationPage.RegisterTelerikUser(user);
 
-            this.registrationPage.AssertErrorMessageIsDisplayedWhenLengthOfUsernameIsInccorect();
+            this.registrationPage.AssertErrorMessageIsDisplayedWhenLengthOfUsernameIsIncorrect();
+        }
+
+        [TestMethod]
+        [TestCategory("Registration")]
+        //[TestId(49)]
+        [Priority(2)]
+        [Owner("Ilvie")]
+        public void TestRegistrationWithUsernameLengthAtAllowedDownBoundary()
+        {
+            TelerikUser user = TelerikUser.ValidUser;
+            user.UserName = TelerikUserData.UsernameInvalidLengthBoundaryDown;
+
+            this.registrationPage.RegisterTelerikUser(user);
+
+            this.registrationPage.AssertNoErrorMessageIsDisplayedWhenLengthOfUsernameIsAtBoundary();
+        }
+
+        [TestMethod]
+        [TestCategory("Registration")]
+        //[TestId(49)]
+        [Priority(2)]
+        [Owner("Ilvie")]
+        public void TestRegistrationWithUsernameLengthAtAllowedUpBoundary()
+        {
+            TelerikUser user = TelerikUser.ValidUser;
+            user.UserName = TelerikUserData.UsernameInvalidLengthBoundaryUp;
+
+            this.registrationPage.RegisterTelerikUser(user);
+
+            this.registrationPage.AssertNoErrorMessageIsDisplayedWhenLengthOfUsernameIsAtBoundary();
         }
 
         [TestMethod]
@@ -196,7 +227,7 @@ namespace TeamLichTestAutomation.Tests
 
             this.registrationPage.RegisterTelerikUser(user);
 
-            this.registrationPage.AssertErrorMessageIsDisplayedWhenLengthOfUsernameIsInccorect();
+            this.registrationPage.AssertErrorMessageIsDisplayedWhenLengthOfUsernameIsIncorrect();
         }
 
         [TestMethod]

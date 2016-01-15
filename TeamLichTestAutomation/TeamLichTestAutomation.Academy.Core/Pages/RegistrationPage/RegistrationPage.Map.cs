@@ -4,6 +4,15 @@
 
     public partial class RegistrationPage
     {
+        internal HtmlDiv ValidationSummaryErrors
+        {
+            get
+            {
+                //this.Browser.WaitForElement(5000, "id=Username-error");
+                return this.Browser.Find.ByAttributes<HtmlDiv>("class=validation-summary-errors");
+            }
+        }
+
         internal HtmlSpan UsernameErrorMessage
         {
             get

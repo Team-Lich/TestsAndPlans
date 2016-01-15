@@ -33,10 +33,17 @@
                 .Contains(RegistrationPageErrorMessages.UsernameInvalidInitialSymbol));
         }
 
-        public static void AssertErrorMessageIsDisplayedWhenLengthOfUsernameIsInccorect(this RegistrationPage registrationPage)
+        public static void AssertErrorMessageIsDisplayedWhenLengthOfUsernameIsIncorrect(this RegistrationPage registrationPage)
         {
             Assert.IsTrue(
                 registrationPage.UsernameErrorMessage.InnerText
+                .Contains(RegistrationPageErrorMessages.UsernameInvalidLength));
+        }
+
+        public static void AssertNoErrorMessageIsDisplayedWhenLengthOfUsernameIsAtBoundary(this RegistrationPage registrationPage)
+        {
+            Assert.IsFalse(
+                registrationPage.ValidationSummaryErrors.InnerText
                 .Contains(RegistrationPageErrorMessages.UsernameInvalidLength));
         }
 

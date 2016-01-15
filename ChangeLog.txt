@@ -9,3 +9,9 @@ V 0.8.10
 	* Four new automated test cases added to RegistrationTestSuite
 	* Refactored tests in RegistrationTestSuite and the corresponding pages, page maps and asserters
 	* Added tests that check for existence of files on disk
+
+	* Added page in the Pages Model for the Statistics page for the Administration -> Users module.
+	* Added tests checking the existance of the graphs on the Statistics page.
+	* Added tests for the Export As Excel functionality in the Administration -> Users modules that posses it.
+	* Refoctored the code for most of the test/pages in the Administration -> Users module.
+	* Several bugfixes in the Administration -> Users modules.

@@ -33,10 +33,17 @@
                 .Contains(RegistrationPageErrorMessages.UsernameInvalidInitialSymbol));
         }
 
-        public static void AssertErrorMessageIsDisplayedWhenLengthOfUsernameIsInccorect(this RegistrationPage registrationPage)
+        public static void AssertErrorMessageIsDisplayedWhenLengthOfUsernameIsIncorrect(this RegistrationPage registrationPage)
         {
             Assert.IsTrue(
                 registrationPage.UsernameErrorMessage.InnerText
+                .Contains(RegistrationPageErrorMessages.UsernameInvalidLength));
+        }
+
+        public static void AssertNoErrorMessageIsDisplayedWhenLengthOfUsernameIsAtBoundary(this RegistrationPage registrationPage)
+        {
+            Assert.IsFalse(
+                registrationPage.ValidationSummaryErrors.InnerText
                 .Contains(RegistrationPageErrorMessages.UsernameInvalidLength));
         }
 
@@ -75,6 +82,13 @@
                 .Contains(RegistrationPageErrorMessages.FirstNameInvalidBoundarySymbols));
         }
 
+        public static void AssertErrorMessageIsDisplayedWhenLastNameStartsWithInvalidSymbol(this RegistrationPage registrationPage)
+        {
+            Assert.IsTrue(
+                registrationPage.LastNameErrorMessage.InnerText
+                .Contains(RegistrationPageErrorMessages.LastNameInvalidBoundarySymbols));
+        }
+
         public static void AssertErrorMessageIsDisplayedWhenCheckboxIsUnchecked(this RegistrationPage registrationPage)
         {
             Assert.AreEqual(
@@ -94,6 +108,13 @@
             Assert.AreEqual(
                 RegistrationPageErrorMessages.PasswordInvalidLength,
                 registrationPage.PasswordErrorMessage.InnerText);
+        }
+
+        public static void AssertNoErrorMessageIsDisplayedWhenLengthOfPasswordIsAllowedBoundary(this RegistrationPage registrationPage)
+        {
+            Assert.IsFalse(
+                registrationPage.ValidationSummaryErrors.InnerText
+                .Contains(RegistrationPageErrorMessages.PasswordInvalidLength));
         }
 
         public static void AssertErrorMessageIsDisplayedWhenPasswordAgainFieldIsEmpty(this RegistrationPage registrationPage)

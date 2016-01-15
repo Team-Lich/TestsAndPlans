@@ -17,7 +17,9 @@
         public const string FirstNameNonCyrillicSymbol = "Името може да съдържа само букви от българската азбука и знака тире.";
         public const string FirstNameInvalidBoundarySymbols = "Името трябва да започва и да завършва с буква.";
         public const string LastNameInvalid = "Фамилията може да съдържа само букви от българската азбука " +
-                                              "и знака тире. Фамилията трябва да започва и да завършва с буква.";
+                                              "и знака тире.";
+
+        public const string LastNameInvalidBoundarySymbols = "Фамилията трябва да започва и да завършва с буква.";
 
         public const string NameInvalidLength = "Минимална дължина - 2 букви.";
         public const string LastNameMissing = "Фамилията на български е задължителна";

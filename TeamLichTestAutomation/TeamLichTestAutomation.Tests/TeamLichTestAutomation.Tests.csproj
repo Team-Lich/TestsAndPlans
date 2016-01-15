@@ -64,6 +64,7 @@
     <Compile Include="AdministrationTestSuites\LabelsTestSuite.cs" />
     <Compile Include="AdministrationTestSuites\ProvincesTestSuite.cs" />
     <Compile Include="AdministrationTestSuites\RolesTestSuite.cs" />
+    <Compile Include="AdministrationTestSuites\StatisticsTestSuite.cs" />
     <Compile Include="AdministrationTestSuites\UniversitiesTestSuite.cs" />
     <Compile Include="AdministrationTestSuites\UsersTestSuite.cs" />
     <Compile Include="AdministrationTestSuites\WorkEducationStatusesTestSuite.cs" />

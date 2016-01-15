@@ -2,15 +2,13 @@
 {
     using ArtOfTest.WebAii.Core;
     using ArtOfTest.WebAii.TestTemplates;
-
     using Microsoft.VisualStudio.TestTools.UnitTesting;
-
+    using System;
     using TeamLichTestAutomation.Academy.Core.Models;
     using TeamLichTestAutomation.Academy.Core.Pages.AdminPages.AdminDashboardPage;
     using TeamLichTestAutomation.Academy.Core.Pages.AdminPages.UniversitiesPage;
     using TeamLichTestAutomation.Academy.Core.Pages.LoginPage;
     using TeamLichTestAutomation.Academy.Core.Pages.MainPage;
-
     using TeamLichTestAutomation.Utilities;
     using TeamLichTestAutomation.Utilities.Attributes;
 
@@ -109,7 +107,7 @@
 
             #endregion WebAii Initialization
 
-            Manager.LaunchNewBrowser(BrowserType.InternetExplorer);
+            Manager.LaunchNewBrowser(BrowserType.Chrome);
             this.browser = Manager.ActiveBrowser;
             this.browser.ClearCache(BrowserCacheType.Cookies);
             this.browser.Window.Maximize();
@@ -166,6 +164,22 @@
         {
             this.attendanceLogsPage.BackToAdmin();
             this.dashboardPage.AssertCurrentlyOnThePage();
+        }
+
+        [TestMethod]
+        [TestCategory("AdministrationRoles")]
+        [Priority(4)]
+        [TestId(300)]
+        [Owner("Dimitar")]
+        public void TestAdminAttendanceLogsExportAsExcelFunctionallity()
+        {
+            this.attendanceLogsPage.ExportAsExcel();
+
+            //fix date format
+
+            string ex = FileSystemHelper.GetExpectedFileName("AttendanceLogs_Export_");
+            bool fileExists = FileSystemHelper.FilePresentInUserDownloadsDirectory(ex, "xlsx");
+            Assert.IsTrue(fileExists);
         }
     }
 }

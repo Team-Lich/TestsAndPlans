@@ -3,6 +3,7 @@ namespace TeamLichTestAutomation.Tests
     using ArtOfTest.WebAii.Core;
     using ArtOfTest.WebAii.TestTemplates;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
+
     using TeamLichTestAutomation.Academy.Core.Data;
     using TeamLichTestAutomation.Academy.Core.Models;
     using TeamLichTestAutomation.Academy.Core.Pages.MainPage;
@@ -144,7 +145,7 @@ namespace TeamLichTestAutomation.Tests
         [TestId(48)]
         [Priority(2)]
         [Owner("Ilvie")]
-        public void TestRegistrationWithUsernameEmpty()
+        public void RegistrationWithUsernameEmpty()
         {
             TelerikUser user = TelerikUser.ValidUser;
             user.UserName = string.Empty;
@@ -159,7 +160,7 @@ namespace TeamLichTestAutomation.Tests
         [TestId(51)]
         [Priority(2)]
         [Owner("Ilvie")]
-        public void TestRegistrationWithUsernameInvalid()
+        public void RegistrationWithUsernameInvalid()
         {
             TelerikUser user = TelerikUser.ValidUser;
             user.UserName = TelerikUserData.UsernameInvalidSymbols;
@@ -174,14 +175,44 @@ namespace TeamLichTestAutomation.Tests
         [TestId(49)]
         [Priority(2)]
         [Owner("Ilvie")]
-        public void TestRegistrationWithUsernameLengthLessThanMinimumAllowed()
+        public void RegistrationWithUsernameLengthLessThanMinimumAllowed()
         {
             TelerikUser user = TelerikUser.ValidUser;
             user.UserName = TelerikUserData.UsernameInvalidLengthDown;
 
             this.registrationPage.RegisterTelerikUser(user);
 
-            this.registrationPage.AssertErrorMessageIsDisplayedWhenLengthOfUsernameIsInccorect();
+            this.registrationPage.AssertErrorMessageIsDisplayedWhenLengthOfUsernameIsIncorrect();
+        }
+
+        [TestMethod]
+        [TestCategory("Registration")]
+        //[TestId(49)]
+        [Priority(2)]
+        [Owner("Ilvie")]
+        public void RegistrationWithUsernameLengthAtAllowedDownBoundary()
+        {
+            TelerikUser user = TelerikUser.ValidUser;
+            user.UserName = TelerikUserData.UsernameInvalidLengthBoundaryDown;
+
+            this.registrationPage.RegisterTelerikUser(user);
+
+            this.registrationPage.AssertNoErrorMessageIsDisplayedWhenLengthOfUsernameIsAtBoundary();
+        }
+
+        [TestMethod]
+        [TestCategory("Registration")]
+        //[TestId(49)]
+        [Priority(2)]
+        [Owner("Ilvie")]
+        public void RegistrationWithUsernameLengthAtAllowedUpBoundary()
+        {
+            TelerikUser user = TelerikUser.ValidUser;
+            user.UserName = TelerikUserData.UsernameInvalidLengthBoundaryUp;
+
+            this.registrationPage.RegisterTelerikUser(user);
+
+            this.registrationPage.AssertNoErrorMessageIsDisplayedWhenLengthOfUsernameIsAtBoundary();
         }
 
         [TestMethod]
@@ -189,14 +220,14 @@ namespace TeamLichTestAutomation.Tests
         [TestId(50)]
         [Priority(2)]
         [Owner("Ilvie")]
-        public void TestRegistrationWithUsernameLengthGreaterThanMaximumAllowed()
+        public void RegistrationWithUsernameLengthGreaterThanMaximumAllowed()
         {
             TelerikUser user = TelerikUser.ValidUser;
             user.UserName = TelerikUserData.UsernameInvalidLengthUp;
 
             this.registrationPage.RegisterTelerikUser(user);
 
-            this.registrationPage.AssertErrorMessageIsDisplayedWhenLengthOfUsernameIsInccorect();
+            this.registrationPage.AssertErrorMessageIsDisplayedWhenLengthOfUsernameIsIncorrect();
         }
 
         [TestMethod]
@@ -204,7 +235,7 @@ namespace TeamLichTestAutomation.Tests
         [TestId(52)]
         [Priority(2)]
         [Owner("Ilvie")]
-        public void TestRegistratioWithUsernameStartingWithNonAlphabetSymbol()
+        public void RegistratioWithUsernameStartingWithNonAlphabetSymbol()
         {
             TelerikUser user = TelerikUser.ValidUser;
             user.UserName = TelerikUserData.UsernameStartingInvalidSymbol;
@@ -219,7 +250,7 @@ namespace TeamLichTestAutomation.Tests
         [TestId(52)]
         [Priority(2)]
         [Owner("Ilvie")]
-        public void TestRegistratioWithUsernameEndingWithNonAlphabetSymbol()
+        public void RegistratioWithUsernameEndingWithNonAlphabetSymbol()
         {
             TelerikUser user = TelerikUser.ValidUser;
             user.UserName = TelerikUserData.UsernameEndingInvalidSymbol;
@@ -234,7 +265,7 @@ namespace TeamLichTestAutomation.Tests
         [TestId(218)]
         [Priority(2)]
         [Owner("Ilvie")]
-        public void TestRegistrationWithPasswordEmpty()
+        public void RegistrationWithPasswordEmpty()
         {
             TelerikUser user = TelerikUser.ValidUser;
             user.Password = string.Empty;
@@ -249,7 +280,7 @@ namespace TeamLichTestAutomation.Tests
         [TestId(57)]
         [Priority(2)]
         [Owner("Ilvie")]
-        public void TestRegistrationWithPasswordLengthLessThanMinimumAllowed()
+        public void RegistrationWithPasswordLengthLessThanMinimumAllowed()
         {
             TelerikUser user = TelerikUser.ValidUser;
             user.Password = TelerikUserData.PasswordInvalidLength;
@@ -261,10 +292,25 @@ namespace TeamLichTestAutomation.Tests
 
         [TestMethod]
         [TestCategory("Registration")]
+        [TestId(57)]
+        [Priority(2)]
+        [Owner("Ilvie")]
+        public void RegistrationWithPasswordLengthAtAllowedBoundary()
+        {
+            TelerikUser user = TelerikUser.ValidUser;
+            user.Password = TelerikUserData.PasswordValidBoundary;
+
+            this.registrationPage.RegisterTelerikUser(user);
+
+            this.registrationPage.AssertNoErrorMessageIsDisplayedWhenLengthOfPasswordIsAllowedBoundary();
+        }
+
+        [TestMethod]
+        [TestCategory("Registration")]
         [TestId(56)]
         [Priority(2)]
         [Owner("Ilvie")]
-        public void TestRegistrationWithPasswordAgainDifferent()
+        public void RegistrationWithPasswordAgainDifferent()
         {
             TelerikUser user = new TelerikUser(
                 TelerikUserData.UsernameValid,
@@ -283,7 +329,7 @@ namespace TeamLichTestAutomation.Tests
         [TestId(55)]
         [Priority(2)]
         [Owner("Ilvie")]
-        public void TestRegistrationWithPasswordAgainEmpty()
+        public void RegistrationWithPasswordAgainEmpty()
         {
             TelerikUser user = new TelerikUser(
                 TelerikUserData.UsernameValid,
@@ -302,7 +348,7 @@ namespace TeamLichTestAutomation.Tests
         [TestId(64)]
         [Priority(2)]
         [Owner("Ilvie")]
-        public void TestRegistrationWithFirstNameEmptyField()
+        public void RegistrationWithFirstNameEmptyField()
         {
             TelerikUser user = TelerikUser.ValidUser;
             user.FirstName = string.Empty;
@@ -317,7 +363,7 @@ namespace TeamLichTestAutomation.Tests
         [TestId(59)]
         [Priority(2)]
         [Owner("Ilvie")]
-        public void TestRegistrationWithFirstNameContainingNonCyrillicAlphabetSymbols()
+        public void RegistrationWithFirstNameContainingNonCyrillicAlphabetSymbols()
         {
             TelerikUser user = TelerikUser.ValidUser;
             user.FirstName = TelerikUserData.FirstNameNonCyrillicSymbols;
@@ -332,7 +378,7 @@ namespace TeamLichTestAutomation.Tests
         [TestId(61)]
         [Priority(2)]
         [Owner("Ilvie")]
-        public void TestRegistrationWithFirstNameStartingWithInvalidSymbols()
+        public void RegistrationWithFirstNameStartingWithInvalidSymbols()
         {
             TelerikUser user = TelerikUser.ValidUser;
             user.FirstName = TelerikUserData.FirstNameInvalidBoundarySymbols;
@@ -347,7 +393,7 @@ namespace TeamLichTestAutomation.Tests
         [TestId(63)]
         [Priority(2)]
         [Owner("Ilvie")]
-        public void TestRegistrationWithFirstNameLengthLessThanMinimumAllowed()
+        public void RegistrationWithFirstNameLengthLessThanMinimumAllowed()
         {
             TelerikUser user = TelerikUser.ValidUser;
             user.FirstName = TelerikUserData.FirstNameInvalidLength;
@@ -362,7 +408,7 @@ namespace TeamLichTestAutomation.Tests
         [TestId(64)]
         [Priority(2)]
         [Owner("Ilvie")]
-        public void TestRegistrationWithLastNameEmptyField()
+        public void RegistrationWithLastNameEmptyField()
         {
             TelerikUser user = TelerikUser.ValidUser;
             user.LastName = string.Empty;
@@ -377,7 +423,7 @@ namespace TeamLichTestAutomation.Tests
         [TestId(68)]
         [Priority(2)]
         [Owner("Ilvie")]
-        public void TestRegistrationWithLastNameLengthLessThanMinimumAllowed()
+        public void RegistrationWithLastNameLengthLessThanMinimumAllowed()
         {
             TelerikUser user = TelerikUser.ValidUser;
             user.LastName = TelerikUserData.LastNameInvalidLength;
@@ -392,7 +438,7 @@ namespace TeamLichTestAutomation.Tests
         [TestId(65)]
         [Priority(2)]
         [Owner("Ilvie")]
-        public void TestRegistrationWithLastNameContainingNonCyrillicAlphabetSymbols()
+        public void RegistrationWithLastNameContainingNonCyrillicAlphabetSymbols()
         {
             TelerikUser user = TelerikUser.ValidUser;
             user.LastName = TelerikUserData.LastNameInvalidSymbols;
@@ -404,10 +450,25 @@ namespace TeamLichTestAutomation.Tests
 
         [TestMethod]
         [TestCategory("Registration")]
+        [TestId(61)]
+        [Priority(2)]
+        [Owner("Ilvie")]
+        public void RegistrationWithLastNameStartingWithInvalidSymbols()
+        {
+            TelerikUser user = TelerikUser.ValidUser;
+            user.FirstName = TelerikUserData.LastNameInvalidBoundarySymbols;
+
+            this.registrationPage.RegisterTelerikUser(user);
+
+            this.registrationPage.AssertErrorMessageIsDisplayedWhenLastNameStartsWithInvalidSymbol();
+        }
+
+        [TestMethod]
+        [TestCategory("Registration")]
         [TestId(69)]
         [Priority(2)]
         [Owner("Ilvie")]
-        public void TestRegistrationWithEmailAddressEmpty()
+        public void RegistrationWithEmailAddressEmpty()
         {
             TelerikUser user = TelerikUser.ValidUser;
             user.Email = string.Empty;
@@ -422,7 +483,7 @@ namespace TeamLichTestAutomation.Tests
         [TestId(71)]
         [Priority(2)]
         [Owner("Ilvie")]
-        public void TestRegistrationWithEmailAddressNotContainingAtSymbol()
+        public void RegistrationWithEmailAddressNotContainingAtSymbol()
         {
             TelerikUser user = TelerikUser.ValidUser;
             user.Email = TelerikUserData.EmailMissingAtSymbol;
@@ -437,7 +498,7 @@ namespace TeamLichTestAutomation.Tests
         [TestId(70)]
         [Priority(2)]
         [Owner("Ilvie")]
-        public void TestRegistrationWithEmailAddressNotContainPointSymbol()
+        public void RegistrationWithEmailAddressNotContainPointSymbol()
         {
             TelerikUser user = TelerikUser.ValidUser;
             user.Email = TelerikUserData.EmailMissingPointSymbol;
@@ -452,7 +513,7 @@ namespace TeamLichTestAutomation.Tests
         [TestId(73)]
         [Priority(2)]
         [Owner("Ilvie")]
-        public void TestRegistrationWithTermsAndConditionsCheckboxUnchecked()
+        public void RegistrationWithTermsAndConditionsCheckboxUnchecked()
         {
             TelerikUser user = TelerikUser.ValidUser;
 

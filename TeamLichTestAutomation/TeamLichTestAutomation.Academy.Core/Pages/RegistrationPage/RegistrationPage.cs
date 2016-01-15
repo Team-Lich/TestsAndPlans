@@ -13,20 +13,6 @@
         {
         }
 
-        public void RegisterRandomUser()
-        {
-            RandomStringGenerator generator = new RandomStringGenerator();
-
-            this.UsernameTextBox.Text = generator.GetString(8);
-            this.PasswordTextBox.Text = "123456";
-            this.RepeatPasswordTextBox.Text = "123456";
-            this.FirstNameTextBox.Text = "ТестИме";
-            this.LastNameTextBox.Text = "ТестФамилия";
-            this.EmailTextBox.Text = generator.GetString(8) + "@test.com";
-            this.TermAndConditionsCheckBox.MouseClick(MouseClickType.LeftClick);
-            this.SubmitButton.Click();
-        }
-
         public void RegisterTelerikUser(TelerikUser user)
         {
             this.UsernameTextBox.Text = user.UserName;
@@ -64,10 +50,25 @@
             this.SubmitButton.Click();
         }
 
+        public void RegisterRandomUser()
+        {
+            RandomStringGenerator generator = new RandomStringGenerator();
+
+            this.UsernameTextBox.Text = generator.GetString(8);
+            this.PasswordTextBox.Text = "123456";
+            this.RepeatPasswordTextBox.Text = "123456";
+            this.FirstNameTextBox.Text = "ТестИме";
+            this.LastNameTextBox.Text = "ТестФамилия";
+            this.EmailTextBox.Text = generator.GetString(8) + "@test.com";
+            this.TermAndConditionsCheckBox.MouseClick(MouseClickType.LeftClick);
+            this.SubmitButton.Click();
+        }
+
         private string GetUniqueAddition()
         {
+            string dateFormat = "ssmmhhddMMyyyy";
             var dateTime = DateTime.Now;
-            string uniqueAddition = dateTime.ToString("ssmmhhddMMyyyy");
+            string uniqueAddition = dateTime.ToString(dateFormat);
             return uniqueAddition;
         }
     }

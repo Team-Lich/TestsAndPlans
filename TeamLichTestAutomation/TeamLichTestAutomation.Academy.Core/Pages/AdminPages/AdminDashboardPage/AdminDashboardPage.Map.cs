@@ -60,6 +60,14 @@
             }
         }
 
+        private HtmlAnchor StatisticsButton
+        {
+            get
+            {
+            return this.Browser.Find.ByExpression<HtmlAnchor>("href=/Administration_Users/Statistics");
+            }
+        }
+
         private HtmlAnchor ProvincesButton
         {
             get

@@ -23,7 +23,7 @@
             }
         }
 
-        private HtmlButton ExprotAsExcelButton
+        private HtmlButton ExportAsExcelButton
         {
             get
             {

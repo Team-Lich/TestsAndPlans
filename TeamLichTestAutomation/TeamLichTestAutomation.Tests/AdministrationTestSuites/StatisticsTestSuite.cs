@@ -1,16 +1,14 @@
 ﻿namespace TeamLichTestAutomation.Tests.AdministrationTestSuites
-{
+    {
     using ArtOfTest.WebAii.Core;
     using ArtOfTest.WebAii.TestTemplates;
-
     using Microsoft.VisualStudio.TestTools.UnitTesting;
-
+    using System;
     using TeamLichTestAutomation.Academy.Core.Models;
     using TeamLichTestAutomation.Academy.Core.Pages.AdminPages.AdminDashboardPage;
-    using TeamLichTestAutomation.Academy.Core.Pages.AdminPages.UniversitiesPage;
+    using TeamLichTestAutomation.Academy.Core.Pages.AdminPages.StatisticsPage;
     using TeamLichTestAutomation.Academy.Core.Pages.LoginPage;
     using TeamLichTestAutomation.Academy.Core.Pages.MainPage;
-
     using TeamLichTestAutomation.Utilities;
     using TeamLichTestAutomation.Utilities.Attributes;
 
@@ -18,13 +16,13 @@
     /// Summary description for UniversitiesTestSuite
     /// </summary>
     [TestClass]
-    public class CommentsTestSuite : BaseTest
-    {
+    public class StatisticsTestSuite : BaseTest
+        {
         private Browser browser;
         private MainPage mainPage;
         private LoginPage loginPage;
         private AdminDashboardPage dashboardPage;
-        private CommentsPage commentsPage;
+        private StatisticsPage statisticsPage;
 
         #region [Setup / TearDown]
 
@@ -36,28 +34,28 @@
         /// current test run.
         /// </summary>
         public TestContext TestContext
-        {
-            get
             {
+            get
+                {
                 return this.testContextInstance;
-            }
+                }
 
             set
-            {
+                {
                 this.testContextInstance = value;
+                }
             }
-        }
 
         // Use ClassInitialize to run code before running the first test in the class
         [ClassInitialize]
         public static void MyClassInitialize(TestContext testContext)
-        {
-        }
+            {
+            }
 
         // Use TestInitialize to run code before running each test
         [TestInitialize]
         public void MyTestInitialize()
-        {
+            {
             #region WebAii Initialization
 
             // Initializes WebAii manager to be used by the test case.
@@ -123,15 +121,15 @@
             this.mainPage.ClickAdminNavigationDropdown();
 
             this.dashboardPage = new AdminDashboardPage(this.browser);
-            this.dashboardPage.ClickCommentsButton();
+            this.dashboardPage.ClickStatisticsButton();
 
-            this.commentsPage = new CommentsPage(this.browser);
-        }
+            this.statisticsPage = new StatisticsPage(this.browser);
+            }
 
         // Use TestCleanup to run code after each test has run
         [TestCleanup]
         public void MyTestCleanup()
-        {
+            {
             //// Place any additional cleanup here
 
             #region WebAii CleanUp
@@ -141,47 +139,60 @@
             this.CleanUp();
 
             #endregion WebAii CleanUp
-        }
+            }
 
         // Use ClassCleanup to run code after all tests in a class have run
         [ClassCleanup]
         public static void MyClassCleanup()
-        {
+            {
             // This will shut down all browsers if
             // recycleBrowser is turned on. Else
             // will do nothing.
             BaseTest.ShutDown();
-        }
+            }
 
         #endregion [Setup / TearDown]
 
         // These tests work only on Internet Explorer.
         // I can not handle the confirmation dialog on deletion in Chrome and Firefox
         [TestMethod]
-        [TestCategory("AdministrationComments")]
+        [TestCategory("AdministrationStatistics")]
         [Priority(4)]
-        [TestId(257)]
+        [TestId(305)]
         [Owner("Dimitar")]
-        public void TestAdminCommentsBackToAdministrationButtonWorks()
+        public void TestAdminStatisticsGenderChartExists()
         {
-            this.commentsPage.BackToAdmin();
-            this.dashboardPage.AssertCurrentlyOnThePage();
+            this.statisticsPage.AssertChartExists(this.statisticsPage.GetGenderChart);
         }
 
         [TestMethod]
-        [TestCategory("AdministrationComments")]
+        [TestCategory("AdministrationStatistics")]
         [Priority(4)]
-        [TestId(302)]
+        [TestId(306)]
         [Owner("Dimitar")]
-        public void TestAdminCommentsExportAsExcelFunctionallity()
+        public void TestAdminStatisticsCitiesChartExists()
         {
-            this.commentsPage.ExportAsExcel();
-
-            //fix date format
-
-            string ex = FileSystemHelper.GetExpectedFileName("Comments_Export_");
-            bool fileExists = FileSystemHelper.FilePresentInUserDownloadsDirectory(ex, "xlsx");
-            Assert.IsTrue(fileExists);
+            this.statisticsPage.AssertChartExists(this.statisticsPage.GetCitiesChart);
         }
+
+        [TestMethod]
+        [TestCategory("AdministrationStatistics")]
+        [Priority(4)]
+        [TestId(307)]
+        [Owner("Dimitar")]
+        public void TestAdminStatisticsMonthlyRegistrationsChartExists()
+        {
+            this.statisticsPage.AssertChartExists(this.statisticsPage.GetMonthlyRegistrationsChart);
+        }
+
+        [TestMethod]
+        [TestCategory("AdministrationStatistics")]
+        [Priority(4)]
+        [TestId(308)]
+        [Owner("Dimitar")]
+        public void TestAdminStatisticsLastSixtyDaysRegistrationsChartExists()
+            {
+            this.statisticsPage.AssertChartExists(this.statisticsPage.GetLastSixtyDaysRegistrationsChart);
+            }
     }
 }

@@ -52,6 +52,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Data\TelerikUserData.cs" />
+    <Compile Include="Pages\AdminPages\StatisticsPage\StatisticsPage.cs" />
+    <Compile Include="Pages\AdminPages\StatisticsPage\StatisticsPage.Map.cs" />
+    <Compile Include="Pages\AdminPages\StatisticsPage\StatisticsPageAsserter.cs" />
     <Compile Include="Pages\MessagesPage\MessagesPageMessages.cs" />
     <Compile Include="Models\TelerikUser.cs" />
     <Compile Include="Pages\AdminPages\AdminDashboardPage\AdminDashboardPage.cs" />

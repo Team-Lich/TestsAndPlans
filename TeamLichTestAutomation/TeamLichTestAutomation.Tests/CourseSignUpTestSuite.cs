@@ -106,7 +106,7 @@ namespace TeamLichTestAutomation.Tests
 
             #endregion WebAii Initialization
 
-            Manager.LaunchNewBrowser(BrowserType.Chrome);
+            Manager.LaunchNewBrowser(BrowserType.InternetExplorer);
             Manager.ActiveBrowser.ClearCache(BrowserCacheType.Cookies);
 
             this.browser = Manager.ActiveBrowser;

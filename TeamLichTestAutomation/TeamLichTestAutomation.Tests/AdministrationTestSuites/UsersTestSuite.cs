@@ -109,7 +109,7 @@
 
             #endregion WebAii Initialization
 
-            Manager.LaunchNewBrowser(BrowserType.Chrome);
+            Manager.LaunchNewBrowser(BrowserType.InternetExplorer);
             this.browser = Manager.ActiveBrowser;
             this.browser.ClearCache(BrowserCacheType.Cookies);
             this.browser.Window.Maximize();

@@ -4,7 +4,7 @@ if not bdLibPath in sys.path: sys.path.append(bdLibPath)
 from _lib import *
 
     
-class SmokeTests(unittest.TestCase):
+class Users_Admin(unittest.TestCase):
     
     def setUp(self):
         pass
@@ -30,10 +30,10 @@ class SmokeTests(unittest.TestCase):
 
 
 if __name__ == '__main__':
-    suite = unittest.TestLoader().loadTestsFromTestCase(SmokeTests)
+    suite = unittest.TestLoader().loadTestsFromTestCase(Users_Admin)
 
     outfile = open("report.html", "w")
-    runner = HTMLTestRunner.HTMLTestRunner(stream=outfile, title='SmokeTests Report' )
+    runner = HTMLTestRunner.HTMLTestRunner(stream=outfile, title='Users Admin Report' )
     runner.run(suite)
     outfile.close()
 

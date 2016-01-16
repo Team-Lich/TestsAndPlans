@@ -77,7 +77,17 @@
 <span class="cmt">########################################################</span>
 
 <span class="kw">class</span> MainPage:
-    button_CreateApp = <span class="str">""</span>
+    button_mainLogIn = Pattern(<img src="button_mainLogIn.png" />).similar(<span class="dig">0.92</span>)
+    button_adm = <img src="button_adm.png" />
+    button_logout = Pattern(<img src="button_logout.png" />).similar(<span class="dig">0.90</span>)
+
+<span class="kw">class</span> LoginPage:
+    label_username = Pattern(<img src="label_username.png" />).targetOffset(<span class="dig">209</span>,-<span class="dig">9</span>)
+    label_password = Pattern(<img src="label_password.png" />).targetOffset(<span class="dig">279</span>,<span class="dig">1</span>)
+    button_logIn = <img src="button_logIn.png" />
+
+<span class="kw">class</span> AdminDashboard:
+    title_admin = <img src="title_admin.png" />
 </pre>
 </body>
 </html>

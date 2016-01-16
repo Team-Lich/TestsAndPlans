@@ -11,3 +11,20 @@ def RunBrowserToUrl(browser,toUrl):
     type(browser+" "); sleep(1)
     type(toUrl); sleep(1)
     type(Key.ENTER)
+
+def LoginUser(username, password):
+    wait(MainPage.button_mainLogIn, 40)
+    click(MainPage.button_mainLogIn)
+    wait(LoginPage.label_username, 20)
+    click(LoginPage.label_username)
+    type("a", Key.CTRL)
+    paste(username)
+    click(LoginPage.label_password)
+    type("a", Key.CTRL)
+    paste(password)
+    click(LoginPage.button_logIn)
+
+def NavigateToAdminDashboard():
+    wait(MainPage.button_adm, 30)
+    click(MainPage.button_adm)
+    wait(AdminDashboard.title_admin, 30)

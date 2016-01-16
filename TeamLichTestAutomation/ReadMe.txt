@@ -1,3 +1,8 @@
+Required:
+Path to MSTest.exe in your enviroment or user paths.
+Python 3.* installed with path to it in your enviroment or user paths.
+
+
 RunTestPriority.bat can run all test with priority smaller than the argument.
 Example:
 RunTestPriority.bat 1

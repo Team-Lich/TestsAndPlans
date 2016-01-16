@@ -1,4 +1,5 @@
 :: Check WMIC is available
+@ECHO OFF
 WMIC.EXE Alias /? >NUL 2>&1 || GOTO s_error
 
 :: Use WMIC to retrieve date and time
@@ -20,7 +21,7 @@ FOR /F "skip=1 tokens=1-6" %%G IN ('WMIC Path Win32_LocalTime Get Day^,Hour^,Min
       Set _minute=%_minute:~-2%
       Set _second=%_second:~-2%
 
-Set logtimestamp=%_yyyy%-%_mm%-%_dd%_%_hour%_%_minute%_%_second%
+Set logtimestamp=%_yyyy%-%_mm%-%_dd%_%_hour%h%_minute%m%_second%s
 goto make_dump
 
 :s_error
@@ -28,13 +29,26 @@ echo WMIC is not available, using default log filename
 Set logtimestamp=_
 
 :make_dump
-set FILENAME=database_dump_%logtimestamp%.sql
+SET FILENAME=database_dump_%logtimestamp%.sql
 
+SET SUITENAME=%1
+SET "LOCALPATH=%~dp0"
+SET SEPARATOR=-----------------------------------------------------------------------------------------------------
 
-set SUITENAME=%1
+ECHO Starting Tets run of %SUITENAME% suite
+
 ::SET TESTSFILE=C:\Users\Decho\Desktop\TestPlan\TeamLichTestAutomation\TeamLichTestAutomation.Tests\bin\Debug\TeamLichTestAutomation.Tests.dll
-SET TESTSFILE=%~dp0TeamLichTestAutomation.Tests\bin\Debug\TeamLichTestAutomation.Tests.dll
-SET RESULTFILE=%~dp0Results\%SUITENAME%TestSuite_%logtimestamp%.trx
+SET TESTSFILE=%LOCALPATH%TeamLichTestAutomation.Tests\bin\Debug\TeamLichTestAutomation.Tests.dll
+SET RESULTFILE=%LOCALPATH%Results\%logtimestamp%_%SUITENAME%TestSuite.trx
 
-MSTest.exe /testcontainer:%TESTSFILE% /category:%1 /resultsfile:%RESULTFILE%
-python ResultParser.py %~dp0Results\%SUITENAME%TestSuite_%logtimestamp% %logtimestamp%
+ECHO %SEPARATOR%
+ECHO Running tests in assembly - %TESTSFILE%
+ECHO %SEPARATOR%
+ECHO Find raw results in - %RESULTFILE%
+ECHO %SEPARATOR%
+ECHO Executing tests...
+ECHO %SEPARATOR%
+
+@ECHO ON
+MSTest.exe /testcontainer:"%TESTSFILE%" /category:%1 /resultsfile:"%RESULTFILE%"
+python ResultParser.py %~dp0Results\%logtimestamp%_%SUITENAME%TestSuite %logtimestamp%

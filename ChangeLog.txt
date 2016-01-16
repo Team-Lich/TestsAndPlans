@@ -13,5 +13,5 @@ V 0.8.10
 	* Added tests checking the existance of the graphs on the Statistics page.
 	* Added tests for the Export As Excel functionality in the Administration -> Users modules that posses it.
 	* Refoctored the code for most of the test/pages in the Administration -> Users module.
-	* Several bugfixes in the Administration -> Users modules.
+	* Several test bugfixes in the Administration -> Users modules.
 	* Refactored failed tests in RolesTestSuite and UniversitesTestSuite in Administration -> Users module

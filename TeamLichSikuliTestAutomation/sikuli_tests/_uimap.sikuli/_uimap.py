@@ -8,6 +8,7 @@ class MainPage:
     button_mainLogIn = Pattern("button_mainLogIn.png").similar(0.92)
     button_adm = "button_adm.png"
     button_logout = Pattern("button_logout.png").similar(0.90)
+    footer = "1453311612551.png"
 
 class LoginPage:    
     label_username = Pattern("label_username.png").targetOffset(209,-9)
@@ -16,6 +17,30 @@ class LoginPage:
 
 class AdminDashboard:
     title_admin = "title_admin.png"
+    button_roles = "Pcnvn.png"
+
+class AdminUsersRoles:
+    title_roles = "IIOTp6lITEIC.png"
+    label_roleName = Pattern("Mmenaponma.png").targetOffset(186,-2)
+    test_004_expectedResult = "IIuenaponmaT.png"
+    test_005_exelFile = "R0es_Exp0rt.png"
+    test_006_pdfFile = "ER0es_Exp0rt-1.png"
+    test_007_expedtedResult = "IIuenaponmaa.png"
+
+class Grid:
+    button_add = "U06amme.png"
+    button_update = "Ky.png"
+    button_BackAdminDashboard = "KLMBAMIIHICT.png"
+    button_downloadAsExel = "IQCsarmueH8E.png"
+    button_downloadAsPDF = "QCsammeH8PDF.png"
+    button_edit = "1453318164265.png"
+
+class SaveAsBg:
+    input_saveLocation = Pattern("3am1u1v1Kam.png").targetOffset(1,31)
+    button_save = "1453315685007.png"
+
+class Windows:
+    taskbar_chrome = "C.png"
     
 
 

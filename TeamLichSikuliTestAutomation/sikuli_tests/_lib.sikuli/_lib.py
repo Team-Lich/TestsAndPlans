@@ -104,7 +104,7 @@ def DownloadAsEnglish(downloadType, location):  #DownloadType:  "Exel" "PDF"
     wait(SaveAsBg.button_saveEn, 30)
     click(SaveAsBg.input_saveLocationEn)
     type(location)
-    wait(1)
+    wait(3)
     type(Key.ENTER)
     click(SaveAsBg.button_saveEn)
 
@@ -127,7 +127,14 @@ def DownloadAs(downloadType, location):  #DownloadType:  "Exel" "PDF"
 
 def CheckIfFileIsInDirectory(file, directory):
     type("r", KEY_WIN)
+    wait(1)
     type(directory + Key.ENTER)
     wait(file, 30)
     click(Windows.taskbar_chrome)
 
+def ChechIfFileIsInDirectoryChromium(file, directory):
+    type("r", KEY_WIN)
+    wait(1)
+    type(directory + Key.ENTER)
+    wait(file, 30)
+    click(Windows.taskbar_chromium)

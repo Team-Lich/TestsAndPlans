@@ -33,10 +33,23 @@ class Users_Admin(unittest.TestCase):
     # def test_0022_RegisterNewUser(self):
     #     RegisterRandomUser()
 
-    def test_0023_ExportUsersAsExcel(self):
-        location = "C:\Users\Dimitar Panayotov\Desktop\ForTest"  #change this to whatever feels good in order to work for you
-        DownloadAsEnglish("Excel", location)
-        CheckIfFileIsInDirectory(AdminUsers.file_excel,location)
+    # def test_0023_ExportUsersAsExcel(self):
+    #     location = "C:\Users\Dimitar Panayotov\Desktop\ForTest"  #change this to whatever feels good in order to work for you
+    #     DownloadAsEnglish("Excel", location)
+    #     ChechIfFileIsInDirectoryChromium(AdminUsers.file_excel,location)
+
+    # def test_0023_AdminUsers_BackToAdmin(self):
+    #     click(Grid.button_BackAdminDashboard)
+
+    # def test_0023_AdminUsers_SortingId(self):
+    #     click(Grid.button_sortingId)
+    #     wait(Grid.result_sortingId)
+    #     exists(Grid.result_sortingId)
+
+    def test_0023_AdminUsers_SortingUserName(self):
+        click(Grid.button_sortingUserName)
+        wait(Grid.result_sortingUserName)
+        exists(Grid.result_sortingUserName)
 
     # def test_0023_FilterByCriteriaID(self):
     #     click(AdminUsers.button_filterByCriteria)

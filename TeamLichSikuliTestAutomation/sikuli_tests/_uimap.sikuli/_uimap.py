@@ -69,6 +69,10 @@ class Grid:
     button_exportAsExcel = "button_exportAsExcel.png"
     button_downloadAsPDF = "QCsammeH8PDF.png"
     button_edit = "1453318164265.png"
+    button_sortingId = "button_sortingId.png"
+    button_sortingUserName = "button_sortingUserName.png"
+    result_sortingId = "result_sortingId.png"
+    result_sortingUserName = "result_sortingUserName.png"
 
 class SaveAsBg:
     input_saveLocation = Pattern("3am1u1v1Kam.png").targetOffset(1,31)
@@ -78,6 +82,6 @@ class SaveAsBg:
 
 class Windows:
     taskbar_chrome = "C.png"
-    
+    taskbar_chromium = "taskbar_chromium.png"
 
 

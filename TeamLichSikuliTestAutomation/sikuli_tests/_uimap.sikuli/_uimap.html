@@ -46,8 +46,8 @@
          h2 {
             display: inline;
             font-weight: normal;
-         }  
-         
+         }
+
          .info {
             border-bottom: 1px solid #ddd;
             padding-bottom: 5px;
@@ -67,7 +67,7 @@
    </head>
 <body>
 <div class="info">
-<h2>_uimap.sikuli\_uimap.sikuli</h2> <a href="_uimap.sikuli\_uimap.zip">(Download this script)</a>
+<h2>_uimap.sikuli</h2> <a href="_uimap.zip">(Download this script)</a>
 </div>
 <pre class="sikuli-code">
 <span class="cmt">########################################################
@@ -90,7 +90,28 @@
 <span class="kw">class</span> AdminDashboard:
     title_admin = <img src="title_admin.png" />
     button_roles = <img src="Pcnvn.png" />
+    button_filteredExportToExcel = <img src="button_filteredExportToExcel.png" />
+    button_users = <img src="button_users.png" />
 
+<span class="kw">class</span> AdminUsers:
+    title_users = <img src="title_users.png" />
+    button_filterByCriteria = <img src="button_filterByCriteria.png" />
+    dropDown_pickACriteria = <img src="dropDown_pickACriteria.png" />
+    dropDown_criteriaId = Pattern(<img src="dropDown_criteriaId.png" />).targetOffset(-<span class="dig">36</span>,<span class="dig">48</span>)
+    dropDown_criteriaName = Pattern(<img src="dropDown_criteriaName.png" />).targetOffset(-<span class="dig">98</span>,<span class="dig">82</span>)
+    dropDown_criteriaEmail = Pattern(<img src="dropDown_criteriaEmail.png" />).targetOffset(-<span class="dig">9</span>,<span class="dig">110</span>)
+    textbox_criteriaValues = <img src="textbox_criteriaValues.png" />
+    button_extract = <img src="button_extract.png" />
+    result_criteriaId = <img src="result_criteriaId.png" />
+
+<span class="kw">class</span> AdminFilteredExportToExcel:
+    title_filteredExportToExcel = <img src="title_filteredExportToExcel.png" />
+    dropDown_pickCriteria = <img src="dropDown_pickCriteria.png" />
+    dropDown_byId = <img src="dropDown_byId.png" />
+    dropDown_byName = <img src="dropDown_byName.png" />
+    dropdown_byEmail = <img src="dropdown_byEmail.png" />
+    textbox_enterCriterias = <img src="textbox_enterCriterias.png" />
+    button_extract = <img src="button_extract.png" />
 <span class="kw">class</span> AdminUsersRoles:
     title_roles = <img src="IIOTp6lITEIC.png" />
     label_roleName = Pattern(<img src="Mmenaponma.png" />).targetOffset(<span class="dig">186</span>,-<span class="dig">2</span>)

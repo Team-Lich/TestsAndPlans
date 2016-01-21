@@ -46,6 +46,16 @@ def NavigateToAdminDashboard():
     click(MainPage.button_adm)
     wait(AdminDashboard.title_admin, 30)
 
+def NavigateToAdminUsers():
+    wait(AdminDashboard.button_users, 30)
+    click(AdminDashboard.button_users)
+    wait(AdminUsers.title_users, 30)
+
+def NavigateToFilteredExportToExcel():
+    wait(AdminDashboard.button_filteredExportToExcel, 30)
+    click(AdminDashboard.button_filteredExportToExcel)
+    wait(AdminFilteredExportToExcel.title_filteredExportToExcel, 30)
+
 def NavigateToRoles():
     wait(AdminDashboard.button_roles, 30)
     click(AdminDashboard.button_roles)

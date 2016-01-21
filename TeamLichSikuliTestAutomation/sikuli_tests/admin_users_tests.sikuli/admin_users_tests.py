@@ -23,6 +23,44 @@ class Users_Admin(unittest.TestCase):
     def test_002_NavigateToAdminDashboard(self):
         NavigateToAdminDashboard()
         wait(AdminDashboard.title_admin, 30)
+        
+    #START - Tests Dimitar - 21.01.16
+    
+    def test_0021_NavigateToAdminUsers(self):
+        NavigateToAdminDashboard()
+        ScrollToVisible(100, "down", AdminDashboard.button_users)
+        NavigateToAdminUsers()
+
+    def test_0022_FilterByCriteriaID(self):
+        click(AdminUsers.button_filterByCriteria)
+        click(AdminUsers.dropDown_pickACriteria)
+        click(AdminUsers.dropDown_criteriaId)
+        type(AdminUsers.textbox_criteriaValues, "189")
+        click(AdminUsers.button_extract)
+        exists(AdminUsers.result_criteriaId)
+
+    def test_0023_FilterByCriteriaName(self):
+        click(AdminUsers.button_filterByCriteria)
+        click(AdminUsers.dropDown_pickACriteria)
+        click(AdminUsers.dropDown_criteriaName)
+        type(AdminUsers.textbox_criteriaValues, "TeamLichTestUser")
+        click(AdminUsers.button_extract)
+        exists(AdminUsers.result_criteriaId)
+
+    def test_0024_FilterByCriteriaEmail(self):
+        click(AdminUsers.button_filterByCriteria)
+        click(AdminUsers.dropDown_pickACriteria)
+        click(AdminUsers.dropDown_criteriaEmail)
+        type(AdminUsers.textbox_criteriaValues, "mausoleum@necropolis.heroes")
+        click(AdminUsers.button_extract)
+        exists(AdminUsers.result_criteriaId)
+
+    def test_009991_NavigateToFilteredExportToExcel(self):
+        NavigateToAdminDashboard()
+        ScrollToVisible(100, "down", AdminDashboard.button_filteredExportToExcel)
+        NavigateToFilteredExportToExcel()
+
+    #END - Tests Dimitar - 21.01.16
 
     def test_003_NavigateToRoles(self):
         ScrollToVisible(100, "down", AdminDashboard.button_roles)

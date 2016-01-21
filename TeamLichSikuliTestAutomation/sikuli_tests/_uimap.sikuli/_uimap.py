@@ -18,7 +18,28 @@ class LoginPage:
 class AdminDashboard:
     title_admin = "title_admin.png"
     button_roles = "Pcnvn.png"
+    button_filteredExportToExcel = "button_filteredExportToExcel.png"
+    button_users = "button_users.png"
 
+class AdminUsers:
+    title_users = "title_users.png"
+    button_filterByCriteria = "button_filterByCriteria.png"
+    dropDown_pickACriteria = "dropDown_pickACriteria.png"
+    dropDown_criteriaId = Pattern("dropDown_criteriaId.png").targetOffset(-36,48)
+    dropDown_criteriaName = Pattern("dropDown_criteriaName.png").targetOffset(-98,82)
+    dropDown_criteriaEmail = Pattern("dropDown_criteriaEmail.png").targetOffset(-9,110)
+    textbox_criteriaValues = "textbox_criteriaValues.png"
+    button_extract = "button_extract.png"
+    result_criteriaId = "result_criteriaId.png"
+
+class AdminFilteredExportToExcel:
+    title_filteredExportToExcel = "title_filteredExportToExcel.png"
+    dropDown_pickCriteria = "dropDown_pickCriteria.png"
+    dropDown_byId = "dropDown_byId.png"
+    dropDown_byName = "dropDown_byName.png"
+    dropdown_byEmail = "dropdown_byEmail.png"
+    textbox_enterCriterias = "textbox_enterCriterias.png"
+    button_extract = "button_extract.png"
 class AdminUsersRoles:
     title_roles = "IIOTp6lITEIC.png"
     label_roleName = Pattern("Mmenaponma.png").targetOffset(186,-2)

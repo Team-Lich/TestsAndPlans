@@ -85,9 +85,19 @@ class Grid:
     button_edit = "1453318164265.png"
     button_sortingId = "button_sortingId.png"
     button_sortingUserName = "button_sortingUserName.png"
+    button_sortingSN = "button_sortingSN.png"
+    button_sortingName = "button_sortingName.png"
+    button_sortingBD = "button_sortingBD.png"
     result_sortingId = "result_sortingId.png"
     result_sortingUserName = "result_sortingUserName.png"
-
+    result_sortingSN = "result_sortingSN.png"
+    result_sortingBD = "result_sortingBD.png"
+    result_firstSortingBD = Pattern("result_firstSortingBD.png").targetOffset(-54,43)
+    result_secondSortingBD = Pattern("result_secondSortingBD.png").similar(0.53).targetOffset(-47,104)
+    result_firstSortingId = Pattern("result_firstSortingId.png").targetOffset(-28,35)
+    result_secondSortingId = Pattern("result_secondSortingId.png").targetOffset(-27,73)
+    result_firstSortingName = Pattern("result_firstSortingName.png").targetOffset(-31,33)
+    result_secondSortingName = Pattern("result_secondSortingName.png").targetOffset(-34,75)
 class SaveAsBg:
     input_saveLocation = Pattern("3am1u1v1Kam.png").targetOffset(1,31)
     input_saveLocationEn = Pattern("input_saveLocationEn.png").targetOffset(96,-2)

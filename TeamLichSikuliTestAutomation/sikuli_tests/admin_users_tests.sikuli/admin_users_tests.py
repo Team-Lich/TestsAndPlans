@@ -11,78 +11,18 @@ class Users_Admin(unittest.TestCase):
     def tearDown(self):
         pass
     
-    # def test_001_NavigateAndLogInAndLoginAdmin(self):
-    #     adminUser = "TeamLichTestAdmin"
-    #     adminPass = "123456"
-    #
-    #     RunBrowserToUrl("chrome", "http://stage.telerikacademy.com/")
-    #     LoginUser(adminUser, adminPass)
-    #     wait(MainPage.button_adm, 30)
-    #
-    # def test_002_NavigateToAdminDashboard(self):
-    #     NavigateToAdminDashboard()
-    #     wait(AdminDashboard.title_admin, 30)
-        
-    #START - Tests Dimitar - 21.01.16
-    
-    # def test_0021_NavigateToAdminUsers(self):
-    #     NavigateToAdminDashboard()
-    #     ScrollToVisible(100, "down", AdminDashboard.button_users)
-    #     NavigateToAdminUsers()
+    def test_001_NavigateAndLogInAndLoginAdmin(self):
+        adminUser = "TeamLichTestAdmin"
+        adminPass = "123456"
 
-    # def test_0022_RegisterNewUser(self):
-    #     RegisterRandomUser()
+        RunBrowserToUrl("chrome", "http://stage.telerikacademy.com/")
+        LoginUser(adminUser, adminPass)
+        wait(MainPage.button_adm, 30)
 
-    # def test_0023_ExportUsersAsExcel(self):
-    #     location = "C:\Users\Dimitar Panayotov\Desktop\ForTest"  #change this to whatever feels good in order to work for you
-    #     DownloadAsEnglish("Excel", location)
-    #     ChechIfFileIsInDirectoryChromium(AdminUsers.file_excel,location)
+    def test_002_NavigateToAdminDashboard(self):
+        NavigateToAdminDashboard()
+        wait(AdminDashboard.title_admin, 30)
 
-    # def test_0023_AdminUsers_BackToAdmin(self):
-    #     click(Grid.button_BackAdminDashboard)
-
-    # def test_0023_AdminUsers_SortingId(self):
-    #     click(Grid.button_sortingId)
-    #     wait(Grid.result_sortingId)
-    #     exists(Grid.result_sortingId)
-
-    def test_0023_AdminUsers_SortingUserName(self):
-        click(Grid.button_sortingUserName)
-        wait(Grid.result_sortingUserName)
-        exists(Grid.result_sortingUserName)
-
-    # def test_0023_FilterByCriteriaID(self):
-    #     click(AdminUsers.button_filterByCriteria)
-    #     click(AdminUsers.dropDown_pickACriteria)
-    #     click(AdminUsers.dropDown_criteriaId)
-    #     type(AdminUsers.textbox_criteriaValues, "189")
-    #     click(AdminUsers.button_extract)
-    #     exists(AdminUsers.result_criteriaId)
-
-    # def test_0024_FilterByCriteriaName(self):
-    #     click(AdminUsers.button_filterByCriteria)
-    #     click(AdminUsers.dropDown_pickACriteria)
-    #     click(AdminUsers.dropDown_criteriaName)
-    #     #type(AdminUsers.textbox_criteriaValues, randomUserName)
-    #     type(AdminUsers.textbox_criteriaValues, "TeamLichTestUser")
-    #     click(AdminUsers.button_extract)
-    #     exists(AdminUsers.result_criteriaId)
-    #
-    # def test_002_FilterByCriteriaEmail(self):
-    #     click(AdminUsers.button_filterByCriteria)
-    #     click(AdminUsers.dropDown_pickACriteria)
-    #     click(AdminUsers.dropDown_criteriaEmail)
-    #     type(AdminUsers.textbox_criteriaValues, "mausoleum@necropolis.heroes")
-    #     click(AdminUsers.button_extract)
-    #     exists(AdminUsers.result_criteriaId)
-    #
-    # def test_009991_NavigateToFilteredExportToExcel(self):
-    #     NavigateToAdminDashboard()
-    #     ScrollToVisible(100, "down", AdminDashboard.button_filteredExportToExcel)
-    #     NavigateToFilteredExportToExcel()
-    #
-    # #END - Tests Dimitar - 21.01.16
-    #
     # def test_003_NavigateToRoles(self):
     #     ScrollToVisible(100, "down", AdminDashboard.button_roles)
     #     NavigateToRoles()
@@ -126,10 +66,129 @@ class Users_Admin(unittest.TestCase):
     #     wait(Grid.button_BackAdminDashboard, 30)
     #     click(Grid.button_BackAdminDashboard)
     #     wait(AdminDashboard.title_admin, 30)
-    #
-    # def test_100_Logout(self):
-    #    click(MainPage.button_logout)
-    #    wait(MainPage.button_mainLogIn, 60)
+
+# START - Tests Dimitar - 21.01.16
+
+    def test_014_AdminUsers_NavigateToAdminUsers(self):
+        NavigateToAdminDashboard()
+        ScrollToVisible(100, "down", AdminDashboard.button_users)
+        NavigateToAdminUsers()
+
+    def test_015_AdminUsers_RegisterNewUser(self):
+        RegisterRandomUser()
+
+    # def test_016_ExportUsersAsExcel(self):
+    #     location = "C:\Users\Dimitar Panayotov\Desktop\ForTest"  #change this to whatever feels good in order to work for you
+    #     DownloadAsEnglish("Excel", location)
+    #     ChechIfFileIsInDirectoryChromium(AdminUsers.file_excel,location)
+
+    def test_016_AdminUsers_BackToAdmin(self):
+        NavigateToAdminDashboard()
+        ScrollToVisible(100, "down", AdminDashboard.button_users)
+        NavigateToAdminUsers()
+        wait(Grid.button_BackAdminDashboard, 20)
+        click(Grid.button_BackAdminDashboard)
+
+    def test_017_AdminUsers_SortingId(self):
+        ScrollToVisible(100, "down", AdminDashboard.button_users)
+        NavigateToAdminUsers()
+        wait(Grid.button_sortingUserName, 30)
+        click(Grid.button_sortingUserName)
+        click(Grid.button_sortingId)
+        wait(2)
+        doubleClick(Grid.result_firstSortingId)
+        type("c", KEY_CTRL)
+        resultOne = Env.getClipboard()
+        hover(Grid.button_sortingId)
+        doubleClick(Grid.result_secondSortingId)
+        type("c", KEY_CTRL)
+        resultTwo = Env.getClipboard()
+        actualResult= resultOne < resultTwo
+        expectedResult = True
+        self.assertEqual(actualResult, expectedResult)
+        self.assertEqual(resultOne, "1")
+
+    # def test_018_AdminUsers_SortingUserName(self):
+    #     click(Grid.button_sortingUserName)
+    #     wait(Grid.result_sortingUserName)
+    #     exists(Grid.result_sortingUserName)
+
+    def test_019_AdminUsers_SortingSN(self):
+        click(Grid.button_sortingSN)
+        doubleClick(Grid.result_firstSortingBD)
+        type("c", KEY_CTRL)
+        resultOne = Env.getClipboard()
+        hover(Grid.button_sortingSN)
+        doubleClick(Grid.result_secondSortingBD)
+        type("c", KEY_CTRL)
+        resultTwo = Env.getClipboard()
+        actualResult= resultOne < resultTwo
+        expectedResult = True
+        self.assertEqual(actualResult, expectedResult)
+
+    def test_020_AdminUsers_SortingName(self):
+        click(Grid.button_sortingName) #Here the test fails since when clicked (even in a manual test) the button does nothing
+        doubleClick(Grid.result_firstSortingName)
+        type("c", KEY_CTRL)
+        resultOne = Env.getClipboard()
+        hover(Grid.button_sortingName)
+        doubleClick(Grid.result_secondSortingName)
+        type("c", KEY_CTRL)
+        resultTwo = Env.getClipboard()
+        actualResult= resultOne < resultTwo
+        expectedResult = True
+        self.assertEqual(actualResult, expectedResult)
+
+    def test_021_AdminFilterByCriteria_ExportByID(self):
+        NavigateToAdminDashboard()
+        ScrollToVisible(100, "down", AdminDashboard.button_users)
+        NavigateToAdminUsers()
+        wait(AdminUsers.button_filterByCriteria, 30)
+        click(AdminUsers.button_filterByCriteria)
+        click(AdminUsers.dropDown_pickACriteria)
+        click(AdminUsers.dropDown_criteriaId)
+        type(AdminUsers.textbox_criteriaValues, "189")
+        click(AdminUsers.button_extract)
+        exists(AdminUsers.result_criteriaId)
+
+    def test_022_AdminFilterByCriteria_ExportByName(self):
+        NavigateToAdminDashboard()
+        ScrollToVisible(100, "down", AdminDashboard.button_users)
+        NavigateToAdminUsers()
+        wait(AdminUsers.button_filterByCriteria, 30)
+        click(AdminUsers.button_filterByCriteria)
+        click(AdminUsers.dropDown_pickACriteria)
+        click(AdminUsers.dropDown_criteriaName)
+        #type(AdminUsers.textbox_criteriaValues, randomUserName)
+        type(AdminUsers.textbox_criteriaValues, "TeamLichTestUser")
+        click(AdminUsers.button_extract)
+        exists(AdminUsers.result_criteriaId)
+
+    # def test_023_AdminFilterByCriteria_ExportByEmail(self):
+    #     NavigateToAdminDashboard()
+    #     ScrollToVisible(100, "down", AdminDashboard.button_users)
+    #     NavigateToAdminUsers()
+    #     wait(AdminUsers.button_filterByCriteria, 30)
+    #     click(AdminUsers.button_filterByCriteria)
+    #     click(AdminUsers.dropDown_pickACriteria)
+    #     wait(2)
+    #     click(AdminUsers.dropDown_criteriaEmail)
+    #     type(AdminUsers.textbox_criteriaValues, "mausoleum@necropolis.heroes")
+    #     click(AdminUsers.button_extract)
+    #     exists(AdminUsers.result_criteriaId)
+
+   # def test_024_NavigateToFilteredExportToExcel(self):
+   #      NavigateToAdminDashboard()
+   #      ScrollToVisible(100, "down", AdminDashboard.button_filteredExportToExcel)
+   #      NavigateToFilteredExportToExcel()
+
+
+    #END - Tests Dimitar - 21.01.16
+
+    def test_100_Logout(self):
+        wait(MainPage.button_logout)
+        click(MainPage.button_logout)
+        wait(MainPage.button_mainLogIn, 60)
 
 
 if __name__ == '__main__':

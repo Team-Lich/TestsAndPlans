@@ -189,9 +189,9 @@ function showOutput(id, name) {
 
 <div class='heading'>
 <h1>Users Admin Report</h1>
-<p class='attribute'><strong>Start Time:</strong> 2016-01-21 20:37:51</p>
-<p class='attribute'><strong>Duration:</strong> 0:00:02.688001</p>
-<p class='attribute'><strong>Status:</strong> Pass 1</p>
+<p class='attribute'><strong>Start Time:</strong> 2016-01-22 01:39:36</p>
+<p class='attribute'><strong>Duration:</strong> 0:02:39.299000</p>
+<p class='attribute'><strong>Status:</strong> Pass 9 Failure 1 Error 1</p>
 
 <p class='description'></p>
 </div>
@@ -221,26 +221,126 @@ function showOutput(id, name) {
     <td>View</td>
 </tr>
 
-<tr class='passClass'>
+<tr class='errorClass'>
     <td>Users_Admin</td>
+    <td>11</td>
+    <td>9</td>
     <td>1</td>
     <td>1</td>
-    <td>0</td>
-    <td>0</td>
-    <td><a href="javascript:showClassDetail('c1',1)">Detail</a></td>
+    <td><a href="javascript:showClassDetail('c1',11)">Detail</a></td>
 </tr>
 
 <tr id='pt1.1' class='hiddenRow'>
-    <td class='none'><div class='testcase'>test_0023_AdminUsers_SortingUserName</div></td>
+    <td class='none'><div class='testcase'>test_001_NavigateAndLogInAndLoginAdmin</div></td>
     <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt1.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_002_NavigateToAdminDashboard</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt1.3' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_014_AdminUsers_NavigateToAdminUsers</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt1.4' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_015_AdminUsers_RegisterNewUser</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt1.5' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_016_AdminUsers_BackToAdmin</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt1.6' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_017_AdminUsers_SortingId</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt1.7' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_019_AdminUsers_SortingSN</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='ft1.8' class='none'>
+    <td class='failCase'><div class='testcase'>test_020_AdminUsers_SortingName</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.8')" >
+        fail</a>
+
+    <div id='div_ft1.8' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.8').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.8: Traceback (most recent call last):
+  File "C:\Users\Dimitar Panayotov\Dropbox\Git\Lich\TestsAndPlan\TeamLichSikuliTestAutomation\sikuli_tests\admin_users_tests.sikuli\admin_users_tests.py", line 140, in test_020_AdminUsers_SortingName
+    self.assertEqual(actualResult, expectedResult)
+AssertionError: False != True
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.9' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_021_AdminFilterByCriteria_ExportByID</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt1.10' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_022_AdminFilterByCriteria_ExportByName</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='ft1.11' class='none'>
+    <td class='errorCase'><div class='testcase'>test_100_Logout</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.11')" >
+        error</a>
+
+    <div id='div_ft1.11' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.11').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.11: Traceback (most recent call last):
+  File "C:\Users\Dimitar Panayotov\Dropbox\Git\Lich\TestsAndPlan\TeamLichSikuliTestAutomation\sikuli_tests\admin_users_tests.sikuli\admin_users_tests.py", line 189, in test_100_Logout
+    wait(MainPage.button_logout)
+  File "C:\SikuliNew\sikulix.jar\Lib\sikuli\Region.py", line 55, in wait
+    return JRegion.wait(self, target)
+FindFailed: FindFailed: can not find P(button_logout.png) S: 0.9 in R[0,0 1366x768]@S(0)
+  Line 2189, in file Region.java
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
 </tr>
 
 <tr id='total_row'>
     <td>Total</td>
+    <td>11</td>
+    <td>9</td>
     <td>1</td>
     <td>1</td>
-    <td>0</td>
-    <td>0</td>
     <td>&nbsp;</td>
 </tr>
 </table>

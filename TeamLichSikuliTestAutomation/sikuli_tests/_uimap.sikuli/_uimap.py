@@ -45,6 +45,20 @@ class RegistrationPage:
     button_register = "button_register.png"
     title_registration = "title_registration.png"
 
+    missingUsernameErrorText = "usernameMandatory"
+    missingPasswordErrorText = "passwordMandatory"
+    missingFirstNameErrorText = "firstNameMandatory"
+    missingLastNameErrorText = "lastNameMandatory"
+    missingEmailErrorText = "emailMandatory"
+
+    usernameLabel = "usernameLabel.png"
+    passwordLabel = "passwordLabel.png"
+    passwordAgainLabel = "passwordAgainLabel.png"
+    firstNameLabel = "firstNameLabel.png"
+    lastNameLabel = "lastNameLabel.png"
+    emailLabel = "emailLabel.png"
+    checkBoxLabel = "checkBoxLabel.png"
+
 class AdminFilteredExportToExcel:
     title_filteredExportToExcel = "title_filteredExportToExcel.png"
     dropDown_pickCriteria = "dropDown_pickCriteria.png"

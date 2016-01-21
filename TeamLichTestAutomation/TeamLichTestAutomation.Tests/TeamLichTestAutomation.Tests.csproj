@@ -60,7 +60,6 @@
     <Compile Include="AdministrationTestSuites\AttendanceLogsTestSuite.cs" />
     <Compile Include="AdministrationTestSuites\AvatarsTestSuite.cs" />
     <Compile Include="AdministrationTestSuites\CommentsTestSuite.cs" />
-    <Compile Include="AdministrationTestSuites\FriendshipTestSuite.cs" />
     <Compile Include="AdministrationTestSuites\LabelsTestSuite.cs" />
     <Compile Include="AdministrationTestSuites\ProvincesTestSuite.cs" />
     <Compile Include="AdministrationTestSuites\RolesTestSuite.cs" />
@@ -68,8 +67,9 @@
     <Compile Include="AdministrationTestSuites\UniversitiesTestSuite.cs" />
     <Compile Include="AdministrationTestSuites\UsersTestSuite.cs" />
     <Compile Include="AdministrationTestSuites\WorkEducationStatusesTestSuite.cs" />
+    <Compile Include="BaseTest.cs" />
     <Compile Include="CourseSignUpTestSuite.cs" />
-    <Compile Include="LecturesPresentationHomeworkAccess.cs" />
+    <Compile Include="LecturesPresentationHomeworkTestSuite.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="LoginTestSuite.cs" />
     <Compile Include="RegistrationTestSuite.cs" />

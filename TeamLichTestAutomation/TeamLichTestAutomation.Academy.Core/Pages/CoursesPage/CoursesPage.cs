@@ -1,7 +1,6 @@
 ﻿namespace TeamLichTestAutomation.Academy.Core.Pages.CoursesPage
 {
     using ArtOfTest.WebAii.Core;
-    using System.Threading;
     using ArtOfTest.WebAii.Win32.Dialogs;
 
     public partial class CoursesPage : BasePage
@@ -30,7 +29,7 @@
 
             dialog.WaitUntilHandled();
 
-            //this.Browser.Desktop.KeyBoard.KeyPress(System.Windows.Forms.Keys.Enter);
+            ////this.Browser.Desktop.KeyBoard.KeyPress(System.Windows.Forms.Keys.Enter);
         }
 
         public void OnlineSignUp()
@@ -41,8 +40,8 @@
 
             this.Browser.WaitForElement(3000, "id=SignUpOnlineButton");
             this.CourseOnlineApply.MouseClick();
-            //Thread.Sleep(3000);
-            //this.Browser.Desktop.KeyBoard.KeyPress(System.Windows.Forms.Keys.Enter);
+            ////Thread.Sleep(3000);
+            ////this.Browser.Desktop.KeyBoard.KeyPress(System.Windows.Forms.Keys.Enter);
 
             dialog.WaitUntilHandled();
         }

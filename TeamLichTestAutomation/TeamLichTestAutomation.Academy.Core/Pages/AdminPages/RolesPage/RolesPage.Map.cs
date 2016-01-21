@@ -78,13 +78,5 @@
                 return this.Browser.Find.ByAttributes<HtmlTableCell>("data-field=UniversityId");
             }
         }
-
-        internal KendoGrid KendoTable
-        {
-            get
-            {
-                return this.Browser.Find.ById<KendoGrid>("DataGrid");
-            }
-        }
     }
 }

@@ -138,3 +138,26 @@ def ChechIfFileIsInDirectoryChromium(file, directory):
     type(directory + Key.ENTER)
     wait(file, 30)
     click(Windows.taskbar_chromium)
+
+def RegisterUser(username, password, passwordAgain, firstName, lastName, email):
+    type(RegistrationPage.usernameLabel, username); sleep(1)
+    type(RegistrationPage.passwordLabel, password); sleep(1)
+    type(RegistrationPage.passwordAgainLabel, passwordAgain); sleep(1)
+    type(Key.SHIFT, KeyModifier.ALT)
+    type(RegistrationPage.firstNameLabel, firstName); sleep(1)
+    type(RegistrationPage.lastNameLabel, lastName); sleep(1)
+    type(Key.SHIFT, KeyModifier.ALT)
+    type(RegistrationPage.emailLabel, email); sleep(1)
+    click(find(RegistrationPage.checkBoxLabel)); sleep(1)
+    click(RegistrationPage.registerButton)
+
+def Navigate(name):
+    type("r", KeyModifier.WIN)
+    type(name)
+    type(Key.ENTER)
+    sleep(2)
+    type("http://stage.telerikacademy.com/")
+    type(Key.ENTER)
+    sleep(2)
+    click(RegistrationPage.registerLink)
+    sleep(1)

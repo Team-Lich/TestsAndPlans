@@ -98,6 +98,12 @@ bdLibPath = os.path.abspath(sys.argv[<span class="dig">0</span>] + <span class="
     <span class="skw">type</span>(toUrl); <span class="skw">sleep</span>(<span class="dig">1</span>)
     <span class="skw">type</span>(Key.ENTER)
 
+<span class="kw">def</span> RegisterRandomUser():
+    <span class="skw">click</span>(AdminUsers.button_registerUser)
+    <span class="skw">wait</span>(RegistrationPage.title_registration, <span class="dig">30</span>)
+    randomUserName = <span class="str">"TeamLichTestUser"</span> + datetime.datetime.now()
+    <span class="skw">type</span>(RegistrationPage.input_username, randomUserName)
+
 <span class="kw">def</span> LoginUser(username, password):
    <span class="cmt">#if not exists(MainPage.button_mainLogIn):
 </span>   <span class="cmt">#    click(MainPage.button_logout)

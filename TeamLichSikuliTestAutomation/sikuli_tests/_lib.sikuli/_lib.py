@@ -1,8 +1,11 @@
 from sikuli import *
+import random, string
 import HTMLTestRunner
 bdLibPath = os.path.abspath(sys.argv[0] + "..")
 if not bdLibPath in sys.path: sys.path.append(bdLibPath)
 from _uimap import *
+
+global randomUserName
 
 def ScrollToVisible(maxScrolls,direction,goalImage): #direction =  "down" / "up"
     if(direction == "down"):
@@ -25,6 +28,26 @@ def RunBrowserToUrl(browser,toUrl):
     type(browser+" "); sleep(1)
     type(toUrl); sleep(1)
     type(Key.ENTER)
+
+def RandomString():
+   return ''.join(random.choice(string.lowercase) for i in range(10))
+
+def RegisterRandomUser():
+    click(AdminUsers.button_registerUser)
+    wait(RegistrationPage.title_registration, 30)
+    randomUserName = "TeamLichTestUser" + RandomString()
+    type(RegistrationPage.input_username, randomUserName)
+    type(RegistrationPage.input_password, "123456")
+    type(RegistrationPage.input_passwordRepeat, "123456")
+    type(Key.SHIFT, KeyModifier.ALT)
+    type(RegistrationPage.input_firstName, "Zyl")
+    ScrollToVisible(100, "down", RegistrationPage.input_lastName)
+    type(RegistrationPage.input_lastName, "Nekromansyr")
+    type(Key.SHIFT, KeyModifier.ALT)
+    randomEmail = randomUserName + "@necropolis.heroes"
+    type(RegistrationPage.input_email, randomEmail)
+    click(RegistrationPage.chechbox_agreeWithTerms)
+    click(RegistrationPage.button_register)
 
 def LoginUser(username, password):
    #if not exists(MainPage.button_mainLogIn):
@@ -68,11 +91,30 @@ def AddNewRole(roleName):
     type(roleName)
     click(Grid.button_update)
 
+def DownloadAsEnglish(downloadType, location):  #DownloadType:  "Exel" "PDF"
+    if(downloadType == "Exel"):
+        downloadType = Grid.button_downloadAsExel
+    if(downloadType == "PDF"):
+        downloadType = Grid.button_downloadAsPDF
+    if(downloadType == "Excel"):
+        downloadType = Grid.button_exportAsExcel
+
+    wait(downloadType, 30)
+    click(downloadType)
+    wait(SaveAsBg.button_saveEn, 30)
+    click(SaveAsBg.input_saveLocationEn)
+    type(location)
+    wait(1)
+    type(Key.ENTER)
+    click(SaveAsBg.button_saveEn)
+
 def DownloadAs(downloadType, location):  #DownloadType:  "Exel" "PDF"
     if(downloadType == "Exel"):
         downloadType = Grid.button_downloadAsExel
     if(downloadType == "PDF"):
         downloadType = Grid.button_downloadAsPDF
+    if(downloadType == "Excel"):
+        downloadType = Grid.button_exportAsExcel
 
     wait(downloadType, 30)
     click(downloadType)

@@ -103,7 +103,10 @@ bdLibPath=os.path.abspath(sys.argv[<span class="dig">0</span>]+<span class="str"
         ScrollToVisible(<span class="dig">100</span>, <span class="str">"down"</span>, AdminDashboard.button_users)
         NavigateToAdminUsers()
 
-    <span class="kw">def</span> test_0022_FilterByCriteriaID(self):
+    <span class="kw">def</span> test_0022_RegisterNewUser(self):
+        RegisterRandomUser()
+
+    <span class="kw">def</span> test_0023_FilterByCriteriaID(self):
         <span class="skw">click</span>(AdminUsers.button_filterByCriteria)
         <span class="skw">click</span>(AdminUsers.dropDown_pickACriteria)
         <span class="skw">click</span>(AdminUsers.dropDown_criteriaId)
@@ -111,7 +114,7 @@ bdLibPath=os.path.abspath(sys.argv[<span class="dig">0</span>]+<span class="str"
         <span class="skw">click</span>(AdminUsers.button_extract)
         exists(AdminUsers.result_criteriaId)
 
-    <span class="kw">def</span> test_0023_FilterByCriteriaName(self):
+    <span class="kw">def</span> test_0024_FilterByCriteriaName(self):
         <span class="skw">click</span>(AdminUsers.button_filterByCriteria)
         <span class="skw">click</span>(AdminUsers.dropDown_pickACriteria)
         <span class="skw">click</span>(AdminUsers.dropDown_criteriaName)
@@ -119,7 +122,7 @@ bdLibPath=os.path.abspath(sys.argv[<span class="dig">0</span>]+<span class="str"
         <span class="skw">click</span>(AdminUsers.button_extract)
         exists(AdminUsers.result_criteriaId)
 
-    <span class="kw">def</span> test_0024_FilterByCriteriaEmail(self):
+    <span class="kw">def</span> test_002_FilterByCriteriaEmail(self):
         <span class="skw">click</span>(AdminUsers.button_filterByCriteria)
         <span class="skw">click</span>(AdminUsers.dropDown_pickACriteria)
         <span class="skw">click</span>(AdminUsers.dropDown_criteriaEmail)

@@ -20,6 +20,13 @@ class AdminDashboard:
     button_roles = "Pcnvn.png"
     button_filteredExportToExcel = "button_filteredExportToExcel.png"
     button_users = "button_users.png"
+    button_areas = "button_areas.png"
+    
+class AdminUsersCities:    
+    image_header = "image_header.png"
+    label_addPopupNameBG = Pattern("label_addPopupNameBG.png").targetOffset(216,-6)
+    label_addPopupNameEN = Pattern("label_addPopupNameEN.png").targetOffset(196,-13)
+    label_nameOfNewlyAddedArea = "label_nameOfNewlyAddedArea.png"
 
 class AdminUsers:
     title_users = "title_users.png"
@@ -100,6 +107,7 @@ class AdminUsersRoles:
 class Grid:
     button_add = "U06amme.png"
     button_update = "Ky.png"
+    button_remove = "button_remove.png"
     button_BackAdminDashboard = "KLMBAMIIHICT.png"
     button_downloadAsExel = "IQCsarmueH8E.png"
     button_exportAsExcel = "button_exportAsExcel.png"
@@ -122,6 +130,8 @@ class Grid:
     result_secondSortingId = Pattern("result_secondSortingId.png").targetOffset(-27,73)
     result_firstSortingName = Pattern("result_firstSortingName.png").targetOffset(-31,33)
     result_secondSortingName = Pattern("result_secondSortingName.png").targetOffset(-34,75)
+    field_cyrilicSymbolWarning = "field_cyrilicSymbolWarning.png"
+    field_latinSymbolWarning = "field_latinSymbolWarning.png"
     
 class SaveAsBg:
     input_saveLocation = Pattern("3am1u1v1Kam.png").targetOffset(1,31)

@@ -96,10 +96,10 @@ class Users_Admin(unittest.TestCase):
     def test_015_AdminUsers_RegisterNewUser(self):
         RegisterRandomUser()
 
-    # def test_016_ExportUsersAsExcel(self):
-    #     location = "C:\Users\Dimitar Panayotov\Desktop\ForTest"  #change this to whatever feels good in order to work for you
-    #     DownloadAsEnglish("Excel", location)
-    #     ChechIfFileIsInDirectoryChromium(AdminUsers.file_excel,location)
+    def test_016_ExportUsersAsExcel(self):
+        location = "C:\Users\Dimitar Panayotov\Desktop\ForTest"  #change this to whatever feels good in order to work for you
+        DownloadAsEnglish("Excel", location)
+        ChechIfFileIsInDirectoryChromium(AdminUsers.file_excel,location)
 
     def test_016_AdminUsers_BackToAdmin(self):
         NavigateToAdminDashboard()
@@ -197,7 +197,7 @@ class Users_Admin(unittest.TestCase):
         ScrollToVisible(100, "down", AdminDashboard.button_users)
         NavigateToAdminUsers()
         wait(AdminUsers.button_filterByCriteria, 30)
-        click(AdminUsers.button_filterByCriteria)
+        click(AdminUsers.button_filterByCriteria); sleep(1)
         click(AdminUsers.dropDown_pickACriteria)
         wait(2)
         click(AdminUsers.dropDown_criteriaEmail)
@@ -215,8 +215,10 @@ class Users_Admin(unittest.TestCase):
 	# START - Tests Decho - 22.01.16
 
     def test_025_NavigateToCities(self):
-        ScrollToVisible(10, "down", AdminDashboard.button_cities)
-        click(AdminDashboard.button_cities)
+        NavigateToAdminDashboard()
+        sleep(5)
+        ScrollToVisible(10, "down", AdminDashboard.button_areas)
+        click(AdminDashboard.button_areas)
         wait(AdminUsersCities.image_header, 10)
 
     def test_026_AreaNameInEnglishDoesNotAcceptNonLatinSymbols(self):

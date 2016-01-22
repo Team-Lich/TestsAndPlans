@@ -46,8 +46,8 @@
          h2 {
             display: inline;
             font-weight: normal;
-         }  
-         
+         }
+
          .info {
             border-bottom: 1px solid #ddd;
             padding-bottom: 5px;
@@ -67,7 +67,7 @@
    </head>
 <body>
 <div class="info">
-<h2>_uimap.sikuli\_uimap.sikuli</h2> <a href="_uimap.sikuli\_uimap.zip">(Download this script)</a>
+<h2>_uimap.sikuli</h2> <a href="_uimap.zip">(Download this script)</a>
 </div>
 <pre class="sikuli-code">
 <span class="cmt">########################################################
@@ -99,7 +99,7 @@
     dropDown_pickACriteria = Pattern(<img src="dropDown_pickACriteria.png" />).targetOffset(<span class="dig">125</span>,-<span class="dig">2</span>)
     dropDown_criteriaId = Pattern(<img src="dropDown_criteriaId.png" />).targetOffset(-<span class="dig">8</span>,<span class="dig">51</span>)
     dropDown_criteriaName = Pattern(<img src="dropDown_criteriaName.png" />).targetOffset(-<span class="dig">1</span>,<span class="dig">73</span>)
-    dropDown_criteriaEmail = Pattern(<img src="dropDown_criteriaEmail.png" />).targetOffset(-<span class="dig">9</span>,<span class="dig">110</span>)
+    dropDown_criteriaEmail = Pattern(<img src="dropDown_criteriaEmail.png" />).similar(<span class="dig">0.10</span>).targetOffset(-<span class="dig">9</span>,<span class="dig">110</span>)
     textbox_criteriaValues = <img src="textbox_criteriaValues.png" />
     button_extract = <img src="button_extract.png" />
     result_criteriaId = <img src="result_criteriaId.png" />
@@ -194,6 +194,9 @@
     result_secondSortingId = Pattern(<img src="result_secondSortingId.png" />).targetOffset(-<span class="dig">27</span>,<span class="dig">73</span>)
     result_firstSortingName = Pattern(<img src="result_firstSortingName.png" />).targetOffset(-<span class="dig">31</span>,<span class="dig">33</span>)
     result_secondSortingName = Pattern(<img src="result_secondSortingName.png" />).targetOffset(-<span class="dig">34</span>,<span class="dig">75</span>)
+    result_firstSortingUserName = Pattern(<img src="result_firstSortingUserName.png" />).targetOffset(-<span class="dig">82</span>,<span class="dig">36</span>)
+    result_secondSortingUserName = Pattern(<img src="result_secondSortingUserName.png" />).targetOffset(-<span class="dig">75</span>,<span class="dig">75</span>)
+
 
 <span class="kw">class</span> SaveAsBg:
     input_saveLocation = Pattern(<img src="3am1u1v1Kam.png" />).targetOffset(<span class="dig">1</span>,<span class="dig">31</span>)

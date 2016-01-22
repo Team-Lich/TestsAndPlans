@@ -27,7 +27,7 @@ class AdminUsers:
     dropDown_pickACriteria = Pattern("dropDown_pickACriteria.png").targetOffset(125,-2)
     dropDown_criteriaId = Pattern("dropDown_criteriaId.png").targetOffset(-8,51)
     dropDown_criteriaName = Pattern("dropDown_criteriaName.png").targetOffset(-1,73)
-    dropDown_criteriaEmail = Pattern("dropDown_criteriaEmail.png").targetOffset(-9,110)
+    dropDown_criteriaEmail = Pattern("dropDown_criteriaEmail.png").similar(0.10).targetOffset(-9,110)
     textbox_criteriaValues = "textbox_criteriaValues.png"
     button_extract = "button_extract.png"
     result_criteriaId = "result_criteriaId.png"
@@ -122,6 +122,9 @@ class Grid:
     result_secondSortingId = Pattern("result_secondSortingId.png").targetOffset(-27,73)
     result_firstSortingName = Pattern("result_firstSortingName.png").targetOffset(-31,33)
     result_secondSortingName = Pattern("result_secondSortingName.png").targetOffset(-34,75)
+    result_firstSortingUserName = Pattern("result_firstSortingUserName.png").targetOffset(-82,36)
+    result_secondSortingUserName = Pattern("result_secondSortingUserName.png").targetOffset(-75,75)
+    
     
 class SaveAsBg:
     input_saveLocation = Pattern("3am1u1v1Kam.png").targetOffset(1,31)

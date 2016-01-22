@@ -10,7 +10,9 @@ class Users_Admin(unittest.TestCase):
     
     def tearDown(self):
         pass
-    
+
+#Start - Tests Ivan - 21.01.16
+
     def test_001_NavigateAndLogInAndLoginAdmin(self):
         adminUser = "TeamLichTestAdmin"
         adminPass = "123456"
@@ -23,64 +25,66 @@ class Users_Admin(unittest.TestCase):
         NavigateToAdminDashboard()
         wait(AdminDashboard.title_admin, 30)
 
-    def test_003_NavigateToRoles(self):
-        ScrollToVisible(100, "down", AdminDashboard.button_roles)
-        NavigateToRoles()
-        wait(AdminUsersRoles.title_roles, 30)
+    # def test_003_NavigateToRoles(self):
+    #     ScrollToVisible(100, "down", AdminDashboard.button_roles)
+    #     NavigateToRoles()
+    #     wait(AdminUsersRoles.title_roles, 30)
+    #
+    # def test_004_AddNewRole(self):
+    #     AddNewRole("TestAdmin")
+    #     wait(AdminUsersRoles.test_004_expectedResult, 30)
+    #
+    # def test_005_SaveAsExel(self):
+    #     location = "C:\Users\ivan\Desktop\ForTest"  #change this to whatever feels good in order to work for you
+    #     DownloadAs("Exel", location)
+    #     CheckIfFileIsInDirectory(AdminUsersRoles.test_005_exelFile,location)
+    #
+    # def test_006_SaveAsPDF(self):
+    #     location = "C:\Users\ivan\Desktop\ForTest"  #change this to whatever feels good in order to work for you
+    #     DownloadAs("PDF", location)
+    #     CheckIfFileIsInDirectory(AdminUsersRoles.test_006_pdfFile,location)
+    #
+    # def test_007_Edit(self):
+    #     AddNewRole("TestAdmin")
+    #     find(AdminUsersRoles.test_004_expectedResult).right().click(Grid.button_edit)
+    #     wait(Grid.button_update, 30)
+    #     doubleClick(AdminUsersRoles.label_roleName)
+    #     type("asd")
+    #     click(Grid.button_update)
+    #     wait(AdminUsersRoles.test_007_expedtedResult, 30)
+    #
+    # def test_008_DragColumnHeader(self):
+    #     wait(AdminUsersRoles.header_roleName, 30)
+    #     dragDrop(AdminUsersRoles.header_roleName, AdminUsersRoles.header_userCount)
+    #     wait(AdminUsersRoles.test_008_expectedResult)
+    #
+    # def test_009_DeleteRow(self):
+    #     AddNewRole("TestAdmin")
+    #     click(AdminUsersRoles.button_deleteRow)
+    #     wait(AdminUsersRoles.popup_comfirm, 30)
+    #     click(AdminUsersRoles.popup_comfirm)
+    #     wait(AdminUsersRoles.test_009_expectedResult)
+    #
+    # def test_010_Paging(self):
+    #     ScrollToVisible(100, "down", Grid.button_secondPage)
+    #     click(Grid.button_secondPage)
+    #     wait(AdminUsersRoles.test_010_expectedResult, 30)
+    #
+    # def test_011_GoToLastPage(self):
+    #     RunBrowserToUrl("chrome", "http://stage.telerikacademy.com/Administration_Users/Roles")
+    #     ScrollToVisible(100, "down", Grid.button_goToLastPage)
+    #     click(Grid.button_goToLastPage)
+    #     wait(AdminUsersRoles.test_011_expectedResult, 30)
+    #
+    # def test_012_Sort(self):
+    #     pass
+    #
+    # def test_013_BackToAdministration(self):
+    #      ScrollToVisible(100, "up", Grid.button_BackAdminDashboard)
+    #      click(Grid.button_BackAdminDashboard)
+    #      wait(AdminDashboard.title_admin, 30)
 
-    def test_004_AddNewRole(self):
-        AddNewRole("TestAdmin")
-        wait(AdminUsersRoles.test_004_expectedResult, 30)
-
-    def test_005_SaveAsExel(self):
-        location = "C:\Users\ivan\Desktop\ForTest"  #change this to whatever feels good in order to work for you
-        DownloadAs("Exel", location)
-        CheckIfFileIsInDirectory(AdminUsersRoles.test_005_exelFile,location)
-
-    def test_006_SaveAsPDF(self):
-        location = "C:\Users\ivan\Desktop\ForTest"  #change this to whatever feels good in order to work for you
-        DownloadAs("PDF", location)
-        CheckIfFileIsInDirectory(AdminUsersRoles.test_006_pdfFile,location)
-
-    def test_007_Edit(self):
-        AddNewRole("TestAdmin")
-        find(AdminUsersRoles.test_004_expectedResult).right().click(Grid.button_edit)
-        wait(Grid.button_update, 30)
-        doubleClick(AdminUsersRoles.label_roleName)
-        type("asd")
-        click(Grid.button_update)
-        wait(AdminUsersRoles.test_007_expedtedResult, 30)
-
-    def test_008_DragColumnHeader(self):
-        wait(AdminUsersRoles.header_roleName, 30)
-        dragDrop(AdminUsersRoles.header_roleName, AdminUsersRoles.header_userCount)
-        wait(AdminUsersRoles.test_008_expectedResult)
-
-    def test_009_DeleteRow(self):
-        AddNewRole("TestAdmin")
-        click(AdminUsersRoles.button_deleteRow)
-        wait(AdminUsersRoles.popup_comfirm, 30)
-        click(AdminUsersRoles.popup_comfirm)
-        wait(AdminUsersRoles.test_009_expectedResult)
-
-    def test_010_Paging(self):
-        ScrollToVisible(100, "down", Grid.button_secondPage)
-        click(Grid.button_secondPage)
-        wait(AdminUsersRoles.test_010_expectedResult, 30)
-
-    def test_011_GoToLastPage(self):
-        RunBrowserToUrl("chrome", "http://stage.telerikacademy.com/Administration_Users/Roles")
-        ScrollToVisible(100, "down", Grid.button_goToLastPage)
-        click(Grid.button_goToLastPage)
-        wait(AdminUsersRoles.test_011_expectedResult, 30)
-
-    def test_012_Sort(self):
-        pass
-
-    def test_013_BackToAdministration(self):
-         ScrollToVisible(100, "up", Grid.button_BackAdminDashboard)
-         click(Grid.button_BackAdminDashboard)
-         wait(AdminDashboard.title_admin, 30)
+#END - Tests Ivan - 21.01.16
 
 # START - Tests Dimitar - 21.01.16
 
@@ -124,9 +128,18 @@ class Users_Admin(unittest.TestCase):
         self.assertEqual(resultOne, "1")
 
     def test_018_AdminUsers_SortingUserName(self):
-         click(Grid.button_sortingUserName)
-         wait(Grid.result_sortingUserName)
-         exists(Grid.result_sortingUserName)
+        click(Grid.button_sortingUserName)
+        wait(2)
+        doubleClick(Grid.result_firstSortingUserName)
+        type("c", KEY_CTRL)
+        resultOne = Env.getClipboard()
+        hover(Grid.button_sortingId)
+        doubleClick(Grid.result_secondSortingUserName)
+        type("c", KEY_CTRL)
+        resultTwo = Env.getClipboard()
+        actualResult= resultOne >= resultTwo
+        expectedResult = True
+        self.assertEqual(actualResult, expectedResult)
 
     def test_019_AdminUsers_SortingSN(self):
         click(Grid.button_sortingSN)

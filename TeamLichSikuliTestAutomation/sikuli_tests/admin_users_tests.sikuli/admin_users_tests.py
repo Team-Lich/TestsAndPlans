@@ -197,9 +197,9 @@ class Users_Admin(unittest.TestCase):
         ScrollToVisible(100, "down", AdminDashboard.button_filteredExportToExcel)
         NavigateToFilteredExportToExcel()
 
-    END - Tests Dimitar - 21.01.16
-	
-	START - Tests Decho - 22.01.16
+    # END - Tests Dimitar - 21.01.16
+	#
+	# START - Tests Decho - 22.01.16
 
     def test_025_NavigateToCities(self):
         ScrollToVisible(10, "down", AdminDashboard.button_cities)

@@ -180,25 +180,73 @@ class Users_Admin(unittest.TestCase):
         exists(AdminUsers.result_criteriaId)
 
     def test_023_AdminFilterByCriteria_ExportByEmail(self):
-         NavigateToAdminDashboard()
-         ScrollToVisible(100, "down", AdminDashboard.button_users)
-         NavigateToAdminUsers()
-         wait(AdminUsers.button_filterByCriteria, 30)
-         click(AdminUsers.button_filterByCriteria)
-         click(AdminUsers.dropDown_pickACriteria)
-         wait(2)
-         click(AdminUsers.dropDown_criteriaEmail)
-         type(AdminUsers.textbox_criteriaValues, "mausoleum@necropolis.heroes")
-         click(AdminUsers.button_extract)
-         exists(AdminUsers.result_criteriaId)
+        NavigateToAdminDashboard()
+        ScrollToVisible(100, "down", AdminDashboard.button_users)
+        NavigateToAdminUsers()
+        wait(AdminUsers.button_filterByCriteria, 30)
+        click(AdminUsers.button_filterByCriteria)
+        click(AdminUsers.dropDown_pickACriteria)
+        wait(2)
+        click(AdminUsers.dropDown_criteriaEmail)
+        type(AdminUsers.textbox_criteriaValues, "mausoleum@necropolis.heroes")
+        click(AdminUsers.button_extract)
+        exists(AdminUsers.result_criteriaId)
 
     def test_024_NavigateToFilteredExportToExcel(self):
-         NavigateToAdminDashboard()
-         ScrollToVisible(100, "down", AdminDashboard.button_filteredExportToExcel)
-         NavigateToFilteredExportToExcel()
+        NavigateToAdminDashboard()
+        ScrollToVisible(100, "down", AdminDashboard.button_filteredExportToExcel)
+        NavigateToFilteredExportToExcel()
 
+    END - Tests Dimitar - 21.01.16
+	
+	START - Tests Decho - 22.01.16
 
-    #END - Tests Dimitar - 21.01.16
+    def test_025_NavigateToCities(self):
+        ScrollToVisible(10, "down", AdminDashboard.button_cities)
+        click(AdminDashboard.button_cities)
+        wait(AdminUsersCities.image_header, 10)
+
+    def test_026_AreaNameInEnglishDoesNotAcceptNonLatinSymbols(self):
+        newAreaNameInEnglish = "Nekropolis"
+        click(Grid.button_add)
+        wait(AdminUsersCities.label_addPopupNameBG)
+        type(Key.SHIFT, KeyModifier.ALT); sleep(1)
+        type(AdminUsersCities.label_addPopupNameEN, newAreaNameInEnglish)
+        type(AdminUsersCities.label_addPopupNameBG, newAreaNameInEnglish)
+        click(Grid.button_update)
+        warningShown = exists(Grid.field_cyrilicSymbolWarning)
+        self.assertTrue(warningShown)
+
+    def test_027_AreaNameInBulgarianDoesNotAcceptLatinSymbols(self):
+        newAreaNameInEnglish = "Nekropolis"
+        wait(AdminUsersCities.label_addPopupNameBG)
+        type(Key.SHIFT, KeyModifier.ALT); sleep(1)
+        doubleClick(AdminUsersCities.label_addPopupNameEN)
+        type(newAreaNameInEnglish)
+        doubleClick(AdminUsersCities.label_addPopupNameBG)
+        type(newAreaNameInEnglish)
+        click(Grid.button_update)
+        warningShown = exists(Grid.field_latinSymbolWarning)
+        self.assertTrue(warningShown)
+
+    def test_028_AddNewArea(self):
+        newAreaName = "Nekropolis"
+        wait(AdminUsersCities.label_addPopupNameBG)
+        type(Key.SHIFT, KeyModifier.ALT); sleep(1)
+        doubleClick(AdminUsersCities.label_addPopupNameBG)
+        type(newAreaName)
+        type(Key.SHIFT, KeyModifier.ALT); sleep(1)
+        doubleClick(AdminUsersCities.label_addPopupNameEN)
+        type(newAreaName)
+        click(Grid.button_update)
+        wait(AdminUsersCities.label_nameOfNewlyAddedArea, 5)
+
+    def test_029_RemoveArea(self):
+        DeleteRow(AdminUsersCities.label_nameOfNewlyAddedArea)
+        areaStillInGrid = exists(AdminUsersCities.label_nameOfNewlyAddedArea, 5)
+        self.assertIsNone(areaStillInGrid)
+	
+	#END - Tests Decho - 22.01.16
 
     def test_100_Logout(self):
         wait(MainPage.button_logout)

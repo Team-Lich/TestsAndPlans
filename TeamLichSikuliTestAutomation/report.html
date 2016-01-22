@@ -189,9 +189,9 @@ function showOutput(id, name) {
 
 <div class='heading'>
 <h1>Users Admin Report</h1>
-<p class='attribute'><strong>Start Time:</strong> 2016-01-22 12:26:40</p>
-<p class='attribute'><strong>Duration:</strong> 0:00:54.379000</p>
-<p class='attribute'><strong>Status:</strong> Pass 3</p>
+<p class='attribute'><strong>Start Time:</strong> 2016-01-22 14:26:42</p>
+<p class='attribute'><strong>Duration:</strong> 0:01:40.606000</p>
+<p class='attribute'><strong>Status:</strong> Pass 2 Error 6</p>
 
 <p class='description'></p>
 </div>
@@ -221,36 +221,205 @@ function showOutput(id, name) {
     <td>View</td>
 </tr>
 
-<tr class='passClass'>
+<tr class='errorClass'>
     <td>Users_Admin</td>
-    <td>3</td>
-    <td>3</td>
+    <td>8</td>
+    <td>2</td>
     <td>0</td>
-    <td>0</td>
-    <td><a href="javascript:showClassDetail('c1',3)">Detail</a></td>
+    <td>6</td>
+    <td><a href="javascript:showClassDetail('c1',8)">Detail</a></td>
 </tr>
 
 <tr id='pt1.1' class='hiddenRow'>
-    <td class='none'><div class='testcase'>test_011_GoToLastPage</div></td>
+    <td class='none'><div class='testcase'>test_001_NavigateAndLogInAndLoginAdmin</div></td>
     <td colspan='5' align='center'>pass</td>
 </tr>
 
 <tr id='pt1.2' class='hiddenRow'>
-    <td class='none'><div class='testcase'>test_012_Sort</div></td>
+    <td class='none'><div class='testcase'>test_002_NavigateToAdminDashboard</div></td>
     <td colspan='5' align='center'>pass</td>
 </tr>
 
-<tr id='pt1.3' class='hiddenRow'>
-    <td class='none'><div class='testcase'>test_013_BackToAdministration</div></td>
-    <td colspan='5' align='center'>pass</td>
+<tr id='ft1.3' class='none'>
+    <td class='errorCase'><div class='testcase'>test_026_NavigateToCities</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.3')" >
+        error</a>
+
+    <div id='div_ft1.3' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.3').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.3: Traceback (most recent call last):
+  File "C:\Users\Decho\Desktop\new repo\TeamLichSikuliTestAutomation\sikuli_tests\admin_users_tests.sikuli\admin_users_tests.py", line 209, in test_026_NavigateToCities
+    ScrollToVisible(10, "down", AdminDashboard.button_cities)
+AttributeError: class AdminDashboard has no attribute 'button_cities'
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.4' class='none'>
+    <td class='errorCase'><div class='testcase'>test_027_AreaNameInEnglishDoesNotAcceptNonLatinSymbols</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.4')" >
+        error</a>
+
+    <div id='div_ft1.4' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.4').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.4: Traceback (most recent call last):
+  File "C:\Users\Decho\Desktop\new repo\TeamLichSikuliTestAutomation\sikuli_tests\admin_users_tests.sikuli\admin_users_tests.py", line 215, in test_027_AreaNameInEnglishDoesNotAcceptNonLatinSymbols
+    click(Grid.button_add)
+FindFailed: FindFailed: can not find U06amme.png in R[0,0 1366x768]@S(0)
+  Line 2189, in file Region.java
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.5' class='none'>
+    <td class='errorCase'><div class='testcase'>test_028_AreaNameInBulgarianDoesNotAcceptLatinSymbols</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.5')" >
+        error</a>
+
+    <div id='div_ft1.5' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.5').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.5: Traceback (most recent call last):
+  File "C:\Users\Decho\Desktop\new repo\TeamLichSikuliTestAutomation\sikuli_tests\admin_users_tests.sikuli\admin_users_tests.py", line 226, in test_028_AreaNameInBulgarianDoesNotAcceptLatinSymbols
+    wait(AdminUsersCities.label_addPopupNameBG)
+NameError: global name 'AdminUsersCities' is not defined
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.6' class='none'>
+    <td class='errorCase'><div class='testcase'>test_029_AddNewArea</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.6')" >
+        error</a>
+
+    <div id='div_ft1.6' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.6').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.6: Traceback (most recent call last):
+  File "C:\Users\Decho\Desktop\new repo\TeamLichSikuliTestAutomation\sikuli_tests\admin_users_tests.sikuli\admin_users_tests.py", line 238, in test_029_AddNewArea
+    wait(AdminUsersCities.label_addPopupNameBG)
+NameError: global name 'AdminUsersCities' is not defined
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.7' class='none'>
+    <td class='errorCase'><div class='testcase'>test_030_RemoveArea</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.7')" >
+        error</a>
+
+    <div id='div_ft1.7' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.7').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.7: Traceback (most recent call last):
+  File "C:\Users\Decho\Desktop\new repo\TeamLichSikuliTestAutomation\sikuli_tests\admin_users_tests.sikuli\admin_users_tests.py", line 249, in test_030_RemoveArea
+    DeleteRow(AdminUsersCities.label_nameOfNewlyAddedArea)
+NameError: global name 'AdminUsersCities' is not defined
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.8' class='none'>
+    <td class='errorCase'><div class='testcase'>test_100_Logout</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.8')" >
+        error</a>
+
+    <div id='div_ft1.8' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.8').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.8: Traceback (most recent call last):
+  File "C:\Users\Decho\Desktop\new repo\TeamLichSikuliTestAutomation\sikuli_tests\admin_users_tests.sikuli\admin_users_tests.py", line 258, in test_100_Logout
+    wait(MainPage.button_mainLogIn, 60)
+  File "D:\Telerik\Sikuli\sikulix.jar\Lib\sikuli\Region.py", line 57, in wait
+    return JRegion.wait(self, target, timeout)
+FindFailed: FindFailed: can not find P(button_mainLogIn.png) S: 0.92 in R[0,0 1366x768]@S(0)
+  Line 2189, in file Region.java
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
 </tr>
 
 <tr id='total_row'>
     <td>Total</td>
-    <td>3</td>
-    <td>3</td>
+    <td>8</td>
+    <td>2</td>
     <td>0</td>
-    <td>0</td>
+    <td>6</td>
     <td>&nbsp;</td>
 </tr>
 </table>

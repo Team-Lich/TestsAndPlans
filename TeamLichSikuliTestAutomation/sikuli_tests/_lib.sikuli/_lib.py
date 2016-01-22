@@ -139,7 +139,7 @@ def ChechIfFileIsInDirectoryChromium(file, directory):
     wait(file, 30)
     click(Windows.taskbar_chromium)
 
-def RegisterUser(username, password, passwordAgain, firstName, lastName, email):
+def RegisterUser(username, password, passwordAgain, firstName, lastName, email, isAgree):
     type(RegistrationPage.usernameLabel, username); sleep(1)
     type(RegistrationPage.passwordLabel, password); sleep(1)
     type(RegistrationPage.passwordAgainLabel, passwordAgain); sleep(1)
@@ -148,7 +148,40 @@ def RegisterUser(username, password, passwordAgain, firstName, lastName, email):
     type(RegistrationPage.lastNameLabel, lastName); sleep(1)
     type(Key.SHIFT, KeyModifier.ALT)
     type(RegistrationPage.emailLabel, email); sleep(1)
-    click(find(RegistrationPage.checkBoxLabel)); sleep(1)
+
+    if isAgree == True:
+        click(find(RegistrationPage.checkBoxLabel)); sleep(1)
+    click(RegistrationPage.registerButton)
+
+def RegisterUserWithoutChangeLanguage(username, password, passwordAgain, firstName, lastName, email, isAgree):
+    type(RegistrationPage.usernameLabel, username); sleep(1)
+    type(RegistrationPage.passwordLabel, password); sleep(1)
+    type(RegistrationPage.passwordAgainLabel, passwordAgain); sleep(1)
+    type(RegistrationPage.firstNameLabel, firstName); sleep(1)
+    type(RegistrationPage.lastNameLabel, lastName); sleep(1)
+    type(RegistrationPage.emailLabel, email); sleep(1)
+
+    if isAgree == True:
+        click(find(RegistrationPage.checkBoxLabel)); sleep(1)
+    click(RegistrationPage.registerButton)
+
+def RegisterUserWithDoubleClick(username, password, passwordAgain, firstName, lastName, email, isAgree):
+    click(find(RegistrationPage.username));
+    type(username); sleep(1)
+    click(RegistrationPage.usernameLabel); sleep(1)
+    type(RegistrationPage.passwordLabel, password); sleep(1)
+    click(RegistrationPage.passwordLabel); sleep(1)
+    type(RegistrationPage.passwordAgainLabel, passwordAgain); sleep(1)
+    type(Key.SHIFT, KeyModifier.ALT)
+    type(RegistrationPage.firstNameLabel, firstName); sleep(1)
+    click(RegistrationPage.firstNameLabel); sleep(1)
+    type(RegistrationPage.lastNameLabel, lastName); sleep(1)
+    click(RegistrationPage.lastNameLabel); sleep(1)
+    type(Key.SHIFT, KeyModifier.ALT)
+    type(RegistrationPage.emailLabel, email); sleep(1)
+
+    if isAgree == True:
+        click(find(RegistrationPage.checkBoxLabel)); sleep(1)
     click(RegistrationPage.registerButton)
 
 def Navigate(name):

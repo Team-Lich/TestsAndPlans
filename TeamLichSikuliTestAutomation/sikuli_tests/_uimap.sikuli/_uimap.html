@@ -46,8 +46,8 @@
          h2 {
             display: inline;
             font-weight: normal;
-         }  
-         
+         }
+
          .info {
             border-bottom: 1px solid #ddd;
             padding-bottom: 5px;
@@ -67,7 +67,7 @@
    </head>
 <body>
 <div class="info">
-<h2>_uimap.sikuli\_uimap.sikuli</h2> <a href="_uimap.sikuli\_uimap.zip">(Download this script)</a>
+<h2>_uimap.sikuli</h2> <a href="_uimap.zip">(Download this script)</a>
 </div>
 <pre class="sikuli-code">
 <span class="cmt">########################################################
@@ -90,7 +90,55 @@
 <span class="kw">class</span> AdminDashboard:
     title_admin = <img src="title_admin.png" />
     button_roles = <img src="Pcnvn.png" />
+    button_filteredExportToExcel = <img src="button_filteredExportToExcel.png" />
+    button_users = <img src="button_users.png" />
 
+<span class="kw">class</span> AdminUsers:
+    title_users = <img src="title_users.png" />
+    button_filterByCriteria = <img src="button_filterByCriteria.png" />
+    dropDown_pickACriteria = Pattern(<img src="dropDown_pickACriteria.png" />).targetOffset(<span class="dig">125</span>,-<span class="dig">2</span>)
+    dropDown_criteriaId = Pattern(<img src="dropDown_criteriaId.png" />).targetOffset(-<span class="dig">8</span>,<span class="dig">51</span>)
+    dropDown_criteriaName = Pattern(<img src="dropDown_criteriaName.png" />).targetOffset(-<span class="dig">1</span>,<span class="dig">73</span>)
+    dropDown_criteriaEmail = Pattern(<img src="dropDown_criteriaEmail.png" />).targetOffset(-<span class="dig">9</span>,<span class="dig">110</span>)
+    textbox_criteriaValues = <img src="textbox_criteriaValues.png" />
+    button_extract = <img src="button_extract.png" />
+    result_criteriaId = <img src="result_criteriaId.png" />
+    button_registerUser = <img src="button_registerUser.png" />
+    file_excel = <img src="file_excel.png" />
+
+<span class="kw">class</span> RegistrationPage:
+    input_username = <img src="input_username.png" />
+    input_password = <img src="input_password.png" />
+    input_passwordRepeat = <img src="input_passwordRepeat.png" />
+    input_firstName = <img src="input_firstName.png" />
+    input_lastName = <img src="input_lastName.png" />
+    input_email = <img src="input_email.png" />
+    chechbox_agreeWithTerms = <img src="chechbox_agreeWithTerms.png" />
+    button_register = <img src="button_register.png" />
+    title_registration = <img src="title_registration.png" />
+
+    missingUsernameErrorText = <span class="str">"usernameMandatory"</span>
+    missingPasswordErrorText = <span class="str">"passwordMandatory"</span>
+    missingFirstNameErrorText = <span class="str">"firstNameMandatory"</span>
+    missingLastNameErrorText = <span class="str">"lastNameMandatory"</span>
+    missingEmailErrorText = <span class="str">"emailMandatory"</span>
+
+    usernameLabel = <img src="usernameLabel.png" />
+    passwordLabel = <img src="passwordLabel.png" />
+    passwordAgainLabel = <img src="passwordAgainLabel.png" />
+    firstNameLabel = <img src="firstNameLabel.png" />
+    lastNameLabel = <img src="lastNameLabel.png" />
+    emailLabel = <img src="emailLabel.png" />
+    checkBoxLabel = <img src="checkBoxLabel.png" />
+
+<span class="kw">class</span> AdminFilteredExportToExcel:
+    title_filteredExportToExcel = <img src="title_filteredExportToExcel.png" />
+    dropDown_pickCriteria = <img src="dropDown_pickCriteria.png" />
+    dropDown_byId = <img src="dropDown_byId.png" />
+    dropDown_byName = <img src="dropDown_byName.png" />
+    dropdown_byEmail = <img src="dropdown_byEmail.png" />
+    textbox_enterCriterias = <img src="textbox_enterCriterias.png" />
+    button_extract = <img src="button_extract.png" />
 <span class="kw">class</span> AdminUsersRoles:
     title_roles = <img src="IIOTp6lITEIC.png" />
     label_roleName = Pattern(<img src="Mmenaponma.png" />).targetOffset(<span class="dig">186</span>,-<span class="dig">2</span>)
@@ -104,15 +152,33 @@
     button_update = <img src="Ky.png" />
     button_BackAdminDashboard = <img src="KLMBAMIIHICT.png" />
     button_downloadAsExel = <img src="IQCsarmueH8E.png" />
+    button_exportAsExcel = <img src="button_exportAsExcel.png" />
     button_downloadAsPDF = <img src="QCsammeH8PDF.png" />
     button_edit = <img src="1453318164265.png" />
-
+    button_sortingId = <img src="button_sortingId.png" />
+    button_sortingUserName = <img src="button_sortingUserName.png" />
+    button_sortingSN = <img src="button_sortingSN.png" />
+    button_sortingName = <img src="button_sortingName.png" />
+    button_sortingBD = <img src="button_sortingBD.png" />
+    result_sortingId = <img src="result_sortingId.png" />
+    result_sortingUserName = <img src="result_sortingUserName.png" />
+    result_sortingSN = <img src="result_sortingSN.png" />
+    result_sortingBD = <img src="result_sortingBD.png" />
+    result_firstSortingBD = Pattern(<img src="result_firstSortingBD.png" />).targetOffset(-<span class="dig">54</span>,<span class="dig">43</span>)
+    result_secondSortingBD = Pattern(<img src="result_secondSortingBD.png" />).similar(<span class="dig">0.53</span>).targetOffset(-<span class="dig">47</span>,<span class="dig">104</span>)
+    result_firstSortingId = Pattern(<img src="result_firstSortingId.png" />).targetOffset(-<span class="dig">28</span>,<span class="dig">35</span>)
+    result_secondSortingId = Pattern(<img src="result_secondSortingId.png" />).targetOffset(-<span class="dig">27</span>,<span class="dig">73</span>)
+    result_firstSortingName = Pattern(<img src="result_firstSortingName.png" />).targetOffset(-<span class="dig">31</span>,<span class="dig">33</span>)
+    result_secondSortingName = Pattern(<img src="result_secondSortingName.png" />).targetOffset(-<span class="dig">34</span>,<span class="dig">75</span>)
 <span class="kw">class</span> SaveAsBg:
     input_saveLocation = Pattern(<img src="3am1u1v1Kam.png" />).targetOffset(<span class="dig">1</span>,<span class="dig">31</span>)
+    input_saveLocationEn = Pattern(<img src="input_saveLocationEn.png" />).targetOffset(<span class="dig">96</span>,-<span class="dig">2</span>)
     button_save = <img src="1453315685007.png" />
+    button_saveEn = <img src="button_saveEn.png" />
 
 <span class="kw">class</span> Windows:
     taskbar_chrome = <img src="C.png" />
+    taskbar_chromium = <img src="taskbar_chromium.png" />
 </pre>
 </body>
 </html>

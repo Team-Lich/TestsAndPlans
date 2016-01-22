@@ -18,7 +18,55 @@ class LoginPage:
 class AdminDashboard:
     title_admin = "title_admin.png"
     button_roles = "Pcnvn.png"
+    button_filteredExportToExcel = "button_filteredExportToExcel.png"
+    button_users = "button_users.png"
 
+class AdminUsers:
+    title_users = "title_users.png"
+    button_filterByCriteria = "button_filterByCriteria.png"
+    dropDown_pickACriteria = Pattern("dropDown_pickACriteria.png").targetOffset(125,-2)
+    dropDown_criteriaId = Pattern("dropDown_criteriaId.png").targetOffset(-8,51)
+    dropDown_criteriaName = Pattern("dropDown_criteriaName.png").targetOffset(-1,73)
+    dropDown_criteriaEmail = Pattern("dropDown_criteriaEmail.png").targetOffset(-9,110)
+    textbox_criteriaValues = "textbox_criteriaValues.png"
+    button_extract = "button_extract.png"
+    result_criteriaId = "result_criteriaId.png"
+    button_registerUser = "button_registerUser.png"
+    file_excel = "file_excel.png"
+
+class RegistrationPage:
+    input_username = "input_username.png"
+    input_password = "input_password.png"
+    input_passwordRepeat = "input_passwordRepeat.png"
+    input_firstName = "input_firstName.png"
+    input_lastName = "input_lastName.png"
+    input_email = "input_email.png"
+    chechbox_agreeWithTerms = "chechbox_agreeWithTerms.png"
+    button_register = "button_register.png"
+    title_registration = "title_registration.png"
+
+    missingUsernameErrorText = "usernameMandatory"
+    missingPasswordErrorText = "passwordMandatory"
+    missingFirstNameErrorText = "firstNameMandatory"
+    missingLastNameErrorText = "lastNameMandatory"
+    missingEmailErrorText = "emailMandatory"
+
+    usernameLabel = "usernameLabel.png"
+    passwordLabel = "passwordLabel.png"
+    passwordAgainLabel = "passwordAgainLabel.png"
+    firstNameLabel = "firstNameLabel.png"
+    lastNameLabel = "lastNameLabel.png"
+    emailLabel = "emailLabel.png"
+    checkBoxLabel = "checkBoxLabel.png"
+
+class AdminFilteredExportToExcel:
+    title_filteredExportToExcel = "title_filteredExportToExcel.png"
+    dropDown_pickCriteria = "dropDown_pickCriteria.png"
+    dropDown_byId = "dropDown_byId.png"
+    dropDown_byName = "dropDown_byName.png"
+    dropdown_byEmail = "dropdown_byEmail.png"
+    textbox_enterCriterias = "textbox_enterCriterias.png"
+    button_extract = "button_extract.png"
 class AdminUsersRoles:
     title_roles = "IIOTp6lITEIC.png"
     label_roleName = Pattern("Mmenaponma.png").targetOffset(186,-2)
@@ -32,15 +80,32 @@ class Grid:
     button_update = "Ky.png"
     button_BackAdminDashboard = "KLMBAMIIHICT.png"
     button_downloadAsExel = "IQCsarmueH8E.png"
+    button_exportAsExcel = "button_exportAsExcel.png"
     button_downloadAsPDF = "QCsammeH8PDF.png"
     button_edit = "1453318164265.png"
-
+    button_sortingId = "button_sortingId.png"
+    button_sortingUserName = "button_sortingUserName.png"
+    button_sortingSN = "button_sortingSN.png"
+    button_sortingName = "button_sortingName.png"
+    button_sortingBD = "button_sortingBD.png"
+    result_sortingId = "result_sortingId.png"
+    result_sortingUserName = "result_sortingUserName.png"
+    result_sortingSN = "result_sortingSN.png"
+    result_sortingBD = "result_sortingBD.png"
+    result_firstSortingBD = Pattern("result_firstSortingBD.png").targetOffset(-54,43)
+    result_secondSortingBD = Pattern("result_secondSortingBD.png").similar(0.53).targetOffset(-47,104)
+    result_firstSortingId = Pattern("result_firstSortingId.png").targetOffset(-28,35)
+    result_secondSortingId = Pattern("result_secondSortingId.png").targetOffset(-27,73)
+    result_firstSortingName = Pattern("result_firstSortingName.png").targetOffset(-31,33)
+    result_secondSortingName = Pattern("result_secondSortingName.png").targetOffset(-34,75)
 class SaveAsBg:
     input_saveLocation = Pattern("3am1u1v1Kam.png").targetOffset(1,31)
+    input_saveLocationEn = Pattern("input_saveLocationEn.png").targetOffset(96,-2)
     button_save = "1453315685007.png"
+    button_saveEn = "button_saveEn.png"
 
 class Windows:
     taskbar_chrome = "C.png"
-    
+    taskbar_chromium = "taskbar_chromium.png"
 
 

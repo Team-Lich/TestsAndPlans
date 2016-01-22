@@ -89,7 +89,14 @@ class AdminUsersRoles:
     test_005_exelFile = "R0es_Exp0rt.png"
     test_006_pdfFile = "ER0es_Exp0rt-1.png"
     test_007_expedtedResult = "IIuenaponmaa.png"
-
+    header_roleName = "IIuenaponma.png"
+    header_userCount = "Epoin0Tpe6me.png"
+    test_008_expectedResult = "Epoin0Tpe6me-1.png"
+    test_010_expectedResult = "1453457547150.png"
+    button_deleteRow = Pattern("TestAdmin.png").targetOffset(253,-6)
+    test_009_expectedResult = "Epoin0Tpe6me-2.png"
+    test_011_expectedResult = "1453457977930.png"
+    popup_comfirm = "1453458134946.png"
 class Grid:
     button_add = "U06amme.png"
     button_update = "Ky.png"
@@ -103,6 +110,8 @@ class Grid:
     button_sortingSN = "button_sortingSN.png"
     button_sortingName = "button_sortingName.png"
     button_sortingBD = "button_sortingBD.png"
+    button_secondPage = Pattern("1453457502251.png").targetOffset(18,-1)
+    button_goToLastPage = "1453457929773.png"
     result_sortingId = "result_sortingId.png"
     result_sortingUserName = "result_sortingUserName.png"
     result_sortingSN = "result_sortingSN.png"
@@ -113,6 +122,7 @@ class Grid:
     result_secondSortingId = Pattern("result_secondSortingId.png").targetOffset(-27,73)
     result_firstSortingName = Pattern("result_firstSortingName.png").targetOffset(-31,33)
     result_secondSortingName = Pattern("result_secondSortingName.png").targetOffset(-34,75)
+    
 class SaveAsBg:
     input_saveLocation = Pattern("3am1u1v1Kam.png").targetOffset(1,31)
     input_saveLocationEn = Pattern("input_saveLocationEn.png").targetOffset(96,-2)

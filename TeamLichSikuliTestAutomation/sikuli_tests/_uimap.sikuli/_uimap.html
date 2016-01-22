@@ -46,8 +46,8 @@
          h2 {
             display: inline;
             font-weight: normal;
-         }
-
+         }  
+         
          .info {
             border-bottom: 1px solid #ddd;
             padding-bottom: 5px;
@@ -67,7 +67,7 @@
    </head>
 <body>
 <div class="info">
-<h2>_uimap.sikuli</h2> <a href="_uimap.zip">(Download this script)</a>
+<h2>_uimap.sikuli\_uimap.sikuli</h2> <a href="_uimap.sikuli\_uimap.zip">(Download this script)</a>
 </div>
 <pre class="sikuli-code">
 <span class="cmt">########################################################
@@ -117,11 +117,26 @@
     button_register = <img src="button_register.png" />
     title_registration = <img src="title_registration.png" />
 
+    registerLink = <img src="registerImage.png" />
+    username = <img src="usernameTextbox.png" />
+    password = <img src="passwordTextbox.png" />
+    passwordAgain = <img src="passwordAgainTextbox.png" />
+    firstName = <img src="firstNameTextbox.png" />
+    lastName = <img src="lastNameTextbox.png" />
+    email = <img src="emailTextbox.png" />
+    registerButton = <img src="registerButton.png" />
+    registrationCheckbox = <span class="str">"registerCheckbox"</span>
     missingUsernameErrorText = <span class="str">"usernameMandatory"</span>
     missingPasswordErrorText = <span class="str">"passwordMandatory"</span>
+    missingPasswordAgainErrorText = <span class="str">"passwordAgainMandatory"</span>
     missingFirstNameErrorText = <span class="str">"firstNameMandatory"</span>
     missingLastNameErrorText = <span class="str">"lastNameMandatory"</span>
     missingEmailErrorText = <span class="str">"emailMandatory"</span>
+    usernameLengthErrorText = <span class="str">"usernameMinLengthErrorText"</span>
+    passwordLengthErrorText = <span class="str">"passwordLengthErrorText"</span>
+    firstNameIcorrectSymbols = <span class="str">"firstNameIcorrectSymbols"</span>
+    lastNameIcorrectSymbols = <span class="str">"lastNameIcorrectSymbols"</span>
+    unchceckedAgreements = <span class="str">"licenceAgreementMandatory"</span>
 
     usernameLabel = <img src="usernameLabel.png" />
     passwordLabel = <img src="passwordLabel.png" />
@@ -146,7 +161,14 @@
     test_005_exelFile = <img src="R0es_Exp0rt.png" />
     test_006_pdfFile = <img src="ER0es_Exp0rt-1.png" />
     test_007_expedtedResult = <img src="IIuenaponmaa.png" />
-
+    header_roleName = <img src="IIuenaponma.png" />
+    header_userCount = <img src="Epoin0Tpe6me.png" />
+    test_008_expectedResult = <img src="Epoin0Tpe6me-1.png" />
+    test_010_expectedResult = <img src="1453457547150.png" />
+    button_deleteRow = Pattern(<img src="TestAdmin.png" />).targetOffset(<span class="dig">253</span>,-<span class="dig">6</span>)
+    test_009_expectedResult = <img src="Epoin0Tpe6me-2.png" />
+    test_011_expectedResult = <img src="1453457977930.png" />
+    popup_comfirm = <img src="1453458134946.png" />
 <span class="kw">class</span> Grid:
     button_add = <img src="U06amme.png" />
     button_update = <img src="Ky.png" />
@@ -160,6 +182,8 @@
     button_sortingSN = <img src="button_sortingSN.png" />
     button_sortingName = <img src="button_sortingName.png" />
     button_sortingBD = <img src="button_sortingBD.png" />
+    button_secondPage = Pattern(<img src="1453457502251.png" />).targetOffset(<span class="dig">18</span>,-<span class="dig">1</span>)
+    button_goToLastPage = <img src="1453457929773.png" />
     result_sortingId = <img src="result_sortingId.png" />
     result_sortingUserName = <img src="result_sortingUserName.png" />
     result_sortingSN = <img src="result_sortingSN.png" />
@@ -170,6 +194,7 @@
     result_secondSortingId = Pattern(<img src="result_secondSortingId.png" />).targetOffset(-<span class="dig">27</span>,<span class="dig">73</span>)
     result_firstSortingName = Pattern(<img src="result_firstSortingName.png" />).targetOffset(-<span class="dig">31</span>,<span class="dig">33</span>)
     result_secondSortingName = Pattern(<img src="result_secondSortingName.png" />).targetOffset(-<span class="dig">34</span>,<span class="dig">75</span>)
+
 <span class="kw">class</span> SaveAsBg:
     input_saveLocation = Pattern(<img src="3am1u1v1Kam.png" />).targetOffset(<span class="dig">1</span>,<span class="dig">31</span>)
     input_saveLocationEn = Pattern(<img src="input_saveLocationEn.png" />).targetOffset(<span class="dig">96</span>,-<span class="dig">2</span>)

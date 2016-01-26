@@ -10,7 +10,9 @@ class Users_Admin(unittest.TestCase):
     
     def tearDown(self):
         pass
-    
+
+#Start - Tests Ivan - 21.01.16
+
     def test_001_NavigateAndLogInAndLoginAdmin(self):
         adminUser = "TeamLichTestAdmin"
         adminPass = "123456"
@@ -44,7 +46,7 @@ class Users_Admin(unittest.TestCase):
     #
     # def test_007_Edit(self):
     #     AddNewRole("TestAdmin")
-    #     find(AdminUsersRoles.test_004_expectedResult).highlight(1).right().highlight(1).click(Grid.button_edit)
+    #     find(AdminUsersRoles.test_004_expectedResult).right().click(Grid.button_edit)
     #     wait(Grid.button_update, 30)
     #     doubleClick(AdminUsersRoles.label_roleName)
     #     type("asd")
@@ -52,20 +54,37 @@ class Users_Admin(unittest.TestCase):
     #     wait(AdminUsersRoles.test_007_expedtedResult, 30)
     #
     # def test_008_DragColumnHeader(self):
-    #     pass
+    #     wait(AdminUsersRoles.header_roleName, 30)
+    #     dragDrop(AdminUsersRoles.header_roleName, AdminUsersRoles.header_userCount)
+    #     wait(AdminUsersRoles.test_008_expectedResult)
+    #
     # def test_009_DeleteRow(self):
-    #     pass
+    #     AddNewRole("TestAdmin")
+    #     click(AdminUsersRoles.button_deleteRow)
+    #     wait(AdminUsersRoles.popup_comfirm, 30)
+    #     click(AdminUsersRoles.popup_comfirm)
+    #     wait(AdminUsersRoles.test_009_expectedResult)
+    #
     # def test_010_Paging(self):
-    #     pass
+    #     ScrollToVisible(100, "down", Grid.button_secondPage)
+    #     click(Grid.button_secondPage)
+    #     wait(AdminUsersRoles.test_010_expectedResult, 30)
+    #
     # def test_011_GoToLastPage(self):
-    #     pass
+    #     RunBrowserToUrl("chrome", "http://stage.telerikacademy.com/Administration_Users/Roles")
+    #     ScrollToVisible(100, "down", Grid.button_goToLastPage)
+    #     click(Grid.button_goToLastPage)
+    #     wait(AdminUsersRoles.test_011_expectedResult, 30)
+    #
     # def test_012_Sort(self):
     #     pass
     #
     # def test_013_BackToAdministration(self):
-    #     wait(Grid.button_BackAdminDashboard, 30)
-    #     click(Grid.button_BackAdminDashboard)
-    #     wait(AdminDashboard.title_admin, 30)
+    #      ScrollToVisible(100, "up", Grid.button_BackAdminDashboard)
+    #      click(Grid.button_BackAdminDashboard)
+    #      wait(AdminDashboard.title_admin, 30)
+
+#END - Tests Ivan - 21.01.16
 
 # START - Tests Dimitar - 21.01.16
 
@@ -77,10 +96,10 @@ class Users_Admin(unittest.TestCase):
     def test_015_AdminUsers_RegisterNewUser(self):
         RegisterRandomUser()
 
-    # def test_016_ExportUsersAsExcel(self):
-    #     location = "C:\Users\Dimitar Panayotov\Desktop\ForTest"  #change this to whatever feels good in order to work for you
-    #     DownloadAsEnglish("Excel", location)
-    #     ChechIfFileIsInDirectoryChromium(AdminUsers.file_excel,location)
+    def test_016_ExportUsersAsExcel(self):
+        location = "C:\Users\Dimitar Panayotov\Desktop\ForTest"  #change this to whatever feels good in order to work for you
+        DownloadAsEnglish("Excel", location)
+        ChechIfFileIsInDirectoryChromium(AdminUsers.file_excel,location)
 
     def test_016_AdminUsers_BackToAdmin(self):
         NavigateToAdminDashboard()
@@ -108,10 +127,19 @@ class Users_Admin(unittest.TestCase):
         self.assertEqual(actualResult, expectedResult)
         self.assertEqual(resultOne, "1")
 
-    # def test_018_AdminUsers_SortingUserName(self):
-    #     click(Grid.button_sortingUserName)
-    #     wait(Grid.result_sortingUserName)
-    #     exists(Grid.result_sortingUserName)
+    def test_018_AdminUsers_SortingUserName(self):
+        click(Grid.button_sortingUserName)
+        wait(2)
+        doubleClick(Grid.result_firstSortingUserName)
+        type("c", KEY_CTRL)
+        resultOne = Env.getClipboard()
+        hover(Grid.button_sortingId)
+        doubleClick(Grid.result_secondSortingUserName)
+        type("c", KEY_CTRL)
+        resultTwo = Env.getClipboard()
+        actualResult= resultOne >= resultTwo
+        expectedResult = True
+        self.assertEqual(actualResult, expectedResult)
 
     def test_019_AdminUsers_SortingSN(self):
         click(Grid.button_sortingSN)
@@ -164,26 +192,76 @@ class Users_Admin(unittest.TestCase):
         click(AdminUsers.button_extract)
         exists(AdminUsers.result_criteriaId)
 
-    # def test_023_AdminFilterByCriteria_ExportByEmail(self):
-    #     NavigateToAdminDashboard()
-    #     ScrollToVisible(100, "down", AdminDashboard.button_users)
-    #     NavigateToAdminUsers()
-    #     wait(AdminUsers.button_filterByCriteria, 30)
-    #     click(AdminUsers.button_filterByCriteria)
-    #     click(AdminUsers.dropDown_pickACriteria)
-    #     wait(2)
-    #     click(AdminUsers.dropDown_criteriaEmail)
-    #     type(AdminUsers.textbox_criteriaValues, "mausoleum@necropolis.heroes")
-    #     click(AdminUsers.button_extract)
-    #     exists(AdminUsers.result_criteriaId)
+    def test_023_AdminFilterByCriteria_ExportByEmail(self):
+        NavigateToAdminDashboard()
+        ScrollToVisible(100, "down", AdminDashboard.button_users)
+        NavigateToAdminUsers()
+        wait(AdminUsers.button_filterByCriteria, 30)
+        click(AdminUsers.button_filterByCriteria); sleep(1)
+        click(AdminUsers.dropDown_pickACriteria)
+        wait(2)
+        click(AdminUsers.dropDown_criteriaEmail)
+        type(AdminUsers.textbox_criteriaValues, "mausoleum@necropolis.heroes")
+        click(AdminUsers.button_extract)
+        exists(AdminUsers.result_criteriaId)
 
-   # def test_024_NavigateToFilteredExportToExcel(self):
-   #      NavigateToAdminDashboard()
-   #      ScrollToVisible(100, "down", AdminDashboard.button_filteredExportToExcel)
-   #      NavigateToFilteredExportToExcel()
+    def test_024_NavigateToFilteredExportToExcel(self):
+        NavigateToAdminDashboard()
+        ScrollToVisible(100, "down", AdminDashboard.button_filteredExportToExcel)
+        NavigateToFilteredExportToExcel()
 
+    # END - Tests Dimitar - 21.01.16
+	#
+	# START - Tests Decho - 22.01.16
 
-    #END - Tests Dimitar - 21.01.16
+    def test_025_NavigateToCities(self):
+        NavigateToAdminDashboard()
+        sleep(5)
+        ScrollToVisible(10, "down", AdminDashboard.button_areas)
+        click(AdminDashboard.button_areas)
+        wait(AdminUsersCities.image_header, 10)
+
+    def test_026_AreaNameInEnglishDoesNotAcceptNonLatinSymbols(self):
+        newAreaNameInEnglish = "Nekropolis"
+        click(Grid.button_add)
+        wait(AdminUsersCities.label_addPopupNameBG)
+        type(Key.SHIFT, KeyModifier.ALT); sleep(1)
+        type(AdminUsersCities.label_addPopupNameEN, newAreaNameInEnglish)
+        type(AdminUsersCities.label_addPopupNameBG, newAreaNameInEnglish)
+        click(Grid.button_update)
+        warningShown = exists(Grid.field_cyrilicSymbolWarning)
+        self.assertTrue(warningShown)
+
+    def test_027_AreaNameInBulgarianDoesNotAcceptLatinSymbols(self):
+        newAreaNameInEnglish = "Nekropolis"
+        wait(AdminUsersCities.label_addPopupNameBG)
+        type(Key.SHIFT, KeyModifier.ALT); sleep(1)
+        doubleClick(AdminUsersCities.label_addPopupNameEN)
+        type(newAreaNameInEnglish)
+        doubleClick(AdminUsersCities.label_addPopupNameBG)
+        type(newAreaNameInEnglish)
+        click(Grid.button_update)
+        warningShown = exists(Grid.field_latinSymbolWarning)
+        self.assertTrue(warningShown)
+
+    def test_028_AddNewArea(self):
+        newAreaName = "Nekropolis"
+        wait(AdminUsersCities.label_addPopupNameBG)
+        type(Key.SHIFT, KeyModifier.ALT); sleep(1)
+        doubleClick(AdminUsersCities.label_addPopupNameBG)
+        type(newAreaName)
+        type(Key.SHIFT, KeyModifier.ALT); sleep(1)
+        doubleClick(AdminUsersCities.label_addPopupNameEN)
+        type(newAreaName)
+        click(Grid.button_update)
+        wait(AdminUsersCities.label_nameOfNewlyAddedArea, 5)
+
+    def test_029_RemoveArea(self):
+        DeleteRow(AdminUsersCities.label_nameOfNewlyAddedArea)
+        areaStillInGrid = exists(AdminUsersCities.label_nameOfNewlyAddedArea, 5)
+        self.assertIsNone(areaStillInGrid)
+	
+	#END - Tests Decho - 22.01.16
 
     def test_100_Logout(self):
         wait(MainPage.button_logout)

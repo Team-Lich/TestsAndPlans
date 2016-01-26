@@ -194,3 +194,8 @@ def Navigate(name):
     sleep(2)
     click(RegistrationPage.registerLink)
     sleep(1)
+	
+def DeleteRow(image):
+    ScrollToVisible(10, "down", image)
+    find(image).right().find(Grid.button_remove).click(); sleep(1)
+    type(Key.ENTER)

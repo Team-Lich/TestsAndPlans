@@ -82,6 +82,12 @@
     <None Include="AdminNavigation.loadtest">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="Front\Friendships.webtest">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="FriendsPage.loadtest">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="LogIn.loadtest">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

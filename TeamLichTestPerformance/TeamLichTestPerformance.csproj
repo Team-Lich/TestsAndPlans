@@ -61,6 +61,9 @@
     <None Include="Admin\AdminComplexSearch.webtest">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="Admin\AdminFilteredExportToExcel.webtest">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Admin\AdminLabels.webtest">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

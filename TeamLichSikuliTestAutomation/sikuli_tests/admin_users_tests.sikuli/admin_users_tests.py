@@ -191,7 +191,7 @@ class Users_Admin(unittest.TestCase):
         #type(AdminUsers.textbox_criteriaValues, randomUserName)
         type(AdminUsers.textbox_criteriaValues, "TeamLichTestUser")
         click(AdminUsers.button_extract)
-        exists(AdminUsers.result_criteriaId)
+        assert exists(AdminUsers.result_criteriaId)
 
     def test_023_AdminFilterByCriteria_ExportByEmail(self):
         NavigateToAdminDashboard()

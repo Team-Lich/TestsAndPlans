@@ -106,8 +106,10 @@ class Users_Admin(unittest.TestCase):
         NavigateToAdminDashboard()
         ScrollToVisible(100, "down", AdminDashboard.button_users)
         NavigateToAdminUsers()
-        wait(Grid.button_BackAdminDashboard, 20)
+        wait(Grid.button_BackAdminDashboard, 30)
         click(Grid.button_BackAdminDashboard)
+        wait(AdminDashboard.title_admin, 30)
+        assert exists(AdminDashboard.title_admin)
 
     def test_017_AdminUsers_SortingId(self):
         ScrollToVisible(100, "down", AdminDashboard.button_users)

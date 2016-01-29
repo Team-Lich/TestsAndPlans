@@ -92,6 +92,8 @@ class Users_Admin(unittest.TestCase):
         NavigateToAdminDashboard()
         ScrollToVisible(100, "down", AdminDashboard.button_users)
         NavigateToAdminUsers()
+        wait(AdminUsers.title_users, 30)
+        assert exists(AdminUsers.title_users)
 
     def test_015_AdminUsers_RegisterNewUser(self):
         RegisterRandomUser()

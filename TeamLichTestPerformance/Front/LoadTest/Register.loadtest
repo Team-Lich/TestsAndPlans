@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<LoadTest Name="Register" Description="" Owner="" storage="c:\users\decho\desktop\testplan\teamlichtestperformance\front\loadtest\register.loadtest" Priority="2147483647" Enabled="true" CssProjectStructure="" CssIteration="" DeploymentItemsEditable="" WorkItemIds="" TraceLevel="None" CurrentRunConfig="Run Settings1" Id="1c1bbdb1-4400-4be7-af40-75ac49704e51" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+<LoadTest Name="Register" Description="" Owner="" storage="c:\users\decho\desktop\testsandplans\teamlichtestperformance\front\loadtest\register.loadtest" Priority="2147483647" Enabled="true" CssProjectStructure="" CssIteration="" DeploymentItemsEditable="" WorkItemIds="" TraceLevel="None" CurrentRunConfig="Run Settings1" Id="1c1bbdb1-4400-4be7-af40-75ac49704e51" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
   <Scenarios>
     <Scenario Name="Register" DelayBetweenIterations="1" PercentNewUsers="0" IPSwitching="false" TestMixType="PercentageOfUsersRunning" ApplyDistributionToPacingDelay="true" MaxTestIterations="0" DisableDuringWarmup="false" DelayStartTime="0" AllowedAgents="">
       <ThinkProfile Value="0.2" Pattern="NormalDistribution" />
@@ -8,7 +8,7 @@
         <TestProfile Name="Register" Path="..\webtest\register.webtest" Id="41b3160a-1985-4178-a8be-69d173b68901" Percentage="100" Type="Microsoft.VisualStudio.TestTools.WebStress.DeclarativeWebTestElement, Microsoft.VisualStudio.QualityTools.LoadTest, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
       </TestMix>
       <BrowserMix>
-        <BrowserProfile Percentage="50">
+        <BrowserProfile Percentage="68">
           <Browser Name="Chrome 2" MaxConnections="6">
             <Headers>
               <Header Name="User-Agent" Value="Mozilla/5.0 (Windows; U; Windows NT 5.1;) AppleWebKit/530.1 (KHTML, like Gecko) Chrome/2.0.169.1 Safari/530.1" />
@@ -19,7 +19,7 @@
             </Headers>
           </Browser>
         </BrowserProfile>
-        <BrowserProfile Percentage="40">
+        <BrowserProfile Percentage="20">
           <Browser Name="Firefox 3.0" MaxConnections="6">
             <Headers>
               <Header Name="User-Agent" Value="Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.8.1) Gecko/20061010 Firefox/3.0" />
@@ -30,13 +30,24 @@
             </Headers>
           </Browser>
         </BrowserProfile>
-        <BrowserProfile Percentage="10">
+        <BrowserProfile Percentage="3">
           <Browser Name="Internet Explorer 11.0" MaxConnections="6">
             <Headers>
               <Header Name="User-Agent" Value="Mozilla/5.0 (Windows NT 6.3; Trident/7.0; rv:11.0) like Gecko" />
               <Header Name="Accept" Value="*/*" />
               <Header Name="Accept-Language" Value="{{$IEAcceptLanguage}}" />
               <Header Name="Accept-Encoding" Value="GZIP" />
+            </Headers>
+          </Browser>
+        </BrowserProfile>
+        <BrowserProfile Percentage="9">
+          <Browser Name="Safari 3" MaxConnections="4">
+            <Headers>
+              <Header Name="User-Agent" Value="Mozilla/5.0 (Windows; U; Windows NT 5.2; en-US) AppleWebKit/525.28 (KHTML, like Gecko) Version/3.2.2 Safari/525.28.1" />
+              <Header Name="Accept" Value="*/*" />
+              <Header Name="Accept-Language" Value="{{$IEAcceptLanguage}}" />
+              <Header Name="Accept-Encoding" Value="GZIP,deflate" />
+              <Header Name="Accept-Charset" Value="ISO-8859-1,utf-8;q=0.7,*;q=0.7" />
             </Headers>
           </Browser>
         </BrowserProfile>

@@ -178,7 +178,7 @@ class Users_Admin(unittest.TestCase):
         click(AdminUsers.dropDown_criteriaId)
         type(AdminUsers.textbox_criteriaValues, "189")
         click(AdminUsers.button_extract)
-        exists(AdminUsers.result_criteriaId)
+        assert exists(AdminUsers.result_criteriaId)
 
     def test_022_AdminFilterByCriteria_ExportByName(self):
         NavigateToAdminDashboard()

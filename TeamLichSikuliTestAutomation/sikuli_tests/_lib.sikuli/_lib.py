@@ -1,8 +1,10 @@
 from sikuli import *
-import random, string
+import random
+import string
 import HTMLTestRunner
 bdLibPath = os.path.abspath(sys.argv[0] + "..")
-if not bdLibPath in sys.path: sys.path.append(bdLibPath)
+if not bdLibPath in sys.path:
+    sys.path.append(bdLibPath)
 from _uimap import *
 
 randomUserName = ''

@@ -149,7 +149,7 @@ def RegisterUser(username, password, passwordAgain, firstName, lastName, email, 
     type(Key.SHIFT, KeyModifier.ALT)
     type(RegistrationPage.emailLabel, email); sleep(1)
 
-    if isAgree == True:
+    if isAgree is True:
         click(find(RegistrationPage.checkBoxLabel)); sleep(1)
     click(RegistrationPage.registerButton)
 

@@ -50,5 +50,5 @@ ECHO Executing tests...
 ECHO %SEPARATOR%
 
 @ECHO ON
-MSTest.exe /testcontainer:"%TESTSFILE%" /category:%1 /resultsfile:"%RESULTFILE%"
+MSTest.exe /testcontainer:%TESTSFILE% /category:%1 /resultsfile:%RESULTFILE%
 python ResultParser.py %~dp0Results\%logtimestamp%_%SUITENAME%TestSuite %logtimestamp%

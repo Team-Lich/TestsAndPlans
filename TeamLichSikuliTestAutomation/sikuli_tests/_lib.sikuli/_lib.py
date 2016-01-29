@@ -187,9 +187,9 @@ def RegisterUserWithDoubleClick(username, password, passwordAgain, firstName, la
         click(find(RegistrationPage.checkBoxLabel)); sleep(1)
     click(RegistrationPage.registerButton)
 
-def Navigate(name):
+def Navigate(BrowserName):
     type("r", KeyModifier.WIN)
-    type(name)
+    type(BrowserName)
     type(Key.ENTER)
     sleep(2)
     type("http://stage.telerikacademy.com/")

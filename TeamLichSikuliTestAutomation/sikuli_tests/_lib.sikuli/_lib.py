@@ -5,7 +5,7 @@ bdLibPath = os.path.abspath(sys.argv[0] + "..")
 if not bdLibPath in sys.path: sys.path.append(bdLibPath)
 from _uimap import *
 
-global randomUserName
+randomUserName = ''
 
 def ScrollToVisible(maxScrolls,direction,goalImage): #direction =  "down" / "up"
     if(direction == "down"):

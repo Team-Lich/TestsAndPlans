@@ -33,6 +33,7 @@ def UniqueStringWithCurrentDate():
     return time.strftime('%d_%m_%H_%M_%S')
 
 def RegisterRandomUser():
+    global randomUserName
     click(AdminUsers.button_registerUser)
     wait(RegistrationPage.title_registration, 30)
     randomUserName = "TeamLichTestUser" + UniqueStringWithCurrentDate()

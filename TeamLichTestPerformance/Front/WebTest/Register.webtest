@@ -1,18 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <WebTest Name="Register" Id="41b3160a-1985-4178-a8be-69d173b68901" Owner="" Priority="2147483647" Enabled="True" CssProjectStructure="" CssIteration="" Timeout="0" WorkItemIds="" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" Description="" CredentialUserName="" CredentialPassword="" PreAuthenticate="True" Proxy="default" StopOnError="False" RecordedResultFile="WebTest1.7c680eef-f12b-47ef-918b-6079cec3c4c6.rec.webtestresult" ResultsLocale="">
   <Items>
-    <IncludedWebTest Name="BasePage" Path="..\basepage.webtest" Id="9e9abf02-2249-46e5-969c-a9dbcfb6617f" IsCodedWebTest="False" InheritWebTestSettings="False" />
+    <IncludedWebTest Name="BasePage" Path="..\..\basepage.webtest" Id="9e9abf02-2249-46e5-969c-a9dbcfb6617f" IsCodedWebTest="False" InheritWebTestSettings="False" />
     <Request Method="GET" Guid="d26f7b3e-af37-4fa8-ba53-2b0f3617a5f0" Version="1.1" Url="http://stage.telerikacademy.com/Users/Auth/Registration" ThinkTime="1" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
-      <DependentRequests>
-        <Request Method="GET" Guid="33c98641-f770-45bd-88f0-047ce9e311ca" Version="1.1" Url="http://stage.telerikacademy.com/fonts/glyphicons-halflings-regular.eot" ThinkTime="49" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
-          <Headers>
-            <Header Name="Referer" Value="http://stage.telerikacademy.com/Users/Auth/Registration" />
-          </Headers>
-          <QueryStringParameters>
-            <QueryStringParameter Name="" Value="" RecordedValue="" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
-          </QueryStringParameters>
-        </Request>
-      </DependentRequests>
       <Headers>
         <Header Name="Referer" Value="http://stage.telerikacademy.com/" />
       </Headers>
@@ -36,27 +26,17 @@
       </CorrelationExtractionRules>
     </Request>
     <Request Method="POST" Guid="9aabec65-24e2-4a6d-b585-a6c11807d664" Version="1.1" Url="http://stage.telerikacademy.com/Users/Auth/Registration" ThinkTime="1" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="http://stage.telerikacademy.com/" ReportingName="" IgnoreHttpStatusCode="False">
-      <DependentRequests>
-        <Request Method="GET" Guid="c2e24908-3fbd-4ba8-8b13-87878a7ae7b3" Version="1.1" Url="http://stage.telerikacademy.com/fonts/glyphicons-halflings-regular.eot" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
-          <Headers>
-            <Header Name="Referer" Value="http://stage.telerikacademy.com/" />
-          </Headers>
-          <QueryStringParameters>
-            <QueryStringParameter Name="" Value="" RecordedValue="" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
-          </QueryStringParameters>
-        </Request>
-      </DependentRequests>
       <Headers>
         <Header Name="Referer" Value="http://stage.telerikacademy.com/Users/Auth/Registration" />
       </Headers>
       <FormPostHttpBody>
-        <FormPostParameter Name="__RequestVerificationToken" Value="{{$HIDDEN1.__RequestVerificationToken}}" RecordedValue="vyz2dqweKRLG8OwwDYeIAc2S2OP8GaOLqTrgIj621fIMqLNbzUrphAdcJzCHMSkfBuDsYs4aZvm6RktlE9A5dYaK3YA1" CorrelationBinding="" UrlEncode="True" />
-        <FormPostParameter Name="Username" Value="LichTest{{DateTime}}" RecordedValue="LichTest" CorrelationBinding="" UrlEncode="True" />
+        <FormPostParameter Name="__RequestVerificationToken" Value="{{$HIDDEN1.__RequestVerificationToken}}" RecordedValue="H-TMKIOKJ-LcH6ccTu-UFKJgVF7lVLny869daoKwx2tkWrfHQ9_pGWbLrlruOojVsaWYHEzAB33DUGJI_EoQZ2cWV6I1" CorrelationBinding="" UrlEncode="True" />
+        <FormPostParameter Name="Username" Value="Lich_{{DateTime}}" RecordedValue="LichTest" CorrelationBinding="" UrlEncode="True" />
         <FormPostParameter Name="Password" Value="123456" RecordedValue="123456" CorrelationBinding="" UrlEncode="True" />
         <FormPostParameter Name="PasswordAgain" Value="123456" RecordedValue="123456" CorrelationBinding="" UrlEncode="True" />
         <FormPostParameter Name="FirstName" Value="Име" RecordedValue="Име" CorrelationBinding="" UrlEncode="True" />
         <FormPostParameter Name="LastName" Value="Фамилия" RecordedValue="Фамилия" CorrelationBinding="" UrlEncode="True" />
-        <FormPostParameter Name="Email" Value="Lich{{RandomInt}}@mail{{RandomInt}}.com" RecordedValue="shategaw@srhthgbteasge.com" CorrelationBinding="" UrlEncode="True" />
+        <FormPostParameter Name="Email" Value="{{DateTime}}@lich.com" RecordedValue="shategaw@srhthgbteasge.com" CorrelationBinding="" UrlEncode="True" />
         <FormPostParameter Name="TermsAndConditions" Value="true" RecordedValue="true" CorrelationBinding="{{FormPostParam2.TermsAndConditions}}" UrlEncode="True" />
         <FormPostParameter Name="TermsAndConditions" Value="{{$HIDDEN1.TermsAndConditions}}" RecordedValue="false" CorrelationBinding="" UrlEncode="True" />
       </FormPostHttpBody>
@@ -74,17 +54,10 @@
         <RuleParameter Name="AddYears" Value="0" />
         <RuleParameter Name="ContextParameterName" Value="DateTime" />
         <RuleParameter Name="InputDateTime" Value="" />
-        <RuleParameter Name="OutputFormat" Value="_dd.mm.yyyy_HH.mm.ss" />
+        <RuleParameter Name="OutputFormat" Value="dd.MM.yyyy_HH.mm.ss_ffffff" />
         <RuleParameter Name="OutputJsonDateTime" Value="False" />
         <RuleParameter Name="UseCurrentTime" Value="True" />
         <RuleParameter Name="UseLocalTime" Value="False" />
-      </RuleParameters>
-    </WebTestPlugin>
-    <WebTestPlugin Classname="Microsoft.SystemCenter.Cloud.GsmPlugins.RandomIntGeneratorWebTestPlugin, Microsoft.VisualStudio.QualityTools.WebTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" DisplayName="Generate Random Integer" Description="Generates a random integer.">
-      <RuleParameters>
-        <RuleParameter Name="ContextParameterName" Value="RandomInt" />
-        <RuleParameter Name="MaxValue" Value="999999" />
-        <RuleParameter Name="MinValue" Value="0" />
       </RuleParameters>
     </WebTestPlugin>
   </WebTestPlugins>

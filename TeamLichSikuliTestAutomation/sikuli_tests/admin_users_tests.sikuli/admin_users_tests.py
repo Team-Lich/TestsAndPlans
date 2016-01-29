@@ -268,6 +268,7 @@ class Users_Admin(unittest.TestCase):
         wait(MainPage.button_logout)
         click(MainPage.button_logout)
         wait(MainPage.button_mainLogIn, 60)
+        assert exist(MainPage.button_mainLogIn)
 
 
 if __name__ == '__main__':

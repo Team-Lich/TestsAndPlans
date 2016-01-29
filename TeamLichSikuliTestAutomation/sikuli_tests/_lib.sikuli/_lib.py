@@ -10,7 +10,7 @@ global randomUserName
 def ScrollToVisible(maxScrolls,direction,goalImage): #direction =  "down" / "up"
     if(direction == "down"):
         direction = Key.PAGE_DOWN
-    if(direction == "up"):
+    elif(direction == "up"):
         direction = Key.PAGE_UP
 
     for i in range(maxScrolls):

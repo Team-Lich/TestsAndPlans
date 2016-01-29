@@ -97,6 +97,8 @@ class Users_Admin(unittest.TestCase):
 
     def test_015_AdminUsers_RegisterNewUser(self):
         RegisterRandomUser()
+        wait(MainPage.button_logout, 30)
+        assert exists(MainPage.button_logout)
 
     def test_016_ExportUsersAsExcel(self):
         userDirectrory = os.path.expanduser("~")

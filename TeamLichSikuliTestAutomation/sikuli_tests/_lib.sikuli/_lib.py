@@ -29,13 +29,13 @@ def RunBrowserToUrl(browser,toUrl):
     type(toUrl); sleep(1)
     type(Key.ENTER)
 
-def RandomString():
-   return ''.join(random.choice(string.lowercase) for i in range(10))
+def UniqueStringWithCurrentDate():
+    return time.strftime('%d_%m_%H_%M_%S')
 
 def RegisterRandomUser():
     click(AdminUsers.button_registerUser)
     wait(RegistrationPage.title_registration, 30)
-    randomUserName = "TeamLichTestUser" + RandomString()
+    randomUserName = "TeamLichTestUser" + UniqueStringWithCurrentDate()
     type(RegistrationPage.input_username, randomUserName)
     type(RegistrationPage.input_password, "123456")
     type(RegistrationPage.input_passwordRepeat, "123456")

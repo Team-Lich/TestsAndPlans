@@ -97,7 +97,7 @@ class Users_Admin(unittest.TestCase):
         RegisterRandomUser()
 
     def test_016_ExportUsersAsExcel(self):
-        userDirectrory = os.path.expanduser("~") 
+        userDirectrory = os.path.expanduser("~")
         location = os.path.join(userDirectrory, 'Desktop', 'ForTest')
         DownloadAsEnglish("Excel", location)
         ChechIfFileIsInDirectoryChromium(AdminUsers.file_excel,location)

@@ -1,6 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<TestSettings name="Local" id="cc5e6523-9069-495b-bcbb-4fe014f8c241" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
-  <Description>These are default test settings for a local test run.</Description>
+<TestSettings name="TALS Performance Tests" id="cc5e6523-9069-495b-bcbb-4fe014f8c241" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
   <Deployment enabled="false" />
   <Execution>
     <TestTypeSpecific>
@@ -10,9 +9,9 @@
         </AssemblyResolution>
       </UnitTestRunConfig>
       <WebTestRunConfiguration testTypeId="4e7599fa-5ecb-43e9-a887-cd63cf72d207">
-        <Browser name="Internet Explorer 9.0" MaxConnections="6">
+        <Browser name="Internet Explorer 11.0" MaxConnections="6">
           <Headers>
-            <Header name="User-Agent" value="Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)" />
+            <Header name="User-Agent" value="Mozilla/5.0 (Windows NT 6.3; Trident/7.0; rv:11.0) like Gecko" />
             <Header name="Accept" value="*/*" />
             <Header name="Accept-Language" value="{{$IEAcceptLanguage}}" />
             <Header name="Accept-Encoding" value="GZIP" />

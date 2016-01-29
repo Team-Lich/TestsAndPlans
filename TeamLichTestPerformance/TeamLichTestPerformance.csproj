@@ -52,79 +52,82 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Admin\AdminComments.webtest">
+    <None Include="Admin\WebTest\AdminComments.webtest">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Admin\AdminAttendanceLogs.webtest">
+    <None Include="Admin\WebTest\AdminAttendanceLogs.webtest">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Admin\AdminComplexSearch.webtest">
+    <None Include="Admin\WebTest\AdminComplexSearch.webtest">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Admin\AdminFilteredExportToExcel.webtest">
+    <None Include="Admin\WebTest\AdminFilteredExportToExcel.webtest">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Admin\AdminLabels.webtest">
+    <None Include="Admin\WebTest\AdminLabels.webtest">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Admin\AdminUsersAvatars.webtest">
+    <None Include="Admin\WebTest\AdminUsersAvatars.webtest">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Admin\AdminFriendship.webtest">
+    <None Include="Admin\WebTest\AdminFriendship.webtest">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Admin\AdminWorkEducationStatuses.webtest">
+    <None Include="Admin\WebTest\AdminWorkEducationStatuses.webtest">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Admin\AdminUniversities.webtest">
+    <None Include="Admin\WebTest\AdminUniversities.webtest">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Admin\AdminProvinces.webtest">
+    <None Include="Admin\WebTest\AdminProvinces.webtest">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Admin\AdminRoles.webtest">
+    <None Include="Admin\WebTest\AdminRoles.webtest">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Admin\AdminStatistics.webtest">
+    <None Include="Admin\WebTest\AdminStatistics.webtest">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Admin\AdminUsers.webtest">
+    <None Include="Admin\WebTest\AdminUsers.webtest">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="Admin\AdminBasePage.webtest">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Admin\WebTest1.webtest">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Front\Login.webtest">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Register.loadtest">
+    <None Include="Front\LoadTest\Messages.loadtest">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Front\Register.webtest">
+    <None Include="Front\WebTest\Messages.webtest">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Front\WebTest\Login.webtest">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Front\LoadTest\Register.loadtest">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Front\WebTest\Register.webtest">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="BasePage.webtest">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="AdminNavigation.loadtest">
+    <None Include="Admin\AdminBasePage.loadtest">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Front\Friendships.webtest">
+    <None Include="Front\WebTest\Friends.webtest">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="FriendsPage.loadtest">
+    <None Include="Front\LoadTest\Friends.loadtest">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="CoursesPage.loadtest">
+    <None Include="Front\LoadTest\Courses.loadtest">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="LogIn.loadtest">
+    <None Include="Front\LoadTest\LogIn.loadtest">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Front\Courses.webtest">
+    <None Include="Front\WebTest\Courses.webtest">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>

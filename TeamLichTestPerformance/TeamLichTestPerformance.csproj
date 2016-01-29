@@ -91,7 +91,7 @@
     <None Include="Admin\WebTest\AdminUsers.webtest">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Admin\AdminBasePage.webtest">
+    <None Include="Front\AdminBasePage.webtest">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="Front\LoadTest\Messages.loadtest">

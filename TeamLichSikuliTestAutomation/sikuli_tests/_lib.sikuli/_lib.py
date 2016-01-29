@@ -1,16 +1,18 @@
 from sikuli import *
-import random, string
+import random
+import string
 import HTMLTestRunner
 bdLibPath = os.path.abspath(sys.argv[0] + "..")
-if not bdLibPath in sys.path: sys.path.append(bdLibPath)
+if not bdLibPath in sys.path:
+    sys.path.append(bdLibPath)
 from _uimap import *
 
-global randomUserName
+randomUserName = ''
 
 def ScrollToVisible(maxScrolls,direction,goalImage): #direction =  "down" / "up"
     if(direction == "down"):
         direction = Key.PAGE_DOWN
-    if(direction == "up"):
+    elif(direction == "up"):
         direction = Key.PAGE_UP
 
     for i in range(maxScrolls):
@@ -29,13 +31,14 @@ def RunBrowserToUrl(browser,toUrl):
     type(toUrl); sleep(1)
     type(Key.ENTER)
 
-def RandomString():
-   return ''.join(random.choice(string.lowercase) for i in range(10))
+def UniqueStringWithCurrentDate():
+    return time.strftime('%d_%m_%H_%M_%S')
 
 def RegisterRandomUser():
+    global randomUserName
     click(AdminUsers.button_registerUser)
     wait(RegistrationPage.title_registration, 30)
-    randomUserName = "TeamLichTestUser" + RandomString()
+    randomUserName = "TeamLichTestUser" + UniqueStringWithCurrentDate()
     type(RegistrationPage.input_username, randomUserName)
     type(RegistrationPage.input_password, "123456")
     type(RegistrationPage.input_passwordRepeat, "123456")
@@ -149,7 +152,7 @@ def RegisterUser(username, password, passwordAgain, firstName, lastName, email, 
     type(Key.SHIFT, KeyModifier.ALT)
     type(RegistrationPage.emailLabel, email); sleep(1)
 
-    if isAgree == True:
+    if isAgree is True:
         click(find(RegistrationPage.checkBoxLabel)); sleep(1)
     click(RegistrationPage.registerButton)
 
@@ -184,9 +187,9 @@ def RegisterUserWithDoubleClick(username, password, passwordAgain, firstName, la
         click(find(RegistrationPage.checkBoxLabel)); sleep(1)
     click(RegistrationPage.registerButton)
 
-def Navigate(name):
+def Navigate(BrowserName):
     type("r", KeyModifier.WIN)
-    type(name)
+    type(BrowserName)
     type(Key.ENTER)
     sleep(2)
     type("http://stage.telerikacademy.com/")

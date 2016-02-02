@@ -227,8 +227,8 @@ namespace TeamLichTestAutomation.Tests
             this.mainPage.AssertUserIsLoggedAsRegularUser();
 
             this.Browser.Close();
-            Manager.LaunchNewBrowser();
-            this.Browser = Manager.ActiveBrowser;
+            Manager.Current.LaunchNewBrowser();
+            this.Browser = Manager.Current.ActiveBrowser;
             this.mainPage = new MainPage(this.Browser);
             this.mainPage.Navigate();
 
@@ -246,8 +246,8 @@ namespace TeamLichTestAutomation.Tests
             this.mainPage.AssertUserIsLoggedAsAdmin();
 
             this.Browser.Close();
-            Manager.LaunchNewBrowser();
-            this.Browser = Manager.ActiveBrowser;
+            Manager.Current.LaunchNewBrowser();
+            this.Browser = Manager.Current.ActiveBrowser;
             this.mainPage = new MainPage(this.Browser);
             this.mainPage.Navigate();
 

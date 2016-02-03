@@ -32,7 +32,7 @@
 
             this.manager = new Manager(settings);
             this.manager.Start();
-            this.manager.LaunchNewBrowser();
+            this.manager.LaunchNewBrowser(BrowserType.Chrome);
 
             this.Browser = Manager.Current.ActiveBrowser;
             this.Browser.ClearCache(BrowserCacheType.Cookies);

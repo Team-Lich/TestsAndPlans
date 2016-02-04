@@ -43,7 +43,7 @@ namespace TeamLichTestAutomation.Tests
         [TestMethod]
         [TestCategory("LecturesPresentationsHomework")]
         [TestId(231)]
-        [Priority(2)]
+        [Priority(3)]
         [Owner("Ivan")]
         public void LecturesPresentationHomeworkCoursesListAccessWithLogin()
         {
@@ -56,7 +56,7 @@ namespace TeamLichTestAutomation.Tests
         [TestMethod]
         [TestCategory("LecturesPresentationsHomework")]
         [TestId(232)]
-        [Priority(2)]
+        [Priority(3)]
         [Owner("Ivan")]
         public void LecturesPresentationHomeworkCoursesAccessFromUserDropdown()
         {
@@ -71,7 +71,7 @@ namespace TeamLichTestAutomation.Tests
         [TestMethod]
         [TestCategory("LecturesPresentationsHomework")]
         [TestId(233)]
-        [Priority(2)]
+        [Priority(3)]
         [Owner("Ivan")]
         public void LecturesPresentationHomeworkPressentationAccess()
         {
@@ -84,7 +84,7 @@ namespace TeamLichTestAutomation.Tests
         [TestMethod]
         [TestCategory("LecturesPresentationsHomework")]
         [TestId(234)]
-        [Priority(2)]
+        [Priority(3)]
         [Owner("Ivan")]
         public void LecturesPresentationHomeworkHomeworkAccess()
         {
@@ -97,7 +97,7 @@ namespace TeamLichTestAutomation.Tests
         [TestMethod]
         [TestCategory("LecturesPresentationsHomework")]
         [TestId(235)]
-        [Priority(2)]
+        [Priority(3)]
         [Owner("Ivan")]
         public void LecturesPresentationHomeworkHomeworkEvalAccess()
         {
@@ -112,7 +112,7 @@ namespace TeamLichTestAutomation.Tests
         [TestMethod]
         [TestCategory("LecturesPresentationsHomework")]
         [TestId(236)]
-        [Priority(2)]
+        [Priority(3)]
         [Owner("Ivan")]
         public void LecturesPresentationHomeworkSendHomework()
         {
@@ -126,7 +126,7 @@ namespace TeamLichTestAutomation.Tests
         [TestMethod]
         [TestCategory("LecturesPresentationsHomework")]
         [TestId(237)]
-        [Priority(2)]
+        [Priority(3)]
         [Owner("Ivan")]
         public void LecturesPresentationHomeworkDownloadLastHomeworkLinkPresent()
         {
@@ -141,7 +141,7 @@ namespace TeamLichTestAutomation.Tests
         [TestMethod]
         [TestCategory("LecturesPresentationsHomework")]
         [TestId(239)]
-        [Priority(2)]
+        [Priority(3)]
         [Owner("Ivan")]
         public void LecturesPresentationHomeworkHomeworkEvalFromCoursesPanel()
         {
@@ -155,7 +155,7 @@ namespace TeamLichTestAutomation.Tests
         [TestMethod]
         [TestCategory("LecturesPresentationsHomework")]
         [TestId(240)]
-        [Priority(2)]
+        [Priority(3)]
         [Owner("Ivan")]
         public void LecturesPresentationHomeworkPresentationsAccessWithoutLogin()
         {
@@ -166,7 +166,7 @@ namespace TeamLichTestAutomation.Tests
         [TestMethod]
         [TestCategory("LecturesPresentationsHomework")]
         [TestId(241)]
-        [Priority(2)]
+        [Priority(3)]
         [Owner("Ivan")]
         public void LecturesPresentationHomeworkHomeworkAccessWithoutLogIn()
         {
@@ -178,7 +178,7 @@ namespace TeamLichTestAutomation.Tests
         [TestMethod]
         [TestCategory("LecturesPresentationsHomework")]
         [TestId(242)]
-        [Priority(2)]
+        [Priority(3)]
         [Owner("Ivan")]
         public void LecturesPresentationHomeworkCoursesAccessWihtoutLogIn()
         {

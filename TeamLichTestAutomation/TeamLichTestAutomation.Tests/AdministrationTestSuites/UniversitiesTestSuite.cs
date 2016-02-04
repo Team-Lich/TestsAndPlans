@@ -46,7 +46,7 @@ namespace TeamLichTestAutomation.Tests.AdministrationTestSuites
         [TestMethod]
         [TestId(100)]
         [TestCategory("AdministrationUniversities")]
-        [Priority(2)]
+        [Priority(3)]
         [Owner("Decho")]
         public void AdminUniversityAddFunctionality()
         {

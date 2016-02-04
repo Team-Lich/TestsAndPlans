@@ -71,7 +71,7 @@ namespace TeamLichTestAutomation.Tests
         [TestMethod]
         [TestCategory("CourseSignUp")]
         [TestId(224)]
-        [Priority(2)]
+        [Priority(3)]
         [Owner("Ivan")]
         public void CourseSignUpLiveSignUpFromCoursesList()
         {
@@ -86,7 +86,7 @@ namespace TeamLichTestAutomation.Tests
         [TestMethod]
         [TestCategory("CourseSignUp")]
         [TestId(225)]
-        [Priority(2)]
+        [Priority(3)]
         [Owner("Ivan")]
         public void CourseSignUpOnlineSignUpFromSignOffCourse()
         {
@@ -99,7 +99,7 @@ namespace TeamLichTestAutomation.Tests
         [TestMethod]
         [TestCategory("CourseSignUp")]
         [TestId(226)]
-        [Priority(2)]
+        [Priority(3)]
         [Owner("Ivan")]
         public void CourseSignUpOnlineSignUpFromCoursesList()
         {
@@ -114,7 +114,7 @@ namespace TeamLichTestAutomation.Tests
         [TestMethod]
         [TestCategory("CourseSignUp")]
         [TestId(227)]
-        [Priority(2)]
+        [Priority(3)]
         [Owner("Ivan")]
         public void CourseSignUpSignUpFromCoursesListWithoutLogIn()
         {
@@ -126,7 +126,7 @@ namespace TeamLichTestAutomation.Tests
         [TestMethod]
         [TestCategory("CourseSignUp")]
         [TestId(228)]
-        [Priority(2)]
+        [Priority(3)]
         [Owner("Ivan")]
         public void CourseSignUpLiveSignUpFromSignOffCourse()
         {

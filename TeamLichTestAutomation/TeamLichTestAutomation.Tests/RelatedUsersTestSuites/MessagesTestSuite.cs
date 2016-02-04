@@ -31,7 +31,7 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
 
         [TestMethod]
         [TestCategory("Messages")]
-        [Priority(2)]
+        [Priority(3)]
         [Owner("Yane")]
         public void SendMessageButtonShouldOpenMessagesPage()
         {
@@ -45,7 +45,7 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
 
         [TestMethod]
         [TestCategory("Messages")]
-        [Priority(2)]
+        [Priority(3)]
         [Owner("Yane")]
         public void SendMessageButtonShouldBeInactive()
         {
@@ -61,7 +61,7 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
         [TestMethod]
         [TestCategory("Messages")]
         [TestId(118)]
-        [Priority(2)]
+        [Priority(3)]
         [Owner("Yane")]
         public void MessagesPageElementsShouldBeDisplayedCorrectly()
         {
@@ -81,7 +81,7 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
         [TestMethod]
         [TestCategory("Messages")]
         [TestId(119)]
-        [Priority(2)]
+        [Priority(3)]
         [Owner("Yane")]
         public void FriendItemsShouldBeDisplayedCorrectly()
         {
@@ -96,7 +96,7 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
         [TestMethod]
         [TestCategory("Messages")]
         [TestId(120)]
-        [Priority(2)]
+        [Priority(3)]
         [Owner("Yane")]
         public void SearchFieldShouldBeVisible()
         {
@@ -109,7 +109,7 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
         [TestMethod]
         [TestCategory("Messages")]
         [TestId(125)]
-        [Priority(2)]
+        [Priority(3)]
         [Owner("Yane")]
         public void MessageContainerShouldContainsProperData()
         {
@@ -129,7 +129,7 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
         [TestMethod]
         [TestCategory("Messages")]
         [TestId(126)]
-        [Priority(2)]
+        [Priority(3)]
         [Owner("Yane")]
         public void SendValidMessage()
         {
@@ -183,7 +183,7 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
         [TestMethod]
         [TestCategory("Messages")]
         [TestId(127)]
-        [Priority(2)]
+        [Priority(3)]
         [Owner("Yane")]
         public void SendValidMessageWhenCheckboxIsUncheckedAndEnterIsPressed()
         {
@@ -206,7 +206,7 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
         [TestMethod]
         [TestCategory("Messages")]
         [TestId(128)]
-        [Priority(2)]
+        [Priority(3)]
         [Owner("Yane")]
         public void SendValidMessageWhenCheckboxIsCheckedAndEnterIsPressed()
         {
@@ -224,7 +224,7 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
         [TestMethod]
         [TestCategory("Messages")]
         [TestId(129)]
-        [Priority(2)]
+        [Priority(3)]
         [Owner("Yane")]
         public void TryToSendEmptyMessage()
         {

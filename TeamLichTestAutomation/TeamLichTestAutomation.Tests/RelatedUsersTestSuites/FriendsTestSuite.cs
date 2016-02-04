@@ -32,7 +32,7 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
         [TestMethod]
         [TestCategory("Friends")]
         [TestId(106)]
-        [Priority(2)]
+        [Priority(3)]
         [Owner("Yane")]
         public void AddFriendButtonShoudBeVisible()
         {
@@ -45,7 +45,7 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
         [TestMethod]
         [TestCategory("Friends")]
         [TestId(107)]
-        [Priority(2)]
+        [Priority(3)]
         [Owner("Yane")]
         public void RemoveFriendButtonShoudBeVisible()
         {
@@ -58,7 +58,7 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
         [TestMethod]
         [TestCategory("Friends")]
         [TestId(108)]
-        [Priority(2)]
+        [Priority(3)]
         [Owner("Yane")]
         public void AddFriendButtonShouldWorksCorrectly()
         {
@@ -81,7 +81,7 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
         [TestMethod]
         [TestCategory("Friends")]
         [TestId(109)]
-        [Priority(2)]
+        [Priority(3)]
         [Owner("Yane")]
         public void RemoveFriendButtonShouldWorksCorrectly()
         {
@@ -104,7 +104,7 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
         [TestMethod]
         [TestCategory("Friends")]
         [TestId(110)]
-        [Priority(2)]
+        [Priority(3)]
         [Owner("Yane")]
         public void FriendsListShouldContainNoFriends()
         {
@@ -120,7 +120,7 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
         [TestMethod]
         [TestCategory("Friends")]
         [TestId(111)]
-        [Priority(2)]
+        [Priority(3)]
         [Owner("Yane")]
         public void FriendsListShouldContainFriends()
         {
@@ -134,7 +134,7 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
         [TestMethod]
         [TestCategory("Friends")]
         [TestId(112)]
-        [Priority(2)]
+        [Priority(3)]
         [Owner("Yane")]
         public void RemoveFriendConfirmationShouldBeVisible()
         {
@@ -149,7 +149,7 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
         [TestMethod]
         [TestCategory("Friends")]
         [TestId(113)]
-        [Priority(2)]
+        [Priority(3)]
         [Owner("Yane")]
         public void RemoveFriendAfterConfirmYes()
         {
@@ -165,7 +165,7 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
         [TestMethod]
         [TestCategory("Friends")]
         [TestId(114)]
-        [Priority(2)]
+        [Priority(3)]
         [Owner("Yane")]
         public void KeepFriendAfterConfirmNo()
         {
@@ -181,7 +181,7 @@ namespace TeamLichTestAutomation.Tests.RelatedUsersTestSuites
         [TestMethod]
         [TestCategory("Friends")]
         [TestId(115)]
-        [Priority(2)]
+        [Priority(3)]
         [Owner("Yane")]
         public void ClickOnFriendItemShouldOpenHisProfile()
         {

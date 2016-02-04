@@ -43,7 +43,7 @@
 
         [TestMethod]
         [TestCategory("AdministrationLabels")]
-        [Priority(2)]
+        [Priority(3)]
         [TestId(191)]
         [Owner("Dimitar")]
         public void AdminLabelsAddFunctionality()

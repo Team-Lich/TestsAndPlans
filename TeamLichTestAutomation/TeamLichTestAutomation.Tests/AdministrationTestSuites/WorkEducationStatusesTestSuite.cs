@@ -54,7 +54,7 @@
 
         [TestMethod]
         [TestCategory("AdministrationWorkEducationStatuse")]
-        [Priority(2)]
+        [Priority(3)]
         [TestId(157)]
         [Owner("Dimitar")]
         public void AdminWorkEducationStatusesAddFunctionality()

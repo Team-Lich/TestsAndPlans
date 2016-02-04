@@ -58,7 +58,7 @@
 
         [TestMethod]
         [TestCategory("AdministrationRoles")]
-        [Priority(2)]
+        [Priority(3)]
         [TestId(267)]
         [Owner("Dimitar")]
         public void AdminRolesAddRole()

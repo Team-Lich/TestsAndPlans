@@ -266,11 +266,13 @@ class Users_Admin(unittest.TestCase):
 	
 	#END - Tests Decho - 22.01.16
 
-  #  def test_100_Logout(self):
-  #      wait(MainPage.button_logout)
-  #      click(MainPage.button_logout)
-  #      wait(MainPage.button_mainLogIn, 60)
-  #
+   def test_100_Logout(self):
+       wait(MainPage.button_logout)
+       click(MainPage.button_logout)
+
+       actual = exists(MainPage.button_mainLogIn, 60)
+       self.assertTrue(actual)
+
 
 if __name__ == '__main__':
  #   suite = unittest.TestLoader().loadTestsFromTestCase(Users_Admin)

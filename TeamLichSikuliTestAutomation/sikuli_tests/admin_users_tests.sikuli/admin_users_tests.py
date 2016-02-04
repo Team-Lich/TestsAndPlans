@@ -20,11 +20,13 @@ class Users_Admin(unittest.TestCase):
 
         RunBrowserToUrl("chrome", "http://stage.telerikacademy.com/")
         LoginUser(adminUser, adminPass)
-        wait(MainPage.button_adm, 30)
+        var actual = exists(MainPage.button_adm, 30)
+        self.assertTrue(actual)
 
     def test_002_NavigateToAdminDashboard(self):
         NavigateToAdminDashboard()
-        wait(AdminDashboard.title_admin, 30)
+        var actual = exists(AdminDashboard.title_admin, 30)
+        self.assertTrue(actual)
 
     # def test_003_NavigateToRoles(self):
     #     ScrollToVisible(100, "down", AdminDashboard.button_roles)

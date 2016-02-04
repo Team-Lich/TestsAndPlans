@@ -2,6 +2,7 @@ import unittest
 bdLibPath=os.path.abspath(sys.argv[0]+"..")
 if not bdLibPath in sys.path: sys.path.append(bdLibPath)
 from _lib import *
+import xmlrunner
     
 class Users_Admin(unittest.TestCase):
     
@@ -88,192 +89,196 @@ class Users_Admin(unittest.TestCase):
 
 # START - Tests Dimitar - 21.01.16
 
-    def test_014_AdminUsers_NavigateToAdminUsers(self):
-        NavigateToAdminDashboard()
-        ScrollToVisible(100, "down", AdminDashboard.button_users)
-        NavigateToAdminUsers()
-
-    def test_015_AdminUsers_RegisterNewUser(self):
-        RegisterRandomUser()
-
-    def test_016_ExportUsersAsExcel(self):
-        location = "C:\Users\Dimitar Panayotov\Desktop\ForTest"  #change this to whatever feels good in order to work for you
-        DownloadAsEnglish("Excel", location)
-        ChechIfFileIsInDirectoryChromium(AdminUsers.file_excel,location)
-
-    def test_016_AdminUsers_BackToAdmin(self):
-        NavigateToAdminDashboard()
-        ScrollToVisible(100, "down", AdminDashboard.button_users)
-        NavigateToAdminUsers()
-        wait(Grid.button_BackAdminDashboard, 20)
-        click(Grid.button_BackAdminDashboard)
-
-    def test_017_AdminUsers_SortingId(self):
-        ScrollToVisible(100, "down", AdminDashboard.button_users)
-        NavigateToAdminUsers()
-        wait(Grid.button_sortingUserName, 30)
-        click(Grid.button_sortingUserName)
-        click(Grid.button_sortingId)
-        wait(2)
-        doubleClick(Grid.result_firstSortingId)
-        type("c", KEY_CTRL)
-        resultOne = Env.getClipboard()
-        hover(Grid.button_sortingId)
-        doubleClick(Grid.result_secondSortingId)
-        type("c", KEY_CTRL)
-        resultTwo = Env.getClipboard()
-        actualResult= resultOne < resultTwo
-        expectedResult = True
-        self.assertEqual(actualResult, expectedResult)
-        self.assertEqual(resultOne, "1")
-
-    def test_018_AdminUsers_SortingUserName(self):
-        click(Grid.button_sortingUserName)
-        wait(2)
-        doubleClick(Grid.result_firstSortingUserName)
-        type("c", KEY_CTRL)
-        resultOne = Env.getClipboard()
-        hover(Grid.button_sortingId)
-        doubleClick(Grid.result_secondSortingUserName)
-        type("c", KEY_CTRL)
-        resultTwo = Env.getClipboard()
-        actualResult= resultOne >= resultTwo
-        expectedResult = True
-        self.assertEqual(actualResult, expectedResult)
-
-    def test_019_AdminUsers_SortingSN(self):
-        click(Grid.button_sortingSN)
-        doubleClick(Grid.result_firstSortingBD)
-        type("c", KEY_CTRL)
-        resultOne = Env.getClipboard()
-        hover(Grid.button_sortingSN)
-        doubleClick(Grid.result_secondSortingBD)
-        type("c", KEY_CTRL)
-        resultTwo = Env.getClipboard()
-        actualResult= resultOne < resultTwo
-        expectedResult = True
-        self.assertEqual(actualResult, expectedResult)
-
-    def test_020_AdminUsers_SortingName(self):
-        click(Grid.button_sortingName) #Here the test fails since when clicked (even in a manual test) the button does nothing
-        doubleClick(Grid.result_firstSortingName)
-        type("c", KEY_CTRL)
-        resultOne = Env.getClipboard()
-        hover(Grid.button_sortingName)
-        doubleClick(Grid.result_secondSortingName)
-        type("c", KEY_CTRL)
-        resultTwo = Env.getClipboard()
-        actualResult= resultOne < resultTwo
-        expectedResult = True
-        self.assertEqual(actualResult, expectedResult)
-
-    def test_021_AdminFilterByCriteria_ExportByID(self):
-        NavigateToAdminDashboard()
-        ScrollToVisible(100, "down", AdminDashboard.button_users)
-        NavigateToAdminUsers()
-        wait(AdminUsers.button_filterByCriteria, 30)
-        click(AdminUsers.button_filterByCriteria)
-        click(AdminUsers.dropDown_pickACriteria)
-        click(AdminUsers.dropDown_criteriaId)
-        type(AdminUsers.textbox_criteriaValues, "189")
-        click(AdminUsers.button_extract)
-        exists(AdminUsers.result_criteriaId)
-
-    def test_022_AdminFilterByCriteria_ExportByName(self):
-        NavigateToAdminDashboard()
-        ScrollToVisible(100, "down", AdminDashboard.button_users)
-        NavigateToAdminUsers()
-        wait(AdminUsers.button_filterByCriteria, 30)
-        click(AdminUsers.button_filterByCriteria)
-        click(AdminUsers.dropDown_pickACriteria)
-        click(AdminUsers.dropDown_criteriaName)
-        #type(AdminUsers.textbox_criteriaValues, randomUserName)
-        type(AdminUsers.textbox_criteriaValues, "TeamLichTestUser")
-        click(AdminUsers.button_extract)
-        exists(AdminUsers.result_criteriaId)
-
-    def test_023_AdminFilterByCriteria_ExportByEmail(self):
-        NavigateToAdminDashboard()
-        ScrollToVisible(100, "down", AdminDashboard.button_users)
-        NavigateToAdminUsers()
-        wait(AdminUsers.button_filterByCriteria, 30)
-        click(AdminUsers.button_filterByCriteria); sleep(1)
-        click(AdminUsers.dropDown_pickACriteria)
-        wait(2)
-        click(AdminUsers.dropDown_criteriaEmail)
-        type(AdminUsers.textbox_criteriaValues, "mausoleum@necropolis.heroes")
-        click(AdminUsers.button_extract)
-        exists(AdminUsers.result_criteriaId)
-
-    def test_024_NavigateToFilteredExportToExcel(self):
-        NavigateToAdminDashboard()
-        ScrollToVisible(100, "down", AdminDashboard.button_filteredExportToExcel)
-        NavigateToFilteredExportToExcel()
-
+  #  def test_014_AdminUsers_NavigateToAdminUsers(self):
+  #      NavigateToAdminDashboard()
+  #      ScrollToVisible(100, "down", AdminDashboard.button_users)
+  #      NavigateToAdminUsers()
+  #
+  #  def test_015_AdminUsers_RegisterNewUser(self):
+  #      RegisterRandomUser()
+  #
+  #  def test_016_ExportUsersAsExcel(self):
+  #      location = "C:\Users\Dimitar Panayotov\Desktop\ForTest"  #change this to whatever feels good in order to work for you
+  #      DownloadAsEnglish("Excel", location)
+  #      ChechIfFileIsInDirectoryChromium(AdminUsers.file_excel,location)
+  #
+  #  def test_016_AdminUsers_BackToAdmin(self):
+  #      NavigateToAdminDashboard()
+  #      ScrollToVisible(100, "down", AdminDashboard.button_users)
+  #      NavigateToAdminUsers()
+  #      wait(Grid.button_BackAdminDashboard, 20)
+  #      click(Grid.button_BackAdminDashboard)
+  #
+  #  def test_017_AdminUsers_SortingId(self):
+  #      ScrollToVisible(100, "down", AdminDashboard.button_users)
+  #      NavigateToAdminUsers()
+  #      wait(Grid.button_sortingUserName, 30)
+  #      click(Grid.button_sortingUserName)
+  #      click(Grid.button_sortingId)
+  #      wait(2)
+  #      doubleClick(Grid.result_firstSortingId)
+  #      type("c", KEY_CTRL)
+  #      resultOne = Env.getClipboard()
+  #      hover(Grid.button_sortingId)
+  #      doubleClick(Grid.result_secondSortingId)
+  #      type("c", KEY_CTRL)
+  #      resultTwo = Env.getClipboard()
+  #      actualResult= resultOne < resultTwo
+  #      expectedResult = True
+  #      self.assertEqual(actualResult, expectedResult)
+  #      self.assertEqual(resultOne, "1")
+  #
+  #  def test_018_AdminUsers_SortingUserName(self):
+  #      click(Grid.button_sortingUserName)
+  #      wait(2)
+  #      doubleClick(Grid.result_firstSortingUserName)
+  #      type("c", KEY_CTRL)
+  #      resultOne = Env.getClipboard()
+  #      hover(Grid.button_sortingId)
+  #      doubleClick(Grid.result_secondSortingUserName)
+  #      type("c", KEY_CTRL)
+  #      resultTwo = Env.getClipboard()
+  #      actualResult= resultOne >= resultTwo
+  #      expectedResult = True
+  #      self.assertEqual(actualResult, expectedResult)
+  #
+  #  def test_019_AdminUsers_SortingSN(self):
+  #      click(Grid.button_sortingSN)
+  #      doubleClick(Grid.result_firstSortingBD)
+  #      type("c", KEY_CTRL)
+  #      resultOne = Env.getClipboard()
+  #      hover(Grid.button_sortingSN)
+  #      doubleClick(Grid.result_secondSortingBD)
+  #      type("c", KEY_CTRL)
+  #      resultTwo = Env.getClipboard()
+  #      actualResult= resultOne < resultTwo
+  #      expectedResult = True
+  #      self.assertEqual(actualResult, expectedResult)
+  #
+  #  def test_020_AdminUsers_SortingName(self):
+  #      click(Grid.button_sortingName) #Here the test fails since when clicked (even in a manual test) the button does nothing
+  #      doubleClick(Grid.result_firstSortingName)
+  #      type("c", KEY_CTRL)
+  #      resultOne = Env.getClipboard()
+  #      hover(Grid.button_sortingName)
+  #      doubleClick(Grid.result_secondSortingName)
+  #      type("c", KEY_CTRL)
+  #      resultTwo = Env.getClipboard()
+  #      actualResult= resultOne < resultTwo
+  #      expectedResult = True
+  #      self.assertEqual(actualResult, expectedResult)
+  #
+  #  def test_021_AdminFilterByCriteria_ExportByID(self):
+  #      NavigateToAdminDashboard()
+  #      ScrollToVisible(100, "down", AdminDashboard.button_users)
+  #      NavigateToAdminUsers()
+  #      wait(AdminUsers.button_filterByCriteria, 30)
+  #      click(AdminUsers.button_filterByCriteria)
+  #      click(AdminUsers.dropDown_pickACriteria)
+  #      click(AdminUsers.dropDown_criteriaId)
+  #      type(AdminUsers.textbox_criteriaValues, "189")
+  #      click(AdminUsers.button_extract)
+  #      exists(AdminUsers.result_criteriaId)
+  #
+  #  def test_022_AdminFilterByCriteria_ExportByName(self):
+  #      NavigateToAdminDashboard()
+  #      ScrollToVisible(100, "down", AdminDashboard.button_users)
+  #      NavigateToAdminUsers()
+  #      wait(AdminUsers.button_filterByCriteria, 30)
+  #      click(AdminUsers.button_filterByCriteria)
+  #      click(AdminUsers.dropDown_pickACriteria)
+  #      click(AdminUsers.dropDown_criteriaName)
+  #      #type(AdminUsers.textbox_criteriaValues, randomUserName)
+  #      type(AdminUsers.textbox_criteriaValues, "TeamLichTestUser")
+  #      click(AdminUsers.button_extract)
+  #      exists(AdminUsers.result_criteriaId)
+  #
+  #  def test_023_AdminFilterByCriteria_ExportByEmail(self):
+  #      NavigateToAdminDashboard()
+  #      ScrollToVisible(100, "down", AdminDashboard.button_users)
+  #      NavigateToAdminUsers()
+  #      wait(AdminUsers.button_filterByCriteria, 30)
+  #      click(AdminUsers.button_filterByCriteria); sleep(1)
+  #      click(AdminUsers.dropDown_pickACriteria)
+  #      wait(2)
+  #      click(AdminUsers.dropDown_criteriaEmail)
+  #      type(AdminUsers.textbox_criteriaValues, "mausoleum@necropolis.heroes")
+  #      click(AdminUsers.button_extract)
+  #      exists(AdminUsers.result_criteriaId)
+  #
+  #  def test_024_NavigateToFilteredExportToExcel(self):
+  #      NavigateToAdminDashboard()
+  #      ScrollToVisible(100, "down", AdminDashboard.button_filteredExportToExcel)
+  #      NavigateToFilteredExportToExcel()
+  #
     # END - Tests Dimitar - 21.01.16
 	#
 	# START - Tests Decho - 22.01.16
 
-    def test_025_NavigateToCities(self):
-        NavigateToAdminDashboard()
-        sleep(5)
-        ScrollToVisible(10, "down", AdminDashboard.button_areas)
-        click(AdminDashboard.button_areas)
-        wait(AdminUsersCities.image_header, 10)
-
-    def test_026_AreaNameInEnglishDoesNotAcceptNonLatinSymbols(self):
-        newAreaNameInEnglish = "Nekropolis"
-        click(Grid.button_add)
-        wait(AdminUsersCities.label_addPopupNameBG)
-        type(Key.SHIFT, KeyModifier.ALT); sleep(1)
-        type(AdminUsersCities.label_addPopupNameEN, newAreaNameInEnglish)
-        type(AdminUsersCities.label_addPopupNameBG, newAreaNameInEnglish)
-        click(Grid.button_update)
-        warningShown = exists(Grid.field_cyrilicSymbolWarning)
-        self.assertTrue(warningShown)
-
-    def test_027_AreaNameInBulgarianDoesNotAcceptLatinSymbols(self):
-        newAreaNameInEnglish = "Nekropolis"
-        wait(AdminUsersCities.label_addPopupNameBG)
-        type(Key.SHIFT, KeyModifier.ALT); sleep(1)
-        doubleClick(AdminUsersCities.label_addPopupNameEN)
-        type(newAreaNameInEnglish)
-        doubleClick(AdminUsersCities.label_addPopupNameBG)
-        type(newAreaNameInEnglish)
-        click(Grid.button_update)
-        warningShown = exists(Grid.field_latinSymbolWarning)
-        self.assertTrue(warningShown)
-
-    def test_028_AddNewArea(self):
-        newAreaName = "Nekropolis"
-        wait(AdminUsersCities.label_addPopupNameBG)
-        type(Key.SHIFT, KeyModifier.ALT); sleep(1)
-        doubleClick(AdminUsersCities.label_addPopupNameBG)
-        type(newAreaName)
-        type(Key.SHIFT, KeyModifier.ALT); sleep(1)
-        doubleClick(AdminUsersCities.label_addPopupNameEN)
-        type(newAreaName)
-        click(Grid.button_update)
-        wait(AdminUsersCities.label_nameOfNewlyAddedArea, 5)
-
-    def test_029_RemoveArea(self):
-        DeleteRow(AdminUsersCities.label_nameOfNewlyAddedArea)
-        areaStillInGrid = exists(AdminUsersCities.label_nameOfNewlyAddedArea, 5)
-        self.assertIsNone(areaStillInGrid)
+  #  def test_025_NavigateToCities(self):
+  #      NavigateToAdminDashboard()
+  #      sleep(5)
+  #      ScrollToVisible(10, "down", AdminDashboard.button_areas)
+  #      click(AdminDashboard.button_areas)
+  #      wait(AdminUsersCities.image_header, 10)
+  #
+  #  def test_026_AreaNameInEnglishDoesNotAcceptNonLatinSymbols(self):
+  #      newAreaNameInEnglish = "Nekropolis"
+  #      click(Grid.button_add)
+  #      wait(AdminUsersCities.label_addPopupNameBG)
+  #      type(Key.SHIFT, KeyModifier.ALT); sleep(1)
+  #      type(AdminUsersCities.label_addPopupNameEN, newAreaNameInEnglish)
+  #      type(AdminUsersCities.label_addPopupNameBG, newAreaNameInEnglish)
+  #      click(Grid.button_update)
+  #      warningShown = exists(Grid.field_cyrilicSymbolWarning)
+  #      self.assertTrue(warningShown)
+  #
+  #  def test_027_AreaNameInBulgarianDoesNotAcceptLatinSymbols(self):
+  #      newAreaNameInEnglish = "Nekropolis"
+  #      wait(AdminUsersCities.label_addPopupNameBG)
+  #      type(Key.SHIFT, KeyModifier.ALT); sleep(1)
+  #      doubleClick(AdminUsersCities.label_addPopupNameEN)
+  #      type(newAreaNameInEnglish)
+  #      doubleClick(AdminUsersCities.label_addPopupNameBG)
+  #      type(newAreaNameInEnglish)
+  #      click(Grid.button_update)
+  #      warningShown = exists(Grid.field_latinSymbolWarning)
+  #      self.assertTrue(warningShown)
+  #
+  #  def test_028_AddNewArea(self):
+  #      newAreaName = "Nekropolis"
+  #      wait(AdminUsersCities.label_addPopupNameBG)
+  #      type(Key.SHIFT, KeyModifier.ALT); sleep(1)
+  #      doubleClick(AdminUsersCities.label_addPopupNameBG)
+  #      type(newAreaName)
+  #      type(Key.SHIFT, KeyModifier.ALT); sleep(1)
+  #      doubleClick(AdminUsersCities.label_addPopupNameEN)
+  #      type(newAreaName)
+  #      click(Grid.button_update)
+  #      wait(AdminUsersCities.label_nameOfNewlyAddedArea, 5)
+  #
+  #  def test_029_RemoveArea(self):
+  #      DeleteRow(AdminUsersCities.label_nameOfNewlyAddedArea)
+  #      areaStillInGrid = exists(AdminUsersCities.label_nameOfNewlyAddedArea, 5)
+  #      self.assertIsNone(areaStillInGrid)
 	
 	#END - Tests Decho - 22.01.16
 
-    def test_100_Logout(self):
-        wait(MainPage.button_logout)
-        click(MainPage.button_logout)
-        wait(MainPage.button_mainLogIn, 60)
-
+  #  def test_100_Logout(self):
+  #      wait(MainPage.button_logout)
+  #      click(MainPage.button_logout)
+  #      wait(MainPage.button_mainLogIn, 60)
+  #
 
 if __name__ == '__main__':
-    suite = unittest.TestLoader().loadTestsFromTestCase(Users_Admin)
+ #   suite = unittest.TestLoader().loadTestsFromTestCase(Users_Admin)
+ #
+ #   outfile = open("report.html", "w")
+ #   runner = HTMLTestRunner.HTMLTestRunner(stream=outfile, title='Users Admin Report' )
+ #   runner.run(suite)
+	
+ 	suite = unittest.TestLoader().loadTestsFromTestCase(Users_Admin)
+	result = xmlrunner.XMLTestRunner(file("unittest.xml", "w")).run(suite)
 
-    outfile = open("report.html", "w")
-    runner = HTMLTestRunner.HTMLTestRunner(stream=outfile, title='Users Admin Report' )
-    runner.run(suite)
-    outfile.close()
+  #  outfile.close()
 

@@ -26,13 +26,13 @@
         public void TestInit()
         {
             Settings settings = new Settings();
-            settings.Web.DefaultBrowser = BrowserType.InternetExplorer;
+            settings.Web.DefaultBrowser = BrowserType.Chrome;
             settings.Web.RecycleBrowser = false; // Does not work as expected, keep the value "false"
             settings.AnnotateExecution = false; // Change the value to "true" only if you debug
 
             this.manager = new Manager(settings);
             this.manager.Start();
-            this.manager.LaunchNewBrowser();
+            this.manager.LaunchNewBrowser(BrowserType.Chrome);
 
             this.Browser = Manager.Current.ActiveBrowser;
             this.Browser.ClearCache(BrowserCacheType.Cookies);

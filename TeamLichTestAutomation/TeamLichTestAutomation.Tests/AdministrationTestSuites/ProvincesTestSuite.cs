@@ -45,7 +45,7 @@
         //// These tests work only on Internet Explorer
 
         [TestMethod]
-        [TestCategory("AdministrationRoles")]
+        [TestCategory("AdministrationProvinces")]
         [Priority(4)]
         [TestId(259)]
         [Owner("Dimitar")]

@@ -39,7 +39,7 @@
         //// These tests work only on Internet Explorer
 
         [TestMethod]
-        [TestCategory("AdministrationRoles")]
+        [TestCategory("AdministrationAttendanceLogs")]
         [Priority(4)]
         [TestId(255)]
         [Owner("Dimitar")]
@@ -50,7 +50,7 @@
         }
 
         [TestMethod]
-        [TestCategory("AdministrationRoles")]
+        [TestCategory("AdministrationAttendanceLogs")]
         [Priority(4)]
         [TestId(300)]
         [Owner("Dimitar")]

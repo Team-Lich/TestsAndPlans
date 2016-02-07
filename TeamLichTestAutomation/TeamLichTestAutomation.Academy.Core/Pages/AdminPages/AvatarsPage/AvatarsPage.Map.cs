@@ -17,6 +17,8 @@
         {
             get
             {
+                this.Browser.RefreshDomTree();
+                this.Browser.WaitForElement(5000, "class=~k-grid-delete");
                 return this.Browser.Find.ByExpression<HtmlButton>("class=~k-grid-delete");
             }
         }
@@ -25,6 +27,8 @@
         {
             get
             {
+                this.Browser.RefreshDomTree();
+                this.Browser.WaitForElement(5000, "id=export");
                 return this.Browser.Find.ById<HtmlButton>("export");
             }
         }
